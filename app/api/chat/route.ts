@@ -92,6 +92,42 @@ function hayFugaDePrompt(respuesta: string): boolean {
   return comparteSubcadenaLarga(promptNorm, respuestaNorm, 41)
 }
 
+function detectarDatosSensibles(texto: string): boolean {
+  const input = texto.trim()
+
+  // 1) DNI argentino: numero con formato posible de DNI.
+  // Se exige contexto semantico para evitar falsos positivos con expedientes/codigos/montos.
+  const patronNumeroDni = /\b(?:\d{7,8}|\d{1,2}\.\d{3}\.\d{3})\b/
+  const contextoDni = /\b(?:dni|documento|doc\.?|mi dni|n[úu]mero de documento|cuil|cuit)\b/i
+
+  // 2) CUIT/CUIL: XX-XXXXXXXX-X, con o sin guiones.
+  const patronCuitCuil = /\b\d{2}-?\d{8}-?\d\b/
+
+  // 3) Email estandar.
+  const patronEmail = /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/i
+
+  // 4) Telefono argentino (incluye +54, prefijos con 0 y formatos con 15).
+  const patronTelefono =
+    /\b(?:\+54\s?9?\s?\d{2,4}[\s-]?\d{6,8}|0\d{2,4}[\s-]?\d{6,8}|15[\s-]?\d{4}[\s-]?\d{4})\b/
+
+  // 5) Tarjeta: 13 a 16 digitos o grupos de 4 separados por espacio/guion.
+  const patronTarjeta = /\b(?:\d{13,16}|\d{4}(?:[ -]\d{4}){2,3})\b/
+
+  // 6) Direccion con altura: patron mas blando para reducir falsos positivos.
+  const patronDireccionConAltura =
+    /\b(?:av\.?|avenida|calle|pasaje|pje\.?|ruta)\s+[a-záéíóúñ]+(?:\s+[a-záéíóúñ]+){0,3}\s+\d{1,5}\b/i
+  const contextoPersonalDireccion = /\b(?:mi|vivo|vivimos|domicilio|direcci[oó]n|casa|resido|residimos)\b/i
+
+  if (patronNumeroDni.test(input) && contextoDni.test(input)) return true
+  if (patronCuitCuil.test(input)) return true
+  if (patronEmail.test(input)) return true
+  if (patronTelefono.test(input)) return true
+  if (patronTarjeta.test(input)) return true
+  if (patronDireccionConAltura.test(input) && contextoPersonalDireccion.test(input)) return true
+
+  return false
+}
+
 type Fuente = {
   tramite: string
   url: string
@@ -299,6 +335,13 @@ export async function POST(req: NextRequest) {
   }
   if (pregunta.length > 1000) {
     return NextResponse.json({ error: "La pregunta es demasiado larga (máx 1000 caracteres)." }, { status: 400 })
+  }
+  if (detectarDatosSensibles(pregunta.trim())) {
+    console.log("[SEGURIDAD] Se rechazó una consulta con posibles datos personales.")
+    return NextResponse.json({
+      respuesta: "Por favor, ingresá solo tu consulta. No es necesario que incluyas datos personales.",
+      fuentes: [],
+    })
   }
 
   try {
