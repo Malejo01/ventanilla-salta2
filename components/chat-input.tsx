@@ -126,13 +126,16 @@ export function ChatInput({
             disabled={disabled}
             aria-label={listening ? "Detener dictado por voz" : "Dictar por voz"}
             aria-pressed={listening}
-            className={`flex size-11 shrink-0 items-center justify-center rounded-full transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring disabled:opacity-40 ${
+            className={`relative flex size-11 shrink-0 items-center justify-center rounded-full transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring disabled:opacity-40 ${
               listening
-                ? "bg-accent text-accent-foreground"
+                ? "bg-red-500/10 text-red-500 hover:bg-red-500/20"
                 : "bg-secondary text-foreground hover:bg-secondary/70"
             }`}
           >
-            {listening ? <Square className="size-4 fill-current" /> : <Mic className="size-5" />}
+            {listening && (
+              <span className="absolute inset-0 rounded-full bg-red-500/20 animate-ping opacity-75" />
+            )}
+            {listening ? <Square className="relative z-10 size-4 fill-current" /> : <Mic className="size-5" />}
           </button>
         )}
 

@@ -9,6 +9,8 @@ import { BotMessage } from "@/components/bot-message"
 import { ThinkingIndicator } from "@/components/thinking-indicator"
 import { ChatInput } from "@/components/chat-input"
 import { FichaPrint } from "@/components/ficha-print"
+import { Header } from "@/components/header"
+import { ArrowDown } from "lucide-react"
 
 let idCounter = 0
 const nextId = () => `m-${Date.now()}-${idCounter++}`
@@ -17,6 +19,7 @@ export default function Page() {
   const [messages, setMessages] = useState<ChatMessage[]>([])
   const [loading, setLoading] = useState(false)
   const [printMessage, setPrintMessage] = useState<ChatMessage | null>(null)
+  const [showFab, setShowFab] = useState(false)
   const scrollRef = useRef<HTMLDivElement>(null)
 
   const isEmpty = messages.length === 0
@@ -24,6 +27,26 @@ export default function Page() {
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" })
   }, [messages, loading])
+
+  // Lógica del botón flotante para volver abajo
+  useEffect(() => {
+    const div = scrollRef.current
+    if (!div) return
+
+    const handleScroll = () => {
+      // Mostrar el FAB si el usuario scrollea hacia arriba (más de 150px desde el fondo)
+      const distanceFromBottom = div.scrollHeight - div.scrollTop - div.clientHeight
+      setShowFab(distanceFromBottom > 150)
+    }
+
+    div.addEventListener("scroll", handleScroll)
+    return () => div.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  const handleNewChat = useCallback(() => {
+    setMessages([])
+    setLoading(false)
+  }, [])
 
   const enviar = useCallback(
     async (pregunta: string) => {
@@ -105,18 +128,7 @@ export default function Page() {
 
   return (
     <div className="flex h-dvh flex-col bg-background">
-      {/* Header */}
-      <header className="no-print border-b border-border bg-background/80 backdrop-blur">
-        <div className="mx-auto flex max-w-3xl items-center gap-3 px-4 py-4 sm:px-6">
-          <div className="flex size-10 items-center justify-center rounded-xl bg-primary text-primary-foreground">
-            <span className="font-serif text-xl leading-none">V</span>
-          </div>
-          <div>
-            <h1 className="text-xl leading-none text-foreground">Ventanilla</h1>
-            <p className="mt-1 text-sm text-muted-foreground">Asistente de trámites de Salta</p>
-          </div>
-        </div>
-      </header>
+      <Header onNewChat={handleNewChat} />
 
       {/* Conversación */}
       <div ref={scrollRef} className="no-print flex-1 overflow-y-auto">
@@ -139,6 +151,24 @@ export default function Page() {
           )}
         </div>
       </div>
+
+      {/* Floating Action Button */}
+      <AnimatePresence>
+        {showFab && (
+          <motion.button
+            initial={{ opacity: 0, y: 10, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 10, scale: 0.9 }}
+            onClick={() => {
+              scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" })
+            }}
+            className="fixed bottom-24 right-4 z-40 flex size-12 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:bottom-28 sm:right-8"
+            aria-label="Volver abajo"
+          >
+            <ArrowDown className="size-5" />
+          </motion.button>
+        )}
+      </AnimatePresence>
 
       {/* Input fijo */}
       <div className="no-print border-t border-border bg-background/80 backdrop-blur">
