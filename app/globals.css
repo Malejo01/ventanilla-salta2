@@ -1,0 +1,103 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+}
+
+:root {
+  color-scheme: light;
+
+  /* Paleta derivada del paisaje de Salta */
+  --background: #f7f5f0; /* fondo cálido, papel */
+  --foreground: #1f2419; /* texto principal */
+  --card: #fffefb; /* papel un poco más claro que el fondo */
+  --card-foreground: #1f2419;
+  --popover: #fffefb;
+  --popover-foreground: #1f2419;
+  --primary: #43613c; /* verde cerro profundo */
+  --primary-foreground: #f7f5f0;
+  --secondary: #eceae1; /* neutral cálido */
+  --secondary-foreground: #1f2419;
+  --muted: #eceae1;
+  --muted-foreground: #6b6b60; /* texto secundario */
+  --accent: #b5651d; /* acento tierra: alertas */
+  --accent-foreground: #ffffff;
+  --destructive: #9a3412;
+  --destructive-foreground: #ffffff;
+  --border: #e0ddd4; /* borde sutil */
+  --input: #e0ddd4;
+  --ring: #43613c;
+
+  --radius: 0.875rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-serif;
+    letter-spacing: -0.01em;
+  }
+}
+
+/* --- Impresión de la ficha (Descargar ficha) --- */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #ficha-print,
+  #ficha-print * {
+    visibility: visible;
+  }
+  #ficha-print {
+    position: absolute;
+    inset: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    background: #ffffff;
+    color: #000000;
+    font-size: 12pt;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
