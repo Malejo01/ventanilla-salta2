@@ -65,6 +65,114 @@ type Fuente = {
   ultima_verificacion: string | null
 }
 
+// ---------------------------------------------------------------------------
+// Recuperación (retrieval) por similitud coseno en memoria.
+//
+// La base tiene ~150 chunks, así que traerlos una vez y calcular la similitud
+// en JS es simple, exacto y evita depender de una función RPC de pgvector.
+// Cacheamos en memoria del módulo con un TTL para no re-descargar en cada
+// request. Si la escala crece mucho, conviene migrar a un índice pgvector
+// con una función `match_tramite_chunks` en la base.
+// ---------------------------------------------------------------------------
+type ChunkRow = {
+  tramite_id: number
+  chunk_texto: string
+  embedding: number[]
+}
+type TramiteRow = {
+  id: number
+  slug: string
+  categoria: string
+  url: string
+  ultima_verificacion: string | null
+}
+
+type KnowledgeBase = {
+  chunks: ChunkRow[]
+  tramitesById: Map<number, TramiteRow>
+}
+
+const KB_TTL_MS = 5 * 60_000
+let kbCache: { data: KnowledgeBase; loadedAt: number } | null = null
+
+function parseEmbedding(raw: unknown): number[] {
+  if (Array.isArray(raw)) return raw as number[]
+  if (typeof raw === "string") {
+    try {
+      return JSON.parse(raw) as number[]
+    } catch {
+      return []
+    }
+  }
+  return []
+}
+
+async function loadKnowledgeBase(): Promise<KnowledgeBase> {
+  const now = Date.now()
+  if (kbCache && now - kbCache.loadedAt < KB_TTL_MS) {
+    return kbCache.data
+  }
+
+  const [{ data: chunkData, error: chunkErr }, { data: tramiteData, error: tramiteErr }] =
+    await Promise.all([
+      supabaseAdmin.from("tramite_chunks").select("tramite_id, chunk_texto, embedding"),
+      supabaseAdmin.from("tramites").select("id, slug, categoria, url, ultima_verificacion"),
+    ])
+
+  if (chunkErr) {
+    console.log("[v0] Error leyendo tramite_chunks:", chunkErr.message)
+    throw new Error("kb_chunks_failed")
+  }
+  if (tramiteErr) {
+    console.log("[v0] Error leyendo tramites:", tramiteErr.message)
+    throw new Error("kb_tramites_failed")
+  }
+
+  const chunks: ChunkRow[] = (chunkData ?? [])
+    .map((c: { tramite_id: number; chunk_texto: string; embedding: unknown }) => ({
+      tramite_id: c.tramite_id,
+      chunk_texto: c.chunk_texto,
+      embedding: parseEmbedding(c.embedding),
+    }))
+    .filter((c) => c.embedding.length === 768)
+
+  const tramitesById = new Map<number, TramiteRow>(
+    (tramiteData ?? []).map((t: TramiteRow) => [t.id, t]),
+  )
+
+  const data: KnowledgeBase = { chunks, tramitesById }
+  kbCache = { data, loadedAt: now }
+  return data
+}
+
+function cosineSimilarity(a: number[], b: number[]): number {
+  let dot = 0
+  let normA = 0
+  let normB = 0
+  for (let i = 0; i < a.length; i++) {
+    dot += a[i] * b[i]
+    normA += a[i] * a[i]
+    normB += b[i] * b[i]
+  }
+  const denom = Math.sqrt(normA) * Math.sqrt(normB)
+  return denom === 0 ? 0 : dot / denom
+}
+
+function buscarChunks(queryEmbedding: number[], kb: KnowledgeBase, matchCount: number): MatchedChunk[] {
+  const scored = kb.chunks.map((c) => {
+    const tramite = kb.tramitesById.get(c.tramite_id)
+    return {
+      chunk_texto: c.chunk_texto,
+      url: tramite?.url ?? "",
+      categoria: tramite?.categoria ?? "general",
+      slug: tramite?.slug ?? `tramite-${c.tramite_id}`,
+      similarity: cosineSimilarity(queryEmbedding, c.embedding),
+    }
+  })
+  scored.sort((x, y) => y.similarity - x.similarity)
+  return scored.slice(0, matchCount)
+}
+
 async function embedPregunta(pregunta: string): Promise<number[]> {
   const res = await fetch(
     `https://generativelanguage.googleapis.com/v1beta/models/${EMBED_MODEL}:embedContent?key=${GEMINI_API_KEY}`,
@@ -163,18 +271,14 @@ export async function POST(req: NextRequest) {
     // PASO 1 — Embedding
     const embedding = await embedPregunta(pregunta.trim())
 
-    // PASO 2 — Búsqueda vectorial
-    const { data, error } = await supabaseAdmin.rpc("match_tramite_chunks", {
-      query_embedding: embedding,
-      match_count: 5,
-    })
-    if (error) {
-      console.log("[v0] Error RPC match_tramite_chunks:", error.message)
-      throw new Error("rpc_failed")
-    }
+    // PASO 2 — Búsqueda vectorial (similitud coseno en memoria)
+    const kb = await loadKnowledgeBase()
+    const chunks = buscarChunks(embedding, kb, 5)
 
-    const chunks = (data ?? []) as MatchedChunk[]
-    if (chunks.length === 0) {
+    // Umbral mínimo de relevancia: si ni el mejor match supera el umbral,
+    // tratamos la consulta como "sin información oficial".
+    const MIN_SIMILARITY = 0.5
+    if (chunks.length === 0 || chunks[0].similarity < MIN_SIMILARITY) {
       return NextResponse.json({
         respuesta: "No tengo información oficial cargada sobre eso todavía.",
         fuentes: [],
