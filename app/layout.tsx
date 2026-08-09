@@ -1,32 +1,28 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Inter, Instrument_Serif } from 'next/font/google'
+import { Manrope } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
 
-const inter = Inter({
+const manrope = Manrope({
   subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-})
-
-const instrumentSerif = Instrument_Serif({
-  weight: '400',
-  subsets: ['latin'],
-  variable: '--font-instrument-serif',
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-manrope',
   display: 'swap',
 })
 
 export const metadata: Metadata = {
-  title: 'Ventanilla — Asistente de trámites de Salta',
+  title: 'Tuki — Asistente virtual de trámites de Salta',
   description:
-    'Ventanilla es el asistente ciudadano oficial que responde tus consultas sobre trámites municipales y provinciales de Salta, citando siempre la fuente oficial.',
-  generator: 'v0.app',
+    'Tuki es el asistente ciudadano oficial que responde tus consultas sobre trámites municipales y provinciales de Salta, citando siempre la fuente oficial.',
 }
 
 export const viewport: Viewport = {
-  colorScheme: 'light dark',
-  themeColor: '#43613C',
+  colorScheme: 'dark light',
+  themeColor: [
+    { media: '(prefers-color-scheme: dark)', color: '#0B1224' },
+    { media: '(prefers-color-scheme: light)', color: '#F2F5FB' },
+  ],
   width: 'device-width',
   initialScale: 1,
 }
@@ -37,9 +33,9 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es-AR" className={`${inter.variable} ${instrumentSerif.variable} bg-background`} suppressHydrationWarning>
+    <html lang="es-AR" className={`${manrope.variable} bg-background`} suppressHydrationWarning>
       <body className="font-sans antialiased">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           {children}
           {process.env.NODE_ENV === 'production' && <Analytics />}
         </ThemeProvider>
