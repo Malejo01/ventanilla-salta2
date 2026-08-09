@@ -21,6 +21,8 @@ export default function Page() {
   const [loading, setLoading] = useState(false)
   const [printMessage, setPrintMessage] = useState<ChatMessage | null>(null)
   const conversacionRef = useRef<HTMLDivElement>(null)
+  const audioBienvenidaRef = useRef<HTMLAudioElement>(null)
+  const ultimoAudioMensajeBotIdRef = useRef<string | null>(null)
   const reduceMotion = useReducedMotion()
 
   const hayConversacion = messages.length > 0
@@ -33,6 +35,30 @@ export default function Page() {
       block: 'end',
     })
   }, [messages, loading, hayConversacion, reduceMotion])
+
+  // Reproduce audio cada vez que entra una respuesta nueva del bot.
+  useEffect(() => {
+    const ultimoMensaje = messages[messages.length - 1]
+    if (!ultimoMensaje || ultimoMensaje.role !== 'bot') return
+    if (ultimoMensaje.estado !== 'ok') return
+    if (ultimoAudioMensajeBotIdRef.current === ultimoMensaje.id) return
+
+    ultimoAudioMensajeBotIdRef.current = ultimoMensaje.id
+
+    const audio = audioBienvenidaRef.current
+    if (!audio) return
+
+    const playRespuesta = async () => {
+      try {
+        audio.currentTime = 0
+        await audio.play()
+      } catch {
+        // Si el navegador bloquea audio, fallamos silenciosamente.
+      }
+    }
+
+    void playRespuesta()
+  }, [messages])
 
   const handleNewChat = useCallback(() => {
     setMessages([])
@@ -118,6 +144,8 @@ export default function Page() {
 
   return (
     <div className="tuki-canvas text-tuki-fg min-h-dvh px-[clamp(14px,3vw,34px)] pb-[34px]">
+      <audio ref={audioBienvenidaRef} src="/tuki/SonidoBienvenida.ogg" preload="auto" aria-hidden />
+
       <TukiHeader onNewChat={handleNewChat} />
 
       <div className="no-print mx-auto flex w-full max-w-[1560px] flex-wrap items-start gap-[clamp(16px,2vw,26px)]">

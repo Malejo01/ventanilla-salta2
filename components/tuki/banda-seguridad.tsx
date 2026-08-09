@@ -1,7 +1,5 @@
 'use client'
 
-import { ArrowRight } from 'lucide-react'
-
 /**
  * Banda inferior "Seguridad y confianza".
  * El escudo va como SVG inline (no PNG) para que escale nítido en cualquier
@@ -47,19 +45,10 @@ export function BandaSeguridad({ onMasInformacion }: { onMasInformacion?: () => 
           Seguridad y confianza
         </h2>
         <p className="text-tuki-muted mt-1.5 max-w-[56ch] text-base leading-[1.5]">
-          Tu información está protegida. Operamos con los más altos estándares de seguridad y
-          privacidad.
+          Tu información está protegida.
         </p>
       </div>
 
-      <button
-        type="button"
-        onClick={onMasInformacion}
-        className="border-tuki-accent text-tuki-accent-text flex h-[52px] shrink-0 items-center gap-2.5 whitespace-nowrap rounded-full border-[1.5px] px-6 text-base font-extrabold transition-colors hover:bg-[#F5811F1F]"
-      >
-        Más información
-        <ArrowRight className="size-5" strokeWidth={2.2} aria-hidden />
-      </button>
     </section>
   )
 }
