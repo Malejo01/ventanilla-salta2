@@ -9,7 +9,7 @@ export function FichaPrint({ message }: { message: ChatMessage | null }) {
   if (!message) return null
   return (
     <div id="ficha-print" aria-hidden="true" className="sr-only">
-      <h1 style={{ fontSize: "20pt", marginBottom: "4pt" }}>Ventanilla</h1>
+      <h1 style={{ fontSize: "20pt", marginBottom: "4pt" }}>Tuki</h1>
       <p style={{ marginBottom: "16pt", color: "#444" }}>Asistente de trámites de Salta</p>
 
       {message.pregunta && (
@@ -46,7 +46,7 @@ export function FichaPrint({ message }: { message: ChatMessage | null }) {
       )}
 
       <p style={{ marginTop: "24pt", fontSize: "9pt", color: "#666" }}>
-        Documento generado por Ventanilla. Verificá siempre la información en la fuente oficial citada.
+        Documento generado por Tuki. Verificá siempre la información en la fuente oficial citada.
       </p>
     </div>
   )

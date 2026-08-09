@@ -32,7 +32,7 @@ export function BotMessage({
 
   const handleShare = async () => {
     const shareData = {
-      title: "Respuesta de Ventanilla Salta",
+      title: "Respuesta de Tuki — Trámites de Salta",
       text: message.texto,
       url: window.location.href,
     }
@@ -73,7 +73,7 @@ export function BotMessage({
       {/* Encabezado de la ficha */}
       <div className="flex items-center gap-2 border-b border-border bg-secondary/50 px-5 py-3">
         <ShieldCheck className="size-4 text-primary" aria-hidden="true" />
-        <span className="text-sm font-medium text-muted-foreground">Respuesta oficial de Ventanilla</span>
+        <span className="text-sm font-medium text-muted-foreground">Respuesta oficial de Tuki</span>
       </div>
 
       <div className="px-5 py-5 sm:px-6 sm:py-6">

@@ -19,7 +19,7 @@ Required env vars (`.env.local`, not committed): `NEXT_PUBLIC_SUPABASE_URL`, `SU
 
 ## Architecture
 
-This is a single-purpose RAG (retrieval-augmented generation) chat app: **Ventanilla**, an assistant that answers questions about municipal/provincial *trámites* (bureaucratic procedures) in Salta, Argentina, using only an official knowledge base stored in Supabase — never the model's general knowledge.
+This is a single-purpose RAG (retrieval-augmented generation) chat app: **Tuki**, an assistant that answers questions about municipal/provincial *trámites* (bureaucratic procedures) in Salta, Argentina, using only an official knowledge base stored in Supabase — never the model's general knowledge.
 
 Everything of substance happens in two places:
 

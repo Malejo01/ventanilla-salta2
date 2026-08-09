@@ -1,4 +1,4 @@
-# Ventanilla — Asistente ciudadano de trámites de Salta
+# Tuki — Asistente ciudadano de trámites de Salta
 
 Aplicación web tipo chat que responde preguntas de vecinos sobre trámites municipales y provinciales de Salta (Argentina), usando **exclusivamente** información oficial cargada en una base de conocimiento, con citas de fuente y fecha de última verificación.
 
