@@ -122,7 +122,7 @@ export default function Page() {
 
       <div className="no-print mx-auto flex w-full max-w-[1560px] flex-wrap items-start gap-[clamp(16px,2vw,26px)]">
         <main className="flex min-w-[min(100%,320px)] flex-1 basis-[620px] flex-col gap-[clamp(18px,2vw,26px)]">
-          <TukiHero />
+          <TukiHero pensando={loading} />
 
           <ConsultaBar onSubmit={enviar} disabled={loading} />
 

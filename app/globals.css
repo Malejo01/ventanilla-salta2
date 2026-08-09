@@ -171,16 +171,8 @@
     var(--tuki-bg);
 }
 
-/* Animaciones del prototipo (las de entrada/hover se hacen con Framer Motion) */
-@keyframes tukiFloat {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
+/* Animaciones del prototipo (las de entrada/hover y la flotación de la
+   mascota se hacen con Framer Motion) */
 @keyframes tukiGlow {
   0%,
   100% {
@@ -202,9 +194,6 @@
     transform: translateY(-4px);
   }
 }
-.tuki-float {
-  animation: tukiFloat 6s ease-in-out infinite;
-}
 .tuki-glow {
   animation: tukiGlow 5s ease-in-out infinite;
 }
@@ -213,7 +202,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .tuki-float,
   .tuki-glow,
   .tuki-dot {
     animation: none !important;

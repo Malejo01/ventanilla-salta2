@@ -5,10 +5,17 @@ import { motion, useReducedMotion } from 'framer-motion'
 
 /**
  * Hero: mascota con disco de glow + saludo "Hola, soy Tuki".
- * La flotación y el glow viven en CSS (.tuki-float / .tuki-glow) y se
- * desactivan solos con prefers-reduced-motion.
+ *
+ * La flotación de la mascota es Framer Motion (translateY, no scale: en una
+ * figura con forma el scale se lee como "respirar raro"). El glow sigue en CSS
+ * (.tuki-glow), que se apaga solo con prefers-reduced-motion; la flotación la
+ * apagamos a mano con useReducedMotion.
+ *
+ * `pensando` = hay una consulta en vuelo. La mascota sigue en pantalla mientras
+ * se espera la respuesta, así que ahí flota más amplio y más rápido para que se
+ * lea como actividad y no como reposo.
  */
-export function TukiHero() {
+export function TukiHero({ pensando = false }: { pensando?: boolean }) {
   const reduceMotion = useReducedMotion()
 
   return (
@@ -27,14 +34,24 @@ export function TukiHero() {
           }}
           aria-hidden
         />
-        <Image
-          src="/tuki/mascot.png"
-          alt="Tuki, el asistente virtual, saludando con la mano"
-          width={839}
-          height={1040}
-          priority
-          className="tuki-float relative block w-full"
-        />
+        <motion.div
+          className="relative"
+          animate={reduceMotion ? { y: 0 } : { y: pensando ? [0, -10, 0] : [0, -6, 0] }}
+          transition={
+            reduceMotion
+              ? { duration: 0 }
+              : { duration: pensando ? 1.5 : 3, repeat: Infinity, ease: 'easeInOut' }
+          }
+        >
+          <Image
+            src="/tuki/mascot.png"
+            alt="Tuki, el asistente virtual, saludando con la mano"
+            width={839}
+            height={1040}
+            priority
+            className="block w-full"
+          />
+        </motion.div>
       </div>
 
       <div className="min-w-[min(100%,280px)] flex-1 basis-[300px] pb-2">
