@@ -75,6 +75,14 @@ function parseBlocks(text: string): Block[] {
 
 export function FormattedText({ text }: { text: string }) {
   const blocks = parseBlocks(text)
+
+  const toFriendlyLines = (items: string[], kind: "ol" | "ul") => {
+    const visible = items.slice(0, 3)
+    return visible.map((item, idx) =>
+      kind === "ol" ? `Paso ${idx + 1}: ${item.trim()}` : `Dato clave: ${item.trim()}`,
+    )
+  }
+
   return (
     <div className="space-y-4 leading-relaxed text-foreground">
       {blocks.map((block, i) => {
@@ -86,28 +94,38 @@ export function FormattedText({ text }: { text: string }) {
           )
         }
         if (block.type === "ol") {
+          const friendlyLines = toFriendlyLines(block.items, "ol")
+          const hiddenCount = Math.max(0, block.items.length - friendlyLines.length)
           return (
-            <ol key={i} className="space-y-2.5">
-              {block.items.map((item, j) => (
-                <li key={j} className="flex gap-3">
-                  <span className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-semibold text-primary-foreground">
-                    {j + 1}
-                  </span>
-                  <span className="pt-0.5">{renderInline(item, `ol-${i}-${j}`)}</span>
-                </li>
+            <div key={i} className="space-y-2 rounded-xl bg-secondary/35 p-3">
+              {friendlyLines.map((line, j) => (
+                <p key={j} className="text-pretty text-[0.98rem] leading-relaxed">
+                  {renderInline(line, `ol-${i}-${j}`)}
+                </p>
               ))}
-            </ol>
+              {hiddenCount > 0 && (
+                <p className="text-sm text-muted-foreground">
+                  Hay {hiddenCount} punto(s) más. Si querés, te los detallo.
+                </p>
+              )}
+            </div>
           )
         }
+        const friendlyLines = toFriendlyLines(block.items, "ul")
+        const hiddenCount = Math.max(0, block.items.length - friendlyLines.length)
         return (
-          <ul key={i} className="space-y-2">
-            {block.items.map((item, j) => (
-              <li key={j} className="flex gap-3">
-                <span className="mt-[0.7em] size-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
-                <span>{renderInline(item, `ul-${i}-${j}`)}</span>
-              </li>
+          <div key={i} className="space-y-2 rounded-xl bg-secondary/35 p-3">
+            {friendlyLines.map((line, j) => (
+              <p key={j} className="text-pretty text-[0.98rem] leading-relaxed">
+                {renderInline(line, `ul-${i}-${j}`)}
+              </p>
             ))}
-          </ul>
+            {hiddenCount > 0 && (
+              <p className="text-sm text-muted-foreground">
+                Hay {hiddenCount} punto(s) más. Si querés, te los detallo.
+              </p>
+            )}
+          </div>
         )
       })}
     </div>

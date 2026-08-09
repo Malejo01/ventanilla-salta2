@@ -48,8 +48,7 @@ export function TukiHero() {
           </span>
         </h1>
         <p className="text-tuki-muted mt-4 max-w-[22ch] text-pretty text-[clamp(18px,1.7vw,26px)] leading-[1.35]">
-          Tu asistente virtual para realizar{' '}
-          <span className="text-tuki-accent-text font-extrabold">trámites de Salta.</span>
+          Tu amigo virtual
         </p>
       </div>
     </motion.section>
