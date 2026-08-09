@@ -22,6 +22,7 @@ export default function Page() {
   const [printMessage, setPrintMessage] = useState<ChatMessage | null>(null)
   const conversacionRef = useRef<HTMLDivElement>(null)
   const audioBienvenidaRef = useRef<HTMLAudioElement>(null)
+  const ultimoAudioMensajeBotIdRef = useRef<string | null>(null)
   const reduceMotion = useReducedMotion()
 
   const hayConversacion = messages.length > 0
@@ -35,38 +36,29 @@ export default function Page() {
     })
   }, [messages, loading, hayConversacion, reduceMotion])
 
-  // Reproduce un saludo al entrar. Si el navegador bloquea autoplay,
-  // se vuelve a intentar en la primera interacción del usuario.
+  // Reproduce audio cada vez que entra una respuesta nueva del bot.
   useEffect(() => {
+    const ultimoMensaje = messages[messages.length - 1]
+    if (!ultimoMensaje || ultimoMensaje.role !== 'bot') return
+    if (ultimoMensaje.estado !== 'ok') return
+    if (ultimoAudioMensajeBotIdRef.current === ultimoMensaje.id) return
+
+    ultimoAudioMensajeBotIdRef.current = ultimoMensaje.id
+
     const audio = audioBienvenidaRef.current
     if (!audio) return
 
-    const tryPlay = async () => {
+    const playRespuesta = async () => {
       try {
         audio.currentTime = 0
         await audio.play()
-        cleanup()
       } catch {
-        // Navegador bloqueó autoplay; esperamos interacción.
+        // Si el navegador bloquea audio, fallamos silenciosamente.
       }
     }
 
-    const onFirstInteraction = () => {
-      void tryPlay()
-    }
-
-    const cleanup = () => {
-      document.removeEventListener('pointerdown', onFirstInteraction)
-      document.removeEventListener('keydown', onFirstInteraction)
-    }
-
-    document.addEventListener('pointerdown', onFirstInteraction)
-    document.addEventListener('keydown', onFirstInteraction)
-
-    void tryPlay()
-
-    return cleanup
-  }, [])
+    void playRespuesta()
+  }, [messages])
 
   const handleNewChat = useCallback(() => {
     setMessages([])
