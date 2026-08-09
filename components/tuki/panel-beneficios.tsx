@@ -11,8 +11,8 @@ const BENEFICIOS = [
   },
   {
     icon: Clock,
-    titulo: 'Seguimiento en tiempo real',
-    detalle: 'Enterate del estado de tus trámites.',
+    titulo: 'Respuestas al instante',
+    detalle: 'Sin esperar en filas ni llamados.',
   },
   {
     icon: ShieldCheck,
