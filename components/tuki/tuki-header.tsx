@@ -3,11 +3,11 @@
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { useTheme } from 'next-themes'
-import { Moon, Plus, Sun, User } from 'lucide-react'
+import { MessageCircle, Moon, Sun, User } from 'lucide-react'
 
 /**
  * Header sticky del rediseño: avatar de Tuki + wordmark a la izquierda,
- * toggle de tema / "Nuevo chat" / perfil a la derecha.
+ * toggle de tema / "recordarme por WhatsApp" / perfil a la derecha.
  */
 export function TukiHeader({ onNewChat }: { onNewChat: () => void }) {
   const { resolvedTheme, setTheme } = useTheme()
@@ -59,10 +59,11 @@ export function TukiHeader({ onNewChat }: { onNewChat: () => void }) {
         <button
           type="button"
           onClick={onNewChat}
+          aria-label="recordarme por WhatsApp"
           className="text-tuki-ink flex h-[46px] items-center gap-2.5 whitespace-nowrap rounded-full border border-white/20 bg-[linear-gradient(180deg,#FF9440,#F0760F)] px-[22px] text-base font-extrabold shadow-[0_8px_22px_#F5811F45] transition hover:-translate-y-px hover:brightness-105 active:translate-y-0"
         >
-          <Plus className="size-5" strokeWidth={2.4} aria-hidden />
-          Nuevo chat
+          <MessageCircle className="size-5" strokeWidth={2.4} aria-hidden />
+          recordarme por WhatsApp
         </button>
 
         <button

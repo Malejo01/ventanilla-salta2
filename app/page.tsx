@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import type { ChatMessage } from '@/lib/types'
 import { UserMessage } from '@/components/user-message'
@@ -21,18 +21,26 @@ export default function Page() {
   const [loading, setLoading] = useState(false)
   const [printMessage, setPrintMessage] = useState<ChatMessage | null>(null)
   const conversacionRef = useRef<HTMLDivElement>(null)
+  const ultimoMensajeBotRef = useRef<HTMLDivElement>(null)
   const reduceMotion = useReducedMotion()
 
   const hayConversacion = messages.length > 0
+  const ultimoBotIndex = useMemo(() => {
+    for (let i = messages.length - 1; i >= 0; i -= 1) {
+      if (messages[i].role === 'bot') return i
+    }
+    return -1
+  }, [messages])
 
-  // Al llegar una respuesta nueva, llevamos la vista al final de la conversación.
+  // Al llegar una respuesta, llevamos la vista al INICIO del último mensaje del bot.
+  // Así la lectura empieza desde arriba y no obliga a scrollear para encontrar el comienzo.
   useEffect(() => {
-    if (!hayConversacion) return
-    conversacionRef.current?.scrollIntoView({
+    if (!hayConversacion || ultimoBotIndex < 0) return
+    ultimoMensajeBotRef.current?.scrollIntoView({
       behavior: reduceMotion ? 'auto' : 'smooth',
-      block: 'end',
+      block: 'start',
     })
-  }, [messages, loading, hayConversacion, reduceMotion])
+  }, [hayConversacion, reduceMotion, ultimoBotIndex, loading])
 
   const handleNewChat = useCallback(() => {
     setMessages([])
@@ -140,11 +148,13 @@ export default function Page() {
                   transition={{ duration: 0.25, ease: 'easeOut' }}
                   className="bg-tuki-panel2 border-tuki-line flex flex-col gap-3 rounded-[26px] border px-[22px] py-5"
                 >
-                  {messages.map((m) =>
+                  {messages.map((m, i) =>
                     m.role === 'user' ? (
                       <UserMessage key={m.id} texto={m.texto} />
                     ) : (
-                      <BotMessage key={m.id} message={m} onDownload={handleDownload} />
+                      <div key={m.id} ref={i === ultimoBotIndex ? ultimoMensajeBotRef : undefined}>
+                        <BotMessage message={m} onDownload={handleDownload} />
+                      </div>
                     ),
                   )}
 
