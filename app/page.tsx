@@ -21,6 +21,7 @@ export default function Page() {
   const [loading, setLoading] = useState(false)
   const [printMessage, setPrintMessage] = useState<ChatMessage | null>(null)
   const conversacionRef = useRef<HTMLDivElement>(null)
+  const audioBienvenidaRef = useRef<HTMLAudioElement>(null)
   const reduceMotion = useReducedMotion()
 
   const hayConversacion = messages.length > 0
@@ -33,6 +34,39 @@ export default function Page() {
       block: 'end',
     })
   }, [messages, loading, hayConversacion, reduceMotion])
+
+  // Reproduce un saludo al entrar. Si el navegador bloquea autoplay,
+  // se vuelve a intentar en la primera interacción del usuario.
+  useEffect(() => {
+    const audio = audioBienvenidaRef.current
+    if (!audio) return
+
+    const tryPlay = async () => {
+      try {
+        audio.currentTime = 0
+        await audio.play()
+        cleanup()
+      } catch {
+        // Navegador bloqueó autoplay; esperamos interacción.
+      }
+    }
+
+    const onFirstInteraction = () => {
+      void tryPlay()
+    }
+
+    const cleanup = () => {
+      document.removeEventListener('pointerdown', onFirstInteraction)
+      document.removeEventListener('keydown', onFirstInteraction)
+    }
+
+    document.addEventListener('pointerdown', onFirstInteraction)
+    document.addEventListener('keydown', onFirstInteraction)
+
+    void tryPlay()
+
+    return cleanup
+  }, [])
 
   const handleNewChat = useCallback(() => {
     setMessages([])
@@ -118,6 +152,8 @@ export default function Page() {
 
   return (
     <div className="tuki-canvas text-tuki-fg min-h-dvh px-[clamp(14px,3vw,34px)] pb-[34px]">
+      <audio ref={audioBienvenidaRef} src="/tuki/SonidoBienvenida.ogg" preload="auto" aria-hidden />
+
       <TukiHeader onNewChat={handleNewChat} />
 
       <div className="no-print mx-auto flex w-full max-w-[1560px] flex-wrap items-start gap-[clamp(16px,2vw,26px)]">
