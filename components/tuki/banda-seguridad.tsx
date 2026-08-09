@@ -1,7 +1,6 @@
 'use client'
 
 import { ArrowRight } from 'lucide-react'
-import Link from 'next/link'
 
 /**
  * Banda inferior "Seguridad y confianza".
@@ -53,24 +52,14 @@ export function BandaSeguridad({ onMasInformacion }: { onMasInformacion?: () => 
         </p>
       </div>
 
-      {onMasInformacion ? (
-        <button
-          type="button"
-          onClick={onMasInformacion}
-          className="border-tuki-accent text-tuki-accent-text flex h-[52px] shrink-0 items-center gap-2.5 whitespace-nowrap rounded-full border-[1.5px] px-6 text-base font-extrabold transition-colors hover:bg-[#F5811F1F]"
-        >
-          Más información
-          <ArrowRight className="size-5" strokeWidth={2.2} aria-hidden />
-        </button>
-      ) : (
-        <Link
-          href="/terminos-y-condiciones"
-          className="border-tuki-accent text-tuki-accent-text flex h-[52px] shrink-0 items-center gap-2.5 whitespace-nowrap rounded-full border-[1.5px] px-6 text-base font-extrabold transition-colors hover:bg-[#F5811F1F]"
-        >
-          Más información
-          <ArrowRight className="size-5" strokeWidth={2.2} aria-hidden />
-        </Link>
-      )}
+      <button
+        type="button"
+        onClick={onMasInformacion}
+        className="border-tuki-accent text-tuki-accent-text flex h-[52px] shrink-0 items-center gap-2.5 whitespace-nowrap rounded-full border-[1.5px] px-6 text-base font-extrabold transition-colors hover:bg-[#F5811F1F]"
+      >
+        Más información
+        <ArrowRight className="size-5" strokeWidth={2.2} aria-hidden />
+      </button>
     </section>
   )
 }

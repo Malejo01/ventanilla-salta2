@@ -79,10 +79,10 @@ export function Header({ onNewChat }: { onNewChat: () => void }) {
           <button
             onClick={onNewChat}
             className="flex h-9 items-center gap-2 rounded-full border border-border bg-background px-3 text-sm font-medium text-foreground transition-colors hover:bg-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-            aria-label="recordarme por WhatsApp"
+            aria-label="Nuevo chat"
           >
             <Plus className="size-4" />
-            <span className="hidden sm:inline">recordarme por WhatsApp</span>
+            <span className="hidden sm:inline">Nuevo chat</span>
           </button>
         </div>
       </div>

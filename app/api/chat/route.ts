@@ -9,8 +9,6 @@ const GEMINI_API_KEY = process.env.GEMINI_API_KEY
 const EMBED_MODEL = "gemini-embedding-001"
 const GEN_MODEL = "gemini-2.5-flash"
 const MIN_SIMILARITY = 0.5 // TODO: recalibrar este umbral con datos reales de tramites y fuera de dominio.
-const EXTERNAL_RETRY_ATTEMPTS = 3
-const EXTERNAL_RETRY_BASE_MS = 300
 
 const SYSTEM_PROMPT = `Sos "Ventanilla", el asistente ciudadano oficial de la Municipalidad de Salta. Tu única
 función es ayudar a la gente a entender trámites municipales y provinciales de Salta.
@@ -130,40 +128,6 @@ function detectarDatosSensibles(texto: string): boolean {
   return false
 }
 
-function sleep(ms: number): Promise<void> {
-  return new Promise((resolve) => setTimeout(resolve, ms))
-}
-
-function shouldRetryStatus(status: number): boolean {
-  return status === 408 || status === 429 || status >= 500
-}
-
-async function fetchWithRetry(url: string, init: RequestInit, opName: string): Promise<Response> {
-  let lastError: Error | null = null
-
-  for (let attempt = 1; attempt <= EXTERNAL_RETRY_ATTEMPTS; attempt++) {
-    try {
-      const res = await fetch(url, init)
-      if (res.ok || !shouldRetryStatus(res.status) || attempt === EXTERNAL_RETRY_ATTEMPTS) {
-        return res
-      }
-
-      const retryDelay = EXTERNAL_RETRY_BASE_MS * attempt
-      console.log(`[v0] ${opName} fallo transitorio (status ${res.status}), reintento ${attempt}/${EXTERNAL_RETRY_ATTEMPTS} en ${retryDelay}ms`)
-      await sleep(retryDelay)
-    } catch (err) {
-      lastError = err as Error
-      if (attempt === EXTERNAL_RETRY_ATTEMPTS) break
-
-      const retryDelay = EXTERNAL_RETRY_BASE_MS * attempt
-      console.log(`[v0] ${opName} error de red, reintento ${attempt}/${EXTERNAL_RETRY_ATTEMPTS} en ${retryDelay}ms`)
-      await sleep(retryDelay)
-    }
-  }
-
-  throw lastError ?? new Error(`${opName}_failed`)
-}
-
 type Fuente = {
   tramite: string
   url: string
@@ -219,43 +183,23 @@ async function loadKnowledgeBase(): Promise<KnowledgeBase> {
     return kbCache.data
   }
 
-  let chunkData: Array<{ tramite_id: number; chunk_texto: string; embedding: unknown }> | null = null
-  let tramiteData: TramiteRow[] | null = null
+  const [{ data: chunkData, error: chunkErr }, { data: tramiteData, error: tramiteErr }] =
+    await Promise.all([
+      supabaseAdmin.from("tramite_chunks").select("tramite_id, chunk_texto, embedding"),
+      supabaseAdmin.from("tramites").select("id, slug, categoria, url, ultima_verificacion"),
+    ])
 
-  for (let attempt = 1; attempt <= EXTERNAL_RETRY_ATTEMPTS; attempt++) {
-    const [{ data: chunksResp, error: chunkErr }, { data: tramitesResp, error: tramiteErr }] =
-      await Promise.all([
-        supabaseAdmin.from("tramite_chunks").select("tramite_id, chunk_texto, embedding"),
-        supabaseAdmin.from("tramites").select("id, slug, categoria, url, ultima_verificacion"),
-      ])
-
-    if (!chunkErr && !tramiteErr) {
-      chunkData = chunksResp
-      tramiteData = tramitesResp
-      break
-    }
-
-    const chunkMsg = chunkErr?.message ?? "sin error"
-    const tramiteMsg = tramiteErr?.message ?? "sin error"
-
-    if (attempt === EXTERNAL_RETRY_ATTEMPTS) {
-      if (chunkErr) {
-        console.log("[v0] Error leyendo tramite_chunks:", chunkMsg)
-        throw new Error("kb_chunks_failed")
-      }
-      console.log("[v0] Error leyendo tramites:", tramiteMsg)
-      throw new Error("kb_tramites_failed")
-    }
-
-    const retryDelay = EXTERNAL_RETRY_BASE_MS * attempt
-    console.log(
-      `[v0] Error transitorio cargando KB (chunks: ${chunkMsg}; tramites: ${tramiteMsg}), reintento ${attempt}/${EXTERNAL_RETRY_ATTEMPTS} en ${retryDelay}ms`,
-    )
-    await sleep(retryDelay)
+  if (chunkErr) {
+    console.log("[v0] Error leyendo tramite_chunks:", chunkErr.message)
+    throw new Error("kb_chunks_failed")
+  }
+  if (tramiteErr) {
+    console.log("[v0] Error leyendo tramites:", tramiteErr.message)
+    throw new Error("kb_tramites_failed")
   }
 
   const chunks: ChunkRow[] = (chunkData ?? [])
-    .map((c) => ({
+    .map((c: { tramite_id: number; chunk_texto: string; embedding: unknown }) => ({
       tramite_id: c.tramite_id,
       chunk_texto: c.chunk_texto,
       embedding: parseEmbedding(c.embedding),
@@ -300,7 +244,7 @@ function buscarChunks(queryEmbedding: number[], kb: KnowledgeBase, matchCount: n
 }
 
 async function embedPregunta(pregunta: string): Promise<number[]> {
-  const res = await fetchWithRetry(
+  const res = await fetch(
     `https://generativelanguage.googleapis.com/v1beta/models/${EMBED_MODEL}:embedContent?key=${GEMINI_API_KEY}`,
     {
       method: "POST",
@@ -311,7 +255,6 @@ async function embedPregunta(pregunta: string): Promise<number[]> {
         outputDimensionality: 768,
       }),
     },
-    "embedPregunta",
   )
   if (!res.ok) {
     const detail = await res.text()
@@ -328,7 +271,7 @@ async function embedPregunta(pregunta: string): Promise<number[]> {
 }
 
 async function generarRespuesta(pregunta: string, contexto: string): Promise<string> {
-  const res = await fetchWithRetry(
+  const res = await fetch(
     `https://generativelanguage.googleapis.com/v1beta/models/${GEN_MODEL}:generateContent?key=${GEMINI_API_KEY}`,
     {
       method: "POST",
@@ -351,7 +294,6 @@ async function generarRespuesta(pregunta: string, contexto: string): Promise<str
         },
       }),
     },
-    "generarRespuesta",
   )
   if (!res.ok) {
     const detail = await res.text()
@@ -412,6 +354,7 @@ export async function POST(req: NextRequest) {
 
     // Umbral mínimo de relevancia: si ni el mejor match supera el umbral,
     // tratamos la consulta como "sin información oficial".
+    const MIN_SIMILARITY = 0.5
     if (chunks.length === 0 || chunks[0].similarity < MIN_SIMILARITY) {
       return NextResponse.json({
         respuesta: "No tengo información oficial cargada sobre eso todavía.",
