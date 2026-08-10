@@ -24,8 +24,17 @@ export default function Page() {
   const audioBienvenidaRef = useRef<HTMLAudioElement>(null)
   const ultimoAudioMensajeBotIdRef = useRef<string | null>(null)
   const reduceMotion = useReducedMotion()
+  const [hidratado, setHidratado] = useState(false)
 
   const hayConversacion = messages.length > 0
+
+  // El HTML pre-renderizado se pinta mucho antes de que React adjunte los handlers
+  // (medido: hasta ~7s con CPU 6x + Slow 3G). En esa ventana la UI parecía lista pero
+  // el primer click/tecleo se perdía en silencio. Mantenemos los controles deshabilitados
+  // hasta terminar de hidratar, para que se vea que todavía no están listos.
+  useEffect(() => setHidratado(true), [])
+
+  const listo = hidratado && !loading
 
   // Al llegar una respuesta nueva, llevamos la vista al final de la conversación.
   useEffect(() => {
@@ -152,7 +161,7 @@ export default function Page() {
         <main className="flex min-w-[min(100%,320px)] flex-1 basis-[620px] flex-col gap-[clamp(18px,2vw,26px)]">
           <TukiHero pensando={loading} />
 
-          <ConsultaBar onSubmit={enviar} disabled={loading} />
+          <ConsultaBar onSubmit={enviar} disabled={!listo} />
 
           {/* Conversación inline: solo aparece cuando hay una consulta enviada.
               La región aria-live va en este wrapper, que está SIEMPRE montado: un
@@ -197,7 +206,7 @@ export default function Page() {
             </AnimatePresence>
           </div>
 
-          <ConsultasFrecuentes onPick={enviar} disabled={loading} />
+          <ConsultasFrecuentes onPick={enviar} disabled={!listo} />
 
           <p className="text-tuki-dim text-sm">
             Tuki responde solo con información oficial cargada. Verificá siempre en la fuente citada.
