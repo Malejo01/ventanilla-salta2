@@ -19,6 +19,7 @@ const nextId = () => `m-${Date.now()}-${idCounter++}`
 export default function Page() {
   const [messages, setMessages] = useState<ChatMessage[]>([])
   const [loading, setLoading] = useState(false)
+  const [chatSessionId, setChatSessionId] = useState(0)
   const [printMessage, setPrintMessage] = useState<ChatMessage | null>(null)
   const conversacionRef = useRef<HTMLDivElement>(null)
   const audioBienvenidaRef = useRef<HTMLAudioElement>(null)
@@ -63,6 +64,7 @@ export default function Page() {
   const handleNewChat = useCallback(() => {
     setMessages([])
     setLoading(false)
+    setChatSessionId((prev) => prev + 1)
   }, [])
 
   const enviar = useCallback(
@@ -152,7 +154,7 @@ export default function Page() {
         <main className="flex min-w-[min(100%,320px)] flex-1 basis-[620px] flex-col gap-[clamp(18px,2vw,26px)]">
           <TukiHero pensando={loading} />
 
-          <ConsultaBar onSubmit={enviar} disabled={loading} />
+          <ConsultaBar key={chatSessionId} onSubmit={enviar} disabled={loading} />
 
           {/* Conversación inline: solo aparece cuando hay una consulta enviada.
               La región aria-live va en este wrapper, que está SIEMPRE montado: un
