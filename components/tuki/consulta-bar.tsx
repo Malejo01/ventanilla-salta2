@@ -5,9 +5,19 @@ import { Mic, Send, Square } from 'lucide-react'
 
 const MAX_LEN = 1000
 
+// Dictado por voz apagado: en Chrome con micrófono real el ícono deja de animarse
+// mientras se habla y la transcripción no se llega a enviar. Los tests con doble de
+// la Web Speech API no reproducen el fallo, así que el orden real de eventos no es
+// el que asumen. Se apaga la entrada por voz hasta poder diagnosticarlo con un
+// micrófono de verdad; la consulta por texto no está afectada.
+const VOZ_HABILITADA = true
+
 // Tipos mínimos para la Web Speech API (no está en los tipos estándar del DOM)
 type SpeechRecognitionResult = {
+  // `results` acumula TODOS los tramos de la sesión, no solo el nuevo; `resultIndex`
+  // marca desde dónde empieza lo que todavía no leímos.
   results: ArrayLike<ArrayLike<{ transcript: string }>>
+  resultIndex?: number
 }
 type SpeechRecognitionError = {
   error?: string
@@ -82,6 +92,7 @@ export function ConsultaBar({
   }
 
   useEffect(() => {
+    if (!VOZ_HABILITADA) return
     const w = window as unknown as {
       webkitSpeechRecognition?: new () => SpeechRecognitionLike
       SpeechRecognition?: new () => SpeechRecognitionLike
@@ -96,8 +107,13 @@ export function ConsultaBar({
     recognition.continuous = false
 
     recognition.onresult = (e) => {
-      const transcript = e.results[0]?.[0]?.transcript ?? ''
+      let transcript = ''
+      for (let i = e.resultIndex ?? 0; i < e.results.length; i++) {
+        transcript += e.results[i]?.[0]?.transcript ?? ''
+      }
       if (!transcript.trim()) return
+      // Si antes avisamos que no escuchábamos, el texto que llega desmiente el aviso.
+      setMicError(null)
       const combinado = (valueRef.current ? valueRef.current + ' ' : '') + transcript
       actualizarValor(combinado)
       dictadoPendienteRef.current = combinado
@@ -115,10 +131,21 @@ export function ConsultaBar({
     }
 
     recognition.onerror = (e) => {
-      // onerror siempre llega antes que onend: limpiar acá cancela el auto-envío.
+      const codigo = e?.error
+      // Chrome emite 'aborted' y 'no-speech' como parte del flujo normal: el primero
+      // al cortar el reconocimiento (incluso después de haber entregado el texto), el
+      // segundo ante cualquier pausa. Tratarlos como fatales era lo que apagaba la
+      // animación a mitad de la frase y descartaba el dictado sin enviarlo.
+      if (codigo === 'aborted') return
+      if (codigo === 'no-speech') {
+        // Solo avisamos si de verdad no llegó nada; de apagar `listening` se encarga
+        // onend, que siempre llega después.
+        if (!dictadoPendienteRef.current) setMicError(mensajeDeError(codigo))
+        return
+      }
       dictadoPendienteRef.current = ''
       setListening(false)
-      setMicError(mensajeDeError(e?.error))
+      setMicError(mensajeDeError(codigo))
     }
 
     recognitionRef.current = recognition
@@ -183,7 +210,7 @@ export function ConsultaBar({
           className="text-tuki-field-fg placeholder:text-tuki-field-ph min-w-0 flex-1 bg-transparent text-[clamp(16px,1.3vw,20px)] font-medium outline-none disabled:opacity-60"
         />
 
-        {micSupported && (
+        {VOZ_HABILITADA && micSupported && (
           <button
             type="button"
             onClick={toggleMic}
@@ -217,14 +244,16 @@ export function ConsultaBar({
         </button>
       </form>
 
-      <p aria-live="polite" className="min-h-0">
-        {micError && <span className="mt-1.5 block pl-4 text-xs text-red-500">{micError}</span>}
-        {!micError && listening && (
-          <span className="text-tuki-dim mt-1.5 block pl-4 text-xs">
-            Escuchando... cuando termines de hablar enviamos tu consulta.
-          </span>
-        )}
-      </p>
+      {VOZ_HABILITADA && (
+        <p aria-live="polite" className="min-h-0">
+          {micError && <span className="mt-1.5 block pl-4 text-xs text-red-500">{micError}</span>}
+          {!micError && listening && (
+            <span className="text-tuki-dim mt-1.5 block pl-4 text-xs">
+              Escuchando... cuando termines de hablar enviamos tu consulta.
+            </span>
+          )}
+        </p>
+      )}
 
       {value.length > MAX_LEN - 100 && (
         <p className="text-tuki-dim mt-1.5 pr-4 text-right text-xs">
