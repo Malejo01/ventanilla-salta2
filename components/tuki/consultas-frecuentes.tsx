@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, useReducedMotion } from 'framer-motion'
-import { Accessibility, ChevronRight, Contact, Truck, Users } from 'lucide-react'
+import { Accessibility, Car, ChevronRight, Contact, Store, Truck, Users } from 'lucide-react'
 
 type Consulta = {
   pregunta: string
@@ -46,6 +46,22 @@ const CONSULTAS: Consulta[] = [
     icon: Accessibility,
     gradient: 'linear-gradient(115deg,#1F5C86,#274C93)',
     color: '#E8F3FF',
+  },
+  {
+    pregunta: '¿Qué necesito para la oblea de estacionamiento?',
+    linea1: '¿Qué necesito para la oblea',
+    linea2: 'de estacionamiento?',
+    icon: Car,
+    gradient: 'linear-gradient(115deg,#8C3A4D,#5C2538)',
+    color: '#FCEEF1',
+  },
+  {
+    pregunta: '¿Cómo habilito un local comercial?',
+    linea1: '¿Cómo habilito',
+    linea2: 'un local comercial?',
+    icon: Store,
+    gradient: 'linear-gradient(115deg,#4A6953,#2B4533)',
+    color: '#EDF5EF',
   },
 ]
 
