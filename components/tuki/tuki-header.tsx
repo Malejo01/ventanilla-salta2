@@ -19,7 +19,7 @@ export function TukiHeader({ onNewChat }: { onNewChat: () => void }) {
   const themeLabel = isDark ? 'Activar modo claro' : 'Activar modo oscuro'
 
   return (
-    <header className="no-print sticky top-0 z-20 flex flex-wrap items-center justify-between gap-4 py-3.5 backdrop-blur-md">
+    <header className="bg-tuki-bg/90 no-print sticky top-0 z-20 flex flex-wrap items-center justify-between gap-4 py-3.5 backdrop-blur-md">
       <div className="flex items-center gap-3">
         <div className="bg-tuki-stage border-tuki-line-strong relative size-[46px] shrink-0 overflow-hidden rounded-full border">
           <Image
