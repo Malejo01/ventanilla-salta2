@@ -5,12 +5,11 @@ import { Mic, Send, Square } from 'lucide-react'
 
 const MAX_LEN = 1000
 
-// Dictado por voz apagado: con micrófono real sigue sin enviarse la consulta.
-// Hay un fix aplicado (ver docs/dictado-por-voz.md) que corrige una causa
-// confirmada, pero no alcanzó, así que falta al menos una causa más. Se apaga la
-// entrada por voz hasta poder diagnosticarla con un micrófono de verdad; la
-// consulta por texto no está afectada. Poner en true para retomar el diagnóstico.
-const VOZ_HABILITADA = false
+// Dictado por voz activado: funciona en las máquinas y navegadores del equipo, que
+// son los que se usan en la presentación. El fallo descrito en docs/dictado-por-voz.md
+// sigue abierto y se reproduce en al menos un equipo, así que el diagnóstico de ahí
+// mantiene su valor. Poner en false para volver a ocultar el botón.
+const VOZ_HABILITADA = true
 
 // Tipos mínimos para la Web Speech API (no está en los tipos estándar del DOM)
 type SpeechRecognitionResult = {

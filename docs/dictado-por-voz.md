@@ -1,8 +1,11 @@
 # Dictado por voz — diagnóstico abierto
 
-**Estado: apagado en producción.** El flag `VOZ_HABILITADA` en
-`components/tuki/consulta-bar.tsx` está en `false`, así que el botón de micrófono no se
-renderiza. La consulta por texto no está afectada.
+**Estado: activado.** El flag `VOZ_HABILITADA` en `components/tuki/consulta-bar.tsx` está
+en `true`. Se apagó y se volvió a encender el 2026-08-10: el dictado sí funciona en las
+máquinas y navegadores del equipo, que son los que se usan en la presentación.
+
+**El bug de abajo no está resuelto.** Se reproduce en al menos un equipo. Lo que cambió es
+la decisión de producto, no el diagnóstico: todo lo que sigue mantiene su valor.
 
 Fecha del diagnóstico: 2026-08-10.
 
