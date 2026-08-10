@@ -19,7 +19,6 @@ const nextId = () => `m-${Date.now()}-${idCounter++}`
 export default function Page() {
   const [messages, setMessages] = useState<ChatMessage[]>([])
   const [loading, setLoading] = useState(false)
-  const [chatSessionId, setChatSessionId] = useState(0)
   const [printMessage, setPrintMessage] = useState<ChatMessage | null>(null)
   const conversacionRef = useRef<HTMLDivElement>(null)
   const audioBienvenidaRef = useRef<HTMLAudioElement>(null)
@@ -69,12 +68,6 @@ export default function Page() {
 
     void playRespuesta()
   }, [messages])
-
-  const handleNewChat = useCallback(() => {
-    setMessages([])
-    setLoading(false)
-    setChatSessionId((prev) => prev + 1)
-  }, [])
 
   const enviar = useCallback(
     async (pregunta: string) => {
@@ -157,13 +150,13 @@ export default function Page() {
     <div className="tuki-canvas text-tuki-fg min-h-dvh px-[clamp(14px,3vw,34px)] pb-[34px]">
       <audio ref={audioBienvenidaRef} src="/tuki/SonidoBienvenida.ogg" preload="auto" aria-hidden />
 
-      <TukiHeader onNewChat={handleNewChat} />
+      <TukiHeader />
 
       <div className="no-print mx-auto flex w-full max-w-[1560px] flex-wrap items-start gap-[clamp(16px,2vw,26px)]">
         <main className="flex min-w-[min(100%,320px)] flex-1 basis-[620px] flex-col gap-[clamp(18px,2vw,26px)]">
           <TukiHero pensando={loading} />
 
-          <ConsultaBar key={chatSessionId} onSubmit={enviar} disabled={!listo} />
+          <ConsultaBar onSubmit={enviar} disabled={!listo} />
 
           {/* Conversación inline: solo aparece cuando hay una consulta enviada.
               La región aria-live va en este wrapper, que está SIEMPRE montado: un

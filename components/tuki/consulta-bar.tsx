@@ -9,6 +9,9 @@ const MAX_LEN = 1000
 type SpeechRecognitionResult = {
   results: ArrayLike<ArrayLike<{ transcript: string }>>
 }
+type SpeechRecognitionError = {
+  error?: string
+}
 type SpeechRecognitionLike = {
   lang: string
   interimResults: boolean
@@ -17,7 +20,28 @@ type SpeechRecognitionLike = {
   stop: () => void
   onresult: (e: SpeechRecognitionResult) => void
   onend: () => void
-  onerror: () => void
+  onerror: (e: SpeechRecognitionError) => void
+}
+
+/**
+ * El navegador pide permiso de micrófono solo al llamar a start(); si el usuario
+ * lo rechaza (o el sitio no está en HTTPS) el fallo llega por onerror y hay que
+ * contarlo, porque si no el botón se apaga sin explicación.
+ */
+function mensajeDeError(codigo: string | undefined): string {
+  switch (codigo) {
+    case 'not-allowed':
+    case 'service-not-allowed':
+      return 'No pudimos usar el micrófono. Revisá los permisos del navegador para este sitio.'
+    case 'no-speech':
+      return 'No llegamos a escucharte. Probá de nuevo.'
+    case 'audio-capture':
+      return 'No encontramos un micrófono conectado.'
+    case 'network':
+      return 'El dictado por voz necesita conexión a internet.'
+    default:
+      return 'No pudimos completar el dictado por voz. Probá de nuevo o escribí tu consulta.'
+  }
 }
 
 /**
@@ -35,7 +59,27 @@ export function ConsultaBar({
   const [value, setValue] = useState('')
   const [listening, setListening] = useState(false)
   const [micSupported, setMicSupported] = useState(false)
+  const [micError, setMicError] = useState<string | null>(null)
   const recognitionRef = useRef<SpeechRecognitionLike | null>(null)
+
+  // El objeto de reconocimiento se crea una sola vez, así que sus handlers verían
+  // siempre las props del primer render. Estos refs les dan acceso a los valores
+  // actuales; valueRef además evita depender de que React haya vuelto a renderizar
+  // entre onresult y onend, que llegan uno detrás del otro.
+  const valueRef = useRef(value)
+  const onSubmitRef = useRef(onSubmit)
+  const disabledRef = useRef(disabled)
+  const dictadoPendienteRef = useRef('')
+
+  useEffect(() => {
+    onSubmitRef.current = onSubmit
+    disabledRef.current = disabled
+  })
+
+  const actualizarValor = (siguiente: string) => {
+    valueRef.current = siguiente
+    setValue(siguiente)
+  }
 
   useEffect(() => {
     const w = window as unknown as {
@@ -50,15 +94,41 @@ export function ConsultaBar({
     recognition.lang = 'es-AR'
     recognition.interimResults = false
     recognition.continuous = false
+
     recognition.onresult = (e) => {
       const transcript = e.results[0]?.[0]?.transcript ?? ''
-      setValue((prev) => (prev ? prev + ' ' : '') + transcript)
+      if (!transcript.trim()) return
+      const combinado = (valueRef.current ? valueRef.current + ' ' : '') + transcript
+      actualizarValor(combinado)
+      dictadoPendienteRef.current = combinado
     }
-    recognition.onend = () => setListening(false)
-    recognition.onerror = () => setListening(false)
+
+    // Al soltar el micrófono (por silencio o por el botón de stop) mandamos lo
+    // dictado sin pedir un click extra, que es el punto del dictado por voz.
+    recognition.onend = () => {
+      setListening(false)
+      const pendiente = dictadoPendienteRef.current.trim()
+      dictadoPendienteRef.current = ''
+      if (!pendiente || disabledRef.current) return
+      actualizarValor('')
+      onSubmitRef.current(pendiente)
+    }
+
+    recognition.onerror = (e) => {
+      // onerror siempre llega antes que onend: limpiar acá cancela el auto-envío.
+      dictadoPendienteRef.current = ''
+      setListening(false)
+      setMicError(mensajeDeError(e?.error))
+    }
+
     recognitionRef.current = recognition
 
     return () => {
+      // Desconectamos los handlers antes de frenar: si no, el stop() del desmontaje
+      // dispararía onend y enviaría la consulta sobre un componente que ya no está.
+      recognition.onresult = () => {}
+      recognition.onend = () => {}
+      recognition.onerror = () => {}
       try {
         recognition.stop()
       } catch {
@@ -72,9 +142,10 @@ export function ConsultaBar({
     if (!rec) return
     if (listening) {
       rec.stop()
-      setListening(false)
       return
     }
+    setMicError(null)
+    dictadoPendienteRef.current = ''
     try {
       rec.start()
       setListening(true)
@@ -84,10 +155,10 @@ export function ConsultaBar({
   }
 
   const submit = () => {
-    const trimmed = value.trim()
+    const trimmed = valueRef.current.trim()
     if (!trimmed || disabled) return
     onSubmit(trimmed)
-    setValue('')
+    actualizarValor('')
   }
 
   return (
@@ -105,8 +176,8 @@ export function ConsultaBar({
         <input
           id="consulta"
           value={value}
-          onChange={(e) => setValue(e.target.value.slice(0, MAX_LEN))}
-          placeholder="Escribí tu consulta..."
+          onChange={(e) => actualizarValor(e.target.value.slice(0, MAX_LEN))}
+          placeholder={listening ? 'Escuchando... hablá y lo enviamos solo' : 'Escribí tu consulta...'}
           autoComplete="off"
           disabled={disabled}
           className="text-tuki-field-fg placeholder:text-tuki-field-ph min-w-0 flex-1 bg-transparent text-[clamp(16px,1.3vw,20px)] font-medium outline-none disabled:opacity-60"
@@ -117,7 +188,7 @@ export function ConsultaBar({
             type="button"
             onClick={toggleMic}
             disabled={disabled}
-            aria-label={listening ? 'Detener dictado por voz' : 'Dictar consulta por voz'}
+            aria-label={listening ? 'Detener dictado y enviar' : 'Dictar consulta por voz'}
             aria-pressed={listening}
             className={`relative flex size-[46px] shrink-0 items-center justify-center rounded-full border border-[rgba(11,18,36,.15)] transition-colors disabled:opacity-40 ${
               listening
@@ -145,6 +216,15 @@ export function ConsultaBar({
           <Send className="size-5 fill-current" strokeWidth={0} aria-hidden />
         </button>
       </form>
+
+      <p aria-live="polite" className="min-h-0">
+        {micError && <span className="mt-1.5 block pl-4 text-xs text-red-500">{micError}</span>}
+        {!micError && listening && (
+          <span className="text-tuki-dim mt-1.5 block pl-4 text-xs">
+            Escuchando... cuando termines de hablar enviamos tu consulta.
+          </span>
+        )}
+      </p>
 
       {value.length > MAX_LEN - 100 && (
         <p className="text-tuki-dim mt-1.5 pr-4 text-right text-xs">
