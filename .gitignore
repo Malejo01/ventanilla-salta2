@@ -18,3 +18,9 @@ Ignored/
 
 # TypeScript build info
 tsconfig.tsbuildinfo
+
+# Salida de las corridas de qa/*.mjs (capturas y reportes de una sesion puntual,
+# no aportan nada versionados; los scripts que los generan si se versionan)
+qa-screenshots/
+qa-report.json
+repro-hydration-report.json
