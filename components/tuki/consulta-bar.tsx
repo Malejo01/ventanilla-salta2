@@ -5,12 +5,12 @@ import { Mic, Send, Square } from 'lucide-react'
 
 const MAX_LEN = 1000
 
-// Dictado por voz apagado: en Chrome con micrófono real el ícono deja de animarse
-// mientras se habla y la transcripción no se llega a enviar. Los tests con doble de
-// la Web Speech API no reproducen el fallo, así que el orden real de eventos no es
-// el que asumen. Se apaga la entrada por voz hasta poder diagnosticarlo con un
-// micrófono de verdad; la consulta por texto no está afectada.
-const VOZ_HABILITADA = true
+// Dictado por voz apagado: con micrófono real sigue sin enviarse la consulta.
+// Hay un fix aplicado (ver docs/dictado-por-voz.md) que corrige una causa
+// confirmada, pero no alcanzó, así que falta al menos una causa más. Se apaga la
+// entrada por voz hasta poder diagnosticarla con un micrófono de verdad; la
+// consulta por texto no está afectada. Poner en true para retomar el diagnóstico.
+const VOZ_HABILITADA = false
 
 // Tipos mínimos para la Web Speech API (no está en los tipos estándar del DOM)
 type SpeechRecognitionResult = {
