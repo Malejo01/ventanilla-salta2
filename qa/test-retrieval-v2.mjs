@@ -6,7 +6,7 @@
 //
 // Uso: node qa/test-retrieval-v2.mjs
 import {
-  CONSULTAS,
+  TODAS_LAS_CONSULTAS as CONSULTAS,
   MIN_SIMILARITY,
   MAX_CHUNKS_POR_TRAMITE,
   DELTA_COMPETENCIA,

@@ -7,7 +7,7 @@
 // por consulta): usar aquel para regresión rápida y este para revisar respuestas.
 //
 // Uso: node qa/test-generacion-v2.mjs [n]     (n = cuántas consultas, default todas)
-import { CONSULTAS, recuperar, construirContexto, construirFuentes, tituloChunk, generar } from './lib-corpus.mjs'
+import { TODAS_LAS_CONSULTAS as CONSULTAS, recuperar, construirContexto, construirFuentes, tituloChunk, generar } from './lib-corpus.mjs'
 
 const cuantas = Number(process.argv[2]) || CONSULTAS.length
 

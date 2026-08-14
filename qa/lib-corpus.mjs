@@ -204,4 +204,15 @@ export const CONSULTAS = [
   'dónde queda el CIC más cercano',
 ]
 
+// Consultas de la ronda manual del 14/8: las que destaparon el tope mal
+// calibrado en celíacos y los artefactos de presentación. Se suman al set de
+// regresión para que no vuelvan a romperse.
+export const CONSULTAS_EXTRA = [
+  'soy celíaco, hay algún programa?',
+  '¿Qué necesito para la oblea de estacionamiento?',
+  '¿Cómo habilito un local comercial?',
+]
+
+export const TODAS_LAS_CONSULTAS = [...CONSULTAS, ...CONSULTAS_EXTRA]
+
 export const MIN_SIMILARITY = 0.5
