@@ -1,0 +1,16 @@
+# pnpm 11 dejó de leer el campo "pnpm" de package.json: `overrides` y la
+# aprobación de build scripts viven acá ahora.
+#
+# overrides: replica el `pnpm.overrides` de package.json, que esta versión de
+# pnpm ignora en silencio. Sin esto, un `pnpm install` afloja el pin de hono a
+# ^4 y reescribe el lockfile.
+overrides:
+  hono: 4.12.25
+
+# allowBuilds: msw entra como dependencia transitiva y su script de instalación
+# no se necesita (el proyecto no usa msw directamente: no figura en
+# package.json). Se deniega explícitamente. Sin esta línea, pnpm sale con
+# código 1 por ERR_PNPM_IGNORED_BUILDS y eso rompe `pnpm build`, que corre un
+# chequeo de dependencias antes de compilar.
+allowBuilds:
+  msw: false
