@@ -204,15 +204,22 @@ export const CONSULTAS = [
   'dónde queda el CIC más cercano',
 ]
 
-// Consultas de la ronda manual del 14/8: las que destaparon el tope mal
-// calibrado en celíacos y los artefactos de presentación. Se suman al set de
-// regresión para que no vuelvan a romperse.
-export const CONSULTAS_EXTRA = [
+// Las 8 consultas de la ronda manual del 14/8, tal cual se probaron. Son las
+// que destaparon el tope mal calibrado en celíacos y los artefactos de
+// presentación. Varias coinciden con las de arriba; se listan completas igual
+// para que la ronda quede reproducible tal como se corrió.
+export const CONSULTAS_RONDA_MANUAL = [
+  'Quiero abrir un foodtruck, ¿qué necesito?',
   'soy celíaco, hay algún programa?',
+  'dónde saco el certificado de discapacidad',
+  'Soy jubilado, ¿puedo no pagar el impuesto inmobiliario?',
   '¿Qué necesito para la oblea de estacionamiento?',
   '¿Cómo habilito un local comercial?',
+  '¿Dónde tramito el certificado de discapacidad?',
+  '¿Cómo saco la licencia de conducir por primera vez?',
 ]
 
-export const TODAS_LAS_CONSULTAS = [...CONSULTAS, ...CONSULTAS_EXTRA]
+// Unión sin repetidos: las 12 de regresión más lo que aporta la ronda manual.
+export const TODAS_LAS_CONSULTAS = [...new Set([...CONSULTAS, ...CONSULTAS_RONDA_MANUAL])]
 
 export const MIN_SIMILARITY = 0.5
