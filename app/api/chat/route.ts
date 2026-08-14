@@ -19,6 +19,9 @@ const MATCH_COUNT = 5
 // dejando como mucho MAX_CHUNKS_POR_TRAMITE de cada trámite.
 const POOL_COUNT = 30
 const MAX_CHUNKS_POR_TRAMITE = 2
+// Cuán cerca del top-1 tiene que estar otro trámite para considerarse
+// competencia. Ver `diversificarPorTramite`.
+const DELTA_COMPETENCIA = 0.05
 
 // Flag de corte para el corpus v2 (tabla `tramite_chunks_v2` + RPC
 // `match_tramite_chunks_v2`). Ausente o distinto de "true" => camino viejo,
@@ -454,7 +457,38 @@ function tituloChunkV2(c: ChunkV2): string {
 // El dedup de `fuentes` sí usa slug + subtrámite, y está bien que difieran: acá
 // se reparte el presupuesto de contexto entre trámites, allá se listan las
 // fuentes que el usuario ve.
+// Pero diversificar siempre tampoco sirve. "soy celíaco, hay algún programa?"
+// trae los 6 chunks del Programa Celíacos en los puestos 1 a 6 (0.744 a 0.764)
+// y recién en el 7 aparece otra cosa, a 0.655. Ahí el tope descartaba 4 chunks
+// de 0.74 para meter 3 de 0.63 sobre trámites no relacionados, y la respuesta
+// salía diluida. El corpus agrupa varios programas bajo un mismo slug
+// (`desarrollo-humano-2-programas-descentralizados` tiene 29 chunks y 6
+// subtrámites), así que el tope por slug le da a un programa entero 2 lugares.
+//
+// La regla: el tope se aplica solo si hay algo que diversificar, es decir si
+// otro trámite compite con el del top-1 — su mejor chunk está a menos de
+// DELTA_COMPETENCIA de similitud. Si el resto quedó muy atrás, no hay competencia
+// y conviene que el trámite del top-1 llene el contexto.
+//
+//   foodtruck: habilitaciones-comerciales a 0.6897 vs top 0.7281 -> compite,
+//              se aplica el tope y entran los 3 trámites.
+//   celíacos:  el otro slug más cercano a 0.6383 vs top 0.7643 -> no compite,
+//              pasan los 5 chunks del Programa Celíacos.
+//
+// δ = 0.05 medido con qa/medir-topes.mjs contra las 12 consultas de regresión
+// más la de celíacos: es el valor más conservador que arregla celíacos sin
+// romper la cobertura del foodtruck. Las alternativas evaluadas (agrupar por
+// slug+subtrámite, subir el tope a 3, garantizar un mínimo al top-1) rompían
+// las dos consultas de foodtruck.
 function diversificarPorTramite(chunks: ChunkV2[], maxPorTramite: number, limite: number): ChunkV2[] {
+  const top = chunks[0]
+  if (!top) return []
+
+  const hayCompetencia = chunks.some(
+    (c) => c.slug !== top.slug && c.similarity >= top.similarity - DELTA_COMPETENCIA,
+  )
+  if (!hayCompetencia) return chunks.slice(0, limite)
+
   const cuenta = new Map<string, number>()
   const elegidos: ChunkV2[] = []
 

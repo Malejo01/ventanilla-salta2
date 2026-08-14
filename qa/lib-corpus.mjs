@@ -94,8 +94,17 @@ export function slugToNombre(slug) {
 // Espejo de diversificarPorTramite() en app/api/chat/route.ts
 export const POOL_COUNT = 30
 export const MAX_CHUNKS_POR_TRAMITE = 2
+export const DELTA_COMPETENCIA = 0.05
 
 export function diversificarPorTramite(chunks, maxPorTramite = MAX_CHUNKS_POR_TRAMITE, limite = 5) {
+  const top = chunks[0]
+  if (!top) return []
+  // El tope se aplica solo si otro trámite compite con el del top-1.
+  const hayCompetencia = chunks.some(
+    (c) => c.slug !== top.slug && c.similarity >= top.similarity - DELTA_COMPETENCIA,
+  )
+  if (!hayCompetencia) return chunks.slice(0, limite)
+
   const cuenta = new Map()
   const elegidos = []
   for (const c of chunks) {

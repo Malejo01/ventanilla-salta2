@@ -9,6 +9,7 @@ import {
   CONSULTAS,
   MIN_SIMILARITY,
   MAX_CHUNKS_POR_TRAMITE,
+  DELTA_COMPETENCIA,
   recuperar,
   construirFuentes,
   tituloChunk,
@@ -19,6 +20,7 @@ let institucionales = 0
 let sinSlug = 0
 let bajoUmbral = 0
 let violaTope = 0
+let sinCompetencia = 0
 
 for (const [i, consulta] of CONSULTAS.entries()) {
   const { pool, chunks } = await recuperar(consulta)
@@ -29,13 +31,19 @@ for (const [i, consulta] of CONSULTAS.entries()) {
   institucionales += chunks.filter((c) => c.tipo_contenido === 'institucional').length
   sinSlug += fuentes.filter((f) => !f.slug).length
 
-  // El tope tiene que cumplirse siempre.
-  const porGrupo = {}
-  for (const c of chunks) {
-    const k = c.slug
-    porGrupo[k] = (porGrupo[k] ?? 0) + 1
+  // El tope se aplica solo cuando hay competencia: si el segundo trámite quedó
+  // a más de DELTA_COMPETENCIA del top-1, es correcto que un solo trámite llene
+  // el contexto. Solo se controla el caso con competencia.
+  const hayCompetencia = pool.some(
+    (c) => c.slug !== pool[0].slug && c.similarity >= pool[0].similarity - DELTA_COMPETENCIA,
+  )
+  if (hayCompetencia) {
+    const porGrupo = {}
+    for (const c of chunks) porGrupo[c.slug] = (porGrupo[c.slug] ?? 0) + 1
+    if (Object.values(porGrupo).some((n) => n > MAX_CHUNKS_POR_TRAMITE)) violaTope += 1
+  } else {
+    sinCompetencia += 1
   }
-  if (Object.values(porGrupo).some((n) => n > MAX_CHUNKS_POR_TRAMITE)) violaTope += 1
 
   const tramitesTop5Plano = [...new Set(pool.slice(0, 5).map((c) => c.slug))].length
   const tramitesConTope = [...new Set(chunks.map((c) => c.slug))].length
@@ -73,6 +81,7 @@ console.table(resumen)
 console.log(`chunks institucionales devueltos : ${institucionales} (esperado 0)`)
 console.log(`fuentes sin slug                 : ${sinSlug} (esperado 0)`)
 console.log(`consultas que violan el tope     : ${violaTope} (esperado 0)`)
+console.log(`consultas sin competencia (1 tramite llena el contexto): ${sinCompetencia}/${CONSULTAS.length}`)
 console.log(`consultas bajo MIN_SIMILARITY    : ${bajoUmbral}/${CONSULTAS.length}`)
 
 // Cobertura del contenido curado migrado desde v1, y del caso de demo del
