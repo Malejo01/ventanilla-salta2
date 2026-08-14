@@ -1,4 +1,6 @@
-import { Fragment } from "react"
+"use client"
+
+import { Fragment, useState } from "react"
 
 // Renderiza texto plano del modelo con soporte para:
 // - listas numeradas (1. 2. 3.)
@@ -6,6 +8,9 @@ import { Fragment } from "react"
 // - negrita **texto**
 // - párrafos
 // No usamos una librería de markdown para mantener el control tipográfico y la accesibilidad.
+
+// Cuántos ítems se muestran antes de plegar el resto detrás de "Ver más".
+const ITEMS_VISIBLES = 3
 
 function renderInline(text: string, keyPrefix: string) {
   // Divide por **negrita**
@@ -73,15 +78,59 @@ function parseBlocks(text: string): Block[] {
   return blocks
 }
 
+// Lista con los ítems que exceden ITEMS_VISIBLES plegados detrás de un botón.
+//
+// Antes el resto se ocultaba con el texto "Hay N punto(s) más. Si querés, te los
+// detallo.", que se leía como si lo estuviera diciendo Tuki: la persona
+// respondía que sí y no pasaba nada, porque era la interfaz truncando, no el
+// asistente ofreciendo. Ahora es un control de interfaz explícito.
+function ListaPlegable({
+  items,
+  kind,
+  keyPrefix,
+}: {
+  items: string[]
+  kind: "ol" | "ul"
+  keyPrefix: string
+}) {
+  const [expandida, setExpandida] = useState(false)
+  const ocultos = Math.max(0, items.length - ITEMS_VISIBLES)
+  const visibles = expandida ? items : items.slice(0, ITEMS_VISIBLES)
+
+  return (
+    <div className="space-y-2 rounded-xl bg-secondary/35 p-3">
+      {kind === "ol" ? (
+        visibles.map((item, j) => (
+          <p key={j} className="text-pretty text-[0.98rem] leading-relaxed">
+            {renderInline(`Paso ${j + 1}: ${item.trim()}`, `${keyPrefix}-${j}`)}
+          </p>
+        ))
+      ) : (
+        <ul className="list-disc space-y-1.5 pl-5 marker:text-muted-foreground">
+          {visibles.map((item, j) => (
+            <li key={j} className="text-pretty text-[0.98rem] leading-relaxed">
+              {renderInline(item.trim(), `${keyPrefix}-${j}`)}
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {ocultos > 0 && (
+        <button
+          type="button"
+          onClick={() => setExpandida((v) => !v)}
+          aria-expanded={expandida}
+          className="rounded text-sm font-medium text-primary underline underline-offset-2 transition-colors hover:text-primary/80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+        >
+          {expandida ? "Ver menos" : `Ver ${ocultos} ${ocultos === 1 ? "punto" : "puntos"} más`}
+        </button>
+      )}
+    </div>
+  )
+}
+
 export function FormattedText({ text }: { text: string }) {
   const blocks = parseBlocks(text)
-
-  const toFriendlyLines = (items: string[], kind: "ol" | "ul") => {
-    const visible = items.slice(0, 3)
-    return visible.map((item, idx) =>
-      kind === "ol" ? `Paso ${idx + 1}: ${item.trim()}` : `Dato clave: ${item.trim()}`,
-    )
-  }
 
   return (
     <div className="space-y-4 leading-relaxed text-foreground">
@@ -93,40 +142,7 @@ export function FormattedText({ text }: { text: string }) {
             </p>
           )
         }
-        if (block.type === "ol") {
-          const friendlyLines = toFriendlyLines(block.items, "ol")
-          const hiddenCount = Math.max(0, block.items.length - friendlyLines.length)
-          return (
-            <div key={i} className="space-y-2 rounded-xl bg-secondary/35 p-3">
-              {friendlyLines.map((line, j) => (
-                <p key={j} className="text-pretty text-[0.98rem] leading-relaxed">
-                  {renderInline(line, `ol-${i}-${j}`)}
-                </p>
-              ))}
-              {hiddenCount > 0 && (
-                <p className="text-sm text-muted-foreground">
-                  Hay {hiddenCount} punto(s) más. Si querés, te los detallo.
-                </p>
-              )}
-            </div>
-          )
-        }
-        const friendlyLines = toFriendlyLines(block.items, "ul")
-        const hiddenCount = Math.max(0, block.items.length - friendlyLines.length)
-        return (
-          <div key={i} className="space-y-2 rounded-xl bg-secondary/35 p-3">
-            {friendlyLines.map((line, j) => (
-              <p key={j} className="text-pretty text-[0.98rem] leading-relaxed">
-                {renderInline(line, `ul-${i}-${j}`)}
-              </p>
-            ))}
-            {hiddenCount > 0 && (
-              <p className="text-sm text-muted-foreground">
-                Hay {hiddenCount} punto(s) más. Si querés, te los detallo.
-              </p>
-            )}
-          </div>
-        )
+        return <ListaPlegable key={i} items={block.items} kind={block.type} keyPrefix={`${block.type}-${i}`} />
       })}
     </div>
   )

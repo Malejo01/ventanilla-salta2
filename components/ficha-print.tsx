@@ -30,9 +30,14 @@ export function FichaPrint({ message }: { message: ChatMessage | null }) {
           <ul style={{ paddingLeft: "16pt" }}>
             {message.fuentes.map((f, i) => (
               <li key={i} style={{ marginBottom: "8pt" }}>
-                <strong>{f.tramite}</strong> ({CATEGORIA_LABEL[f.categoria] ?? f.categoria})
-                <br />
-                {f.url}
+                <strong>{f.subtramite ? `${f.tramite} — ${f.subtramite}` : f.tramite}</strong>{" "}
+                ({CATEGORIA_LABEL[f.categoria] ?? f.categoria})
+                {f.url && (
+                  <>
+                    <br />
+                    {f.url}
+                  </>
+                )}
                 {f.ultima_verificacion && (
                   <>
                     <br />

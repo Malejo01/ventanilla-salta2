@@ -86,7 +86,7 @@ export function BotMessage({
             </h3>
             <div className="grid gap-2.5 sm:grid-cols-2">
               {message.fuentes!.map((fuente, i) => (
-                <SourceChip key={`${fuente.url}-${i}`} fuente={fuente} index={i} />
+                <SourceChip key={`${fuente.slug ?? fuente.tramite}-${fuente.subtramite ?? ""}-${i}`} fuente={fuente} index={i} />
               ))}
             </div>
           </div>
