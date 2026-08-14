@@ -7,12 +7,13 @@
 // por consulta): usar aquel para regresión rápida y este para revisar respuestas.
 //
 // Uso: node qa/test-generacion-v2.mjs [n]     (n = cuántas consultas, default todas)
-import { CONSULTAS, embed, rpcMatch, construirContexto, construirFuentes, tituloChunk, generar } from './lib-corpus.mjs'
+import { CONSULTAS, recuperar, construirContexto, construirFuentes, tituloChunk, generar } from './lib-corpus.mjs'
 
 const cuantas = Number(process.argv[2]) || CONSULTAS.length
 
 for (const [i, consulta] of CONSULTAS.slice(0, cuantas).entries()) {
-  const chunks = await rpcMatch(await embed(consulta, 'RETRIEVAL_QUERY'))
+  // recuperar() aplica el tope de chunks por trámite, igual que recuperarV2().
+  const { chunks } = await recuperar(consulta)
   const respuesta = await generar(consulta, construirContexto(chunks))
   const noSabe = /no tengo informaci[oó]n oficial/i.test(respuesta)
   const fuentes = noSabe ? [] : construirFuentes(chunks)
