@@ -478,6 +478,33 @@ async function recuperarV2(embedding: number[]): Promise<Retrieval> {
     .map((c) => `[Fuente: ${tituloChunkV2(c)} | ${c.url_origen ?? ""}]\n${c.texto_display ?? ""}\n---`)
     .join("\n")
 
+  // Diagnóstico de retrieval. Apagado salvo que DIAG_RETRIEVAL === "true".
+  //
+  // Imprime las tres etapas por separado: el pool crudo que devolvió la RPC,
+  // qué sobrevivió al tope por trámite, y el contexto exacto que recibe Gemini.
+  // Sirve para responder "¿por qué la respuesta no menciona X?" sin adivinar:
+  // distingue si X nunca entró al pool (problema de corpus o de embedding), si
+  // entró pero el tope lo descartó (problema de diversificación), o si estaba
+  // en el contexto y el modelo lo ignoró (problema de prompt).
+  //
+  // Un script de qa aparte no sirve para esto: replica el pipeline y puede
+  // divergir del que corre de verdad. Acá se instrumenta el código real.
+  if (process.env.DIAG_RETRIEVAL === "true") {
+    console.log(`\n[DIAG] pool devuelto por la RPC: ${pool.length} filas (se pidieron ${POOL_COUNT})`)
+    pool.forEach((c, i) => {
+      console.log(
+        `[DIAG]   ${String(i + 1).padStart(2)}. ${c.similarity.toFixed(4)} ${c.slug} | sub=${c.subtramite ?? "-"} | secc=${c.titulo_seccion ?? "-"}`,
+      )
+    })
+    console.log(`[DIAG] tras diversificarPorTramite (max ${MAX_CHUNKS_POR_TRAMITE}/slug, corte ${MATCH_COUNT}): ${chunks.length}`)
+    chunks.forEach((c, i) => {
+      console.log(`[DIAG]   ${i + 1}. ${c.similarity.toFixed(4)} ${c.slug} | sub=${c.subtramite ?? "-"} | secc=${c.titulo_seccion ?? "-"}`)
+    })
+    console.log(`[DIAG] contexto final (${contexto.length} chars):`)
+    console.log(contexto.split("\n").map((l) => `[DIAG] | ${l}`).join("\n"))
+    console.log("[DIAG] fin\n")
+  }
+
   return {
     contexto,
     mejorSimilitud: chunks[0]?.similarity ?? 0,
