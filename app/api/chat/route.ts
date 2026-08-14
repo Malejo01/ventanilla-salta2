@@ -494,11 +494,16 @@ async function recuperarV2(embedding: number[]): Promise<Retrieval> {
         if (vistos.has(clave)) continue
         vistos.add(clave)
 
+        // Sin URL oficial (pasa con parte del corpus curado) se omite la clave
+        // en vez de mandar "": un string vacío termina en <a href=""> que
+        // recarga la propia página. El cliente ya trata `url` como opcional.
+        const url = c.url_origen?.trim()
+
         fuentes.push({
           tramite: c.titulo_tramite?.trim() || slugToNombre(slug),
           subtramite,
           slug,
-          url: c.url_origen ?? "",
+          ...(url ? { url } : {}),
           categoria: c.categorias?.[0] ?? "general",
           ultima_verificacion: c.fecha_scraping ?? null,
         })

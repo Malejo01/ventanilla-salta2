@@ -1,6 +1,10 @@
 export type Fuente = {
   tramite: string
-  url: string
+  // Opcional: hay trámites del corpus curado sin URL oficial (por ejemplo
+  // `salta-activa-plataformas`). En esos casos la clave se omite del JSON en
+  // vez de mandar string vacío, que renderizaba un <a href=""> apuntando a la
+  // propia página.
+  url?: string
   categoria: string
   ultima_verificacion: string | null
   // Solo se pueblan con el corpus v2 (USAR_CORPUS_V2). Opcionales para que el
