@@ -128,12 +128,34 @@ function comparteSubcadenaLarga(a: string, b: string, minLen = 41): boolean {
   return false
 }
 
+const MARCA_REGLAS = "REGLAS INQUEBRANTABLES"
+
+// La comparación difusa va contra el CUERPO DE REGLAS, no contra el prompt
+// entero. La cabecera dice quién es Tuki y para qué sirve ("...ayudar a la gente
+// a entender trámites municipales y provinciales de Salta"), que es exactamente
+// lo que la regla 4 le pide contestar cuando lo quieren sacar de su rol. Esa
+// respuesta legítima ("solo puedo ayudarte con trámites municipales y
+// provinciales de Salta") comparte más de 41 caracteres con la cabecera, así que
+// se descartaba como fuga y el ciudadano recibía el mensaje de "no tengo
+// información" en su lugar. Medido sobre 18 respuestas a "colonia municipal": 3
+// buenas descartadas, 0 después de este corte.
+//
+// Recortar la cabecera no afloja el detector: si el modelo llega a recitarla, la
+// sigue tomando el chequeo exacto de `indicadores`, que incluye su primera frase
+// textual. Y el umbral de 41 caracteres queda intacto para el cuerpo de reglas,
+// que es lo que reproduce una fuga de verdad. Si algún día desaparece la marca,
+// se compara el prompt completo: se falla del lado estricto.
+function cuerpoDeReglas(prompt: string): string {
+  const desde = prompt.indexOf(MARCA_REGLAS)
+  return desde === -1 ? prompt : prompt.slice(desde)
+}
+
 function hayFugaDePrompt(respuesta: string): boolean {
   const respuestaNorm = normalizarTexto(respuesta)
-  const promptNorm = normalizarTexto(SYSTEM_PROMPT)
+  const promptNorm = normalizarTexto(cuerpoDeReglas(SYSTEM_PROMPT))
 
   const indicadores = [
-    "REGLAS INQUEBRANTABLES",
+    MARCA_REGLAS,
     'Sos "Tuki", el asistente ciudadano oficial',
   ]
 
