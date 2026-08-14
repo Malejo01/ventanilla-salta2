@@ -29,7 +29,7 @@ Everything of substance happens in two places:
   2. Load the whole knowledge base from Supabase (`tramites` + `tramite_chunks` tables) into an in-memory module-level cache (`kbCache`, 5 min TTL).
   3. Compute cosine similarity in plain JS against every chunk (no pgvector RPC — deliberate, see comment in the file: ~150 chunks is small enough that this is simpler and avoids a DB-side function). Take top 5.
   4. If best similarity < `MIN_SIMILARITY` (0.5), short-circuit with "no tengo información oficial" and no sources.
-  5. Build a context string with `[Fuente: slug | url]` headers per chunk and call `gemini-2.5-flash` with a strict Spanish system prompt (`SYSTEM_PROMPT`) that forbids answering outside the provided context, mandates citing sources, and instructs the model to resist prompt injection / role-change attempts from the user.
+  5. Build a context string with `[Fuente: slug | url]` headers per chunk and call `gemini-2.5-flash` with a strict Spanish system prompt (`SYSTEM_PROMPT`) that forbids answering outside the provided context, forbids inline source citations in the answer body (attribution is rendered by the clients from the structured `fuentes` field; URLs that are functionally part of the trámite — online forms, downloads — still belong in the body), and instructs the model to resist prompt injection / role-change attempts from the user.
   6. Enrich returned sources with `ultima_verificacion` (last-verified date) from `tramites`, and suppress sources entirely if the model's answer indicates it didn't know.
 
   Also implements a simple in-memory per-IP rate limiter (20 req/min) — explicitly noted in the code as inaccurate across multiple serverless instances, acceptable for demo scope only.
