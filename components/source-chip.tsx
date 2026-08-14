@@ -6,8 +6,14 @@ import { type Fuente, CATEGORIA_LABEL, formatFecha } from "@/lib/types"
 
 export function SourceChip({ fuente, index }: { fuente: Fuente; index: number }) {
   const fecha = formatFecha(fuente.ultima_verificacion)
-  const categoria = CATEGORIA_LABEL[fuente.categoria] ?? fuente.categoria
   const url = fuente.url?.trim()
+
+  // 16 de los 133 trámites del corpus no tienen categorías cargadas y caen al
+  // fallback "general", que como badge no aporta nada y encima se ve en
+  // minúscula al lado de títulos capitalizados. En esos casos no se muestra.
+  const categoriaCruda = fuente.categoria?.trim() ?? ""
+  const hayCategoria = categoriaCruda !== "" && categoriaCruda.toLowerCase() !== "general"
+  const categoria = CATEGORIA_LABEL[categoriaCruda] ?? categoriaCruda
 
   // Dos subtrámites del mismo trámite comparten título y URL: sin el subtrámite
   // se veían como dos chips duplicados, uno al lado del otro.
@@ -23,15 +29,19 @@ export function SourceChip({ fuente, index }: { fuente: Fuente; index: number })
 
   const contenido = (
     <>
-      <div className="flex items-center gap-2">
-        <span className="rounded-full bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary">{categoria}</span>
-        {url && (
-          <ExternalLink
-            className="ml-auto size-4 shrink-0 text-muted-foreground transition-colors group-hover:text-primary"
-            aria-hidden="true"
-          />
-        )}
-      </div>
+      {(hayCategoria || url) && (
+        <div className="flex items-center gap-2">
+          {hayCategoria && (
+            <span className="rounded-full bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary">{categoria}</span>
+          )}
+          {url && (
+            <ExternalLink
+              className="ml-auto size-4 shrink-0 text-muted-foreground transition-colors group-hover:text-primary"
+              aria-hidden="true"
+            />
+          )}
+        </div>
+      )}
       <span className="font-medium leading-snug text-foreground">{titulo}</span>
       {fecha && <span className="text-sm text-muted-foreground">verificado el {fecha}</span>}
     </>
