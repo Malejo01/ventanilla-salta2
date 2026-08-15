@@ -303,26 +303,50 @@ export function agruparCatalogo(filas: FilaCatalogo[]): Catalogo {
     new Map([...porCategoria.entries()].map(([c, ts]) => [c, new Set(ts.map((t) => t.slug))])),
   )
 
+  // A cada trámite se le asigna UNA sola área para ejemplificarlo: la más chica
+  // de las suyas, que es donde más lo identifica.
+  //
+  // "Exenciones Impositivas" está en Automotor (53), Inmobiliarios (25),
+  // Licencia de conducir (24) y Exenciones (1), y salía de ejemplo en las
+  // cuatro: la respuesta lo repetía cuatro veces y daba la impresión de que el
+  // catálogo cuenta el mismo trámite varias veces. Ahora se ejemplifica solo en
+  // Exenciones, que con un único trámite es la que de verdad lo describe.
+  //
+  // Es solo para elegir ejemplos: el trámite sigue perteneciendo a sus cuatro
+  // categorías y `cantidad` las sigue contando a todas.
+  const tamanoArea = new Map([...porCategoria.entries()].map(([c, ts]) => [c, ts.length]))
+  const areaPropia = new Map<string, string>()
+  for (const t of porSlug.values()) {
+    const suyas = (t.categorias.length ? t.categorias : ["Otros trámites"]).map((c) => capitalizar(c.trim()))
+    // Desempate alfabético para que la elección sea estable entre cargas.
+    const elegida = [...suyas].sort(
+      (a, b) => (tamanoArea.get(a) ?? 0) - (tamanoArea.get(b) ?? 0) || a.localeCompare(b, "es"),
+    )[0]
+    if (elegida) areaPropia.set(t.slug, elegida)
+  }
+
   const areas: CatalogoArea[] = [...porCategoria.entries()]
     .map(([categoria, tramites]) => ({
       categoria,
       cantidad: tramites.length,
       ...(subareas.has(categoria) ? { subareaDe: subareas.get(categoria)! } : {}),
       // Orden de los ejemplos:
-      //   1. Los que el municipio marca como más consultados.
-      //   2. Los que están en MENOS categorías. Un ejemplo sirve para que la
-      //      persona reconozca el área, así que uno que pertenece a cuatro no
-      //      identifica ninguna: "Exenciones Impositivas" está en Automotor,
-      //      Inmobiliarios, Licencia de conducir y Exenciones, y sin este
-      //      criterio encabezaba tres de las cuatro.
-      //   3. Los que tienen más chunks (proxy de trámite sustancial vs. ficha
+      //   1. Los que tienen a ESTA área como propia (ver `areaPropia`). Es lo
+      //      que evita que el mismo trámite se repita como ejemplo en cuatro
+      //      áreas distintas.
+      //   2. Los que el municipio marca como más consultados.
+      //   3. Los que están en menos categorías.
+      //   4. Los que tienen más chunks (proxy de trámite sustancial vs. ficha
       //      de dos líneas).
-      //   4. A igualdad, el orden del corpus.
+      //   5. A igualdad, el orden del corpus.
+      // Es un orden, no un filtro: un área con menos de 3 trámites propios se
+      // completa igual con los compartidos, en vez de quedarse sin ejemplos.
       // Sin nada de esto el primer ejemplo de Automotor salía "Eximición de la
       // Tasa de Protección Ambiental aplicado a vehículos con 20 años o más".
       ejemplos: [...tramites]
         .sort(
           (a, b) =>
+            Number(areaPropia.get(b.slug) === categoria) - Number(areaPropia.get(a.slug) === categoria) ||
             Number(b.masConsultado) - Number(a.masConsultado) ||
             a.categorias.length - b.categorias.length ||
             b.chunks - a.chunks ||
