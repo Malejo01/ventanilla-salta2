@@ -119,6 +119,7 @@ export default function Page() {
             pregunta,
             texto: data.respuesta ?? '',
             fuentes: data.fuentes ?? [],
+            modo: data.modo === 'catalogo' ? 'catalogo' : undefined,
             estado: 'ok',
           },
         ])

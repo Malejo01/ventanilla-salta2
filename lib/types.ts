@@ -20,6 +20,13 @@ export type ChatMessage = {
   texto: string
   fuentes?: Fuente[]
   estado?: "error" | "rate_limit" | "ok"
+  // Qué camino del backend produjo la respuesta. Ausente = el camino normal de
+  // retrieval. "catalogo" son las respuestas a "¿qué trámites puedo hacer?", que
+  // se arman con el listado completo de áreas en vez de con chunks recuperados
+  // (por eso vienen sin fuentes) y que la interfaz no debe plegar: ahí la lista
+  // ES la respuesta. Campo aditivo — un cliente que no lo conozca lo ignora y
+  // sigue funcionando igual que antes.
+  modo?: "catalogo"
 }
 
 export const CATEGORIA_LABEL: Record<string, string> = {

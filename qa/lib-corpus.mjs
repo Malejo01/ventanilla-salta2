@@ -169,14 +169,19 @@ export function systemPrompt() {
   return m[1]
 }
 
-export async function generar(pregunta, contexto) {
+// `instruccionExtra` espeja el tercer parámetro de generarRespuesta() en
+// app/api/chat/route.ts: se suma como una segunda parte de la systemInstruction,
+// después del SYSTEM_PROMPT. Lo usa el camino de catálogo.
+export async function generar(pregunta, contexto, instruccionExtra) {
   const res = await fetch(
     `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${env.GEMINI_API_KEY}`,
     {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        systemInstruction: { parts: [{ text: systemPrompt() }] },
+        systemInstruction: {
+          parts: [{ text: systemPrompt() }, ...(instruccionExtra ? [{ text: instruccionExtra }] : [])],
+        },
         contents: [{ role: 'user', parts: [{ text: `CONTEXTO:\n${contexto}\n\nPREGUNTA DEL CIUDADANO:\n${pregunta}` }] }],
         generationConfig: { temperature: 0.2, thinkingConfig: { thinkingBudget: 0 } },
       }),

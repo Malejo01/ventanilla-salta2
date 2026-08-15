@@ -1,6 +1,14 @@
 import { type NextRequest, NextResponse } from "next/server"
 import { supabaseAdmin, type MatchedChunk } from "@/lib/supabase-admin"
 import type { Fuente } from "@/lib/types"
+import {
+  agruparCatalogo,
+  construirContextoCatalogo,
+  esPreguntaDeCatalogo,
+  INSTRUCCION_CATALOGO,
+  type Catalogo,
+  type FilaCatalogo,
+} from "@/lib/catalogo"
 
 export const runtime = "nodejs"
 export const dynamic = "force-dynamic"
@@ -608,6 +616,72 @@ async function recuperarV2(embedding: number[]): Promise<Retrieval> {
   }
 }
 
+// ---------------------------------------------------------------------------
+// CAMINO DE CATÁLOGO — parte que toca la base.
+// La lógica pura (clasificador, agregación, instrucción) vive en lib/catalogo.ts
+// para poder testearla sin red; acá queda solo la consulta y su caché.
+// ---------------------------------------------------------------------------
+
+// El corpus no cambia entre requests: se carga con los scripts de qa/, nunca
+// desde la app. Por eso el TTL es largo comparado con el de la KB v1. Si se
+// reescriben categorías en caliente (`node qa/completar-categorias.mjs`) hay que
+// esperar este rato o redeployar para verlo.
+const CATALOGO_TTL_MS = 30 * 60_000
+
+// Tope explícito de filas: PostgREST corta en 1000 por defecto y lo hace EN
+// SILENCIO — el mismo problema que motivó la migración a v2. Hoy la tabla tiene
+// ~758 filas; el límite alto más el aviso de abajo hacen que, si el corpus
+// crece, se note en los logs en vez de recortar el catálogo sin decir nada.
+const CATALOGO_MAX_FILAS = 5000
+
+let catalogoCache: { data: Catalogo; loadedAt: number } | null = null
+
+async function cargarCatalogo(): Promise<Catalogo> {
+  const now = Date.now()
+  if (catalogoCache && now - catalogoCache.loadedAt < CATALOGO_TTL_MS) {
+    return catalogoCache.data
+  }
+
+  let filas: FilaCatalogo[] | null = null
+
+  for (let attempt = 1; attempt <= EXTERNAL_RETRY_ATTEMPTS; attempt += 1) {
+    const { data, error } = await supabaseAdmin
+      .from("tramite_chunks_v2")
+      .select("slug, titulo_tramite, categorias, es_mas_consultado")
+      // Mismo criterio que `excluir_institucional` en la RPC de retrieval: el
+      // organigrama y las competencias de área no son trámites.
+      .neq("tipo_contenido", "institucional")
+      .limit(CATALOGO_MAX_FILAS)
+
+    if (!error) {
+      filas = (data ?? []) as FilaCatalogo[]
+      break
+    }
+
+    if (attempt === EXTERNAL_RETRY_ATTEMPTS) {
+      console.log("[v0] Error cargando el catálogo:", error.message)
+      throw new Error("catalogo_failed")
+    }
+
+    const retryDelay = EXTERNAL_RETRY_BASE_MS * attempt
+    console.log(
+      `[v0] Error transitorio cargando el catálogo, reintento ${attempt}/${EXTERNAL_RETRY_ATTEMPTS} en ${retryDelay}ms`,
+    )
+    await sleep(retryDelay)
+  }
+
+  const rows = filas ?? []
+  if (rows.length >= CATALOGO_MAX_FILAS) {
+    console.log(
+      `[CATALOGO] Se alcanzó el tope de ${CATALOGO_MAX_FILAS} filas: el catálogo puede estar incompleto. Subí CATALOGO_MAX_FILAS.`,
+    )
+  }
+
+  const data = agruparCatalogo(rows)
+  catalogoCache = { data, loadedAt: now }
+  return data
+}
+
 async function embedPregunta(pregunta: string, taskType?: string): Promise<number[]> {
   const res = await fetchWithRetry(
     `https://generativelanguage.googleapis.com/v1beta/models/${EMBED_MODEL}:embedContent?key=${GEMINI_API_KEY}`,
@@ -640,14 +714,24 @@ async function embedPregunta(pregunta: string, taskType?: string): Promise<numbe
   return values
 }
 
-async function generarRespuesta(pregunta: string, contexto: string): Promise<string> {
+// `instruccionExtra` se agrega como una segunda parte de la systemInstruction,
+// después del SYSTEM_PROMPT y sin tocarlo. Hoy lo usa solo el camino de catálogo
+// (ver INSTRUCCION_CATALOGO en lib/catalogo.ts), que necesita levantar el límite
+// de extensión para poder nombrar todas las áreas.
+async function generarRespuesta(
+  pregunta: string,
+  contexto: string,
+  instruccionExtra?: string,
+): Promise<string> {
   const res = await fetchWithRetry(
     `https://generativelanguage.googleapis.com/v1beta/models/${GEN_MODEL}:generateContent?key=${GEMINI_API_KEY}`,
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
+        systemInstruction: {
+          parts: [{ text: SYSTEM_PROMPT }, ...(instruccionExtra ? [{ text: instruccionExtra }] : [])],
+        },
         contents: [
           {
             role: "user",
@@ -717,6 +801,52 @@ export async function POST(req: NextRequest) {
 
   try {
     const v2 = usarCorpusV2()
+
+    // PASO 0 — ¿Es una pregunta de catálogo ("¿qué trámites puedo hacer?")?
+    // Va antes del embedding: si lo es, el retrieval vectorial no aporta nada y
+    // nos ahorramos también su llamada a Gemini.
+    //
+    // Solo en v2: el catálogo se arma leyendo `tramite_chunks_v2`, así que si
+    // alguien apaga el flag porque v2 falló, este camino se apaga con él y el
+    // rollback sigue siendo el camino viejo completo, sin mitades.
+    if (v2 && esPreguntaDeCatalogo(pregunta.trim())) {
+      // Falla blanda: si el catálogo no se puede leer, seguimos por el retrieval
+      // normal. Una respuesta parcial es mejor que un 500 en la demo.
+      let catalogo: Catalogo | null = null
+      try {
+        catalogo = await cargarCatalogo()
+      } catch (err) {
+        console.log("[CATALOGO] No se pudo armar el catálogo, sigo por retrieval:", (err as Error).message)
+      }
+
+      if (catalogo && catalogo.areas.length > 0) {
+        console.log(
+          `[CATALOGO] camino de catálogo: ${catalogo.areas.length} áreas, ${catalogo.totalTramites} trámites`,
+        )
+        const respuesta = await generarRespuesta(
+          pregunta.trim(),
+          construirContextoCatalogo(catalogo),
+          INSTRUCCION_CATALOGO,
+        )
+
+        if (hayFugaDePrompt(respuesta)) {
+          console.log("[SEGURIDAD] Se bloqueo una posible fuga de system prompt en el camino de catálogo.")
+          return NextResponse.json({
+            respuesta: "No tengo información oficial cargada sobre eso todavía.",
+            fuentes: [],
+          })
+        }
+
+        // Sin chunks recuperados no hay fuentes que citar: el catálogo se arma
+        // con metadatos de toda la tabla, no con documentos puntuales. Los tres
+        // clientes tratan `fuentes` vacío como "no mostrar la sección".
+        //
+        // `modo` es aditivo: el que no lo conozca lo ignora. Acá lo usa el
+        // frontend para no plegar la lista de áreas detrás de "Ver N más", que
+        // en una respuesta de catálogo esconde justo lo que se preguntó.
+        return NextResponse.json({ respuesta, fuentes: [], modo: "catalogo" })
+      }
+    }
 
     // PASO 1 — Embedding de la consulta
     const embedding = await embedPregunta(pregunta.trim(), v2 ? "RETRIEVAL_QUERY" : undefined)

@@ -77,7 +77,7 @@ export function BotMessage({
       </div>
 
       <div className="px-5 py-5 sm:px-6 sm:py-6">
-        <FormattedText text={message.texto} />
+        <FormattedText text={message.texto} plegable={message.modo !== "catalogo"} />
 
         {tieneFuentes && (
           <div className="mt-6">

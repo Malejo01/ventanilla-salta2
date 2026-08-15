@@ -88,14 +88,16 @@ function ListaPlegable({
   items,
   kind,
   keyPrefix,
+  plegable,
 }: {
   items: string[]
   kind: "ol" | "ul"
   keyPrefix: string
+  plegable: boolean
 }) {
   const [expandida, setExpandida] = useState(false)
-  const ocultos = Math.max(0, items.length - ITEMS_VISIBLES)
-  const visibles = expandida ? items : items.slice(0, ITEMS_VISIBLES)
+  const ocultos = plegable ? Math.max(0, items.length - ITEMS_VISIBLES) : 0
+  const visibles = expandida || !plegable ? items : items.slice(0, ITEMS_VISIBLES)
 
   return (
     <div className="space-y-2 rounded-xl bg-secondary/35 p-3">
@@ -129,7 +131,11 @@ function ListaPlegable({
   )
 }
 
-export function FormattedText({ text }: { text: string }) {
+// `plegable` en false apaga el plegado de listas. Lo usa la respuesta de
+// catálogo ("¿qué trámites puedo hacer?"): ahí la lista de áreas no es un anexo
+// de la respuesta, ES la respuesta, y mostrar 3 de 16 detrás de "Ver 13 puntos
+// más" contesta justo lo contrario de lo que se preguntó.
+export function FormattedText({ text, plegable = true }: { text: string; plegable?: boolean }) {
   const blocks = parseBlocks(text)
 
   return (
@@ -142,7 +148,15 @@ export function FormattedText({ text }: { text: string }) {
             </p>
           )
         }
-        return <ListaPlegable key={i} items={block.items} kind={block.type} keyPrefix={`${block.type}-${i}`} />
+        return (
+          <ListaPlegable
+            key={i}
+            items={block.items}
+            kind={block.type}
+            keyPrefix={`${block.type}-${i}`}
+            plegable={plegable}
+          />
+        )
       })}
     </div>
   )
