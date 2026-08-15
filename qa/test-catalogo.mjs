@@ -10,7 +10,7 @@
 // lib-corpus.mjs, que sí duplica `diversificarPorTramite` a mano: ahí no había
 // forma de evitarlo, acá sí, y un clasificador duplicado que se desincroniza es
 // un test que aprueba mientras producción falla.
-import { esPreguntaDeCatalogo, agruparCatalogo, construirContextoCatalogo } from '../lib/catalogo.ts'
+import { esPreguntaDeCatalogo, agruparCatalogo, construirContextoCatalogo, EJEMPLOS_POR_AREA, EJEMPLOS_MINIMOS } from '../lib/catalogo.ts'
 import { sb, generar, TODAS_LAS_CONSULTAS } from './lib-corpus.mjs'
 
 const GENERAR = process.argv.includes('--generar')
@@ -241,6 +241,48 @@ for (const s of subareas) {
   const padre = catalogo.areas.find((a) => a.categoria === s.subareaDe)
   if (padre?.subareaDe) fallo(`anidamiento en cadena: ${s.categoria} -> ${s.subareaDe} -> ${padre.subareaDe}`)
 }
+
+// Áreas suprimidas: las que no aportan ningún trámite propio (ver
+// detectarAreasSinAporte y OBSERVACIONES-CORPUS.md). La condición que no se
+// puede romper es que suprimir no pierda trámites: los que estaban en un área
+// suprimida tienen que seguir alcanzables desde otra que sí se lista.
+const listadas = new Set(catalogo.areas.map((a) => a.categoria))
+const suprimidas = [...slugsPorCategoria.keys()].filter((c) => !listadas.has(c))
+console.log(`\n  áreas suprimidas: ${suprimidas.length}`)
+for (const c of suprimidas) {
+  const suyos = slugsPorCategoria.get(c) ?? new Set()
+  const huerfanos = [...suyos].filter(
+    (s) => ![...listadas].some((l) => (slugsPorCategoria.get(l) ?? new Set()).has(s)),
+  )
+  console.log(`    · ${c} (${suyos.size} trámites) — huérfanos: ${huerfanos.length}`)
+  if (huerfanos.length) fallo(`suprimir "${c}" deja ${huerfanos.length} trámite(s) sin ninguna área`)
+  // Una subárea nunca se suprime: se muestra anidada.
+  if (catalogo.areas.some((a) => a.subareaDe === c)) fallo(`se suprimió "${c}", que es contenedora de una subárea`)
+}
+
+// Suprimir áreas no puede cambiar el total de trámites del catálogo.
+const totalCrudo = new Set([...slugsPorCategoria.values()].flatMap((s) => [...s])).size
+if (catalogo.totalTramites !== totalCrudo) {
+  fallo(`el total quedó en ${catalogo.totalTramites} pero el corpus tiene ${totalCrudo} trámites`)
+}
+
+// Cantidad de ejemplos: nunca menos del piso, nunca más del techo.
+for (const a of catalogo.areas) {
+  const tope = Math.min(EJEMPLOS_POR_AREA, a.cantidad)
+  const piso = Math.min(EJEMPLOS_MINIMOS, a.cantidad)
+  if (a.ejemplos.length < piso) fallo(`"${a.categoria}" tiene ${a.ejemplos.length} ejemplos, menos que el piso ${piso}`)
+  if (a.ejemplos.length > tope) fallo(`"${a.categoria}" tiene ${a.ejemplos.length} ejemplos, más que el tope ${tope}`)
+}
+
+// Un trámite no puede aparecer de ejemplo en dos áreas distintas: era lo que
+// hacía "Exenciones Impositivas", que encabezaba cuatro.
+const dondeAparece = new Map()
+for (const a of catalogo.areas) {
+  for (const e of a.ejemplos) dondeAparece.set(e, (dondeAparece.get(e) ?? []).concat([a.categoria]))
+}
+const repetidos = [...dondeAparece.entries()].filter(([, areas]) => areas.length > 1)
+console.log(`  ejemplos repetidos en más de un área: ${repetidos.length} (esperado 0)`)
+for (const [titulo, areas] of repetidos) fallo(`"${titulo}" aparece de ejemplo en ${areas.length} áreas: ${areas.join(', ')}`)
 
 // Ninguna categoría debe quedar con grafía descuidada (ver
 // qa/normalizar-nombres-categorias.mjs).

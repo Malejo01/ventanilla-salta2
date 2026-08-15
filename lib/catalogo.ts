@@ -178,6 +178,12 @@ export type FilaCatalogo = {
 }
 
 export const EJEMPLOS_POR_AREA = 3
+// Piso de ejemplos: siempre se muestran al menos estos, aunque no tengan señal.
+// El tercero se agrega solo si aporta (ver `ejemplosDeArea`).
+export const EJEMPLOS_MINIMOS = 2
+// Cuánto contenido tiene que tener un trámite, comparado con la mediana de su
+// área, para considerarse sustancial. Ver `ejemplosDeArea`.
+const FACTOR_SUSTANCIAL = 2
 
 // Copia local de `slugToNombre` de app/api/chat/route.ts. Se duplica para que
 // este módulo no importe nada y Node lo pueda cargar suelto (ver cabecera). Es
@@ -250,6 +256,44 @@ function detectarSubareas(porCategoria: Map<string, Set<string>>): Map<string, s
   return subareas
 }
 
+// Un área que no aporta ningún trámite propio al catálogo no es una puerta de
+// entrada: es un rótulo. "Exenciones" tiene un solo trámite ("Exenciones
+// Impositivas") que además está en Automotor, Inmobiliarios y Licencia de
+// conducir, así que listarla suma una línea que no lleva a ningún lado — y
+// encima promete de más, porque las 13 exenciones reales del corpus viven en
+// otras áreas (ver OBSERVACIONES-CORPUS.md).
+//
+// La regla es derivada, no una lista de exclusiones: se suprime el área cuyos
+// trámites están TODOS también en otra área. Si el municipio recategoriza y le
+// da un trámite propio, vuelve a aparecer sola.
+//
+// Dos salvedades:
+//   · Las subáreas no se suprimen aunque no tengan trámites propios. "Licencia
+//     de conducir" y "Taxis y remises" están enteras dentro de Automotor, pero
+//     se muestran anidadas y ahí sí orientan.
+//   · Nunca se suprime si eso dejaría un trámite sin ninguna área. Se evalúa de
+//     la más chica a la más grande contra el conjunto que va sobreviviendo, así
+//     el resultado no depende del orden del Map.
+function detectarAreasSinAporte(
+  porCategoria: Map<string, Set<string>>,
+  subareas: Map<string, string>,
+): Set<string> {
+  const suprimidas = new Set<string>()
+  const candidatas = [...porCategoria.entries()]
+    .filter(([c]) => !subareas.has(c))
+    .sort((a, b) => a[1].size - b[1].size || a[0].localeCompare(b[0], "es"))
+
+  for (const [c, tramites] of candidatas) {
+    const tieneCobertura = [...tramites].every((t) =>
+      [...porCategoria.entries()].some(
+        ([otra, otros]) => otra !== c && !suprimidas.has(otra) && otros.has(t),
+      ),
+    )
+    if (tieneCobertura) suprimidas.add(c)
+  }
+  return suprimidas
+}
+
 export function agruparCatalogo(filas: FilaCatalogo[]): Catalogo {
   // Un trámite = un slug, aunque tenga 29 chunks. `es_mas_consultado` viene por
   // chunk: alcanza con que UNO lo tenga para que el trámite lo sea.
@@ -314,6 +358,14 @@ export function agruparCatalogo(filas: FilaCatalogo[]): Catalogo {
   //
   // Es solo para elegir ejemplos: el trámite sigue perteneciendo a sus cuatro
   // categorías y `cantidad` las sigue contando a todas.
+  //
+  // Se calcula sobre TODAS las áreas, incluidas las que después se suprimen, y
+  // eso es a propósito. Si el área propia de un trámite se suprimió, el trámite
+  // no se promueve a la siguiente: queda sin área propia y por lo tanto sin
+  // aparecer de ejemplo. Que su área haya sido suprimida significa justamente
+  // que el trámite es tan genérico que vive en varias, así que no es la cara de
+  // ninguna. Es lo que pasa hoy con "Exenciones Impositivas": deja de encabezar
+  // Automotor, Inmobiliarios y Licencia de conducir, donde solo confundía.
   const tamanoArea = new Map([...porCategoria.entries()].map(([c, ts]) => [c, ts.length]))
   const areaPropia = new Map<string, string>()
   for (const t of porSlug.values()) {
@@ -325,42 +377,82 @@ export function agruparCatalogo(filas: FilaCatalogo[]): Catalogo {
     if (elegida) areaPropia.set(t.slug, elegida)
   }
 
+  // Orden de los ejemplos:
+  //   1. Los que tienen a ESTA área como propia (ver `areaPropia`). Es lo que
+  //      evita que el mismo trámite se repita como ejemplo en cuatro áreas.
+  //   2. Los que el municipio marca como más consultados.
+  //   3. Los que están en menos categorías.
+  //   4. Los que tienen más chunks (proxy de trámite sustancial).
+  //   5. A igualdad, el orden del corpus.
+  // Es un orden, no un filtro: un área sin suficientes trámites propios se
+  // completa con los compartidos en vez de quedarse sin ejemplos.
+  //
+  // Y CUÁNTOS mostrar: 2 siempre, el tercero solo si aporta.
+  //
+  // El desempate por chunks es plano en casi todo el corpus — la enorme mayoría
+  // de los trámites tiene exactamente 6 — así que en un área grande el tercer
+  // lugar lo termina ganando cualquier trámite con más texto, no el más
+  // reconocible. En Automotor eso daba "Exención IRA – Licencia Habilitante"
+  // (10 chunks) como cara visible de un área de 53 trámites.
+  //
+  // "Aporta" = tiene alguna señal: o el municipio lo marcó como más consultado,
+  // o tiene claramente más contenido que lo típico de su área (FACTOR_SUSTANCIAL
+  // veces la mediana). El umbral es relativo al área y no absoluto, porque la
+  // dispersión cambia mucho: en Desarrollo Social los chunks van de 3 a 29 y ahí
+  // el tercero sí distingue; en Automotor están todos pegados en 6.
+  const mediana = (ns: number[]): number => {
+    if (!ns.length) return 0
+    const s = [...ns].sort((a, b) => a - b)
+    const m = Math.floor(s.length / 2)
+    return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2
+  }
+
+  const ejemplosDeArea = (categoria: string, tramites: Tramite[]): string[] => {
+    const umbral = FACTOR_SUSTANCIAL * mediana(tramites.map((t) => t.chunks))
+    const ordenados = [...tramites].sort(
+      (a, b) =>
+        Number(areaPropia.get(b.slug) === categoria) - Number(areaPropia.get(a.slug) === categoria) ||
+        Number(b.masConsultado) - Number(a.masConsultado) ||
+        a.categorias.length - b.categorias.length ||
+        b.chunks - a.chunks ||
+        a.orden - b.orden,
+    )
+
+    const elegidos = ordenados.slice(0, EJEMPLOS_MINIMOS)
+    for (const t of ordenados.slice(EJEMPLOS_MINIMOS, EJEMPLOS_POR_AREA)) {
+      if (t.masConsultado || t.chunks >= umbral) elegidos.push(t)
+    }
+    return elegidos.map((t) => t.titulo)
+  }
+
+  const sinAporte = detectarAreasSinAporte(
+    new Map([...porCategoria.entries()].map(([c, ts]) => [c, new Set(ts.map((t) => t.slug))])),
+    subareas,
+  )
+
   const areas: CatalogoArea[] = [...porCategoria.entries()]
-    .map(([categoria, tramites]) => ({
-      categoria,
-      cantidad: tramites.length,
-      ...(subareas.has(categoria) ? { subareaDe: subareas.get(categoria)! } : {}),
-      // Orden de los ejemplos:
-      //   1. Los que tienen a ESTA área como propia (ver `areaPropia`). Es lo
-      //      que evita que el mismo trámite se repita como ejemplo en cuatro
-      //      áreas distintas.
-      //   2. Los que el municipio marca como más consultados.
-      //   3. Los que están en menos categorías.
-      //   4. Los que tienen más chunks (proxy de trámite sustancial vs. ficha
-      //      de dos líneas).
-      //   5. A igualdad, el orden del corpus.
-      // Es un orden, no un filtro: un área con menos de 3 trámites propios se
-      // completa igual con los compartidos, en vez de quedarse sin ejemplos.
-      // Sin nada de esto el primer ejemplo de Automotor salía "Eximición de la
-      // Tasa de Protección Ambiental aplicado a vehículos con 20 años o más".
-      ejemplos: [...tramites]
-        .sort(
-          (a, b) =>
-            Number(areaPropia.get(b.slug) === categoria) - Number(areaPropia.get(a.slug) === categoria) ||
-            Number(b.masConsultado) - Number(a.masConsultado) ||
-            a.categorias.length - b.categorias.length ||
-            b.chunks - a.chunks ||
-            a.orden - b.orden,
-        )
-        .slice(0, EJEMPLOS_POR_AREA)
-        .map((t) => t.titulo),
-    }))
+    .filter(([categoria]) => !sinAporte.has(categoria))
+    .map(([categoria, tramites]) => {
+      // Si el contenedor de una subárea quedó suprimido, la subárea sube a
+      // primer nivel en vez de apuntar a un área que ya no se lista.
+      const padre = subareas.get(categoria)
+      return {
+        categoria,
+        cantidad: tramites.length,
+        ...(padre && !sinAporte.has(padre) ? { subareaDe: padre } : {}),
+        ejemplos: ejemplosDeArea(categoria, tramites),
+      }
+    })
     .sort((a, b) => b.cantidad - a.cantidad || a.categoria.localeCompare(b.categoria, "es"))
 
   // OJO: el total NO es la suma de `cantidad`. 35 de los 133 trámites están en
   // más de una categoría (todas las licencias de conducir son también
   // "Automotor"), así que sumar da bastante de más. Por eso el total va
   // explícito en el contexto y la instrucción le prohíbe al modelo sumarlo.
+  //
+  // Suprimir un área tampoco lo cambia: `detectarAreasSinAporte` solo saca
+  // áreas cuyos trámites siguen estando en otra, así que los 133 siguen
+  // alcanzables.
   return { areas, totalTramites: porSlug.size }
 }
 
