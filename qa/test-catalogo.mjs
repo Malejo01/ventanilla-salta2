@@ -62,6 +62,71 @@ for (const q of [
 }
 
 // ---------------------------------------------------------------------------
+// 1b. Cobertura en lenguaje de vecino.
+//
+// Las 8 variantes de arriba son las formas canónicas. Estas 30 son cómo la
+// pregunta llega de verdad: con preámbulo ("sobre…", "una consulta:…"), sin
+// tildes, con abreviaturas ("q") y con errores de tipeo. Salió de acá el
+// falso negativo que se vio en producción: "sobre que tramites puedo consultar?"
+// se iba por retrieval normal y contestaba con 4 áreas de 14.
+//
+// Antes de tolerar preámbulos entraban 17 de 30; ahora entran las 30. El piso
+// queda clavado en 30 para que una regresión falle en vez de pasar inadvertida.
+// Si algún día se agrega acá una formulación con un tipeo que un regex no puede
+// cubrir sin volverse peligroso, se baja el piso A PROPÓSITO y se deja dicho por
+// qué — no se afloja el clasificador para llegar al número.
+// ---------------------------------------------------------------------------
+const MIN_COBERTURA_VECINO = 30
+
+const VECINO = [
+  'que tramites puedo hacer',
+  'sobre que tramites puedo consultar?',
+  'hola, que tramites puedo hacer?',
+  'buenas, en que me podes ayudar',
+  'una consulta: que tramites hay',
+  'queria saber que tramites puedo hacer',
+  'me gustaria saber que tramites tienen',
+  'de que tramites me podes hablar',
+  'con que tramites me podes ayudar',
+  'sobre que temas puedo preguntar',
+  'q tramites puedo hacer',
+  'que tramites se pueden hacer aca',
+  'necesito saber que tramites hay',
+  'decime que tramites puedo hacer',
+  'para que servis?',
+  'que podes hacer vos',
+  'que sabes hacer',
+  'en que me puede ayudar usted',
+  'que tipo de tramites hay',
+  'que tipos de tramite puedo consultar',
+  'que cosas puedo averiguar aca',
+  'sobre que puedo preguntarte',
+  'que consultas puedo hacer',
+  'hola tuki, que tramites tenes?',
+  'che, que tramites puedo hacer',
+  'que tramites puedo ver aca',
+  'mostrame todos los tramites',
+  'que gestiones puedo hacer',
+  'disculpa, que tramites hay disponibles?',
+  'que tramites puedo averiguar con vos',
+]
+
+console.log('\n' + '='.repeat(78))
+console.log(`1b. LENGUAJE DE VECINO (${VECINO.length} formulaciones, informativo)`)
+console.log('='.repeat(78))
+const vecinoEntran = VECINO.filter((q) => esPreguntaDeCatalogo(q))
+const vecinoFuera = VECINO.filter((q) => !esPreguntaDeCatalogo(q))
+for (const q of VECINO) console.log(`  ${esPreguntaDeCatalogo(q) ? 'entra  ' : 'NO     '}  "${q}"`)
+console.log(`\n  COBERTURA: ${vecinoEntran.length}/${VECINO.length} (piso: ${MIN_COBERTURA_VECINO})`)
+if (vecinoFuera.length) {
+  console.log('  quedan afuera:')
+  for (const q of vecinoFuera) console.log(`    · "${q}"`)
+}
+if (vecinoEntran.length < MIN_COBERTURA_VECINO) {
+  fallo(`cobertura de vecino ${vecinoEntran.length}/${VECINO.length}, por debajo del piso ${MIN_COBERTURA_VECINO}`)
+}
+
+// ---------------------------------------------------------------------------
 // 2. Falsos positivos: el set de regresión no puede caer en este camino.
 // ---------------------------------------------------------------------------
 console.log('\n' + '='.repeat(78))
@@ -93,6 +158,26 @@ const BORDES = [
   'qué sabés sobre la licencia de conducir',
   'qué hay que hacer para la poda de un árbol',
   'qué tipo de licencia necesito',
+
+  // --- Adversarios del preámbulo y de la cola ---
+  // Estos son los que rompería aflojar el matcheo con un `.*` a cada lado. El
+  // preámbulo libre se comería el tema por la izquierda y la cola libre por la
+  // derecha, dejando en los dos casos una pregunta de catálogo aparente.
+  // Todos tienen tema, así que todos van al retrieval normal.
+  'para la licencia de conducir, qué trámites hay',
+  'sobre la licencia de conducir, qué trámites hay',
+  'una consulta sobre la licencia: qué trámites hay',
+  'sobre el foodtruck, qué trámites hay',
+  'de qué trámites de licencia me podés hablar',
+  'sobre qué trámites de licencia puedo consultar',
+  'q tramites de licencia hay',
+  'qué trámites hay para la licencia',
+  'qué trámites hay en cementerios',
+  'qué puedo consultar sobre el foodtruck',
+  'en qué me podés ayudar con la licencia',
+  'de qué sirve la libreta sanitaria',
+  'hola, qué necesito para habilitar un local',
+  'queria saber qué documentación piden para el foodtruck',
 ]
 for (const q of BORDES) {
   const esCat = esPreguntaDeCatalogo(q)

@@ -41,8 +41,14 @@ export function normalizarConsulta(texto: string): string {
 
 // --- Vocabulario del clasificador (todo ya normalizado) ---
 
+// "qué", con las abreviaturas que se escriben desde el celular.
+const CAT_QUE = "(?:que|q|qe|k)"
+
 // Cómo se nombra al catálogo entero, sin apuntar a ningún trámite.
 const CAT_OBJETO = "(?:tramites?|gestiones|servicios|cosas|temas|consultas)"
+
+// Pronombre átono opcional: "qué trámites ME podés ofrecer".
+const CAT_CLITICO = "(?:(?:me|nos|te|le)\\s+)?"
 
 // Existencia / posesión / cobertura: "qué trámites HAY", "qué trámites TENÉS",
 // "qué tipo de trámites HACÉS".
@@ -52,15 +58,41 @@ const CAT_HAY =
 // Capacidad: "qué trámites PUEDO hacer", "qué PODÉS hacer".
 const CAT_PODER = "(?:puedo|podes|puede|pueden|podemos|podria|podrias|se puede|se pueden)"
 
-// Acción genérica que acompaña a los verbos de capacidad.
-const CAT_ACCION = "(?:hacer|realizar|gestionar|consultar|preguntar|preguntarte|tramitar|averiguar)"
+// Acción genérica que acompaña a los verbos de capacidad. Incluye los verbos con
+// los que la gente pide el catálogo sin decir "hacer": consultar, averiguar,
+// saber, ver, preguntar.
+const CAT_ACCION =
+  "(?:hacer|realizar|gestionar|tramitar|consultar|averiguar|saber|ver|conocer|mirar|" +
+  "preguntar|preguntarte|preguntarle|hablar|informarme|informarte|informar|" +
+  "ayudar|ayudarme|ayudarnos|ofrecer|ofrecerme|dar|darme)"
 
-// Arranques que no cambian el sentido: "hola, ¿qué podés hacer?".
-const CAT_SALUDO = "(?:hola|buenas|buen dia|buenas tardes|buenas noches|che|ey|hey|tuki)"
+// Arranques que no cambian el sentido de la pregunta: saludos, muletillas de
+// apertura y las preposiciones con las que se introduce el tema ("SOBRE qué
+// trámites puedo consultar", "DE qué trámites me podés hablar").
+//
+// La lista es CERRADA, y esa es la decisión importante de este clasificador.
+// Tolerar un preámbulo libre (`.*`) haría entrar "para la licencia de conducir,
+// ¿qué trámites hay?", que es exactamente la clase de error que tiene que ir al
+// retrieval normal: el preámbulo libre se come el tema y deja una pregunta de
+// catálogo aparente. Con una lista cerrada de conectores, el preámbulo no puede
+// cargar un tema, porque un tema no se escribe con estas palabras.
+const CAT_LEADIN =
+  "(?:hola|buenas|buen dia|buenas tardes|buenas noches|che|ey|hey|tuki|" +
+  "disculpa|disculpe|perdon|perdona|permiso|" +
+  "una consulta|una pregunta|otra consulta|otra pregunta|consulta|pregunta|" +
+  "queria saber|quiero saber|quisiera saber|necesito saber|me gustaria saber|" +
+  "me interesa saber|para saber|a ver|" +
+  "decime|decime|digame|contame|conteme|mostrame|muestrame|explicame|explicame|" +
+  "sobre|de|con|en|acerca de|respecto a|respecto de)"
+
+// El preámbulo es cero o más de esos arranques, separados por espacios o signos.
+const CAT_PREAMBULO = `(?:${CAT_LEADIN}[\\s,:;.-]+)*`
 
 // Coletillas que tampoco lo cambian: "…acá", "…con vos", "…por favor".
+// También cerrada, y por el mismo motivo: una cola libre dejaría entrar
+// "qué trámites hay PARA LA LICENCIA".
 const CAT_COLA =
-  "(?:\\s+(?:disponibles?|aca|aqui|ahora|hoy|en total|en esta pagina|en este chat|en la muni|en la municipalidad|en salta|con vos|con usted|vos|usted|tuki|por favor|porfa|porfis|gracias))*"
+  "(?:\\s+(?:disponibles?|aca|aqui|ahora|hoy|en total|en esta pagina|en este chat|en la muni|en la municipalidad|en salta|por internet|online|con vos|con usted|conmigo|vos|usted|tuki|por favor|porfa|porfis|gracias|che))*"
 
 // La clave para no comerse consultas reales es que el match es de la CADENA
 // ENTERA (^…$), no de una subcadena. "qué trámites hay" es catálogo; "qué
@@ -71,41 +103,50 @@ const CAT_COLA =
 //
 // Cada núcleo va con y sin voseo: la misma persona escribe "qué podés hacer" y
 // "qué puede hacer usted" según cómo trate al asistente.
-const NUCLEOS_CATALOGO = [
-  // "qué trámites hay" · "cuántos trámites tenés" · "qué tipo de trámites hay"
-  `(?:que|cuales|cuantos|cuantas)\\s+(?:tipos?\\s+de\\s+)?${CAT_OBJETO}\\s+${CAT_HAY}`,
+const CAT_INTERROG = `(?:${CAT_QUE}|cuales|cuantos|cuantas)`
 
-  // "qué trámites puedo hacer" · "qué trámites se pueden hacer"
-  `(?:que|cuales|cuantos|cuantas)\\s+(?:tipos?\\s+de\\s+)?${CAT_OBJETO}\\s+${CAT_PODER}(?:\\s+${CAT_ACCION})?`,
+const NUCLEOS_CATALOGO = [
+  // "qué trámites hay" · "cuántos trámites tenés" · "qué trámites me ofrecen"
+  `${CAT_INTERROG}\\s+(?:tipos?\\s+de\\s+)?${CAT_OBJETO}\\s+${CAT_CLITICO}${CAT_HAY}`,
+
+  // "qué trámites puedo hacer" · "de qué trámites me podés hablar"
+  `${CAT_INTERROG}\\s+(?:tipos?\\s+de\\s+)?${CAT_OBJETO}\\s+${CAT_CLITICO}${CAT_PODER}(?:\\s+${CAT_ACCION})?`,
 
   // "qué tipo de trámites" — sin verbo, tal cual la escribe la gente
-  `(?:que|cuales)\\s+tipos?\\s+de\\s+${CAT_OBJETO}`,
+  `${CAT_INTERROG}\\s+tipos?\\s+de\\s+${CAT_OBJETO}`,
 
-  // "qué podés hacer" · "qué puedo consultar" · "qué puede hacer usted"
-  `que\\s+${CAT_PODER}\\s+${CAT_ACCION}`,
+  // "qué podés hacer" · "qué puedo consultar" · "sobre qué puedo preguntarte"
+  `${CAT_QUE}\\s+${CAT_CLITICO}${CAT_PODER}\\s+${CAT_ACCION}`,
 
   // "qué sabés" · "qué sabés hacer" · "qué sabe usted"
-  `que\\s+(?:sabes|sabe)(?:\\s+${CAT_ACCION})?`,
+  `${CAT_QUE}\\s+(?:sabes|sabe)(?:\\s+${CAT_ACCION})?`,
 
   // "en qué me podés ayudar" · "en qué me puede ayudar"
-  `(?:en\\s+)?que\\s+(?:cosas\\s+|temas\\s+)?(?:me\\s+)?${CAT_PODER}\\s+ayudar`,
+  `(?:en\\s+)?${CAT_QUE}\\s+(?:cosas\\s+|temas\\s+)?${CAT_CLITICO}${CAT_PODER}\\s+ayudar`,
 
   // "para qué servís" · "para qué sirve" · "para qué sos"
-  `para\\s+que\\s+(?:servis|sirve|sos|es|estas)`,
+  `para\\s+${CAT_QUE}\\s+(?:servis|sirve|sos|es|estas)`,
 
   // "qué hay disponible" · "qué hay" (la cola se come el "disponible")
-  `que\\s+hay`,
-
-  // "de qué temas sabés" · "sobre qué me podés ayudar"
-  `(?:de|sobre)\\s+que\\s+(?:${CAT_OBJETO}\\s+)?(?:sabes|sabe|${CAT_PODER}\\s+ayudar)`,
+  `${CAT_QUE}\\s+hay`,
 
   // "mostrame los trámites" · "listame las gestiones"
-  `(?:mostra|mostrame|muestrame|lista|listame|dame|decime)\\s+(?:la\\s+lista\\s+de\\s+|los\\s+|las\\s+|todos\\s+los\\s+|todas\\s+las\\s+)?${CAT_OBJETO}`,
+  `(?:mostra|mostrame|muestrame|lista|listame|dame|decime|enumera|enumerame)\\s+(?:la\\s+lista\\s+de\\s+|los\\s+|las\\s+|todos\\s+los\\s+|todas\\s+las\\s+)?${CAT_OBJETO}`,
 ]
 
-const RE_CATALOGO = new RegExp(
-  `^(?:${CAT_SALUDO}\\s+)*(?:${NUCLEOS_CATALOGO.join("|")})${CAT_COLA}$`,
-)
+// El núcleo ya NO tiene que ser la frase entera: puede venir detrás de un
+// preámbulo. Pero SÍ tiene que llegar hasta el final (modulo la cola), y esa
+// asimetría es lo que mantiene afuera a los casos borde.
+//
+// "qué trámites de licencia hay" no entra porque ningún núcleo matchea un final
+// de esa frase: el único que podría, `qué trámites … hay`, exige que "hay" venga
+// pegado al objeto, y ahí se interpone "de licencia". Lo mismo con "qué sabés
+// SOBRE LA LICENCIA DE CONDUCIR" o "para qué sirve LA LIBRETA SANITARIA": el
+// núcleo matchea al principio pero no llega al final, así que se descarta.
+//
+// Dicho de otra forma: el tema, cuando existe, se escribe DESPUÉS del núcleo.
+// Por eso el lado izquierdo puede aflojarse y el derecho no.
+const RE_CATALOGO = new RegExp(`^${CAT_PREAMBULO}(?:${NUCLEOS_CATALOGO.join("|")})${CAT_COLA}$`)
 
 export function esPreguntaDeCatalogo(pregunta: string): boolean {
   return RE_CATALOGO.test(normalizarConsulta(pregunta))
