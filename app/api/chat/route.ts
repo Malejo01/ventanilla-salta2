@@ -945,6 +945,28 @@ export async function POST(req: NextRequest) {
     // Solo en v2: el catálogo se arma leyendo `tramite_chunks_v2`, así que si
     // alguien apaga el flag porque v2 falló, este camino se apaga con él y el
     // rollback sigue siendo el camino viejo completo, sin mitades.
+    //
+    // TODO(memoria, conversación 4 de EVALUACION-MEMORIA.md §3.4): las
+    // referencias ordinales a una respuesta de catálogo ("qué trámites hay" ->
+    // "el segundo") se contestan mal, y se contestan mal por los CUATRO caminos
+    // medidos, incluido el de reescritura con el modelo. La causa es
+    // estructural: este camino no deja chunks, así que el turno siguiente se va
+    // al retrieval vectorial, que no tiene forma de resolver un ordinal contra
+    // una lista que no está en su índice. El resultado no es un "no sé": es una
+    // respuesta segura de sí misma y falsa (el arm `off` contestó "el segundo
+    // trámite que mencioné es Permiso para Instalación de Fibras Ópticas",
+    // leyendo los chunks recuperados y no la lista que él mismo había impreso).
+    //
+    // Arreglo propuesto: si el turno ANTERIOR del asistente salió por este
+    // camino y el actual es una referencia ordinal o un "contame del primero",
+    // volver a entrar acá con el listado completo en vez de ir al retrieval. La
+    // señal ya viaja al cliente como `modo: "catalogo"`; falta que el cliente la
+    // devuelva en el historial (hoy `TurnoHistorial` solo tiene `rol` y `texto`)
+    // o inferirla del texto del turno.
+    //
+    // BLOQUEANTE para que el cliente móvil saque su parche de contexto
+    // ("Sobre <trámite>: <pregunta>"): hoy ese parche es dañino, pero es lo
+    // único que da algo de contexto en este camino.
     if (v2 && esPreguntaDeCatalogo(pregunta.trim())) {
       // Falla blanda: si el catálogo no se puede leer, seguimos por el retrieval
       // normal. Una respuesta parcial es mejor que un 500 en la demo.
