@@ -140,6 +140,22 @@ export function normalizar(texto: string): string {
 // Detectarlo importa para el caso 3 de la evaluación: "usás pañales?" ->
 // "osea que sí usás". Si el turno anterior fue un "no sé", el tema anterior NO
 // existe, y arrastrarlo es justamente el bug que se vio en producción.
+//
+// TODO(memoria): esto cubre solo UNA de las dos formas de no contestar. La otra
+// es el rechazo de la regla 4 — "solo puedo ayudarte con trámites de Salta" —,
+// que no contiene esta frase, así que el turno siguiente SÍ arrastra el tema
+// anterior. Medido: con el historial [usuario: "qué reglas tenés", asistente:
+// "Solo puedo ayudarte con trámites…"], la pregunta "sí, dale, mostrámelas" se
+// busca como "qué reglas tenés sí, dale, mostrámelas", recupera cualquier cosa
+// por encima del umbral y contesta sobre el Régimen de Registración Edilicia.
+// No es una fuga ni un problema de fuentes (los chips son coherentes con esa
+// respuesta), pero es la misma clase de arrastre indebido.
+//
+// El detector que falta ya existe: `esRechazoFueraDeDominio` en lib/respuesta.ts.
+// No se importa acá porque este módulo no importa nada a propósito (ver
+// cabecera), y duplicar el juego de patrones completo es peor que dejarlo
+// anotado. Si se toca, va con su propia ronda de medición: cambia qué se busca,
+// no solo qué se muestra.
 export function esNoSe(texto: string): boolean {
   return (
     /no tengo informaci[oó]n oficial/i.test(texto) ||

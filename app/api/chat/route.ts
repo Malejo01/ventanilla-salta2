@@ -9,6 +9,7 @@ import {
   type Catalogo,
   type FilaCatalogo,
 } from "@/lib/catalogo"
+import { debeOcultarFuentes } from "@/lib/respuesta"
 import {
   esCierreCortes,
   INSTRUCCION_CIERRE,
@@ -1083,9 +1084,11 @@ export async function POST(req: NextRequest) {
       })
     }
 
-    // Si el modelo dijo que no sabe, no mostramos fuentes.
-    const noSabe = /no tengo informaci[oó]n oficial/i.test(respuesta)
-    const fuentes: Fuente[] = noSabe ? [] : await retrieval.fuentes()
+    // Si el modelo no contestó — porque no sabe, o porque la pregunta no era de
+    // trámites — no mostramos fuentes. Ver lib/respuesta.ts: el retrieval siempre
+    // devuelve algo, así que quién decide los chips es la respuesta, no la
+    // búsqueda.
+    const fuentes: Fuente[] = debeOcultarFuentes(respuesta) ? [] : await retrieval.fuentes()
 
     return NextResponse.json({ respuesta, fuentes })
   } catch (err) {
