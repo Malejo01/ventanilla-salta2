@@ -36,6 +36,7 @@ Everything of substance happens in two places:
 
 - **`lib/supabase-admin.ts`** — server-only Supabase client using the `service_role` key (bypasses RLS). Must never be imported from a client component.
 - **`lib/types.ts`** — shared `ChatMessage`/`Fuente` types and the `CATEGORIA_LABEL` map used to render trámite categories (comercial/social/transito/infraestructura).
+- **`lib/historial.ts`** (branch `feat/memoria-conversacional`, not merged) — conversational memory: window trimming, anaphora classification, and query reformulation. The body accepts an optional `historial: Array<{rol, texto}>`; without it the request takes exactly the same path as before (proven byte-for-byte in `qa/test-retro-memoria.mjs`). The key invariant: **the full history goes to the generation `contents`, never to the retrieval embedding** — only a reformulated standalone query is embedded. New rules live in `INSTRUCCION_MEMORIA`, appended to the `systemInstruction` like `INSTRUCCION_CATALOGO`, so `SYSTEM_PROMPT` stays untouched. See `EVALUACION-MEMORIA.md`.
 
 ### Expected Supabase schema
 
