@@ -9,6 +9,20 @@ import {
   type Catalogo,
   type FilaCatalogo,
 } from "@/lib/catalogo"
+import {
+  esCierreCortes,
+  INSTRUCCION_CIERRE,
+  INSTRUCCION_MEMORIA,
+  INSTRUCCION_REESCRITURA,
+  largoHistorial,
+  limpiarReescritura,
+  parseHistorial,
+  promptDeReescritura,
+  recortarHistorial,
+  reformularHeuristica,
+  type Reformulacion,
+  type TurnoHistorial,
+} from "@/lib/historial"
 
 export const runtime = "nodejs"
 export const dynamic = "force-dynamic"
@@ -41,6 +55,20 @@ const DELTA_COMPETENCIA = 0.05
 // El flag evita tener que revertir código, no evita el redeploy.
 function usarCorpusV2(): boolean {
   return process.env.USAR_CORPUS_V2 === "true"
+}
+
+// Cómo se arma la CONSULTA DE BÚSQUEDA cuando la pregunta depende del historial
+// (ver lib/historial.ts). Se lee por request, igual que el flag de corpus.
+//
+//   "heuristica" (default) · tema anterior + pregunta, sin red, 0 ms.
+//   "modelo"               · una llamada corta a Gemini que la reescribe.
+//   "off"                  · no se reformula nunca; el historial solo se usa
+//                            para generar. Es el rollback más chico de esta rama.
+//
+// Comparación medida de los tres caminos: EVALUACION-MEMORIA.md.
+function modoReformulacion(): "heuristica" | "modelo" | "off" {
+  const v = process.env.REFORMULAR_CONSULTA
+  return v === "modelo" || v === "off" ? v : "heuristica"
 }
 
 const SYSTEM_PROMPT = `Sos "Tuki", el asistente ciudadano oficial de la Municipalidad de Salta. Tu única
@@ -715,14 +743,31 @@ async function embedPregunta(pregunta: string, taskType?: string): Promise<numbe
 }
 
 // `instruccionExtra` se agrega como una segunda parte de la systemInstruction,
-// después del SYSTEM_PROMPT y sin tocarlo. Hoy lo usa solo el camino de catálogo
-// (ver INSTRUCCION_CATALOGO en lib/catalogo.ts), que necesita levantar el límite
-// de extensión para poder nombrar todas las áreas.
+// después del SYSTEM_PROMPT y sin tocarlo. Lo usan el camino de catálogo (ver
+// INSTRUCCION_CATALOGO en lib/catalogo.ts), que necesita levantar el límite de
+// extensión para poder nombrar todas las áreas, y la memoria conversacional (ver
+// INSTRUCCION_MEMORIA en lib/historial.ts).
+//
+// `historial` se antepone al turno actual como turnos sueltos de `contents`, SIN
+// el CONTEXTO con el que se contestaron en su momento: recuperar de nuevo esos
+// chunks costaría tokens en cada turno y el modelo ya tiene su propia respuesta
+// para saber de qué venían hablando.
+//
+// Cuando `historial` está vacío el body sale idéntico, byte por byte, al de antes
+// de la rama de memoria. Esa es la garantía de retrocompatibilidad, y por eso las
+// reglas nuevas van en `instruccionExtra` y no dentro del SYSTEM_PROMPT.
 async function generarRespuesta(
   pregunta: string,
   contexto: string,
-  instruccionExtra?: string,
+  opciones: { instruccionExtra?: string; historial?: TurnoHistorial[] } = {},
 ): Promise<string> {
+  const { instruccionExtra, historial = [] } = opciones
+
+  const turnosPrevios = historial.map((t) => ({
+    role: t.rol === "usuario" ? "user" : "model",
+    parts: [{ text: t.texto }],
+  }))
+
   const res = await fetchWithRetry(
     `https://generativelanguage.googleapis.com/v1beta/models/${GEN_MODEL}:generateContent?key=${GEMINI_API_KEY}`,
     {
@@ -733,6 +778,7 @@ async function generarRespuesta(
           parts: [{ text: SYSTEM_PROMPT }, ...(instruccionExtra ? [{ text: instruccionExtra }] : [])],
         },
         contents: [
+          ...turnosPrevios,
           {
             role: "user",
             parts: [
@@ -756,8 +802,82 @@ async function generarRespuesta(
     throw new Error("generation_failed")
   }
   const data = await res.json()
+  if (historial.length > 0) {
+    console.log(
+      `[MEMORIA] generacion con historial: turnos=${historial.length} chars=${largoHistorial(historial)} ` +
+        `prompt_tokens=${data?.usageMetadata?.promptTokenCount ?? "?"}`,
+    )
+  }
   const texto = data?.candidates?.[0]?.content?.parts?.map((p: { text?: string }) => p.text ?? "").join("") ?? ""
   return texto.trim()
+}
+
+// Camino (b) de reformulación: una llamada corta y barata que reescribe la
+// pregunta como consulta autónoma. Se paga un round-trip completo, así que se
+// invoca SOLO cuando la heurística ya detectó que la pregunta depende del
+// historial — el 100% de las consultas no paga la latencia de un caso que es
+// minoritario.
+//
+// Falla blanda en todos los frentes: si la llamada falla, tarda de más o
+// devuelve algo raro, se devuelve null y el que llama usa el camino (a). Una
+// reformulación es una mejora del retrieval, no un paso necesario.
+async function reescribirConsultaConModelo(
+  pregunta: string,
+  historial: TurnoHistorial[],
+): Promise<string | null> {
+  try {
+    const res = await fetchWithRetry(
+      `https://generativelanguage.googleapis.com/v1beta/models/${GEN_MODEL}:generateContent?key=${GEMINI_API_KEY}`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          systemInstruction: { parts: [{ text: INSTRUCCION_REESCRITURA }] },
+          contents: [{ role: "user", parts: [{ text: promptDeReescritura(pregunta, historial) }] }],
+          generationConfig: {
+            temperature: 0,
+            maxOutputTokens: 40,
+            thinkingConfig: { thinkingBudget: 0 },
+          },
+        }),
+      },
+      "reescribirConsulta",
+    )
+    if (!res.ok) {
+      console.log("[MEMORIA] reescritura fallida:", res.status)
+      return null
+    }
+    const data = await res.json()
+    const salida =
+      data?.candidates?.[0]?.content?.parts?.map((p: { text?: string }) => p.text ?? "").join("") ?? ""
+    return limpiarReescritura(salida, pregunta)
+  } catch (err) {
+    console.log("[MEMORIA] reescritura con error:", (err as Error).message)
+    return null
+  }
+}
+
+// Decide con qué texto se hace la BÚSQUEDA. No es el mismo con el que se genera:
+// el `contents` que va a Gemini lleva el historial entero, pero el embedding NO.
+// Embeber el hilo completo contamina el vector con turnos viejos y empeora el
+// retrieval — es el error que este módulo existe para evitar.
+async function consultaDeBusqueda(
+  pregunta: string,
+  historial: TurnoHistorial[],
+): Promise<Reformulacion> {
+  const heuristica = reformularHeuristica(pregunta, historial)
+  const modo = modoReformulacion()
+
+  if (modo === "off") return { consulta: pregunta.trim(), motivo: heuristica.motivo }
+  if (modo === "heuristica") return heuristica
+
+  // modo === "modelo": solo si la heurística detectó dependencia. Los motivos
+  // que no dependen del historial ya tienen la consulta correcta y no hay nada
+  // que reescribir.
+  if (heuristica.motivo !== "oferta" && heuristica.motivo !== "tema-previo") return heuristica
+
+  const reescrita = await reescribirConsultaConModelo(pregunta, historial)
+  return reescrita ? { consulta: reescrita, motivo: "tema-previo" } : heuristica
 }
 
 export async function POST(req: NextRequest) {
@@ -791,6 +911,12 @@ export async function POST(req: NextRequest) {
   if (pregunta.length > 1000) {
     return NextResponse.json({ error: "La pregunta es demasiado larga (máx 1000 caracteres)." }, { status: 400 })
   }
+
+  // `historial` es opcional y aditivo: un cliente que no lo manda recorre el
+  // mismo código de siempre (ver lib/historial.ts). Un historial mal formado se
+  // descarta en silencio en vez de devolver 400, para no romper a un cliente
+  // viejo por una función nueva.
+  const historial = recortarHistorial(parseHistorial((body as { historial?: unknown })?.historial))
   if (detectarDatosSensibles(pregunta.trim())) {
     console.log("[SEGURIDAD] Se rechazó una consulta con posibles datos personales.")
     return NextResponse.json({
@@ -801,6 +927,16 @@ export async function POST(req: NextRequest) {
 
   try {
     const v2 = usarCorpusV2()
+    // Solo se manda cuando hay historial: sin él, la systemInstruction queda
+    // exactamente como estaba.
+    const instruccionMemoria = historial.length > 0 ? INSTRUCCION_MEMORIA : undefined
+
+    if (historial.length > 0) {
+      console.log(
+        `[MEMORIA] historial recibido: turnos=${historial.length} chars=${largoHistorial(historial)} ` +
+          `modo_reformulacion=${modoReformulacion()}`,
+      )
+    }
 
     // PASO 0 — ¿Es una pregunta de catálogo ("¿qué trámites puedo hacer?")?
     // Va antes del embedding: si lo es, el retrieval vectorial no aporta nada y
@@ -809,6 +945,28 @@ export async function POST(req: NextRequest) {
     // Solo en v2: el catálogo se arma leyendo `tramite_chunks_v2`, así que si
     // alguien apaga el flag porque v2 falló, este camino se apaga con él y el
     // rollback sigue siendo el camino viejo completo, sin mitades.
+    //
+    // TODO(memoria, conversación 4 de EVALUACION-MEMORIA.md §3.4): las
+    // referencias ordinales a una respuesta de catálogo ("qué trámites hay" ->
+    // "el segundo") se contestan mal, y se contestan mal por los CUATRO caminos
+    // medidos, incluido el de reescritura con el modelo. La causa es
+    // estructural: este camino no deja chunks, así que el turno siguiente se va
+    // al retrieval vectorial, que no tiene forma de resolver un ordinal contra
+    // una lista que no está en su índice. El resultado no es un "no sé": es una
+    // respuesta segura de sí misma y falsa (el arm `off` contestó "el segundo
+    // trámite que mencioné es Permiso para Instalación de Fibras Ópticas",
+    // leyendo los chunks recuperados y no la lista que él mismo había impreso).
+    //
+    // Arreglo propuesto: si el turno ANTERIOR del asistente salió por este
+    // camino y el actual es una referencia ordinal o un "contame del primero",
+    // volver a entrar acá con el listado completo en vez de ir al retrieval. La
+    // señal ya viaja al cliente como `modo: "catalogo"`; falta que el cliente la
+    // devuelva en el historial (hoy `TurnoHistorial` solo tiene `rol` y `texto`)
+    // o inferirla del texto del turno.
+    //
+    // BLOQUEANTE para que el cliente móvil saque su parche de contexto
+    // ("Sobre <trámite>: <pregunta>"): hoy ese parche es dañino, pero es lo
+    // único que da algo de contexto en este camino.
     if (v2 && esPreguntaDeCatalogo(pregunta.trim())) {
       // Falla blanda: si el catálogo no se puede leer, seguimos por el retrieval
       // normal. Una respuesta parcial es mejor que un 500 en la demo.
@@ -823,11 +981,12 @@ export async function POST(req: NextRequest) {
         console.log(
           `[CATALOGO] camino de catálogo: ${catalogo.areas.length} áreas, ${catalogo.totalTramites} trámites`,
         )
-        const respuesta = await generarRespuesta(
-          pregunta.trim(),
-          construirContextoCatalogo(catalogo),
-          INSTRUCCION_CATALOGO,
-        )
+        const respuesta = await generarRespuesta(pregunta.trim(), construirContextoCatalogo(catalogo), {
+          // Las dos instrucciones se concatenan y no se pisan: la de catálogo
+          // levanta los límites de extensión, la de memoria saca el saludo.
+          instruccionExtra: [INSTRUCCION_CATALOGO, instruccionMemoria].filter(Boolean).join("\n\n"),
+          historial,
+        })
 
         if (hayFugaDePrompt(respuesta)) {
           console.log("[SEGURIDAD] Se bloqueo una posible fuga de system prompt en el camino de catálogo.")
@@ -848,8 +1007,41 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    // PASO 1 — Embedding de la consulta
-    const embedding = await embedPregunta(pregunta.trim(), v2 ? "RETRIEVAL_QUERY" : undefined)
+    // PASO 0.5 — Cierre cortés ("gracias", "listo, chau").
+    //
+    // No es una pregunta: no hay nada que buscar. Sin historial cae por debajo
+    // del umbral de similitud y se contesta "No tengo información oficial
+    // cargada sobre eso todavía", que es la respuesta más robótica posible a un
+    // "gracias". Con historial se puede cerrar como cierra una persona.
+    //
+    // Es la ÚNICA respuesta de la app que no se apoya en el CONTEXTO, así que va
+    // detrás de un clasificador cerrado (frase entera hecha de palabras de
+    // cortesía, ver esCierreCortes) y con una instrucción que prohíbe dar datos.
+    if (historial.length > 0 && esCierreCortes(pregunta.trim())) {
+      console.log("[MEMORIA] camino de cierre cortés (sin retrieval)")
+      const respuesta = await generarRespuesta(pregunta.trim(), "(sin datos: es un cierre de charla)", {
+        instruccionExtra: [INSTRUCCION_MEMORIA, INSTRUCCION_CIERRE].join("\n\n"),
+        historial,
+      })
+
+      if (hayFugaDePrompt(respuesta)) {
+        console.log("[SEGURIDAD] Se bloqueo una posible fuga de system prompt en el cierre cortés.")
+        return NextResponse.json({ respuesta: "¡De nada! Cualquier otra consulta, escribime.", fuentes: [] })
+      }
+      return NextResponse.json({ respuesta, fuentes: [] })
+    }
+
+    // PASO 1 — Embedding de la consulta.
+    //
+    // SEPARACIÓN CRÍTICA: acá se embebe la consulta reformulada, NO el hilo. El
+    // historial completo va al `contents` de la generación (paso 3); mezclarlo en
+    // el vector de búsqueda lo contamina con turnos viejos.
+    const { consulta: consultaBusqueda, motivo } = await consultaDeBusqueda(pregunta.trim(), historial)
+    if (consultaBusqueda !== pregunta.trim()) {
+      console.log(`[MEMORIA] consulta reformulada (${motivo}): "${pregunta.trim()}" -> "${consultaBusqueda}"`)
+    }
+
+    const embedding = await embedPregunta(consultaBusqueda, v2 ? "RETRIEVAL_QUERY" : undefined)
 
     // PASO 2 — Búsqueda vectorial: RPC en Postgres (v2) o coseno en memoria (v1)
     const retrieval = v2 ? await recuperarV2(embedding) : await recuperarV1(embedding)
@@ -867,8 +1059,13 @@ export async function POST(req: NextRequest) {
       })
     }
 
-    // PASO 3 — Generación
-    const respuesta = await generarRespuesta(pregunta.trim(), retrieval.contexto)
+    // PASO 3 — Generación. Va la pregunta ORIGINAL, no la reformulada: la
+    // reformulación es un artefacto del buscador y el modelo ya tiene el
+    // historial para resolver a qué se refiere.
+    const respuesta = await generarRespuesta(pregunta.trim(), retrieval.contexto, {
+      instruccionExtra: instruccionMemoria,
+      historial,
+    })
 
     if (hayFugaDePrompt(respuesta)) {
       console.log("[SEGURIDAD] Se bloqueo una posible fuga de system prompt en /api/chat.")

@@ -1,0 +1,3112 @@
+[
+  {
+    "arm": "main",
+    "conversacion": 1,
+    "turno": 1,
+    "pregunta": "cómo habilito un kiosco",
+    "modo": "off",
+    "turnosHistorial": 0,
+    "charsHistorial": 0,
+    "camino": "retrieval",
+    "consultaBusqueda": "cómo habilito un kiosco",
+    "motivo": "sin-historial",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "¡Hola! Para habilitar un quiosco en la vía pública en Salta, tenés que tramitar un permiso de venta.\n\nAcá te cuento los requisitos principales:\n\n*   **Ubicación**: No puede estar en ochavas ni a menos de 10 metros de las esquinas. Solo se permiten dos permisos por cuadra, con al menos 80 metros de distancia entre ellos.\n*   **Construcción**: El quiosco debe ser desarmable (no de material permanente) y fácil de transportar.\n*   **Documentación**: Necesitás un croquis de la ubicación, planos de la vereda y una nota del frentista (dueño de la propiedad de enfrente) dando su conformidad.\n\nSi vendés diarios, revistas o publicaciones, hay requisitos específicos de distancia y tamaño.\n\n¿Querés que te cuente sobre los rubros que se pueden vender o las dimensiones del quiosco según el ancho de la vereda?",
+    "fuentes": [
+      {
+        "tramite": "Venta en la vía pública y Food Trucks — Ciudad de Salta",
+        "subtramite": null,
+        "slug": "venta-via-publica-foodtrucks",
+        "url": "https://municipalidadsalta.gob.ar/wp-content/uploads/2021/10/GuiaAutorizacionVentaAmbulante.pdf",
+        "categoria": "Comerciales",
+        "ultima_verificacion": "2026-08-08T16:37:22+00:00"
+      },
+      {
+        "tramite": "Habilitación de Anuncios publicitarios – Cartelería",
+        "subtramite": null,
+        "slug": "carteleria",
+        "url": "https://municipalidadsalta.gob.ar/tramites/carteleria/",
+        "categoria": "Vía Pública",
+        "ultima_verificacion": "2026-08-13T15:31:40.664+00:00"
+      },
+      {
+        "tramite": "Habilitaciones Comerciales",
+        "subtramite": "Nueva Habilitación Comercial",
+        "slug": "habilitaciones-comerciales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/habilitaciones-comerciales/",
+        "categoria": "Comerciales",
+        "ultima_verificacion": "2026-08-13T15:27:36.716+00:00"
+      }
+    ],
+    "slugs": [
+      "venta-via-publica-foodtrucks",
+      "carteleria",
+      "habilitaciones-comerciales"
+    ],
+    "mejorSimilitud": 0.719459558919648,
+    "noSabe": false,
+    "tokensEntrada": 2433,
+    "tokensSalida": 205,
+    "bodyBytes": 9350,
+    "msRetrieval": 1347,
+    "msGeneracion": 1583,
+    "msTotal": 2932,
+    "saludaDeMas": true,
+    "arrastre": [],
+    "temaOk": null
+  },
+  {
+    "arm": "main",
+    "conversacion": 1,
+    "turno": 2,
+    "pregunta": "y cuánto cuesta?",
+    "modo": "off",
+    "turnosHistorial": 0,
+    "charsHistorial": 0,
+    "camino": "retrieval",
+    "consultaBusqueda": "y cuánto cuesta?",
+    "motivo": "sin-historial",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "No tengo información oficial sobre eso.",
+    "fuentes": [],
+    "slugs": [
+      "solicitud-conexion-electrica-eventual",
+      "habilitaciones-comerciales",
+      "ocupacion-de-vereda-para-obras-en-construccion",
+      "demoliciones"
+    ],
+    "mejorSimilitud": 0.703768643945484,
+    "noSabe": true,
+    "tokensEntrada": 1531,
+    "tokensSalida": 7,
+    "bodyBytes": 6060,
+    "msRetrieval": 399,
+    "msGeneracion": 885,
+    "msTotal": 1285,
+    "saludaDeMas": false,
+    "arrastre": [],
+    "temaOk": true
+  },
+  {
+    "arm": "main",
+    "conversacion": 1,
+    "turno": 3,
+    "pregunta": "dónde lo hago?",
+    "modo": "off",
+    "turnosHistorial": 0,
+    "charsHistorial": 0,
+    "camino": "retrieval",
+    "consultaBusqueda": "dónde lo hago?",
+    "motivo": "sin-historial",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "¡Hola! Para decirte dónde hacer tu trámite, necesito saber a cuál te referís. Hay varios trámites que se pueden hacer en línea o de forma presencial.\n\nContame qué trámite querés hacer y te doy la información precisa.",
+    "fuentes": [
+      {
+        "tramite": "Habilitaciones Comerciales",
+        "subtramite": "Habilitación régimen general Ordenanza 15292 Localización",
+        "slug": "habilitaciones-comerciales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/habilitaciones-comerciales/",
+        "categoria": "Comerciales",
+        "ultima_verificacion": "2026-08-13T15:27:36.716+00:00"
+      },
+      {
+        "tramite": "Registro de aperturas",
+        "subtramite": null,
+        "slug": "registro-de-aperturas",
+        "url": "https://municipalidadsalta.gob.ar/tramites/registro-de-aperturas/",
+        "categoria": "Vía Pública",
+        "ultima_verificacion": "2026-08-13T15:27:43.076+00:00"
+      },
+      {
+        "tramite": "Preinscripción de Deuda de Catastro",
+        "subtramite": null,
+        "slug": "preinscripcion-de-deuda-de-catastro",
+        "url": "https://municipalidadsalta.gob.ar/tramites/preinscripcion-de-deuda-de-catastro/",
+        "categoria": "Inmobiliarios",
+        "ultima_verificacion": "2026-08-13T15:28:44.247+00:00"
+      },
+      {
+        "tramite": "Formulario 26",
+        "subtramite": null,
+        "slug": "formulario-26",
+        "url": "https://municipalidadsalta.gob.ar/tramites/formulario-26/",
+        "categoria": "Inmobiliarios",
+        "ultima_verificacion": "2026-08-13T15:29:07.204+00:00"
+      }
+    ],
+    "slugs": [
+      "habilitaciones-comerciales",
+      "registro-de-aperturas",
+      "preinscripcion-de-deuda-de-catastro",
+      "formulario-26"
+    ],
+    "mejorSimilitud": 0.698777187101954,
+    "noSabe": false,
+    "tokensEntrada": 1850,
+    "tokensSalida": 52,
+    "bodyBytes": 7397,
+    "msRetrieval": 416,
+    "msGeneracion": 1133,
+    "msTotal": 1550,
+    "saludaDeMas": true,
+    "arrastre": [],
+    "temaOk": true
+  },
+  {
+    "arm": "main",
+    "conversacion": 2,
+    "turno": 1,
+    "pregunta": "quiero abrir un foodtruck",
+    "modo": "off",
+    "turnosHistorial": 0,
+    "charsHistorial": 0,
+    "camino": "retrieval",
+    "consultaBusqueda": "quiero abrir un foodtruck",
+    "motivo": "sin-historial",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "¡Hola! Para abrir un foodtruck en Salta, necesitás dos cosas: la habilitación del vehículo y el permiso para vender en la vía pública.\n\n**Habilitación del Vehículo**\nEste trámite verifica que tu foodtruck cumpla con las normas de higiene y seguridad. El sellado administrativo no tiene costo, pero el Certificado de Habilitación Vehicular cuesta $2288,00. Podés iniciarlo de forma virtual completando un formulario web.\n\n**Permiso para Vender en la Vía Pública**\nEste permiso se rige por la Ordenanza Nº 6.240. Tu foodtruck debe cumplir con requisitos específicos de equipamiento, como:\n\n*   Un artefacto rodante de medidas máximas (largo 1,50 m, ancho 0,80 m, altura 2,00 m).\n*   Campana extractora y chimeneas.\n*   Mesada y parrilla de material inalterable.\n*   Tanque de agua, pileta para lavar utensilios y recipiente para aguas desechables.\n*   Espacios cerrados para carbón y chorizos.\n*   Heladera o conservadora para bebidas sin alcohol.\n*   Recipiente con tapa para residuos diferenciados.\n*   Además, necesitás una nota del frentista (el dueño de la propiedad cercana) dando conformidad con la instalación.\n\n¿Querés que te cuente más sobre los requisitos bromatológicos adicionales?",
+    "fuentes": [
+      {
+        "tramite": "Venta en la vía pública y Food Trucks — Ciudad de Salta",
+        "subtramite": null,
+        "slug": "venta-via-publica-foodtrucks",
+        "url": "https://municipalidadsalta.gob.ar/wp-content/uploads/2021/10/GuiaAutorizacionVentaAmbulante.pdf",
+        "categoria": "Comerciales",
+        "ultima_verificacion": "2026-08-08T16:37:22+00:00"
+      },
+      {
+        "tramite": "Habilitaciones Comerciales",
+        "subtramite": "Requisitos para la habilitación de Vehículos",
+        "slug": "habilitaciones-comerciales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/habilitaciones-comerciales/",
+        "categoria": "Comerciales",
+        "ultima_verificacion": "2026-08-13T15:27:36.716+00:00"
+      },
+      {
+        "tramite": "Habilitaciones Comerciales",
+        "subtramite": "Nueva Habilitación Comercial",
+        "slug": "habilitaciones-comerciales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/habilitaciones-comerciales/",
+        "categoria": "Comerciales",
+        "ultima_verificacion": "2026-08-13T15:27:36.716+00:00"
+      },
+      {
+        "tramite": "Registro de aperturas",
+        "subtramite": null,
+        "slug": "registro-de-aperturas",
+        "url": "https://municipalidadsalta.gob.ar/tramites/registro-de-aperturas/",
+        "categoria": "Vía Pública",
+        "ultima_verificacion": "2026-08-13T15:27:43.076+00:00"
+      }
+    ],
+    "slugs": [
+      "venta-via-publica-foodtrucks",
+      "habilitaciones-comerciales",
+      "registro-de-aperturas"
+    ],
+    "mejorSimilitud": 0.713522701968814,
+    "noSabe": false,
+    "tokensEntrada": 2123,
+    "tokensSalida": 315,
+    "bodyBytes": 8417,
+    "msRetrieval": 689,
+    "msGeneracion": 1908,
+    "msTotal": 2599,
+    "saludaDeMas": true,
+    "arrastre": [],
+    "temaOk": null
+  },
+  {
+    "arm": "main",
+    "conversacion": 2,
+    "turno": 2,
+    "pregunta": "sí, contame del carnet",
+    "modo": "off",
+    "turnosHistorial": 0,
+    "charsHistorial": 0,
+    "camino": "retrieval",
+    "consultaBusqueda": "sí, contame del carnet",
+    "motivo": "sin-historial",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "¡Hola! Con gusto te cuento sobre el Carnet de Manipulador de Alimentos.\n\nEste carnet es personal, intransferible y tiene validez en toda la Argentina por tres años desde su emisión.\n\nPara obtenerlo, primero tenés que aprobar el Curso de Manipulación Segura de Alimentos y presentar la documentación complementaria.\n\n**Importante:** No tengo información oficial sobre el costo del curso y del carnet, dónde se retira, ni teléfonos de contacto. Para esos datos, te sugiero ir a Av. Independencia 910.",
+    "fuentes": [],
+    "slugs": [
+      "promocion-social",
+      "curso-manipulacion-alimentos",
+      "licencia-de-conducir-principiantes-profesionales-interjurisdiccionales",
+      "licencia-de-conducir-renovacion-profesionales-interjurisdiccionales"
+    ],
+    "mejorSimilitud": 0.698887938808893,
+    "noSabe": true,
+    "tokensEntrada": 2108,
+    "tokensSalida": 117,
+    "bodyBytes": 8211,
+    "msRetrieval": 440,
+    "msGeneracion": 1407,
+    "msTotal": 1848,
+    "saludaDeMas": true,
+    "arrastre": [],
+    "temaOk": true
+  },
+  {
+    "arm": "main",
+    "conversacion": 3,
+    "turno": 1,
+    "pregunta": "usás pañales?",
+    "modo": "off",
+    "turnosHistorial": 0,
+    "charsHistorial": 0,
+    "camino": "retrieval",
+    "consultaBusqueda": "usás pañales?",
+    "motivo": "sin-historial",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "Como Tuki, soy un asistente virtual y no uso pañales. Estoy aquí para ayudarte con información sobre trámites municipales y provinciales de Salta. ¿Tenés alguna consulta sobre eso?",
+    "fuentes": [
+      {
+        "tramite": "Certificado Único de Discapacidad (CUD) — Marco general nacional",
+        "subtramite": null,
+        "slug": "cud-nacional-marco-general",
+        "url": "https://www.argentina.gob.ar/servicio/como-obtener-el-certificado-unico-de-discapacidad-cud",
+        "categoria": "Desarrollo Social",
+        "ultima_verificacion": "2026-08-08T16:34:27+00:00"
+      },
+      {
+        "tramite": "Promoción Social",
+        "subtramite": null,
+        "slug": "promocion-social",
+        "url": "https://municipalidadsalta.gob.ar/promocion-social/",
+        "categoria": "Desarrollo Social",
+        "ultima_verificacion": "2026-08-13T15:33:36.48+00:00"
+      },
+      {
+        "tramite": "Subsecretaría de la Mujer",
+        "subtramite": null,
+        "slug": "subsecretaria-mujer",
+        "url": "https://municipalidadsalta.gob.ar/subsecretaria-mujer/",
+        "categoria": "Desarrollo Social",
+        "ultima_verificacion": "2026-08-13T19:34:34.899+00:00"
+      },
+      {
+        "tramite": "Adicciones",
+        "subtramite": null,
+        "slug": "desarrollo-humano-2-adicciones",
+        "url": "https://municipalidadsalta.gob.ar/desarrollo-social/adicciones/",
+        "categoria": "Desarrollo Social",
+        "ultima_verificacion": "2026-08-13T19:34:42.441+00:00"
+      }
+    ],
+    "slugs": [
+      "cud-nacional-marco-general",
+      "promocion-social",
+      "subsecretaria-mujer",
+      "desarrollo-humano-2-adicciones"
+    ],
+    "mejorSimilitud": 0.612308139119996,
+    "noSabe": false,
+    "tokensEntrada": 1849,
+    "tokensSalida": 40,
+    "bodyBytes": 7317,
+    "msRetrieval": 409,
+    "msGeneracion": 1036,
+    "msTotal": 1446,
+    "saludaDeMas": false,
+    "arrastre": [],
+    "temaOk": null
+  },
+  {
+    "arm": "main",
+    "conversacion": 3,
+    "turno": 2,
+    "pregunta": "osea que sí usás",
+    "modo": "off",
+    "turnosHistorial": 0,
+    "charsHistorial": 0,
+    "camino": "retrieval",
+    "consultaBusqueda": "osea que sí usás",
+    "motivo": "sin-historial",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "¡Hola! Si tenés el Certificado Único de Discapacidad (CUD), podés tramitar la oblea de discapacidad para estacionar gratis por tres horas en lugares permitidos. También te permite estacionar hasta 10 minutos en lugares prohibidos, siempre que no obstaculices el tránsito.\n\n**Para tramitarla:**\n\n*   Completá el formulario online y adjuntá la documentación que te pidan.\n*   La Secretaría de Tránsito y Seguridad Vial revisará tu solicitud y te responderá por email.\n*   Si es aprobada, tenés que ir a la Secretaría de Tránsito y Seguridad Vial (Santa Fe 545) para retirarla.\n\nRecordá que el permiso es personal e intransferible.",
+    "fuentes": [
+      {
+        "tramite": "Oblea de Discapacidad",
+        "subtramite": null,
+        "slug": "oblea-de-discapacidad",
+        "url": "https://municipalidadsalta.gob.ar/tramites/oblea-de-discapacidad/",
+        "categoria": "Tránsito Digital",
+        "ultima_verificacion": "2026-08-13T15:31:43.764+00:00"
+      },
+      {
+        "tramite": "Certificado Único de Discapacidad (CUD) — Marco general nacional",
+        "subtramite": null,
+        "slug": "cud-nacional-marco-general",
+        "url": "https://www.argentina.gob.ar/servicio/como-obtener-el-certificado-unico-de-discapacidad-cud",
+        "categoria": "Desarrollo Social",
+        "ultima_verificacion": "2026-08-08T16:34:27+00:00"
+      },
+      {
+        "tramite": "Denuncias",
+        "subtramite": null,
+        "slug": "denuncias",
+        "url": "https://municipalidadsalta.gob.ar/tramites/denuncias/",
+        "categoria": "Vía Pública",
+        "ultima_verificacion": "2026-08-13T15:27:46.576+00:00"
+      },
+      {
+        "tramite": "Constancia de no retenciones / No percepción de publicidad Y/O actividades eventuales",
+        "subtramite": null,
+        "slug": "constancia-de-no-retenciones-no-percepcion-de-publicidiad-y-o-actividades-eventuales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/constancia-de-no-retenciones-no-percepcion-de-publicidiad-y-o-actividades-eventuales/",
+        "categoria": "Comerciales",
+        "ultima_verificacion": "2026-08-13T15:27:31.117+00:00"
+      }
+    ],
+    "slugs": [
+      "oblea-de-discapacidad",
+      "cud-nacional-marco-general",
+      "denuncias",
+      "constancia-de-no-retenciones-no-percepcion-de-publicidiad-y-o-actividades-eventuales"
+    ],
+    "mejorSimilitud": 0.655211692951099,
+    "noSabe": false,
+    "tokensEntrada": 1838,
+    "tokensSalida": 159,
+    "bodyBytes": 7196,
+    "msRetrieval": 404,
+    "msGeneracion": 1629,
+    "msTotal": 2034,
+    "saludaDeMas": true,
+    "arrastre": [],
+    "temaOk": null
+  },
+  {
+    "arm": "main",
+    "conversacion": 4,
+    "turno": 1,
+    "pregunta": "qué trámites hay",
+    "modo": "off",
+    "turnosHistorial": 0,
+    "charsHistorial": 0,
+    "camino": "catalogo",
+    "consultaBusqueda": "qué trámites hay",
+    "motivo": "sin-historial",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "¡Hola! Soy Tuki, el asistente virtual de la Municipalidad de Salta. Te puedo ayudar con información sobre 133 trámites distintos.\n\nAcá te detallo las áreas principales que cubro:\n\n*   **Automotor** (53 trámites): Incluye temas como el Libre deuda del Automotor y Planes de Pago.\n    *   **Licencia de conducir**: Te puedo informar sobre Licencias de Conducir, incluyendo para Principiantes, Profesionales e Interjurisdiccionales.\n    *   **Taxis y remises**: También sobre Recategorización del Automotor y Recategorización Taxi/Remis.\n*   **Inmobiliarios** (25 trámites): Por ejemplo, la Solicitud de Constancia de Inspección Eléctrica y Planes de Pago de Inmuebles.\n*   **Desarrollo Social** (14 trámites): Como Programas descentralizados, el CUD Salta y Promoción Social.\n*   **Cementerios** (9 trámites): Te ayudo con Inhumaciones, Exhumaciones – Traslados y Venta de lotes.\n*   **Tránsito Digital** (8 trámites): Por ejemplo, la Oblea de Discapacidad y la Restitución del vehículo secuestrado.\n*   **Vía Pública** (8 trámites): Incluye Denuncias, Habilitación de Anuncios publicitarios – Cartelería y Registro de aperturas.\n*   **Inspección de Obras Privadas** (7 trámites): Como la Ocupación de vereda para obras en construcción y Demoliciones.\n*   **Comerciales** (6 trámites): Por ejemplo, Habilitaciones Comerciales y Venta en la vía pública y Food Trucks.\n*   **Comunicación** (3 trámites): Como la Solicitud de Producción y Solicitud de Gráfica.\n*   **Emprendedores** (3 trámites): Te puedo informar sobre Medidas Comercio y Yo emprendo! Turismo.\n*   **Obras Privadas - Aprobación de Planos** (3 trámites): Incluye el Régimen de registración edilicia y el Régimen de Incentivo y Fomento de la Construcción.\n*   **Conexión eléctrica** (1 trámite): La Solicitud de conexión eléctrica eventual.\n*   **Plataformas digitales** (1 trámite): Las Plataformas digitales oficiales de Salta.\n\n¿Querés que te cuente sobre alguno en particular?",
+    "fuentes": [],
+    "slugs": [],
+    "mejorSimilitud": null,
+    "tokensEntrada": 2053,
+    "tokensSalida": 545,
+    "msGeneracion": 2860,
+    "msTotal": 2983,
+    "saludaDeMas": true,
+    "noSabe": false,
+    "arrastre": [],
+    "temaOk": null
+  },
+  {
+    "arm": "main",
+    "conversacion": 4,
+    "turno": 2,
+    "pregunta": "el segundo",
+    "modo": "off",
+    "turnosHistorial": 0,
+    "charsHistorial": 0,
+    "camino": "retrieval",
+    "consultaBusqueda": "el segundo",
+    "motivo": "sin-historial",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "No tengo información oficial sobre eso.",
+    "fuentes": [],
+    "slugs": [
+      "desarrollo-social",
+      "permisos-para-instalacion-de-fibras-opticas",
+      "venta-de-lotes",
+      "medidascomercio"
+    ],
+    "mejorSimilitud": 0.62115560472742,
+    "noSabe": true,
+    "tokensEntrada": 1435,
+    "tokensSalida": 7,
+    "bodyBytes": 5403,
+    "msRetrieval": 420,
+    "msGeneracion": 855,
+    "msTotal": 1276,
+    "saludaDeMas": false,
+    "arrastre": [],
+    "temaOk": null
+  },
+  {
+    "arm": "main",
+    "conversacion": 5,
+    "turno": 1,
+    "pregunta": "licencia de conducir",
+    "modo": "off",
+    "turnosHistorial": 0,
+    "charsHistorial": 0,
+    "camino": "retrieval",
+    "consultaBusqueda": "licencia de conducir",
+    "motivo": "sin-historial",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "¡Hola! Para sacar tu licencia de conducir en Salta, tenés varias opciones, dependiendo de tu situación:\n\n*   **Licencia de Principiantes:** Si la sacás por primera vez o si tu licencia anterior venció hace más de un año.\n*   **Renovación:** Si tu licencia está por vencer o venció hace menos de un año.\n*   **Licencia para Menores:** Si tenés 17 años o estás por cumplirlos.\n*   **Duplicado:** Si perdiste o te robaron tu licencia vigente.\n*   **Renovación por Cambio de Jurisdicción:** Si te mudaste a Salta y tu licencia es de otra provincia.\n*   **Ampliación:** Si querés agregar nuevas categorías a tu licencia.\n\nPodés iniciar tu trámite online y hay videos tutoriales para guiarte. También podés practicar el examen teórico con un simulador.\n\n¿Querés que te cuente más sobre alguna de estas opciones?",
+    "fuentes": [
+      {
+        "tramite": "Licencias de Conducir",
+        "subtramite": null,
+        "slug": "licencia-de-conducir",
+        "url": "https://municipalidadsalta.gob.ar/tramites/licencia-de-conducir/",
+        "categoria": "Automotor",
+        "ultima_verificacion": "2026-08-13T15:29:43.156+00:00"
+      },
+      {
+        "tramite": "Licencia de Conducir – Principiantes – Profesionales",
+        "subtramite": null,
+        "slug": "licencia-de-conducir-principiantes-profesionales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/licencia-de-conducir-principiantes-profesionales/",
+        "categoria": "Automotor",
+        "ultima_verificacion": "2026-08-13T15:31:56.568+00:00"
+      },
+      {
+        "tramite": "Licencia de Conducir – Principiantes – Profesionales – Interjurisdiccionales",
+        "subtramite": null,
+        "slug": "licencia-de-conducir-principiantes-profesionales-interjurisdiccionales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/licencia-de-conducir-principiantes-profesionales-interjurisdiccionales/",
+        "categoria": "Automotor",
+        "ultima_verificacion": "2026-08-13T15:32:35.865+00:00"
+      }
+    ],
+    "slugs": [
+      "licencia-de-conducir",
+      "licencia-de-conducir-principiantes-profesionales",
+      "licencia-de-conducir-principiantes-profesionales-interjurisdiccionales"
+    ],
+    "mejorSimilitud": 0.755670098470757,
+    "noSabe": false,
+    "tokensEntrada": 1762,
+    "tokensSalida": 213,
+    "bodyBytes": 6930,
+    "msRetrieval": 400,
+    "msGeneracion": 1850,
+    "msTotal": 2251,
+    "saludaDeMas": true,
+    "arrastre": [],
+    "temaOk": null
+  },
+  {
+    "arm": "main",
+    "conversacion": 5,
+    "turno": 2,
+    "pregunta": "y para profesionales?",
+    "modo": "off",
+    "turnosHistorial": 0,
+    "charsHistorial": 0,
+    "camino": "retrieval",
+    "consultaBusqueda": "y para profesionales?",
+    "motivo": "sin-historial",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "¡Hola! Para las licencias profesionales, hay dos tipos según dónde vayas a circular:\n\n*   **Servicio Interjurisdiccional**: Si circulás dentro y fuera de la provincia de Salta. Las categorías son C, D1, D2, D3, D4, E1, E2.\n*   **Servicio Jurisdiccional**: Si circulás solamente dentro de la provincia de Salta. Las categorías son C1, C2, D1, D2, D3, E2.\n\nEsto aplica tanto si sacás tu licencia por primera vez, la ampliás o la renovás.",
+    "fuentes": [
+      {
+        "tramite": "Licencia de Conducir – Principiantes – Profesionales",
+        "subtramite": null,
+        "slug": "licencia-de-conducir-principiantes-profesionales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/licencia-de-conducir-principiantes-profesionales/",
+        "categoria": "Automotor",
+        "ultima_verificacion": "2026-08-13T15:31:56.568+00:00"
+      },
+      {
+        "tramite": "Licencia de Conducir – Ampliación – Profesionales",
+        "subtramite": null,
+        "slug": "licencia-conducir-ampliacion-profesionales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/licencia-conducir-ampliacion-profesionales/",
+        "categoria": "Automotor",
+        "ultima_verificacion": "2026-08-13T15:32:32.683+00:00"
+      },
+      {
+        "tramite": "Licencia de Conducir – Renovación – profesionales",
+        "subtramite": null,
+        "slug": "renovacion-licencia-profesionales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/renovacion-licencia-profesionales/",
+        "categoria": "Automotor",
+        "ultima_verificacion": "2026-08-13T15:32:17.264+00:00"
+      },
+      {
+        "tramite": "Renovación por cambio de jurisdicción – Profesionales",
+        "subtramite": null,
+        "slug": "renovacion-cambio-jurisdiccion-profesionales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/renovacion-cambio-jurisdiccion-profesionales/",
+        "categoria": "Automotor",
+        "ultima_verificacion": "2026-08-13T15:32:25.181+00:00"
+      }
+    ],
+    "slugs": [
+      "licencia-de-conducir-principiantes-profesionales",
+      "licencia-conducir-ampliacion-profesionales",
+      "renovacion-licencia-profesionales",
+      "renovacion-cambio-jurisdiccion-profesionales"
+    ],
+    "mejorSimilitud": 0.714851308842403,
+    "noSabe": false,
+    "tokensEntrada": 1846,
+    "tokensSalida": 130,
+    "bodyBytes": 6569,
+    "msRetrieval": 395,
+    "msGeneracion": 1565,
+    "msTotal": 1960,
+    "saludaDeMas": true,
+    "arrastre": [],
+    "temaOk": true
+  },
+  {
+    "arm": "main",
+    "conversacion": 6,
+    "turno": 1,
+    "pregunta": "cómo saco el CUD",
+    "modo": "off",
+    "turnosHistorial": 0,
+    "charsHistorial": 0,
+    "camino": "retrieval",
+    "consultaBusqueda": "cómo saco el CUD",
+    "motivo": "sin-historial",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "¡Hola! Para sacar el Certificado Único de Discapacidad (CUD) en Salta, seguí estos pasos:\n\n1.  **Juntá la documentación:** Necesitás certificados médicos, informes y estudios. Podés consultar los requisitos específicos para tu caso en este enlace: [https://www.argentina.gob.ar/cud/consulta-requisitos](https://www.argentina.gob.ar/cud/consulta-requisitos)\n2.  **Pedí turno:** Con la documentación lista, andá al lugar que te indiquen en la consulta de requisitos para pedir un turno con la Junta Evaluadora.\n3.  **Asistí a la evaluación:** El día de tu turno, la Junta te evaluará.\n\nEl CUD o la denegatoria puede retirarlo cualquier persona mayor de 18 años con el DNI original del titular. Desde noviembre de 2023, en Salta se emite en formato digital.",
+    "fuentes": [
+      {
+        "tramite": "Certificado Único de Discapacidad (CUD) — Marco general nacional",
+        "subtramite": null,
+        "slug": "cud-nacional-marco-general",
+        "url": "https://www.argentina.gob.ar/servicio/como-obtener-el-certificado-unico-de-discapacidad-cud",
+        "categoria": "Desarrollo Social",
+        "ultima_verificacion": "2026-08-08T16:34:27+00:00"
+      },
+      {
+        "tramite": "Certificado Único de Discapacidad (CUD) — Provincia de Salta",
+        "subtramite": null,
+        "slug": "cud-certificado-discapacidad-provincia",
+        "url": "https://www.salta.gob.ar/prensa/noticias/en-salta-se-comenzara-a-otorgar-el-certificado-nico-de-discapacidad-digital-92834",
+        "categoria": "Desarrollo Social",
+        "ultima_verificacion": "2026-08-08T16:34:10+00:00"
+      },
+      {
+        "tramite": "CUD Salta — Complemento: requisitos por patología, sedes y referentes",
+        "subtramite": null,
+        "slug": "cud-provincial-complemento",
+        "url": "http://atencionciudadana.salta.gob.ar/certificado-unico-de-discapacidad-cud/",
+        "categoria": "Desarrollo Social",
+        "ultima_verificacion": "2026-08-08T16:34:42+00:00"
+      }
+    ],
+    "slugs": [
+      "cud-nacional-marco-general",
+      "cud-certificado-discapacidad-provincia",
+      "cud-provincial-complemento"
+    ],
+    "mejorSimilitud": 0.764970902686675,
+    "noSabe": false,
+    "tokensEntrada": 2030,
+    "tokensSalida": 206,
+    "bodyBytes": 7911,
+    "msRetrieval": 398,
+    "msGeneracion": 2616,
+    "msTotal": 3015,
+    "saludaDeMas": true,
+    "arrastre": [],
+    "temaOk": null
+  },
+  {
+    "arm": "main",
+    "conversacion": 6,
+    "turno": 2,
+    "pregunta": "gracias",
+    "modo": "off",
+    "turnosHistorial": 0,
+    "charsHistorial": 0,
+    "camino": "retrieval",
+    "consultaBusqueda": "gracias",
+    "motivo": "sin-historial",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "¡De nada! Si tenés alguna otra pregunta sobre trámites municipales o provinciales de Salta, no dudes en consultarme. Estoy aquí para ayudarte.",
+    "fuentes": [
+      {
+        "tramite": "Medidas Comercio",
+        "subtramite": null,
+        "slug": "medidascomercio",
+        "url": "https://municipalidadsalta.gob.ar/medidascomercio/",
+        "categoria": "Emprendedores",
+        "ultima_verificacion": "2026-08-13T15:33:48.512+00:00"
+      },
+      {
+        "tramite": "Solicitud de Gráfica",
+        "subtramite": null,
+        "slug": "solicitud-de-grafica",
+        "url": "https://municipalidadsalta.gob.ar/tramites/solicitud-de-grafica/",
+        "categoria": "Comunicación",
+        "ultima_verificacion": "2026-08-13T15:30:23.641+00:00"
+      },
+      {
+        "tramite": "Subsecretaría de la Mujer",
+        "subtramite": null,
+        "slug": "subsecretaria-mujer",
+        "url": "https://municipalidadsalta.gob.ar/subsecretaria-mujer/",
+        "categoria": "Desarrollo Social",
+        "ultima_verificacion": "2026-08-13T19:34:34.899+00:00"
+      },
+      {
+        "tramite": "Licencia de Conducir – Ampliación – No profesionales",
+        "subtramite": null,
+        "slug": "licencia-conducir-ampliacion-noprofesionales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/licencia-conducir-ampliacion-noprofesionales/",
+        "categoria": "Automotor",
+        "ultima_verificacion": "2026-08-13T15:32:29.584+00:00"
+      }
+    ],
+    "slugs": [
+      "medidascomercio",
+      "solicitud-de-grafica",
+      "subsecretaria-mujer",
+      "licencia-conducir-ampliacion-noprofesionales"
+    ],
+    "mejorSimilitud": 0.64229768566071,
+    "noSabe": false,
+    "tokensEntrada": 1436,
+    "tokensSalida": 32,
+    "bodyBytes": 5504,
+    "msRetrieval": 397,
+    "msGeneracion": 1050,
+    "msTotal": 1449,
+    "saludaDeMas": false,
+    "arrastre": [],
+    "temaOk": null
+  },
+  {
+    "arm": "main",
+    "conversacion": 6,
+    "turno": 3,
+    "pregunta": "otra cosa: libre deuda",
+    "modo": "off",
+    "turnosHistorial": 0,
+    "charsHistorial": 0,
+    "camino": "retrieval",
+    "consultaBusqueda": "otra cosa: libre deuda",
+    "motivo": "sin-historial",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "¡Hola! Para ayudarte con el libre deuda, necesito saber de qué tipo es. ¿Es para un automotor, un inmueble, o un taxi/transporte escolar/taxiflet?\n\nSi es para un **automotor**, necesitás:\n*   Informe de cuenta corriente y multas (ITRON).\n*   Informe de Multas del Tribunal de Faltas (K16).\n*   Fotocopia del Título del Automotor.\n*   Fotocopia de tu DNI (1ª y 2ª hoja).\n*   Tu correo electrónico.\n\nEste certificado demuestra que el vehículo no tiene deudas.",
+    "fuentes": [
+      {
+        "tramite": "Libre deuda del Automotor",
+        "subtramite": null,
+        "slug": "libre-deuda-del-automotor",
+        "url": "https://municipalidadsalta.gob.ar/tramites/libre-deuda-del-automotor/",
+        "categoria": "Automotor",
+        "ultima_verificacion": "2026-08-13T15:24:48.913+00:00"
+      },
+      {
+        "tramite": "Libre Deuda Inmuebles",
+        "subtramite": null,
+        "slug": "libre-deuda-inmuebles",
+        "url": "https://municipalidadsalta.gob.ar/tramites/libre-deuda-inmuebles/",
+        "categoria": "Inmobiliarios",
+        "ultima_verificacion": "2026-08-13T15:26:35.652+00:00"
+      },
+      {
+        "tramite": "Libre deuda TAXI – TRANSPORTE ESCOLAR – TAXIFLET",
+        "subtramite": null,
+        "slug": "libre-deuda-taxi-transporte-escolar-taxiflet",
+        "url": "https://municipalidadsalta.gob.ar/tramites/libre-deuda-taxi-transporte-escolar-taxiflet/",
+        "categoria": "Automotor",
+        "ultima_verificacion": "2026-08-13T15:26:16.302+00:00"
+      }
+    ],
+    "slugs": [
+      "libre-deuda-del-automotor",
+      "libre-deuda-inmuebles",
+      "libre-deuda-taxi-transporte-escolar-taxiflet"
+    ],
+    "mejorSimilitud": 0.742888641430101,
+    "noSabe": false,
+    "tokensEntrada": 1597,
+    "tokensSalida": 135,
+    "bodyBytes": 6174,
+    "msRetrieval": 418,
+    "msGeneracion": 1422,
+    "msTotal": 1842,
+    "saludaDeMas": true,
+    "arrastre": [],
+    "temaOk": null
+  },
+  {
+    "arm": "off",
+    "conversacion": 1,
+    "turno": 1,
+    "pregunta": "cómo habilito un kiosco",
+    "modo": "off",
+    "turnosHistorial": 0,
+    "charsHistorial": 0,
+    "camino": "retrieval",
+    "consultaBusqueda": "cómo habilito un kiosco",
+    "motivo": "sin-historial",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "¡Hola! Para habilitar un quiosco en la vía pública en Salta, tenés que tramitar un permiso de venta.\n\nAcá te cuento los requisitos principales:\n\n*   **Ubicación**: No puede estar en ochavas ni a menos de 10 metros de las esquinas. Solo se permiten dos permisos por cuadra, con al menos 80 metros de distancia entre ellos.\n*   **Construcción**: El quiosco debe ser desarmable (no de material permanente) y fácil de transportar.\n*   **Documentación**: Necesitás un croquis de la ubicación, planos de la vereda y una nota del frentista (dueño de la propiedad de enfrente) dando su conformidad.\n\nSi vendés diarios, revistas o publicaciones, hay requisitos específicos de distancia y tamaño.\n\n¿Querés que te cuente sobre los rubros que podés vender o las dimensiones del quiosco según el ancho de la vereda?",
+    "fuentes": [
+      {
+        "tramite": "Venta en la vía pública y Food Trucks — Ciudad de Salta",
+        "subtramite": null,
+        "slug": "venta-via-publica-foodtrucks",
+        "url": "https://municipalidadsalta.gob.ar/wp-content/uploads/2021/10/GuiaAutorizacionVentaAmbulante.pdf",
+        "categoria": "Comerciales",
+        "ultima_verificacion": "2026-08-08T16:37:22+00:00"
+      },
+      {
+        "tramite": "Habilitación de Anuncios publicitarios – Cartelería",
+        "subtramite": null,
+        "slug": "carteleria",
+        "url": "https://municipalidadsalta.gob.ar/tramites/carteleria/",
+        "categoria": "Vía Pública",
+        "ultima_verificacion": "2026-08-13T15:31:40.664+00:00"
+      },
+      {
+        "tramite": "Habilitaciones Comerciales",
+        "subtramite": "Nueva Habilitación Comercial",
+        "slug": "habilitaciones-comerciales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/habilitaciones-comerciales/",
+        "categoria": "Comerciales",
+        "ultima_verificacion": "2026-08-13T15:27:36.716+00:00"
+      }
+    ],
+    "slugs": [
+      "venta-via-publica-foodtrucks",
+      "carteleria",
+      "habilitaciones-comerciales"
+    ],
+    "mejorSimilitud": 0.719459558919648,
+    "noSabe": false,
+    "tokensEntrada": 2433,
+    "tokensSalida": 205,
+    "bodyBytes": 9350,
+    "msRetrieval": 391,
+    "msGeneracion": 1911,
+    "msTotal": 2302,
+    "saludaDeMas": true,
+    "arrastre": [],
+    "temaOk": null
+  },
+  {
+    "arm": "off",
+    "conversacion": 1,
+    "turno": 2,
+    "pregunta": "y cuánto cuesta?",
+    "modo": "off",
+    "turnosHistorial": 2,
+    "charsHistorial": 825,
+    "camino": "retrieval",
+    "consultaBusqueda": "y cuánto cuesta?",
+    "motivo": "tema-previo",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "No tengo información oficial sobre el costo específico para habilitar un quiosco en la vía pública. El contexto solo menciona costos para otros trámites como conexión eléctrica, habilitación de vehículos, ocupación de vereda y demoliciones.",
+    "fuentes": [],
+    "slugs": [
+      "solicitud-conexion-electrica-eventual",
+      "habilitaciones-comerciales",
+      "ocupacion-de-vereda-para-obras-en-construccion",
+      "demoliciones"
+    ],
+    "mejorSimilitud": 0.703768643945484,
+    "noSabe": true,
+    "tokensEntrada": 2052,
+    "tokensSalida": 48,
+    "bodyBytes": 8222,
+    "msRetrieval": 391,
+    "msGeneracion": 1135,
+    "msTotal": 1529,
+    "saludaDeMas": false,
+    "arrastre": [],
+    "temaOk": true
+  },
+  {
+    "arm": "off",
+    "conversacion": 1,
+    "turno": 3,
+    "pregunta": "dónde lo hago?",
+    "modo": "off",
+    "turnosHistorial": 4,
+    "charsHistorial": 1081,
+    "camino": "retrieval",
+    "consultaBusqueda": "dónde lo hago?",
+    "motivo": "no-se-previo",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "Para la habilitación de un quiosco, que es un permiso de venta, el trámite se realiza de manera virtual. Tenés que ingresar a \"Salta Activa\" y buscar la sección correspondiente en el escritorio centralizado ciudadano.\n\nPodés ir directamente desde acá: [[0]](https://municipalidadsalta.gob.ar/tramites/habilitaciones-comerciales/)",
+    "fuentes": [
+      {
+        "tramite": "Habilitaciones Comerciales",
+        "subtramite": "Habilitación régimen general Ordenanza 15292 Localización",
+        "slug": "habilitaciones-comerciales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/habilitaciones-comerciales/",
+        "categoria": "Comerciales",
+        "ultima_verificacion": "2026-08-13T15:27:36.716+00:00"
+      },
+      {
+        "tramite": "Registro de aperturas",
+        "subtramite": null,
+        "slug": "registro-de-aperturas",
+        "url": "https://municipalidadsalta.gob.ar/tramites/registro-de-aperturas/",
+        "categoria": "Vía Pública",
+        "ultima_verificacion": "2026-08-13T15:27:43.076+00:00"
+      },
+      {
+        "tramite": "Preinscripción de Deuda de Catastro",
+        "subtramite": null,
+        "slug": "preinscripcion-de-deuda-de-catastro",
+        "url": "https://municipalidadsalta.gob.ar/tramites/preinscripcion-de-deuda-de-catastro/",
+        "categoria": "Inmobiliarios",
+        "ultima_verificacion": "2026-08-13T15:28:44.247+00:00"
+      },
+      {
+        "tramite": "Formulario 26",
+        "subtramite": null,
+        "slug": "formulario-26",
+        "url": "https://municipalidadsalta.gob.ar/tramites/formulario-26/",
+        "categoria": "Inmobiliarios",
+        "ultima_verificacion": "2026-08-13T15:29:07.204+00:00"
+      }
+    ],
+    "slugs": [
+      "habilitaciones-comerciales",
+      "registro-de-aperturas",
+      "preinscripcion-de-deuda-de-catastro",
+      "formulario-26"
+    ],
+    "mejorSimilitud": 0.698777187101954,
+    "noSabe": false,
+    "tokensEntrada": 2425,
+    "tokensSalida": 81,
+    "bodyBytes": 9903,
+    "msRetrieval": 427,
+    "msGeneracion": 1229,
+    "msTotal": 1658,
+    "saludaDeMas": false,
+    "arrastre": [],
+    "temaOk": true
+  },
+  {
+    "arm": "off",
+    "conversacion": 2,
+    "turno": 1,
+    "pregunta": "quiero abrir un foodtruck",
+    "modo": "off",
+    "turnosHistorial": 0,
+    "charsHistorial": 0,
+    "camino": "retrieval",
+    "consultaBusqueda": "quiero abrir un foodtruck",
+    "motivo": "sin-historial",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "¡Hola! Para abrir un foodtruck en Salta, necesitás dos cosas: la habilitación comercial del vehículo y un permiso para vender en el espacio público.\n\n**Habilitación del vehículo**\nEste trámite verifica que tu foodtruck cumpla con las normas de higiene y seguridad. El sellado administrativo no tiene costo, pero el Certificado de Habilitación Vehicular cuesta $2288,00. Podés iniciarlo de forma virtual.\n\n**Permiso para vender en la vía pública**\nEste permiso se rige por la Ordenanza Nº 6.240. Tu foodtruck debe cumplir con requisitos específicos de equipamiento, como:\n\n*   Un artefacto rodante de medidas máximas (largo 1,50 m, ancho 0,80 m, altura 2,00 m).\n*   Campana extractora y chimeneas.\n*   Mesada de material inalterable.\n*   Tanque de agua y pileta para lavar utensilios.\n*   Espacios cerrados para carbón y chorizos.\n*   Heladera o conservadora para bebidas sin alcohol.\n*   Recipientes para aguas desechables y residuos diferenciados.\n*   Necesitás una nota del frentista (dueño de la propiedad cercana) dando conformidad con la instalación.\n\nAdemás, si vendés carnes asadas u otras comidas al paso, tenés que tener agua potable y conexión a cloacas. Los aderezos deben estar en su envase original, con rótulo y refrigerados.\n\n¿Querés que te cuente más sobre cómo iniciar la habilitación del vehículo?",
+    "fuentes": [
+      {
+        "tramite": "Venta en la vía pública y Food Trucks — Ciudad de Salta",
+        "subtramite": null,
+        "slug": "venta-via-publica-foodtrucks",
+        "url": "https://municipalidadsalta.gob.ar/wp-content/uploads/2021/10/GuiaAutorizacionVentaAmbulante.pdf",
+        "categoria": "Comerciales",
+        "ultima_verificacion": "2026-08-08T16:37:22+00:00"
+      },
+      {
+        "tramite": "Habilitaciones Comerciales",
+        "subtramite": "Requisitos para la habilitación de Vehículos",
+        "slug": "habilitaciones-comerciales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/habilitaciones-comerciales/",
+        "categoria": "Comerciales",
+        "ultima_verificacion": "2026-08-13T15:27:36.716+00:00"
+      },
+      {
+        "tramite": "Habilitaciones Comerciales",
+        "subtramite": "Nueva Habilitación Comercial",
+        "slug": "habilitaciones-comerciales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/habilitaciones-comerciales/",
+        "categoria": "Comerciales",
+        "ultima_verificacion": "2026-08-13T15:27:36.716+00:00"
+      },
+      {
+        "tramite": "Registro de aperturas",
+        "subtramite": null,
+        "slug": "registro-de-aperturas",
+        "url": "https://municipalidadsalta.gob.ar/tramites/registro-de-aperturas/",
+        "categoria": "Vía Pública",
+        "ultima_verificacion": "2026-08-13T15:27:43.076+00:00"
+      }
+    ],
+    "slugs": [
+      "venta-via-publica-foodtrucks",
+      "habilitaciones-comerciales",
+      "registro-de-aperturas"
+    ],
+    "mejorSimilitud": 0.713522701968814,
+    "noSabe": false,
+    "tokensEntrada": 2123,
+    "tokensSalida": 349,
+    "bodyBytes": 8417,
+    "msRetrieval": 445,
+    "msGeneracion": 2302,
+    "msTotal": 2747,
+    "saludaDeMas": true,
+    "arrastre": [],
+    "temaOk": null
+  },
+  {
+    "arm": "off",
+    "conversacion": 2,
+    "turno": 2,
+    "pregunta": "sí, contame del carnet",
+    "modo": "off",
+    "turnosHistorial": 2,
+    "charsHistorial": 1226,
+    "camino": "retrieval",
+    "consultaBusqueda": "sí, contame del carnet",
+    "motivo": "tema-previo",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "El Carnet de Manipulador de Alimentos es personal, intransferible y tiene validez en toda Argentina por tres años.\n\nPara obtenerlo, tenés que aprobar el Curso de Manipulación Segura de Alimentos. La página oficial no menciona el costo del curso ni del carnet, ni dónde se retira el carnet. Tampoco hay un teléfono o email de contacto.\n\nPara más información sobre el costo, lugar y plazo de retiro, o duración del curso, tenés que ir a Av. Independencia 910.",
+    "fuentes": [
+      {
+        "tramite": "Promoción Social",
+        "subtramite": null,
+        "slug": "promocion-social",
+        "url": "https://municipalidadsalta.gob.ar/promocion-social/",
+        "categoria": "Desarrollo Social",
+        "ultima_verificacion": "2026-08-13T15:33:36.48+00:00"
+      },
+      {
+        "tramite": "Carnet de Manipulación de Alimentos — Municipalidad de Salta",
+        "subtramite": null,
+        "slug": "curso-manipulacion-alimentos",
+        "url": "https://municipalidadsalta.gob.ar/cursos-manipulacion/",
+        "categoria": "Comerciales",
+        "ultima_verificacion": "2026-08-08T16:35:18+00:00"
+      },
+      {
+        "tramite": "Licencia de Conducir – Principiantes – Profesionales – Interjurisdiccionales",
+        "subtramite": null,
+        "slug": "licencia-de-conducir-principiantes-profesionales-interjurisdiccionales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/licencia-de-conducir-principiantes-profesionales-interjurisdiccionales/",
+        "categoria": "Automotor",
+        "ultima_verificacion": "2026-08-13T15:32:35.865+00:00"
+      },
+      {
+        "tramite": "Licencia de Conducir – Renovación – profesionales – interjurisdiccionales",
+        "subtramite": null,
+        "slug": "licencia-de-conducir-renovacion-profesionales-interjurisdiccionales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/licencia-de-conducir-renovacion-profesionales-interjurisdiccionales/",
+        "categoria": "Automotor",
+        "ultima_verificacion": "2026-08-13T15:32:44.942+00:00"
+      }
+    ],
+    "slugs": [
+      "promocion-social",
+      "curso-manipulacion-alimentos",
+      "licencia-de-conducir-principiantes-profesionales-interjurisdiccionales",
+      "licencia-de-conducir-renovacion-profesionales-interjurisdiccionales"
+    ],
+    "mejorSimilitud": 0.698887938808893,
+    "noSabe": false,
+    "tokensEntrada": 2746,
+    "tokensSalida": 112,
+    "bodyBytes": 10786,
+    "msRetrieval": 427,
+    "msGeneracion": 1357,
+    "msTotal": 1785,
+    "saludaDeMas": false,
+    "arrastre": [],
+    "temaOk": true
+  },
+  {
+    "arm": "off",
+    "conversacion": 3,
+    "turno": 1,
+    "pregunta": "usás pañales?",
+    "modo": "off",
+    "turnosHistorial": 0,
+    "charsHistorial": 0,
+    "camino": "retrieval",
+    "consultaBusqueda": "usás pañales?",
+    "motivo": "sin-historial",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "¡Hola! Soy Tuki, el asistente virtual de la Municipalidad de Salta. Mi función es ayudarte con información sobre trámites municipales y provinciales.\n\nNo uso pañales, ya que soy un programa de computadora. ¿Hay algo en lo que pueda ayudarte sobre trámites?",
+    "fuentes": [
+      {
+        "tramite": "Certificado Único de Discapacidad (CUD) — Marco general nacional",
+        "subtramite": null,
+        "slug": "cud-nacional-marco-general",
+        "url": "https://www.argentina.gob.ar/servicio/como-obtener-el-certificado-unico-de-discapacidad-cud",
+        "categoria": "Desarrollo Social",
+        "ultima_verificacion": "2026-08-08T16:34:27+00:00"
+      },
+      {
+        "tramite": "Promoción Social",
+        "subtramite": null,
+        "slug": "promocion-social",
+        "url": "https://municipalidadsalta.gob.ar/promocion-social/",
+        "categoria": "Desarrollo Social",
+        "ultima_verificacion": "2026-08-13T15:33:36.48+00:00"
+      },
+      {
+        "tramite": "Subsecretaría de la Mujer",
+        "subtramite": null,
+        "slug": "subsecretaria-mujer",
+        "url": "https://municipalidadsalta.gob.ar/subsecretaria-mujer/",
+        "categoria": "Desarrollo Social",
+        "ultima_verificacion": "2026-08-13T19:34:34.899+00:00"
+      },
+      {
+        "tramite": "Adicciones",
+        "subtramite": null,
+        "slug": "desarrollo-humano-2-adicciones",
+        "url": "https://municipalidadsalta.gob.ar/desarrollo-social/adicciones/",
+        "categoria": "Desarrollo Social",
+        "ultima_verificacion": "2026-08-13T19:34:42.441+00:00"
+      }
+    ],
+    "slugs": [
+      "cud-nacional-marco-general",
+      "promocion-social",
+      "subsecretaria-mujer",
+      "desarrollo-humano-2-adicciones"
+    ],
+    "mejorSimilitud": 0.612308139119996,
+    "noSabe": false,
+    "tokensEntrada": 1849,
+    "tokensSalida": 59,
+    "bodyBytes": 7317,
+    "msRetrieval": 433,
+    "msGeneracion": 1719,
+    "msTotal": 2153,
+    "saludaDeMas": true,
+    "arrastre": [],
+    "temaOk": null
+  },
+  {
+    "arm": "off",
+    "conversacion": 3,
+    "turno": 2,
+    "pregunta": "osea que sí usás",
+    "modo": "off",
+    "turnosHistorial": 2,
+    "charsHistorial": 269,
+    "camino": "retrieval",
+    "consultaBusqueda": "osea que sí usás",
+    "motivo": "tema-previo",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "No, no uso pañales. Soy un programa de computadora y no tengo un cuerpo físico.\n\nSi tenés alguna duda sobre la oblea de discapacidad o cualquier otro trámite, avisame.",
+    "fuentes": [
+      {
+        "tramite": "Oblea de Discapacidad",
+        "subtramite": null,
+        "slug": "oblea-de-discapacidad",
+        "url": "https://municipalidadsalta.gob.ar/tramites/oblea-de-discapacidad/",
+        "categoria": "Tránsito Digital",
+        "ultima_verificacion": "2026-08-13T15:31:43.764+00:00"
+      },
+      {
+        "tramite": "Certificado Único de Discapacidad (CUD) — Marco general nacional",
+        "subtramite": null,
+        "slug": "cud-nacional-marco-general",
+        "url": "https://www.argentina.gob.ar/servicio/como-obtener-el-certificado-unico-de-discapacidad-cud",
+        "categoria": "Desarrollo Social",
+        "ultima_verificacion": "2026-08-08T16:34:27+00:00"
+      },
+      {
+        "tramite": "Denuncias",
+        "subtramite": null,
+        "slug": "denuncias",
+        "url": "https://municipalidadsalta.gob.ar/tramites/denuncias/",
+        "categoria": "Vía Pública",
+        "ultima_verificacion": "2026-08-13T15:27:46.576+00:00"
+      },
+      {
+        "tramite": "Constancia de no retenciones / No percepción de publicidad Y/O actividades eventuales",
+        "subtramite": null,
+        "slug": "constancia-de-no-retenciones-no-percepcion-de-publicidiad-y-o-actividades-eventuales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/constancia-de-no-retenciones-no-percepcion-de-publicidiad-y-o-actividades-eventuales/",
+        "categoria": "Comerciales",
+        "ultima_verificacion": "2026-08-13T15:27:31.117+00:00"
+      }
+    ],
+    "slugs": [
+      "oblea-de-discapacidad",
+      "cud-nacional-marco-general",
+      "denuncias",
+      "constancia-de-no-retenciones-no-percepcion-de-publicidiad-y-o-actividades-eventuales"
+    ],
+    "mejorSimilitud": 0.655211692951099,
+    "noSabe": false,
+    "tokensEntrada": 2213,
+    "tokensSalida": 41,
+    "bodyBytes": 8783,
+    "msRetrieval": 410,
+    "msGeneracion": 1051,
+    "msTotal": 1463,
+    "saludaDeMas": false,
+    "arrastre": [],
+    "temaOk": null
+  },
+  {
+    "arm": "off",
+    "conversacion": 4,
+    "turno": 1,
+    "pregunta": "qué trámites hay",
+    "modo": "off",
+    "turnosHistorial": 0,
+    "charsHistorial": 0,
+    "camino": "catalogo",
+    "consultaBusqueda": "qué trámites hay",
+    "motivo": "sin-historial",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "¡Hola! Soy Tuki, el asistente virtual de la Municipalidad de Salta. Te puedo ayudar con información sobre 133 trámites distintos.\n\nAcá te detallo las áreas principales que cubro:\n\n*   **Automotor** (53 trámites): Incluye temas como el Libre deuda del Automotor y Planes de Pago.\n    *   **Licencia de conducir**: Te puedo informar sobre Licencias de Conducir, incluyendo para principiantes, profesionales e interjurisdiccionales.\n    *   **Taxis y remises**: También sobre Recategorización del Automotor y de Taxis/Remises.\n*   **Inmobiliarios** (25 trámites): Por ejemplo, Solicitud de Constancia de Inspección Eléctrica y Planes de Pago de Inmuebles.\n*   **Desarrollo Social** (14 trámites): Como Programas descentralizados y el CUD Salta (requisitos, sedes y referentes).\n*   **Cementerios** (9 trámites): Te puedo ayudar con Inhumaciones, Exhumaciones, Traslados y Venta de lotes.\n*   **Tránsito Digital** (8 trámites): Por ejemplo, la Oblea de Discapacidad y la Restitución de vehículos secuestrados.\n*   **Vía Pública** (8 trámites): Incluye Denuncias, Habilitación de Anuncios publicitarios y Registro de aperturas.\n*   **Inspección de Obras Privadas** (7 trámites): Como la Ocupación de vereda para obras en construcción y Demoliciones.\n*   **Comerciales** (6 trámites): Por ejemplo, Habilitaciones Comerciales y Venta en la vía pública (Food Trucks).\n*   **Comunicación** (3 trámites): Te puedo informar sobre Solicitud de Producción y Solicitud de Gráfica.\n*   **Emprendedores** (3 trámites): Como Medidas Comercio y el programa ¡Yo emprendo! Turismo.\n*   **Obras Privadas - Aprobación de Planos** (3 trámites): Incluye el Régimen de registración edilicia y el Régimen de Incentivo y Fomento de la Construcción.\n*   **Conexión eléctrica** (1 trámite): La Solicitud de conexión eléctrica eventual.\n*   **Plataformas digitales** (1 trámite): Las Plataformas digitales oficiales de Salta.\n\n¿Querés que te cuente sobre alguno en particular?",
+    "fuentes": [],
+    "slugs": [],
+    "mejorSimilitud": null,
+    "tokensEntrada": 2053,
+    "tokensSalida": 543,
+    "msGeneracion": 2806,
+    "msTotal": 2806,
+    "saludaDeMas": true,
+    "noSabe": false,
+    "arrastre": [],
+    "temaOk": null
+  },
+  {
+    "arm": "off",
+    "conversacion": 4,
+    "turno": 2,
+    "pregunta": "el segundo",
+    "modo": "off",
+    "turnosHistorial": 2,
+    "charsHistorial": 1217,
+    "camino": "retrieval",
+    "consultaBusqueda": "el segundo",
+    "motivo": "tema-previo",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "El segundo trámite que mencioné es el de **Permiso para Instalación de Fibras Ópticas**.\n\n¿Querés que te cuente más sobre ese trámite?",
+    "fuentes": [
+      {
+        "tramite": "Desarrollo Social",
+        "subtramite": null,
+        "slug": "desarrollo-social",
+        "url": "https://municipalidadsalta.gob.ar/desarrollo-social/",
+        "categoria": "Desarrollo Social",
+        "ultima_verificacion": "2026-08-13T15:33:32.92+00:00"
+      },
+      {
+        "tramite": "Permisos Para Instalación de Fibras Ópticas",
+        "subtramite": null,
+        "slug": "permisos-para-instalacion-de-fibras-opticas",
+        "url": "https://municipalidadsalta.gob.ar/tramites/permisos-para-instalacion-de-fibras-opticas/",
+        "categoria": "Vía Pública",
+        "ultima_verificacion": "2026-08-13T15:29:20.237+00:00"
+      },
+      {
+        "tramite": "Venta de lotes",
+        "subtramite": null,
+        "slug": "venta-de-lotes",
+        "url": "https://municipalidadsalta.gob.ar/tramites/venta-de-lotes/",
+        "categoria": "Cementerios",
+        "ultima_verificacion": "2026-08-13T15:28:11.465+00:00"
+      },
+      {
+        "tramite": "Medidas Comercio",
+        "subtramite": null,
+        "slug": "medidascomercio",
+        "url": "https://municipalidadsalta.gob.ar/medidascomercio/",
+        "categoria": "Emprendedores",
+        "ultima_verificacion": "2026-08-13T15:33:48.512+00:00"
+      }
+    ],
+    "slugs": [
+      "desarrollo-social",
+      "permisos-para-instalacion-de-fibras-opticas",
+      "venta-de-lotes",
+      "medidascomercio"
+    ],
+    "mejorSimilitud": 0.62115560472742,
+    "noSabe": false,
+    "tokensEntrada": 2089,
+    "tokensSalida": 38,
+    "bodyBytes": 7967,
+    "msRetrieval": 519,
+    "msGeneracion": 926,
+    "msTotal": 1445,
+    "saludaDeMas": false,
+    "arrastre": [],
+    "temaOk": null
+  },
+  {
+    "arm": "off",
+    "conversacion": 5,
+    "turno": 1,
+    "pregunta": "licencia de conducir",
+    "modo": "off",
+    "turnosHistorial": 0,
+    "charsHistorial": 0,
+    "camino": "retrieval",
+    "consultaBusqueda": "licencia de conducir",
+    "motivo": "sin-historial",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "¡Hola! Para sacar tu licencia de conducir en Salta, tenés varias opciones según tu situación:\n\n*   **Licencia de Principiantes:** Si la tramitás por primera vez o si tu licencia anterior venció hace más de un año.\n*   **Renovación:** Si tu licencia está por vencer o venció hace menos de un año.\n*   **Licencia para Menores:** Si tenés 17 años o estás por cumplirlos.\n*   **Duplicado:** Si perdiste o te robaron tu licencia vigente.\n*   **Renovación por Cambio de Jurisdicción:** Si cambiaste tu domicilio a Salta y tu licencia es de otra provincia.\n*   **Ampliación:** Si querés agregar nuevas categorías a tu licencia.\n\nPodés iniciar el trámite online. También tenés disponible un manual del conductor y una simulación de examen teórico para practicar.",
+    "fuentes": [
+      {
+        "tramite": "Licencias de Conducir",
+        "subtramite": null,
+        "slug": "licencia-de-conducir",
+        "url": "https://municipalidadsalta.gob.ar/tramites/licencia-de-conducir/",
+        "categoria": "Automotor",
+        "ultima_verificacion": "2026-08-13T15:29:43.156+00:00"
+      },
+      {
+        "tramite": "Licencia de Conducir – Principiantes – Profesionales",
+        "subtramite": null,
+        "slug": "licencia-de-conducir-principiantes-profesionales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/licencia-de-conducir-principiantes-profesionales/",
+        "categoria": "Automotor",
+        "ultima_verificacion": "2026-08-13T15:31:56.568+00:00"
+      },
+      {
+        "tramite": "Licencia de Conducir – Principiantes – Profesionales – Interjurisdiccionales",
+        "subtramite": null,
+        "slug": "licencia-de-conducir-principiantes-profesionales-interjurisdiccionales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/licencia-de-conducir-principiantes-profesionales-interjurisdiccionales/",
+        "categoria": "Automotor",
+        "ultima_verificacion": "2026-08-13T15:32:35.865+00:00"
+      }
+    ],
+    "slugs": [
+      "licencia-de-conducir",
+      "licencia-de-conducir-principiantes-profesionales",
+      "licencia-de-conducir-principiantes-profesionales-interjurisdiccionales"
+    ],
+    "mejorSimilitud": 0.755670098470757,
+    "noSabe": false,
+    "tokensEntrada": 1762,
+    "tokensSalida": 196,
+    "bodyBytes": 6930,
+    "msRetrieval": 409,
+    "msGeneracion": 1881,
+    "msTotal": 2291,
+    "saludaDeMas": true,
+    "arrastre": [],
+    "temaOk": null
+  },
+  {
+    "arm": "off",
+    "conversacion": 5,
+    "turno": 2,
+    "pregunta": "y para profesionales?",
+    "modo": "off",
+    "turnosHistorial": 2,
+    "charsHistorial": 774,
+    "camino": "retrieval",
+    "consultaBusqueda": "y para profesionales?",
+    "motivo": "tema-previo",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "Para licencias profesionales, tenés dos tipos según dónde vayas a circular:\n\n*   **Servicio Interjurisdiccional:** Si circulás dentro y fuera de la provincia de Salta. Las categorías son C, D1, D2, D3, D4, E1, E2.\n*   **Servicio Jurisdiccional:** Si circulás solamente dentro de la provincia de Salta. Las categorías son C1, C2, D1, D2, D3, E2.\n\nEsto aplica para principiantes, renovaciones, ampliaciones y renovaciones por cambio de jurisdicción.",
+    "fuentes": [
+      {
+        "tramite": "Licencia de Conducir – Principiantes – Profesionales",
+        "subtramite": null,
+        "slug": "licencia-de-conducir-principiantes-profesionales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/licencia-de-conducir-principiantes-profesionales/",
+        "categoria": "Automotor",
+        "ultima_verificacion": "2026-08-13T15:31:56.568+00:00"
+      },
+      {
+        "tramite": "Licencia de Conducir – Ampliación – Profesionales",
+        "subtramite": null,
+        "slug": "licencia-conducir-ampliacion-profesionales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/licencia-conducir-ampliacion-profesionales/",
+        "categoria": "Automotor",
+        "ultima_verificacion": "2026-08-13T15:32:32.683+00:00"
+      },
+      {
+        "tramite": "Licencia de Conducir – Renovación – profesionales",
+        "subtramite": null,
+        "slug": "renovacion-licencia-profesionales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/renovacion-licencia-profesionales/",
+        "categoria": "Automotor",
+        "ultima_verificacion": "2026-08-13T15:32:17.264+00:00"
+      },
+      {
+        "tramite": "Renovación por cambio de jurisdicción – Profesionales",
+        "subtramite": null,
+        "slug": "renovacion-cambio-jurisdiccion-profesionales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/renovacion-cambio-jurisdiccion-profesionales/",
+        "categoria": "Automotor",
+        "ultima_verificacion": "2026-08-13T15:32:25.181+00:00"
+      }
+    ],
+    "slugs": [
+      "licencia-de-conducir-principiantes-profesionales",
+      "licencia-conducir-ampliacion-profesionales",
+      "renovacion-licencia-profesionales",
+      "renovacion-cambio-jurisdiccion-profesionales"
+    ],
+    "mejorSimilitud": 0.714851308842403,
+    "noSabe": false,
+    "tokensEntrada": 2356,
+    "tokensSalida": 127,
+    "bodyBytes": 8685,
+    "msRetrieval": 461,
+    "msGeneracion": 1365,
+    "msTotal": 1827,
+    "saludaDeMas": false,
+    "arrastre": [],
+    "temaOk": true
+  },
+  {
+    "arm": "off",
+    "conversacion": 6,
+    "turno": 1,
+    "pregunta": "cómo saco el CUD",
+    "modo": "off",
+    "turnosHistorial": 0,
+    "charsHistorial": 0,
+    "camino": "retrieval",
+    "consultaBusqueda": "cómo saco el CUD",
+    "motivo": "sin-historial",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "¡Hola! Para sacar el Certificado Único de Discapacidad (CUD) en Salta, seguí estos pasos:\n\n1.  **Reuní la documentación:** Necesitás certificados médicos, informes y estudios. Podés consultar los requisitos específicos para tu caso en este enlace: [https://www.argentina.gob.ar/cud/consulta-requisitos](https://www.argentina.gob.ar/cud/consulta-requisitos)\n2.  **Pedí turno:** Con la documentación lista, andá al lugar que te indique la consulta de requisitos para pedir un turno con la Junta Evaluadora.\n3.  **Asistí a la evaluación:** El día de tu turno, la Junta te evaluará.\n\nEl CUD o la denegatoria lo puede retirar cualquier persona mayor de 18 años con el documento original del titular. Desde noviembre de 2023, el CUD se emite en formato digital.",
+    "fuentes": [
+      {
+        "tramite": "Certificado Único de Discapacidad (CUD) — Marco general nacional",
+        "subtramite": null,
+        "slug": "cud-nacional-marco-general",
+        "url": "https://www.argentina.gob.ar/servicio/como-obtener-el-certificado-unico-de-discapacidad-cud",
+        "categoria": "Desarrollo Social",
+        "ultima_verificacion": "2026-08-08T16:34:27+00:00"
+      },
+      {
+        "tramite": "Certificado Único de Discapacidad (CUD) — Provincia de Salta",
+        "subtramite": null,
+        "slug": "cud-certificado-discapacidad-provincia",
+        "url": "https://www.salta.gob.ar/prensa/noticias/en-salta-se-comenzara-a-otorgar-el-certificado-nico-de-discapacidad-digital-92834",
+        "categoria": "Desarrollo Social",
+        "ultima_verificacion": "2026-08-08T16:34:10+00:00"
+      },
+      {
+        "tramite": "CUD Salta — Complemento: requisitos por patología, sedes y referentes",
+        "subtramite": null,
+        "slug": "cud-provincial-complemento",
+        "url": "http://atencionciudadana.salta.gob.ar/certificado-unico-de-discapacidad-cud/",
+        "categoria": "Desarrollo Social",
+        "ultima_verificacion": "2026-08-08T16:34:42+00:00"
+      }
+    ],
+    "slugs": [
+      "cud-nacional-marco-general",
+      "cud-certificado-discapacidad-provincia",
+      "cud-provincial-complemento"
+    ],
+    "mejorSimilitud": 0.764970902686675,
+    "noSabe": false,
+    "tokensEntrada": 2030,
+    "tokensSalida": 203,
+    "bodyBytes": 7911,
+    "msRetrieval": 404,
+    "msGeneracion": 1760,
+    "msTotal": 2165,
+    "saludaDeMas": true,
+    "arrastre": [],
+    "temaOk": null
+  },
+  {
+    "arm": "off",
+    "conversacion": 6,
+    "turno": 2,
+    "pregunta": "gracias",
+    "modo": "off",
+    "turnosHistorial": 2,
+    "charsHistorial": 771,
+    "camino": "cierre",
+    "consultaBusqueda": "gracias",
+    "motivo": "sin-historial",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "De nada. Si tenés otra consulta sobre trámites, acá estoy para ayudarte.",
+    "fuentes": [],
+    "slugs": [],
+    "mejorSimilitud": null,
+    "tokensEntrada": 1681,
+    "tokensSalida": 17,
+    "msGeneracion": 664,
+    "msTotal": 664,
+    "saludaDeMas": false,
+    "noSabe": false,
+    "arrastre": [],
+    "temaOk": null
+  },
+  {
+    "arm": "off",
+    "conversacion": 6,
+    "turno": 3,
+    "pregunta": "otra cosa: libre deuda",
+    "modo": "off",
+    "turnosHistorial": 4,
+    "charsHistorial": 850,
+    "camino": "retrieval",
+    "consultaBusqueda": "otra cosa: libre deuda",
+    "motivo": "cambio-de-tema",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "Para el libre deuda, necesito que me digas de qué tipo es. ¿Es de un automotor, un inmueble, o de un taxi/transporte escolar/taxiflet? Así te doy la información correcta.",
+    "fuentes": [
+      {
+        "tramite": "Libre deuda del Automotor",
+        "subtramite": null,
+        "slug": "libre-deuda-del-automotor",
+        "url": "https://municipalidadsalta.gob.ar/tramites/libre-deuda-del-automotor/",
+        "categoria": "Automotor",
+        "ultima_verificacion": "2026-08-13T15:24:48.913+00:00"
+      },
+      {
+        "tramite": "Libre Deuda Inmuebles",
+        "subtramite": null,
+        "slug": "libre-deuda-inmuebles",
+        "url": "https://municipalidadsalta.gob.ar/tramites/libre-deuda-inmuebles/",
+        "categoria": "Inmobiliarios",
+        "ultima_verificacion": "2026-08-13T15:26:35.652+00:00"
+      },
+      {
+        "tramite": "Libre deuda TAXI – TRANSPORTE ESCOLAR – TAXIFLET",
+        "subtramite": null,
+        "slug": "libre-deuda-taxi-transporte-escolar-taxiflet",
+        "url": "https://municipalidadsalta.gob.ar/tramites/libre-deuda-taxi-transporte-escolar-taxiflet/",
+        "categoria": "Automotor",
+        "ultima_verificacion": "2026-08-13T15:26:16.302+00:00"
+      }
+    ],
+    "slugs": [
+      "libre-deuda-del-automotor",
+      "libre-deuda-inmuebles",
+      "libre-deuda-taxi-transporte-escolar-taxiflet"
+    ],
+    "mejorSimilitud": 0.742888641430101,
+    "noSabe": false,
+    "tokensEntrada": 2136,
+    "tokensSalida": 46,
+    "bodyBytes": 8435,
+    "msRetrieval": 483,
+    "msGeneracion": 1014,
+    "msTotal": 1498,
+    "saludaDeMas": false,
+    "arrastre": [],
+    "temaOk": null
+  },
+  {
+    "arm": "heuristica",
+    "conversacion": 1,
+    "turno": 1,
+    "pregunta": "cómo habilito un kiosco",
+    "modo": "heuristica",
+    "turnosHistorial": 0,
+    "charsHistorial": 0,
+    "camino": "retrieval",
+    "consultaBusqueda": "cómo habilito un kiosco",
+    "motivo": "sin-historial",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "¡Hola! Para habilitar un quiosco en la vía pública en Salta, tenés que tramitar un permiso de venta.\n\nAcá te cuento los requisitos principales:\n\n*   **Ubicación**: No puede estar en ochavas ni a menos de 10 metros de las esquinas con mucho tránsito. Solo se permiten dos permisos por cuadra, con al menos 80 metros de distancia entre ellos.\n*   **Construcción**: El quiosco debe ser desarmable (madera, metal) y no puede estar adherido al suelo de forma permanente.\n*   **Documentación**: Necesitás un croquis de la ubicación, planos de la vereda y una nota del frentista (el dueño de la propiedad de enfrente) dando su conformidad.\n\n¿Querés que te cuente sobre los rubros que podés vender o las dimensiones permitidas?",
+    "fuentes": [
+      {
+        "tramite": "Venta en la vía pública y Food Trucks — Ciudad de Salta",
+        "subtramite": null,
+        "slug": "venta-via-publica-foodtrucks",
+        "url": "https://municipalidadsalta.gob.ar/wp-content/uploads/2021/10/GuiaAutorizacionVentaAmbulante.pdf",
+        "categoria": "Comerciales",
+        "ultima_verificacion": "2026-08-08T16:37:22+00:00"
+      },
+      {
+        "tramite": "Habilitación de Anuncios publicitarios – Cartelería",
+        "subtramite": null,
+        "slug": "carteleria",
+        "url": "https://municipalidadsalta.gob.ar/tramites/carteleria/",
+        "categoria": "Vía Pública",
+        "ultima_verificacion": "2026-08-13T15:31:40.664+00:00"
+      },
+      {
+        "tramite": "Habilitaciones Comerciales",
+        "subtramite": "Nueva Habilitación Comercial",
+        "slug": "habilitaciones-comerciales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/habilitaciones-comerciales/",
+        "categoria": "Comerciales",
+        "ultima_verificacion": "2026-08-13T15:27:36.716+00:00"
+      }
+    ],
+    "slugs": [
+      "venta-via-publica-foodtrucks",
+      "carteleria",
+      "habilitaciones-comerciales"
+    ],
+    "mejorSimilitud": 0.719459558919648,
+    "noSabe": false,
+    "tokensEntrada": 2433,
+    "tokensSalida": 188,
+    "bodyBytes": 9350,
+    "msRetrieval": 426,
+    "msGeneracion": 1651,
+    "msTotal": 2077,
+    "saludaDeMas": true,
+    "arrastre": [],
+    "temaOk": null
+  },
+  {
+    "arm": "heuristica",
+    "conversacion": 1,
+    "turno": 2,
+    "pregunta": "y cuánto cuesta?",
+    "modo": "heuristica",
+    "turnosHistorial": 2,
+    "charsHistorial": 742,
+    "camino": "retrieval",
+    "consultaBusqueda": "cómo habilito un kiosco y cuánto cuesta?",
+    "motivo": "tema-previo",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "El costo del permiso de venta para tu quiosco depende de la duración:\n\n*   **30 días**: $1026\n*   **60 días**: $2052\n*   **90 días**: $3078\n\nEstos valores corresponden a un permiso transitorio.",
+    "fuentes": [
+      {
+        "tramite": "Habilitaciones Comerciales",
+        "subtramite": "Solicitud de permiso transitorio",
+        "slug": "habilitaciones-comerciales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/habilitaciones-comerciales/",
+        "categoria": "Comerciales",
+        "ultima_verificacion": "2026-08-13T15:27:36.716+00:00"
+      },
+      {
+        "tramite": "Habilitación de Anuncios publicitarios – Cartelería",
+        "subtramite": null,
+        "slug": "carteleria",
+        "url": "https://municipalidadsalta.gob.ar/tramites/carteleria/",
+        "categoria": "Vía Pública",
+        "ultima_verificacion": "2026-08-13T15:31:40.664+00:00"
+      },
+      {
+        "tramite": "Venta en la vía pública y Food Trucks — Ciudad de Salta",
+        "subtramite": null,
+        "slug": "venta-via-publica-foodtrucks",
+        "url": "https://municipalidadsalta.gob.ar/wp-content/uploads/2021/10/GuiaAutorizacionVentaAmbulante.pdf",
+        "categoria": "Comerciales",
+        "ultima_verificacion": "2026-08-08T16:37:22+00:00"
+      },
+      {
+        "tramite": "Habilitaciones Comerciales",
+        "subtramite": "Requisitos para la habilitación de Vehículos",
+        "slug": "habilitaciones-comerciales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/habilitaciones-comerciales/",
+        "categoria": "Comerciales",
+        "ultima_verificacion": "2026-08-13T15:27:36.716+00:00"
+      }
+    ],
+    "slugs": [
+      "habilitaciones-comerciales",
+      "carteleria",
+      "venta-via-publica-foodtrucks"
+    ],
+    "mejorSimilitud": 0.727852635386973,
+    "noSabe": false,
+    "tokensEntrada": 2834,
+    "tokensSalida": 65,
+    "bodyBytes": 10833,
+    "msRetrieval": 503,
+    "msGeneracion": 1063,
+    "msTotal": 1566,
+    "saludaDeMas": false,
+    "arrastre": [],
+    "temaOk": true
+  },
+  {
+    "arm": "heuristica",
+    "conversacion": 1,
+    "turno": 3,
+    "pregunta": "dónde lo hago?",
+    "modo": "heuristica",
+    "turnosHistorial": 4,
+    "charsHistorial": 951,
+    "camino": "retrieval",
+    "consultaBusqueda": "cómo habilito un kiosco dónde lo hago?",
+    "motivo": "tema-previo",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "El trámite para el permiso de venta de tu quiosco se inicia de forma virtual a través de \"Salta Activa\".\n\nUna vez que ingreses al escritorio centralizado ciudadano, vas a encontrar la sección correspondiente para empezar. La parte final del trámite se realiza de forma presencial en la Subsecretaría de Habilitaciones, que está en el Centro Cívico Municipal (Avda. Paraguay 1240), de 8:00 a 19:30 hs.\n\nAcá tenés el enlace para ir al escritorio: [[0]](https://municipalidadsalta.gob.ar/tramites/habilitaciones-comerciales/)",
+    "fuentes": [
+      {
+        "tramite": "Habilitación de Anuncios publicitarios – Cartelería",
+        "subtramite": null,
+        "slug": "carteleria",
+        "url": "https://municipalidadsalta.gob.ar/tramites/carteleria/",
+        "categoria": "Vía Pública",
+        "ultima_verificacion": "2026-08-13T15:31:40.664+00:00"
+      },
+      {
+        "tramite": "Habilitaciones Comerciales",
+        "subtramite": "Nueva Habilitación Comercial",
+        "slug": "habilitaciones-comerciales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/habilitaciones-comerciales/",
+        "categoria": "Comerciales",
+        "ultima_verificacion": "2026-08-13T15:27:36.716+00:00"
+      },
+      {
+        "tramite": "Venta en la vía pública y Food Trucks — Ciudad de Salta",
+        "subtramite": null,
+        "slug": "venta-via-publica-foodtrucks",
+        "url": "https://municipalidadsalta.gob.ar/wp-content/uploads/2021/10/GuiaAutorizacionVentaAmbulante.pdf",
+        "categoria": "Comerciales",
+        "ultima_verificacion": "2026-08-08T16:37:22+00:00"
+      }
+    ],
+    "slugs": [
+      "carteleria",
+      "habilitaciones-comerciales",
+      "venta-via-publica-foodtrucks"
+    ],
+    "mejorSimilitud": 0.715687762219127,
+    "noSabe": false,
+    "tokensEntrada": 3016,
+    "tokensSalida": 141,
+    "bodyBytes": 11598,
+    "msRetrieval": 445,
+    "msGeneracion": 1620,
+    "msTotal": 2065,
+    "saludaDeMas": false,
+    "arrastre": [],
+    "temaOk": true
+  },
+  {
+    "arm": "heuristica",
+    "conversacion": 2,
+    "turno": 1,
+    "pregunta": "quiero abrir un foodtruck",
+    "modo": "heuristica",
+    "turnosHistorial": 0,
+    "charsHistorial": 0,
+    "camino": "retrieval",
+    "consultaBusqueda": "quiero abrir un foodtruck",
+    "motivo": "sin-historial",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "¡Hola! Para abrir un foodtruck en Salta, necesitás dos cosas: la habilitación comercial del vehículo y un permiso para vender en el espacio público.\n\n**Habilitación del vehículo**\nEste trámite verifica que tu foodtruck cumpla con las normas de higiene y seguridad. El sellado administrativo es gratis, y el Certificado de Habilitación Vehicular cuesta $2288,00. Podés iniciarlo de forma virtual completando un formulario web.\n\n**Permiso para vender en la vía pública**\nEste permiso se rige por la Ordenanza Nº 6.240. Tu foodtruck debe cumplir con requisitos específicos de equipamiento, como:\n\n*   Un artefacto rodante de medidas máximas (largo 1,50 m, ancho 0,80 m, altura 2,00 m).\n*   Campana extractora, mesada inalterable, tanque de agua, pileta para lavar utensilios.\n*   Espacios cerrados para carbón y chorizos, heladera para bebidas sin alcohol.\n*   Recipientes para aguas desechables y residuos diferenciados.\n*   Necesitás una nota del frentista (dueño del local de enfrente) dando su conformidad.\n\nAdemás, si vendés carnes asadas o comidas al paso, tenés que tener agua potable y conexión a cloacas. Los aderezos deben estar en su envase original, con rótulo y refrigerados.\n\n¿Querés que te cuente más sobre alguno de estos puntos?",
+    "fuentes": [
+      {
+        "tramite": "Venta en la vía pública y Food Trucks — Ciudad de Salta",
+        "subtramite": null,
+        "slug": "venta-via-publica-foodtrucks",
+        "url": "https://municipalidadsalta.gob.ar/wp-content/uploads/2021/10/GuiaAutorizacionVentaAmbulante.pdf",
+        "categoria": "Comerciales",
+        "ultima_verificacion": "2026-08-08T16:37:22+00:00"
+      },
+      {
+        "tramite": "Habilitaciones Comerciales",
+        "subtramite": "Requisitos para la habilitación de Vehículos",
+        "slug": "habilitaciones-comerciales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/habilitaciones-comerciales/",
+        "categoria": "Comerciales",
+        "ultima_verificacion": "2026-08-13T15:27:36.716+00:00"
+      },
+      {
+        "tramite": "Habilitaciones Comerciales",
+        "subtramite": "Nueva Habilitación Comercial",
+        "slug": "habilitaciones-comerciales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/habilitaciones-comerciales/",
+        "categoria": "Comerciales",
+        "ultima_verificacion": "2026-08-13T15:27:36.716+00:00"
+      },
+      {
+        "tramite": "Registro de aperturas",
+        "subtramite": null,
+        "slug": "registro-de-aperturas",
+        "url": "https://municipalidadsalta.gob.ar/tramites/registro-de-aperturas/",
+        "categoria": "Vía Pública",
+        "ultima_verificacion": "2026-08-13T15:27:43.076+00:00"
+      }
+    ],
+    "slugs": [
+      "venta-via-publica-foodtrucks",
+      "habilitaciones-comerciales",
+      "registro-de-aperturas"
+    ],
+    "mejorSimilitud": 0.713522701968814,
+    "noSabe": false,
+    "tokensEntrada": 2123,
+    "tokensSalida": 329,
+    "bodyBytes": 8417,
+    "msRetrieval": 474,
+    "msGeneracion": 2071,
+    "msTotal": 2547,
+    "saludaDeMas": true,
+    "arrastre": [],
+    "temaOk": null
+  },
+  {
+    "arm": "heuristica",
+    "conversacion": 2,
+    "turno": 2,
+    "pregunta": "sí, contame del carnet",
+    "modo": "heuristica",
+    "turnosHistorial": 2,
+    "charsHistorial": 1226,
+    "camino": "retrieval",
+    "consultaBusqueda": "quiero abrir un foodtruck sí, contame del carnet",
+    "motivo": "tema-previo",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "¡Claro! El Carnet de Manipulador de Alimentos es obligatorio para cualquier persona que esté en contacto con alimentos, como en tu foodtruck.\n\nEste carnet es un requisito explícito para el permiso de venta en la vía pública. Sirve para asegurar que sepas cómo manejar los alimentos de forma segura y así evitar enfermedades.\n\n¿Querés saber cómo obtenerlo?",
+    "fuentes": [
+      {
+        "tramite": "Carnet de Manipulación de Alimentos — Municipalidad de Salta",
+        "subtramite": null,
+        "slug": "curso-manipulacion-alimentos",
+        "url": "https://municipalidadsalta.gob.ar/cursos-manipulacion/",
+        "categoria": "Comerciales",
+        "ultima_verificacion": "2026-08-08T16:35:18+00:00"
+      },
+      {
+        "tramite": "Venta en la vía pública y Food Trucks — Ciudad de Salta",
+        "subtramite": null,
+        "slug": "venta-via-publica-foodtrucks",
+        "url": "https://municipalidadsalta.gob.ar/wp-content/uploads/2021/10/GuiaAutorizacionVentaAmbulante.pdf",
+        "categoria": "Comerciales",
+        "ultima_verificacion": "2026-08-08T16:37:22+00:00"
+      },
+      {
+        "tramite": "Habilitaciones Comerciales",
+        "subtramite": "Requisitos para la habilitación de Vehículos",
+        "slug": "habilitaciones-comerciales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/habilitaciones-comerciales/",
+        "categoria": "Comerciales",
+        "ultima_verificacion": "2026-08-13T15:27:36.716+00:00"
+      }
+    ],
+    "slugs": [
+      "curso-manipulacion-alimentos",
+      "venta-via-publica-foodtrucks",
+      "habilitaciones-comerciales"
+    ],
+    "mejorSimilitud": 0.717671452517096,
+    "noSabe": false,
+    "tokensEntrada": 3013,
+    "tokensSalida": 78,
+    "bodyBytes": 11894,
+    "msRetrieval": 442,
+    "msGeneracion": 1269,
+    "msTotal": 1711,
+    "saludaDeMas": false,
+    "arrastre": [],
+    "temaOk": true
+  },
+  {
+    "arm": "heuristica",
+    "conversacion": 3,
+    "turno": 1,
+    "pregunta": "usás pañales?",
+    "modo": "heuristica",
+    "turnosHistorial": 0,
+    "charsHistorial": 0,
+    "camino": "retrieval",
+    "consultaBusqueda": "usás pañales?",
+    "motivo": "sin-historial",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "¡Hola! Soy Tuki, el asistente virtual de la Municipalidad de Salta. Mi función es ayudarte con información sobre trámites municipales y provinciales.\n\nNo tengo información oficial sobre si uso pañales. ¿Hay algo en lo que pueda ayudarte con trámites?",
+    "fuentes": [],
+    "slugs": [
+      "cud-nacional-marco-general",
+      "promocion-social",
+      "subsecretaria-mujer",
+      "desarrollo-humano-2-adicciones"
+    ],
+    "mejorSimilitud": 0.612308139119996,
+    "noSabe": true,
+    "tokensEntrada": 1849,
+    "tokensSalida": 56,
+    "bodyBytes": 7317,
+    "msRetrieval": 497,
+    "msGeneracion": 1078,
+    "msTotal": 1575,
+    "saludaDeMas": true,
+    "arrastre": [],
+    "temaOk": null
+  },
+  {
+    "arm": "heuristica",
+    "conversacion": 3,
+    "turno": 2,
+    "pregunta": "osea que sí usás",
+    "modo": "heuristica",
+    "turnosHistorial": 2,
+    "charsHistorial": 263,
+    "camino": "retrieval",
+    "consultaBusqueda": "osea que sí usás",
+    "motivo": "no-se-previo",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "No, no uso pañales. Soy un programa de computadora y no tengo cuerpo.\n\nSi tenés alguna duda sobre trámites municipales o provinciales de Salta, con gusto te ayudo.",
+    "fuentes": [
+      {
+        "tramite": "Oblea de Discapacidad",
+        "subtramite": null,
+        "slug": "oblea-de-discapacidad",
+        "url": "https://municipalidadsalta.gob.ar/tramites/oblea-de-discapacidad/",
+        "categoria": "Tránsito Digital",
+        "ultima_verificacion": "2026-08-13T15:31:43.764+00:00"
+      },
+      {
+        "tramite": "Certificado Único de Discapacidad (CUD) — Marco general nacional",
+        "subtramite": null,
+        "slug": "cud-nacional-marco-general",
+        "url": "https://www.argentina.gob.ar/servicio/como-obtener-el-certificado-unico-de-discapacidad-cud",
+        "categoria": "Desarrollo Social",
+        "ultima_verificacion": "2026-08-08T16:34:27+00:00"
+      },
+      {
+        "tramite": "Denuncias",
+        "subtramite": null,
+        "slug": "denuncias",
+        "url": "https://municipalidadsalta.gob.ar/tramites/denuncias/",
+        "categoria": "Vía Pública",
+        "ultima_verificacion": "2026-08-13T15:27:46.576+00:00"
+      },
+      {
+        "tramite": "Constancia de no retenciones / No percepción de publicidad Y/O actividades eventuales",
+        "subtramite": null,
+        "slug": "constancia-de-no-retenciones-no-percepcion-de-publicidiad-y-o-actividades-eventuales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/constancia-de-no-retenciones-no-percepcion-de-publicidiad-y-o-actividades-eventuales/",
+        "categoria": "Comerciales",
+        "ultima_verificacion": "2026-08-13T15:27:31.117+00:00"
+      }
+    ],
+    "slugs": [
+      "oblea-de-discapacidad",
+      "cud-nacional-marco-general",
+      "denuncias",
+      "constancia-de-no-retenciones-no-percepcion-de-publicidiad-y-o-actividades-eventuales"
+    ],
+    "mejorSimilitud": 0.655211692951099,
+    "noSabe": false,
+    "tokensEntrada": 2210,
+    "tokensSalida": 41,
+    "bodyBytes": 8778,
+    "msRetrieval": 405,
+    "msGeneracion": 1077,
+    "msTotal": 1483,
+    "saludaDeMas": false,
+    "arrastre": [],
+    "temaOk": null
+  },
+  {
+    "arm": "heuristica",
+    "conversacion": 4,
+    "turno": 1,
+    "pregunta": "qué trámites hay",
+    "modo": "heuristica",
+    "turnosHistorial": 0,
+    "charsHistorial": 0,
+    "camino": "catalogo",
+    "consultaBusqueda": "qué trámites hay",
+    "motivo": "sin-historial",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "¡Hola! Soy Tuki, el asistente de la Municipalidad de Salta. Te puedo ayudar con información sobre 133 trámites distintos.\n\nAcá te detallo las áreas principales que cubro:\n\n*   **Automotor** (53 trámites): Incluye temas como Libre deuda del Automotor y Planes de Pago.\n    *   **Licencia de conducir**: Por ejemplo, Licencias de Conducir para principiantes o profesionales.\n    *   **Taxis y remises**: Como la Recategorización del Automotor o de Taxi/Remis.\n*   **Inmobiliarios** (25 trámites): Por ejemplo, la Solicitud de Constancia de Inspección Eléctrica y Planes de Pago de Inmuebles.\n*   **Desarrollo Social** (14 trámites): Como los Programas descentralizados y el CUD Salta.\n*   **Cementerios** (9 trámites): Te puedo informar sobre Inhumaciones, Exhumaciones o Venta de lotes.\n*   **Tránsito Digital** (8 trámites): Por ejemplo, la Oblea de Discapacidad y la Restitución de vehículos secuestrados.\n*   **Vía Pública** (8 trámites): Incluye Denuncias, Habilitación de Anuncios publicitarios y el Registro de aperturas.\n*   **Inspección de Obras Privadas** (7 trámites): Como la Ocupación de vereda para obras o Demoliciones.\n*   **Comerciales** (6 trámites): Por ejemplo, Habilitaciones Comerciales y Venta en la vía pública.\n*   **Comunicación** (3 trámites): Como la Solicitud de Producción o de Gráfica.\n*   **Emprendedores** (3 trámites): Por ejemplo, Medidas Comercio y Yo emprendo! Turismo.\n*   **Obras Privadas - Aprobación de Planos** (3 trámites): Como el Régimen de registración edilicia.\n*   **Conexión eléctrica** (1 trámite): La Solicitud de conexión eléctrica eventual.\n*   **Plataformas digitales** (1 trámite): Información sobre Plataformas digitales oficiales de Salta.\n\n¿Querés que te cuente sobre alguno en particular?",
+    "fuentes": [],
+    "slugs": [],
+    "mejorSimilitud": null,
+    "tokensEntrada": 2053,
+    "tokensSalida": 497,
+    "msGeneracion": 2473,
+    "msTotal": 2474,
+    "saludaDeMas": true,
+    "noSabe": false,
+    "arrastre": [],
+    "temaOk": null
+  },
+  {
+    "arm": "heuristica",
+    "conversacion": 4,
+    "turno": 2,
+    "pregunta": "el segundo",
+    "modo": "heuristica",
+    "turnosHistorial": 2,
+    "charsHistorial": 1217,
+    "camino": "retrieval",
+    "consultaBusqueda": "qué trámites hay el segundo",
+    "motivo": "tema-previo",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "El segundo paso para la mayoría de los trámites de Licencia de Conducir es **verificar tu correo electrónico**.\n\nDebes revisar tu bandeja de entrada (incluyendo spam o correo no deseado) para solicitar un turno con la fecha y hora que prefieras.\n\nPara la **Renovación de Licencias Profesionales y Jurisdiccionales** y la **Ampliación de Licencias Profesionales y Jurisdiccionales**, el segundo paso es **cargar tu documentación** en el siguiente link: [INGRESÁ AQUÍ](https://municipalidadsalta.gob.ar/tramites/licencia-de-conducir-renovacion-profesionales-jurisdiccionales/). Te confirmarán por correo en 48 horas si fue aprobado.",
+    "fuentes": [
+      {
+        "tramite": "Licencia de Conducir – Principiantes – Profesionales – Jurisdiccionales",
+        "subtramite": null,
+        "slug": "licencia-de-conducir-principiantes-profesionales-jurisdiccionales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/licencia-de-conducir-principiantes-profesionales-jurisdiccionales/",
+        "categoria": "Automotor",
+        "ultima_verificacion": "2026-08-13T15:32:39.681+00:00"
+      },
+      {
+        "tramite": "Licencia de Conducir – Principiantes – No profesionales",
+        "subtramite": null,
+        "slug": "licencia-conducir-principiantes-noprofesionales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/licencia-conducir-principiantes-noprofesionales/",
+        "categoria": "Automotor",
+        "ultima_verificacion": "2026-08-13T15:31:47.756+00:00"
+      },
+      {
+        "tramite": "Licencia de Conducir – Renovación – No profesionales",
+        "subtramite": null,
+        "slug": "renovacion-licencia-noprofesionales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/renovacion-licencia-noprofesionales/",
+        "categoria": "Automotor",
+        "ultima_verificacion": "2026-08-13T15:32:12.94+00:00"
+      },
+      {
+        "tramite": "Licencia de Conducir – Renovación – profesionales – jurisdiccionales",
+        "subtramite": null,
+        "slug": "licencia-de-conducir-renovacion-profesionales-jurisdiccionales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/licencia-de-conducir-renovacion-profesionales-jurisdiccionales/",
+        "categoria": "Automotor",
+        "ultima_verificacion": "2026-08-13T15:32:48.666+00:00"
+      },
+      {
+        "tramite": "Licencia de Conducir – Ampliación – Profesionales – Jurisdiccionales",
+        "subtramite": null,
+        "slug": "licencia-de-conducir-ampliacion-profesionales-jurisdiccionales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/licencia-de-conducir-ampliacion-profesionales-jurisdiccionales/",
+        "categoria": "Automotor",
+        "ultima_verificacion": "2026-08-13T15:32:55.231+00:00"
+      }
+    ],
+    "slugs": [
+      "licencia-de-conducir-principiantes-profesionales-jurisdiccionales",
+      "licencia-conducir-principiantes-noprofesionales",
+      "renovacion-licencia-noprofesionales",
+      "licencia-de-conducir-renovacion-profesionales-jurisdiccionales",
+      "licencia-de-conducir-ampliacion-profesionales-jurisdiccionales"
+    ],
+    "mejorSimilitud": 0.74431927038528,
+    "noSabe": false,
+    "tokensEntrada": 2314,
+    "tokensSalida": 162,
+    "bodyBytes": 9023,
+    "msRetrieval": 452,
+    "msGeneracion": 1697,
+    "msTotal": 2150,
+    "saludaDeMas": false,
+    "arrastre": [],
+    "temaOk": null
+  },
+  {
+    "arm": "heuristica",
+    "conversacion": 5,
+    "turno": 1,
+    "pregunta": "licencia de conducir",
+    "modo": "heuristica",
+    "turnosHistorial": 0,
+    "charsHistorial": 0,
+    "camino": "retrieval",
+    "consultaBusqueda": "licencia de conducir",
+    "motivo": "sin-historial",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "¡Hola! Para sacar tu licencia de conducir en Salta, tenés varias opciones según tu situación:\n\n*   **Licencia de Principiantes**: Si la sacás por primera vez o si tu licencia anterior venció hace más de un año.\n*   **Renovación**: Si tu licencia está por vencer o venció hace menos de un año.\n*   **Licencia para Menores**: Si tenés 17 años o estás por cumplirlos en los próximos dos meses.\n*   **Duplicado**: Si perdiste o te robaron tu licencia vigente.\n*   **Renovación por Cambio de Jurisdicción**: Si te mudaste a Salta y tu licencia es de otra provincia.\n*   **Ampliación**: Si querés agregar nuevas categorías a tu licencia actual.\n\nPodés iniciar el trámite online. También tenés disponible un manual del conductor y una simulación de examen teórico para practicar.",
+    "fuentes": [
+      {
+        "tramite": "Licencias de Conducir",
+        "subtramite": null,
+        "slug": "licencia-de-conducir",
+        "url": "https://municipalidadsalta.gob.ar/tramites/licencia-de-conducir/",
+        "categoria": "Automotor",
+        "ultima_verificacion": "2026-08-13T15:29:43.156+00:00"
+      },
+      {
+        "tramite": "Licencia de Conducir – Principiantes – Profesionales",
+        "subtramite": null,
+        "slug": "licencia-de-conducir-principiantes-profesionales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/licencia-de-conducir-principiantes-profesionales/",
+        "categoria": "Automotor",
+        "ultima_verificacion": "2026-08-13T15:31:56.568+00:00"
+      },
+      {
+        "tramite": "Licencia de Conducir – Principiantes – Profesionales – Interjurisdiccionales",
+        "subtramite": null,
+        "slug": "licencia-de-conducir-principiantes-profesionales-interjurisdiccionales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/licencia-de-conducir-principiantes-profesionales-interjurisdiccionales/",
+        "categoria": "Automotor",
+        "ultima_verificacion": "2026-08-13T15:32:35.865+00:00"
+      }
+    ],
+    "slugs": [
+      "licencia-de-conducir",
+      "licencia-de-conducir-principiantes-profesionales",
+      "licencia-de-conducir-principiantes-profesionales-interjurisdiccionales"
+    ],
+    "mejorSimilitud": 0.755670098470757,
+    "noSabe": false,
+    "tokensEntrada": 1762,
+    "tokensSalida": 199,
+    "bodyBytes": 6930,
+    "msRetrieval": 417,
+    "msGeneracion": 1655,
+    "msTotal": 2075,
+    "saludaDeMas": true,
+    "arrastre": [],
+    "temaOk": null
+  },
+  {
+    "arm": "heuristica",
+    "conversacion": 5,
+    "turno": 2,
+    "pregunta": "y para profesionales?",
+    "modo": "heuristica",
+    "turnosHistorial": 2,
+    "charsHistorial": 792,
+    "camino": "retrieval",
+    "consultaBusqueda": "licencia de conducir y para profesionales?",
+    "motivo": "tema-previo",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "Para las licencias profesionales, también tenés distintas opciones:\n\n*   **Principiantes Profesionales**: Si la sacás por primera vez.\n*   **Renovación Profesionales**: Si tu licencia profesional está por vencer o venció hace menos de un año.\n*   **Ampliación Profesionales**: Si querés agregar nuevas categorías profesionales.\n*   **Renovación por Cambio de Jurisdicción Profesionales**: Si te mudaste a Salta y tu licencia profesional es de otra provincia.\n\nEn todos los casos, tenés que elegir si tu servicio es **interjurisdiccional** (circulás dentro y fuera de Salta) o **jurisdiccional** (solo dentro de Salta), ya que las categorías de licencia cambian.",
+    "fuentes": [
+      {
+        "tramite": "Licencia de Conducir – Ampliación – Profesionales",
+        "subtramite": null,
+        "slug": "licencia-conducir-ampliacion-profesionales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/licencia-conducir-ampliacion-profesionales/",
+        "categoria": "Automotor",
+        "ultima_verificacion": "2026-08-13T15:32:32.683+00:00"
+      },
+      {
+        "tramite": "Licencia de Conducir – Principiantes – Profesionales",
+        "subtramite": null,
+        "slug": "licencia-de-conducir-principiantes-profesionales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/licencia-de-conducir-principiantes-profesionales/",
+        "categoria": "Automotor",
+        "ultima_verificacion": "2026-08-13T15:31:56.568+00:00"
+      },
+      {
+        "tramite": "Licencia de Conducir – Renovación – profesionales",
+        "subtramite": null,
+        "slug": "renovacion-licencia-profesionales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/renovacion-licencia-profesionales/",
+        "categoria": "Automotor",
+        "ultima_verificacion": "2026-08-13T15:32:17.264+00:00"
+      },
+      {
+        "tramite": "Renovación por cambio de jurisdicción – Profesionales",
+        "subtramite": null,
+        "slug": "renovacion-cambio-jurisdiccion-profesionales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/renovacion-cambio-jurisdiccion-profesionales/",
+        "categoria": "Automotor",
+        "ultima_verificacion": "2026-08-13T15:32:25.181+00:00"
+      }
+    ],
+    "slugs": [
+      "licencia-conducir-ampliacion-profesionales",
+      "licencia-de-conducir-principiantes-profesionales",
+      "renovacion-licencia-profesionales",
+      "renovacion-cambio-jurisdiccion-profesionales"
+    ],
+    "mejorSimilitud": 0.763573582088652,
+    "noSabe": false,
+    "tokensEntrada": 2359,
+    "tokensSalida": 159,
+    "bodyBytes": 8704,
+    "msRetrieval": 416,
+    "msGeneracion": 1597,
+    "msTotal": 2014,
+    "saludaDeMas": false,
+    "arrastre": [],
+    "temaOk": true
+  },
+  {
+    "arm": "heuristica",
+    "conversacion": 6,
+    "turno": 1,
+    "pregunta": "cómo saco el CUD",
+    "modo": "heuristica",
+    "turnosHistorial": 0,
+    "charsHistorial": 0,
+    "camino": "retrieval",
+    "consultaBusqueda": "cómo saco el CUD",
+    "motivo": "sin-historial",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "¡Hola! Para sacar el Certificado Único de Discapacidad (CUD) en Salta, seguí estos pasos:\n\n1.  **Reuní la documentación:** Necesitás certificados médicos, informes y estudios. Podés consultar los requisitos específicos para tu caso en este enlace: [https://www.argentina.gob.ar/cud/consulta-requisitos](https://www.argentina.gob.ar/cud/consulta-requisitos)\n2.  **Pedí turno:** Con la documentación lista, andá al lugar que te indique la consulta de requisitos para pedir un turno con la Junta Evaluadora.\n3.  **Asistí a la evaluación:** El día de tu turno, la Junta te evaluará.\n\nEl CUD o la denegatoria lo puede retirar cualquier persona mayor de 18 años con el documento original del titular. Desde noviembre de 2023, el CUD se emite en formato digital.",
+    "fuentes": [
+      {
+        "tramite": "Certificado Único de Discapacidad (CUD) — Marco general nacional",
+        "subtramite": null,
+        "slug": "cud-nacional-marco-general",
+        "url": "https://www.argentina.gob.ar/servicio/como-obtener-el-certificado-unico-de-discapacidad-cud",
+        "categoria": "Desarrollo Social",
+        "ultima_verificacion": "2026-08-08T16:34:27+00:00"
+      },
+      {
+        "tramite": "Certificado Único de Discapacidad (CUD) — Provincia de Salta",
+        "subtramite": null,
+        "slug": "cud-certificado-discapacidad-provincia",
+        "url": "https://www.salta.gob.ar/prensa/noticias/en-salta-se-comenzara-a-otorgar-el-certificado-nico-de-discapacidad-digital-92834",
+        "categoria": "Desarrollo Social",
+        "ultima_verificacion": "2026-08-08T16:34:10+00:00"
+      },
+      {
+        "tramite": "CUD Salta — Complemento: requisitos por patología, sedes y referentes",
+        "subtramite": null,
+        "slug": "cud-provincial-complemento",
+        "url": "http://atencionciudadana.salta.gob.ar/certificado-unico-de-discapacidad-cud/",
+        "categoria": "Desarrollo Social",
+        "ultima_verificacion": "2026-08-08T16:34:42+00:00"
+      }
+    ],
+    "slugs": [
+      "cud-nacional-marco-general",
+      "cud-certificado-discapacidad-provincia",
+      "cud-provincial-complemento"
+    ],
+    "mejorSimilitud": 0.764970902686675,
+    "noSabe": false,
+    "tokensEntrada": 2030,
+    "tokensSalida": 203,
+    "bodyBytes": 7911,
+    "msRetrieval": 416,
+    "msGeneracion": 1512,
+    "msTotal": 1929,
+    "saludaDeMas": true,
+    "arrastre": [],
+    "temaOk": null
+  },
+  {
+    "arm": "heuristica",
+    "conversacion": 6,
+    "turno": 2,
+    "pregunta": "gracias",
+    "modo": "heuristica",
+    "turnosHistorial": 2,
+    "charsHistorial": 771,
+    "camino": "cierre",
+    "consultaBusqueda": "gracias",
+    "motivo": "sin-historial",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "De nada. Si tenés otra consulta sobre trámites, acá estoy para ayudarte.",
+    "fuentes": [],
+    "slugs": [],
+    "mejorSimilitud": null,
+    "tokensEntrada": 1681,
+    "tokensSalida": 17,
+    "msGeneracion": 640,
+    "msTotal": 641,
+    "saludaDeMas": false,
+    "noSabe": false,
+    "arrastre": [],
+    "temaOk": null
+  },
+  {
+    "arm": "heuristica",
+    "conversacion": 6,
+    "turno": 3,
+    "pregunta": "otra cosa: libre deuda",
+    "modo": "heuristica",
+    "turnosHistorial": 4,
+    "charsHistorial": 850,
+    "camino": "retrieval",
+    "consultaBusqueda": "libre deuda",
+    "motivo": "cambio-de-tema",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "Para el libre deuda, necesito saber de qué tipo es. ¿Es de un automotor, un inmueble o un taxi/transporte escolar/taxiflet? Así te doy la información correcta.",
+    "fuentes": [
+      {
+        "tramite": "Libre deuda del Automotor",
+        "subtramite": null,
+        "slug": "libre-deuda-del-automotor",
+        "url": "https://municipalidadsalta.gob.ar/tramites/libre-deuda-del-automotor/",
+        "categoria": "Automotor",
+        "ultima_verificacion": "2026-08-13T15:24:48.913+00:00"
+      },
+      {
+        "tramite": "Libre Deuda Inmuebles",
+        "subtramite": null,
+        "slug": "libre-deuda-inmuebles",
+        "url": "https://municipalidadsalta.gob.ar/tramites/libre-deuda-inmuebles/",
+        "categoria": "Inmobiliarios",
+        "ultima_verificacion": "2026-08-13T15:26:35.652+00:00"
+      },
+      {
+        "tramite": "Libre deuda TAXI – TRANSPORTE ESCOLAR – TAXIFLET",
+        "subtramite": null,
+        "slug": "libre-deuda-taxi-transporte-escolar-taxiflet",
+        "url": "https://municipalidadsalta.gob.ar/tramites/libre-deuda-taxi-transporte-escolar-taxiflet/",
+        "categoria": "Automotor",
+        "ultima_verificacion": "2026-08-13T15:26:16.302+00:00"
+      }
+    ],
+    "slugs": [
+      "libre-deuda-del-automotor",
+      "libre-deuda-inmuebles",
+      "libre-deuda-taxi-transporte-escolar-taxiflet"
+    ],
+    "mejorSimilitud": 0.737084323097409,
+    "noSabe": false,
+    "tokensEntrada": 2148,
+    "tokensSalida": 41,
+    "bodyBytes": 8470,
+    "msRetrieval": 407,
+    "msGeneracion": 789,
+    "msTotal": 1197,
+    "saludaDeMas": false,
+    "arrastre": [],
+    "temaOk": null
+  },
+  {
+    "arm": "modelo",
+    "conversacion": 1,
+    "turno": 1,
+    "pregunta": "cómo habilito un kiosco",
+    "modo": "modelo",
+    "turnosHistorial": 0,
+    "charsHistorial": 0,
+    "camino": "retrieval",
+    "consultaBusqueda": "cómo habilito un kiosco",
+    "motivo": "sin-historial",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "¡Hola! Para habilitar un quiosco en la vía pública en Salta, tenés que tramitar un permiso de venta.\n\nAcá te cuento los requisitos principales:\n\n*   **Ubicación**: No puede estar en ochavas ni a menos de 10 metros de las esquinas. Solo se permiten dos permisos por cuadra, con al menos 80 metros de distancia entre ellos.\n*   **Construcción**: El quiosco debe ser desarmable (no de material permanente) y fácil de transportar.\n*   **Documentación**: Necesitás un croquis de la ubicación, planos de la vereda y una nota del frentista (el dueño de la propiedad de enfrente) dando su conformidad.\n\n¿Querés que te cuente sobre las dimensiones permitidas o los rubros que podés vender?",
+    "fuentes": [
+      {
+        "tramite": "Venta en la vía pública y Food Trucks — Ciudad de Salta",
+        "subtramite": null,
+        "slug": "venta-via-publica-foodtrucks",
+        "url": "https://municipalidadsalta.gob.ar/wp-content/uploads/2021/10/GuiaAutorizacionVentaAmbulante.pdf",
+        "categoria": "Comerciales",
+        "ultima_verificacion": "2026-08-08T16:37:22+00:00"
+      },
+      {
+        "tramite": "Habilitación de Anuncios publicitarios – Cartelería",
+        "subtramite": null,
+        "slug": "carteleria",
+        "url": "https://municipalidadsalta.gob.ar/tramites/carteleria/",
+        "categoria": "Vía Pública",
+        "ultima_verificacion": "2026-08-13T15:31:40.664+00:00"
+      },
+      {
+        "tramite": "Habilitaciones Comerciales",
+        "subtramite": "Nueva Habilitación Comercial",
+        "slug": "habilitaciones-comerciales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/habilitaciones-comerciales/",
+        "categoria": "Comerciales",
+        "ultima_verificacion": "2026-08-13T15:27:36.716+00:00"
+      }
+    ],
+    "slugs": [
+      "venta-via-publica-foodtrucks",
+      "carteleria",
+      "habilitaciones-comerciales"
+    ],
+    "mejorSimilitud": 0.719459558919648,
+    "noSabe": false,
+    "tokensEntrada": 2433,
+    "tokensSalida": 178,
+    "bodyBytes": 9350,
+    "msRetrieval": 437,
+    "msGeneracion": 1424,
+    "msTotal": 1863,
+    "saludaDeMas": true,
+    "arrastre": [],
+    "temaOk": null
+  },
+  {
+    "arm": "modelo",
+    "conversacion": 1,
+    "turno": 2,
+    "pregunta": "y cuánto cuesta?",
+    "modo": "modelo",
+    "turnosHistorial": 2,
+    "charsHistorial": 703,
+    "camino": "retrieval",
+    "consultaBusqueda": "Costo permiso de venta kiosco vía pública Salta",
+    "motivo": "tema-previo",
+    "msReescritura": 532,
+    "tokensReescritura": 426,
+    "respuesta": "El costo de la habilitación de un quiosco varía según la duración del permiso:\n\n*   **30 días**: $1026\n*   **60 días**: $2052\n*   **90 días**: $3078\n\nAdemás, la Ordenanza Tributaria N° 15.800 establece contribuciones mensuales por la ocupación del espacio público, que se calculan en Unidades Tributarias (UT) y dependen de la zona donde se ubique el quiosco.",
+    "fuentes": [
+      {
+        "tramite": "Venta en la vía pública y Food Trucks — Ciudad de Salta",
+        "subtramite": null,
+        "slug": "venta-via-publica-foodtrucks",
+        "url": "https://municipalidadsalta.gob.ar/wp-content/uploads/2021/10/GuiaAutorizacionVentaAmbulante.pdf",
+        "categoria": "Comerciales",
+        "ultima_verificacion": "2026-08-08T16:37:22+00:00"
+      },
+      {
+        "tramite": "Habilitaciones Comerciales",
+        "subtramite": "Solicitud de permiso transitorio",
+        "slug": "habilitaciones-comerciales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/habilitaciones-comerciales/",
+        "categoria": "Comerciales",
+        "ultima_verificacion": "2026-08-13T15:27:36.716+00:00"
+      },
+      {
+        "tramite": "Habilitaciones Comerciales",
+        "subtramite": "Nueva Habilitación Comercial",
+        "slug": "habilitaciones-comerciales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/habilitaciones-comerciales/",
+        "categoria": "Comerciales",
+        "ultima_verificacion": "2026-08-13T15:27:36.716+00:00"
+      },
+      {
+        "tramite": "Habilitación de Anuncios publicitarios – Cartelería",
+        "subtramite": null,
+        "slug": "carteleria",
+        "url": "https://municipalidadsalta.gob.ar/tramites/carteleria/",
+        "categoria": "Vía Pública",
+        "ultima_verificacion": "2026-08-13T15:31:40.664+00:00"
+      }
+    ],
+    "slugs": [
+      "venta-via-publica-foodtrucks",
+      "habilitaciones-comerciales",
+      "carteleria"
+    ],
+    "mejorSimilitud": 0.774481097453498,
+    "noSabe": false,
+    "tokensEntrada": 3029,
+    "tokensSalida": 112,
+    "bodyBytes": 11223,
+    "msRetrieval": 461,
+    "msGeneracion": 1118,
+    "msTotal": 2114,
+    "saludaDeMas": false,
+    "arrastre": [],
+    "temaOk": true
+  },
+  {
+    "arm": "modelo",
+    "conversacion": 1,
+    "turno": 3,
+    "pregunta": "dónde lo hago?",
+    "modo": "modelo",
+    "turnosHistorial": 4,
+    "charsHistorial": 1078,
+    "camino": "retrieval",
+    "consultaBusqueda": "Dónde tramitar habilitación de kiosco en Salta",
+    "motivo": "tema-previo",
+    "msReescritura": 553,
+    "tokensReescritura": 551,
+    "respuesta": "El trámite para la habilitación de un quiosco se inicia de forma virtual a través de \"Salta Activa\", en el Escritorio Centralizado Ciudadano.\n\nLuego, se finaliza de manera presencial en la Subsecretaría de Habilitaciones, que está en el Centro Cívico Municipal (Avda. Paraguay 1240), de 8:00 a 19:30 hs.\n\nPodés acceder a Salta Activa desde este enlace: [https://citymis.co/salta/public](https://citymis.co/salta/public)",
+    "fuentes": [
+      {
+        "tramite": "Habilitaciones Comerciales",
+        "subtramite": "Nueva Habilitación Comercial",
+        "slug": "habilitaciones-comerciales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/habilitaciones-comerciales/",
+        "categoria": "Comerciales",
+        "ultima_verificacion": "2026-08-13T15:27:36.716+00:00"
+      },
+      {
+        "tramite": "Habilitaciones Comerciales",
+        "subtramite": "Habilitación régimen general Ordenanza 15292 Localización",
+        "slug": "habilitaciones-comerciales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/habilitaciones-comerciales/",
+        "categoria": "Comerciales",
+        "ultima_verificacion": "2026-08-13T15:27:36.716+00:00"
+      },
+      {
+        "tramite": "Plataformas digitales oficiales — Salta",
+        "subtramite": null,
+        "slug": "salta-activa-plataformas",
+        "url": "",
+        "categoria": "Plataformas digitales",
+        "ultima_verificacion": "2026-08-08T16:37:15+00:00"
+      },
+      {
+        "tramite": "Venta en la vía pública y Food Trucks — Ciudad de Salta",
+        "subtramite": null,
+        "slug": "venta-via-publica-foodtrucks",
+        "url": "https://municipalidadsalta.gob.ar/wp-content/uploads/2021/10/GuiaAutorizacionVentaAmbulante.pdf",
+        "categoria": "Comerciales",
+        "ultima_verificacion": "2026-08-08T16:37:22+00:00"
+      }
+    ],
+    "slugs": [
+      "habilitaciones-comerciales",
+      "salta-activa-plataformas",
+      "venta-via-publica-foodtrucks"
+    ],
+    "mejorSimilitud": 0.765813347179606,
+    "noSabe": false,
+    "tokensEntrada": 3275,
+    "tokensSalida": 127,
+    "bodyBytes": 12537,
+    "msRetrieval": 501,
+    "msGeneracion": 1164,
+    "msTotal": 2220,
+    "saludaDeMas": false,
+    "arrastre": [],
+    "temaOk": true
+  },
+  {
+    "arm": "modelo",
+    "conversacion": 2,
+    "turno": 1,
+    "pregunta": "quiero abrir un foodtruck",
+    "modo": "modelo",
+    "turnosHistorial": 0,
+    "charsHistorial": 0,
+    "camino": "retrieval",
+    "consultaBusqueda": "quiero abrir un foodtruck",
+    "motivo": "sin-historial",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "¡Hola! Para abrir un foodtruck en Salta, necesitás dos cosas: la habilitación comercial del vehículo y un permiso para vender en la vía pública.\n\n**Habilitación del vehículo**\nEste trámite verifica que tu foodtruck cumpla con las normas de higiene y seguridad. El sellado administrativo no tiene costo, pero el Certificado de Habilitación Vehicular cuesta $2288,00. Podés iniciarlo de forma virtual.\n\n**Permiso para vender en la vía pública**\nEste permiso es distinto a la habilitación del vehículo y se rige por la Ordenanza Nº 6.240. Tu foodtruck debe cumplir con requisitos específicos de equipamiento, como:\n\n*   Un artefacto rodante de medidas máximas (largo 1,50 m, ancho 0,80 m, altura 2,00 m).\n*   Campana extractora, mesada inalterable, tanque de agua, pileta para lavar utensilios.\n*   Espacios cerrados para carbón y chorizos, heladera para bebidas sin alcohol.\n*   Recipientes para aguas desechables y residuos diferenciados.\n*   Necesitás una nota del frentista (dueño de la propiedad cercana) dando conformidad con la instalación.\n\nAdemás, si vendés carnes asadas o comidas al paso, deberás contar con agua potable y conexión a cloacas. Los aderezos deben estar en su envase original, con rótulo y refrigerados.\n\n¿Querés que te cuente más sobre cómo iniciar la habilitación del vehículo o los detalles de los requisitos bromatológicos?",
+    "fuentes": [
+      {
+        "tramite": "Venta en la vía pública y Food Trucks — Ciudad de Salta",
+        "subtramite": null,
+        "slug": "venta-via-publica-foodtrucks",
+        "url": "https://municipalidadsalta.gob.ar/wp-content/uploads/2021/10/GuiaAutorizacionVentaAmbulante.pdf",
+        "categoria": "Comerciales",
+        "ultima_verificacion": "2026-08-08T16:37:22+00:00"
+      },
+      {
+        "tramite": "Habilitaciones Comerciales",
+        "subtramite": "Requisitos para la habilitación de Vehículos",
+        "slug": "habilitaciones-comerciales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/habilitaciones-comerciales/",
+        "categoria": "Comerciales",
+        "ultima_verificacion": "2026-08-13T15:27:36.716+00:00"
+      },
+      {
+        "tramite": "Habilitaciones Comerciales",
+        "subtramite": "Nueva Habilitación Comercial",
+        "slug": "habilitaciones-comerciales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/habilitaciones-comerciales/",
+        "categoria": "Comerciales",
+        "ultima_verificacion": "2026-08-13T15:27:36.716+00:00"
+      },
+      {
+        "tramite": "Registro de aperturas",
+        "subtramite": null,
+        "slug": "registro-de-aperturas",
+        "url": "https://municipalidadsalta.gob.ar/tramites/registro-de-aperturas/",
+        "categoria": "Vía Pública",
+        "ultima_verificacion": "2026-08-13T15:27:43.076+00:00"
+      }
+    ],
+    "slugs": [
+      "venta-via-publica-foodtrucks",
+      "habilitaciones-comerciales",
+      "registro-de-aperturas"
+    ],
+    "mejorSimilitud": 0.713522701968814,
+    "noSabe": false,
+    "tokensEntrada": 2123,
+    "tokensSalida": 347,
+    "bodyBytes": 8417,
+    "msRetrieval": 454,
+    "msGeneracion": 2375,
+    "msTotal": 2830,
+    "saludaDeMas": true,
+    "arrastre": [],
+    "temaOk": null
+  },
+  {
+    "arm": "modelo",
+    "conversacion": 2,
+    "turno": 2,
+    "pregunta": "sí, contame del carnet",
+    "modo": "modelo",
+    "turnosHistorial": 2,
+    "charsHistorial": 1226,
+    "camino": "retrieval",
+    "consultaBusqueda": "Carnet de manipulador de alimentos para foodtruck",
+    "motivo": "tema-previo",
+    "msReescritura": 541,
+    "tokensReescritura": 563,
+    "respuesta": "Para el carnet de manipulación de alimentos, que es obligatorio para tu foodtruck, tenés dos modalidades:\n\n**Modalidad virtual (solo examen)**\nLas inscripciones se abren los viernes a partir de las 14 hs. Podés elegir día y horario para rendir el examen. Por ejemplo, hay turnos los viernes a las 8:30 hs o 9:40 hs.\n\n**Modalidad presencial (dos jornadas)**\nSe realiza en Av. Independencia 910.\n1.  **Jornada 1:** Asistís a la capacitación. Las inscripciones se abren los viernes a partir de las 14 hs. Hay turnos los lunes y miércoles.\n2.  **Jornada 2:** Tenés hasta 30 días después de la primera jornada para asistir. Debés llevar fotocopia de DNI, dos fotos 3x3 y un certificado único de salud. Hay turnos los martes y jueves.\n\nEl carnet es personal, intransferible, válido en todo el país y tiene una vigencia de tres años.",
+    "fuentes": [
+      {
+        "tramite": "Carnet de Manipulación de Alimentos — Municipalidad de Salta",
+        "subtramite": null,
+        "slug": "curso-manipulacion-alimentos",
+        "url": "https://municipalidadsalta.gob.ar/cursos-manipulacion/",
+        "categoria": "Comerciales",
+        "ultima_verificacion": "2026-08-08T16:35:18+00:00"
+      }
+    ],
+    "slugs": [
+      "curso-manipulacion-alimentos"
+    ],
+    "mejorSimilitud": 0.763023680966571,
+    "noSabe": false,
+    "tokensEntrada": 3206,
+    "tokensSalida": 234,
+    "bodyBytes": 11846,
+    "msRetrieval": 519,
+    "msGeneracion": 1647,
+    "msTotal": 2707,
+    "saludaDeMas": false,
+    "arrastre": [],
+    "temaOk": true
+  },
+  {
+    "arm": "modelo",
+    "conversacion": 3,
+    "turno": 1,
+    "pregunta": "usás pañales?",
+    "modo": "modelo",
+    "turnosHistorial": 0,
+    "charsHistorial": 0,
+    "camino": "retrieval",
+    "consultaBusqueda": "usás pañales?",
+    "motivo": "sin-historial",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "Como Tuki, soy un asistente virtual y no uso pañales. Estoy aquí para ayudarte con información sobre trámites municipales y provinciales de Salta. ¿Tenés alguna pregunta sobre eso?",
+    "fuentes": [
+      {
+        "tramite": "Certificado Único de Discapacidad (CUD) — Marco general nacional",
+        "subtramite": null,
+        "slug": "cud-nacional-marco-general",
+        "url": "https://www.argentina.gob.ar/servicio/como-obtener-el-certificado-unico-de-discapacidad-cud",
+        "categoria": "Desarrollo Social",
+        "ultima_verificacion": "2026-08-08T16:34:27+00:00"
+      },
+      {
+        "tramite": "Promoción Social",
+        "subtramite": null,
+        "slug": "promocion-social",
+        "url": "https://municipalidadsalta.gob.ar/promocion-social/",
+        "categoria": "Desarrollo Social",
+        "ultima_verificacion": "2026-08-13T15:33:36.48+00:00"
+      },
+      {
+        "tramite": "Subsecretaría de la Mujer",
+        "subtramite": null,
+        "slug": "subsecretaria-mujer",
+        "url": "https://municipalidadsalta.gob.ar/subsecretaria-mujer/",
+        "categoria": "Desarrollo Social",
+        "ultima_verificacion": "2026-08-13T19:34:34.899+00:00"
+      },
+      {
+        "tramite": "Adicciones",
+        "subtramite": null,
+        "slug": "desarrollo-humano-2-adicciones",
+        "url": "https://municipalidadsalta.gob.ar/desarrollo-social/adicciones/",
+        "categoria": "Desarrollo Social",
+        "ultima_verificacion": "2026-08-13T19:34:42.441+00:00"
+      }
+    ],
+    "slugs": [
+      "cud-nacional-marco-general",
+      "promocion-social",
+      "subsecretaria-mujer",
+      "desarrollo-humano-2-adicciones"
+    ],
+    "mejorSimilitud": 0.612308139119996,
+    "noSabe": false,
+    "tokensEntrada": 1849,
+    "tokensSalida": 40,
+    "bodyBytes": 7317,
+    "msRetrieval": 459,
+    "msGeneracion": 754,
+    "msTotal": 1213,
+    "saludaDeMas": false,
+    "arrastre": [],
+    "temaOk": null
+  },
+  {
+    "arm": "modelo",
+    "conversacion": 3,
+    "turno": 2,
+    "pregunta": "osea que sí usás",
+    "modo": "modelo",
+    "turnosHistorial": 2,
+    "charsHistorial": 193,
+    "camino": "retrieval",
+    "consultaBusqueda": "Osea que sí usás pañales",
+    "motivo": "tema-previo",
+    "msReescritura": 617,
+    "tokensReescritura": 288,
+    "respuesta": "No, no uso pañales. Soy un asistente virtual y no tengo cuerpo físico.\n\nSi tenés alguna duda sobre el Certificado Único de Discapacidad (CUD) o la oblea de discapacidad, puedo ayudarte con eso.",
+    "fuentes": [
+      {
+        "tramite": "Certificado Único de Discapacidad (CUD) — Marco general nacional",
+        "subtramite": null,
+        "slug": "cud-nacional-marco-general",
+        "url": "https://www.argentina.gob.ar/servicio/como-obtener-el-certificado-unico-de-discapacidad-cud",
+        "categoria": "Desarrollo Social",
+        "ultima_verificacion": "2026-08-08T16:34:27+00:00"
+      },
+      {
+        "tramite": "Promoción Social",
+        "subtramite": null,
+        "slug": "promocion-social",
+        "url": "https://municipalidadsalta.gob.ar/promocion-social/",
+        "categoria": "Desarrollo Social",
+        "ultima_verificacion": "2026-08-13T15:33:36.48+00:00"
+      },
+      {
+        "tramite": "Oblea de Discapacidad",
+        "subtramite": null,
+        "slug": "oblea-de-discapacidad",
+        "url": "https://municipalidadsalta.gob.ar/tramites/oblea-de-discapacidad/",
+        "categoria": "Tránsito Digital",
+        "ultima_verificacion": "2026-08-13T15:31:43.764+00:00"
+      },
+      {
+        "tramite": "Subsecretaría de la Mujer",
+        "subtramite": null,
+        "slug": "subsecretaria-mujer",
+        "url": "https://municipalidadsalta.gob.ar/subsecretaria-mujer/",
+        "categoria": "Desarrollo Social",
+        "ultima_verificacion": "2026-08-13T19:34:34.899+00:00"
+      }
+    ],
+    "slugs": [
+      "cud-nacional-marco-general",
+      "promocion-social",
+      "oblea-de-discapacidad",
+      "subsecretaria-mujer"
+    ],
+    "mejorSimilitud": 0.626387033074581,
+    "noSabe": false,
+    "tokensEntrada": 2185,
+    "tokensSalida": 50,
+    "bodyBytes": 8652,
+    "msRetrieval": 464,
+    "msGeneracion": 777,
+    "msTotal": 1859,
+    "saludaDeMas": false,
+    "arrastre": [],
+    "temaOk": null
+  },
+  {
+    "arm": "modelo",
+    "conversacion": 4,
+    "turno": 1,
+    "pregunta": "qué trámites hay",
+    "modo": "modelo",
+    "turnosHistorial": 0,
+    "charsHistorial": 0,
+    "camino": "catalogo",
+    "consultaBusqueda": "qué trámites hay",
+    "motivo": "sin-historial",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "¡Hola! Soy Tuki, el asistente virtual de la Municipalidad de Salta. Te puedo ayudar con información sobre 133 trámites distintos.\n\nAcá te detallo las áreas principales que cubro:\n\n*   **Automotor** (53 trámites): Incluye temas como el Libre deuda del Automotor y Planes de Pago.\n    *   También te puedo informar sobre **Licencias de Conducir** (24 trámites), como las licencias para principiantes o profesionales.\n    *   Y sobre **Taxis y remises** (4 trámites), por ejemplo, la recategorización de vehículos.\n*   **Inmobiliarios** (25 trámites): Como la Solicitud de Constancia de Inspección Eléctrica o Planes de Pago para inmuebles.\n*   **Desarrollo Social** (14 trámites): Por ejemplo, Programas descentralizados y el CUD Salta.\n*   **Cementerios** (9 trámites): Te puedo guiar con Inhumaciones, Exhumaciones y Venta de lotes.\n*   **Tránsito Digital** (8 trámites): Como la Oblea de Discapacidad o la restitución de vehículos secuestrados.\n*   **Vía Pública** (8 trámites): Para Denuncias, Habilitación de Anuncios publicitarios y Registro de aperturas.\n*   **Inspección de Obras Privadas** (7 trámites): Por ejemplo, la Ocupación de vereda para obras o Demoliciones.\n*   **Comerciales** (6 trámites): Como Habilitaciones Comerciales y la Venta en la vía pública.\n*   **Comunicación** (3 trámites): Para Solicitudes de Producción o Gráfica.\n*   **Emprendedores** (3 trámites): Con información sobre Medidas Comercio y el programa ¡Yo emprendo! Turismo.\n*   **Obras Privadas - Aprobación de Planos** (3 trámites): Como el Régimen de registración edilicia.\n*   **Conexión eléctrica** (1 trámite): Para la Solicitud de conexión eléctrica eventual.\n*   **Plataformas digitales** (1 trámite): Sobre las Plataformas digitales oficiales de Salta.\n\n¿Querés que te cuente sobre alguno en particular?",
+    "fuentes": [],
+    "slugs": [],
+    "mejorSimilitud": null,
+    "tokensEntrada": 2053,
+    "tokensSalida": 505,
+    "msGeneracion": 2826,
+    "msTotal": 2828,
+    "saludaDeMas": true,
+    "noSabe": false,
+    "arrastre": [],
+    "temaOk": null
+  },
+  {
+    "arm": "modelo",
+    "conversacion": 4,
+    "turno": 2,
+    "pregunta": "el segundo",
+    "modo": "modelo",
+    "turnosHistorial": 2,
+    "charsHistorial": 1217,
+    "camino": "retrieval",
+    "consultaBusqueda": "Trámites inmobiliarios Municipalidad de Salta",
+    "motivo": "tema-previo",
+    "msReescritura": 583,
+    "tokensReescritura": 587,
+    "respuesta": "El trámite de Libre Deuda Inmuebles lo podés hacer de varias maneras:\n\n*   **Por mail:** Escribiendo a atencion.contribuyente@municipalidadsalta.gob.ar\n*   **Presencialmente:** En el Centro Cívico Municipal, Av. Paraguay Nº1240, en la Oficina de Mesa de Entrada General. El horario es de 08:00 a 20:00 hs.\n*   **Online:** También podés solicitarlo desde la página web de la municipalidad.",
+    "fuentes": [
+      {
+        "tramite": "Cambio de Titularidad Inmuebles",
+        "subtramite": null,
+        "slug": "cambio-de-titularidad-inmuebles",
+        "url": "https://municipalidadsalta.gob.ar/tramites/cambio-de-titularidad-inmuebles/",
+        "categoria": "Inmobiliarios",
+        "ultima_verificacion": "2026-08-13T15:26:39.686+00:00"
+      },
+      {
+        "tramite": "Libre Deuda Inmuebles",
+        "subtramite": null,
+        "slug": "libre-deuda-inmuebles",
+        "url": "https://municipalidadsalta.gob.ar/tramites/libre-deuda-inmuebles/",
+        "categoria": "Inmobiliarios",
+        "ultima_verificacion": "2026-08-13T15:26:35.652+00:00"
+      },
+      {
+        "tramite": "Certificado de Regularización de Deuda Propiedad",
+        "subtramite": null,
+        "slug": "certificado-de-regularizacion-de-deuda-propiedad",
+        "url": "https://municipalidadsalta.gob.ar/tramites/certificado-de-regularizacion-de-deuda-propiedad/",
+        "categoria": "Inmobiliarios",
+        "ultima_verificacion": "2026-08-13T15:28:36.139+00:00"
+      },
+      {
+        "tramite": "Rezonificación en Impuesto Inmobiliario",
+        "subtramite": null,
+        "slug": "rezonificacion-en-impuesto-inmobiliario",
+        "url": "https://municipalidadsalta.gob.ar/tramites/rezonificacion-en-impuesto-inmobiliario/",
+        "categoria": "Inmobiliarios",
+        "ultima_verificacion": "2026-08-13T15:28:51.14+00:00"
+      },
+      {
+        "tramite": "Alta Unidad Urbana",
+        "subtramite": null,
+        "slug": "alta-unidad-urbana",
+        "url": "https://municipalidadsalta.gob.ar/tramites/alta-unidad-urbana/",
+        "categoria": "Inmobiliarios",
+        "ultima_verificacion": "2026-08-13T15:27:11.589+00:00"
+      }
+    ],
+    "slugs": [
+      "cambio-de-titularidad-inmuebles",
+      "libre-deuda-inmuebles",
+      "certificado-de-regularizacion-de-deuda-propiedad",
+      "rezonificacion-en-impuesto-inmobiliario",
+      "alta-unidad-urbana"
+    ],
+    "mejorSimilitud": 0.800348367034728,
+    "noSabe": false,
+    "tokensEntrada": 2427,
+    "tokensSalida": 117,
+    "bodyBytes": 9049,
+    "msRetrieval": 522,
+    "msGeneracion": 1091,
+    "msTotal": 2197,
+    "saludaDeMas": false,
+    "arrastre": [],
+    "temaOk": null
+  },
+  {
+    "arm": "modelo",
+    "conversacion": 5,
+    "turno": 1,
+    "pregunta": "licencia de conducir",
+    "modo": "modelo",
+    "turnosHistorial": 0,
+    "charsHistorial": 0,
+    "camino": "retrieval",
+    "consultaBusqueda": "licencia de conducir",
+    "motivo": "sin-historial",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "¡Hola! Para sacar tu licencia de conducir en Salta, tenés varias opciones según tu situación:\n\n*   **Licencia de Principiantes**: Si la sacás por primera vez o si tu licencia anterior venció hace más de un año.\n*   **Renovación**: Si tu licencia está por vencer o venció hace menos de un año.\n*   **Licencia para Menores**: Si tenés 17 años o estás por cumplirlos en los próximos dos meses.\n*   **Duplicado**: Si perdiste o te robaron tu licencia vigente.\n*   **Renovación por Cambio de Jurisdicción**: Si te mudaste a Salta y tu licencia es de otra provincia.\n*   **Ampliación**: Si querés agregar nuevas categorías a tu licencia actual.\n\nPodés iniciar tu trámite online. También tenés disponible un manual del conductor y una simulación de examen teórico para practicar.",
+    "fuentes": [
+      {
+        "tramite": "Licencias de Conducir",
+        "subtramite": null,
+        "slug": "licencia-de-conducir",
+        "url": "https://municipalidadsalta.gob.ar/tramites/licencia-de-conducir/",
+        "categoria": "Automotor",
+        "ultima_verificacion": "2026-08-13T15:29:43.156+00:00"
+      },
+      {
+        "tramite": "Licencia de Conducir – Principiantes – Profesionales",
+        "subtramite": null,
+        "slug": "licencia-de-conducir-principiantes-profesionales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/licencia-de-conducir-principiantes-profesionales/",
+        "categoria": "Automotor",
+        "ultima_verificacion": "2026-08-13T15:31:56.568+00:00"
+      },
+      {
+        "tramite": "Licencia de Conducir – Principiantes – Profesionales – Interjurisdiccionales",
+        "subtramite": null,
+        "slug": "licencia-de-conducir-principiantes-profesionales-interjurisdiccionales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/licencia-de-conducir-principiantes-profesionales-interjurisdiccionales/",
+        "categoria": "Automotor",
+        "ultima_verificacion": "2026-08-13T15:32:35.865+00:00"
+      }
+    ],
+    "slugs": [
+      "licencia-de-conducir",
+      "licencia-de-conducir-principiantes-profesionales",
+      "licencia-de-conducir-principiantes-profesionales-interjurisdiccionales"
+    ],
+    "mejorSimilitud": 0.755670098470757,
+    "noSabe": false,
+    "tokensEntrada": 1762,
+    "tokensSalida": 199,
+    "bodyBytes": 6930,
+    "msRetrieval": 403,
+    "msGeneracion": 1466,
+    "msTotal": 1870,
+    "saludaDeMas": true,
+    "arrastre": [],
+    "temaOk": null
+  },
+  {
+    "arm": "modelo",
+    "conversacion": 5,
+    "turno": 2,
+    "pregunta": "y para profesionales?",
+    "modo": "modelo",
+    "turnosHistorial": 2,
+    "charsHistorial": 792,
+    "camino": "retrieval",
+    "consultaBusqueda": "Licencia de conducir para profesionales",
+    "motivo": "tema-previo",
+    "msReescritura": 515,
+    "tokensReescritura": 439,
+    "respuesta": "Para licencias profesionales, tenés dos tipos principales:\n\n*   **Servicio Interjurisdiccional**: Si vas a circular dentro y fuera de la provincia de Salta. Incluye categorías como C, D1, D2, D3, D4, E1 y E2.\n*   **Servicio Jurisdiccional**: Si solo vas a circular dentro de la provincia de Salta. Incluye categorías como C1, C2, D1, D2, D3 y E2.\n\nEsto aplica tanto para licencias de principiantes profesionales, renovaciones o ampliaciones.",
+    "fuentes": [
+      {
+        "tramite": "Licencia de Conducir – Principiantes – Profesionales",
+        "subtramite": null,
+        "slug": "licencia-de-conducir-principiantes-profesionales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/licencia-de-conducir-principiantes-profesionales/",
+        "categoria": "Automotor",
+        "ultima_verificacion": "2026-08-13T15:31:56.568+00:00"
+      },
+      {
+        "tramite": "Licencia de Conducir – Ampliación – Profesionales",
+        "subtramite": null,
+        "slug": "licencia-conducir-ampliacion-profesionales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/licencia-conducir-ampliacion-profesionales/",
+        "categoria": "Automotor",
+        "ultima_verificacion": "2026-08-13T15:32:32.683+00:00"
+      },
+      {
+        "tramite": "Licencia de Conducir – Renovación – profesionales",
+        "subtramite": null,
+        "slug": "renovacion-licencia-profesionales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/renovacion-licencia-profesionales/",
+        "categoria": "Automotor",
+        "ultima_verificacion": "2026-08-13T15:32:17.264+00:00"
+      },
+      {
+        "tramite": "Licencia de Conducir – Principiantes – Profesionales – Interjurisdiccionales",
+        "subtramite": null,
+        "slug": "licencia-de-conducir-principiantes-profesionales-interjurisdiccionales",
+        "url": "https://municipalidadsalta.gob.ar/tramites/licencia-de-conducir-principiantes-profesionales-interjurisdiccionales/",
+        "categoria": "Automotor",
+        "ultima_verificacion": "2026-08-13T15:32:35.865+00:00"
+      }
+    ],
+    "slugs": [
+      "licencia-de-conducir-principiantes-profesionales",
+      "licencia-conducir-ampliacion-profesionales",
+      "renovacion-licencia-profesionales",
+      "licencia-de-conducir-principiantes-profesionales-interjurisdiccionales"
+    ],
+    "mejorSimilitud": 0.762559195686488,
+    "noSabe": false,
+    "tokensEntrada": 2305,
+    "tokensSalida": 123,
+    "bodyBytes": 8547,
+    "msRetrieval": 406,
+    "msGeneracion": 1049,
+    "msTotal": 1971,
+    "saludaDeMas": false,
+    "arrastre": [],
+    "temaOk": true
+  },
+  {
+    "arm": "modelo",
+    "conversacion": 6,
+    "turno": 1,
+    "pregunta": "cómo saco el CUD",
+    "modo": "modelo",
+    "turnosHistorial": 0,
+    "charsHistorial": 0,
+    "camino": "retrieval",
+    "consultaBusqueda": "cómo saco el CUD",
+    "motivo": "sin-historial",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "¡Hola! Para sacar el Certificado Único de Discapacidad (CUD) en Salta, seguí estos pasos:\n\n1.  **Juntá la documentación:** Necesitás certificados médicos, informes y estudios. Podés consultar los requisitos específicos para tu caso en la web nacional: [https://www.argentina.gob.ar/cud/consulta-requisitos](https://www.argentina.gob.ar/cud/consulta-requisitos)\n2.  **Pedí turno:** Con la documentación lista, andá al lugar que te indiquen en la consulta de requisitos para pedir un turno con la Junta Evaluadora.\n3.  **Asistí a la evaluación:** El día de tu turno, la Junta Evaluadora te hará una evaluación.\n\nEl CUD o la denegatoria lo puede retirar cualquier persona mayor de 18 años con el documento original del titular. Desde noviembre de 2023, el CUD se emite en formato digital.",
+    "fuentes": [
+      {
+        "tramite": "Certificado Único de Discapacidad (CUD) — Marco general nacional",
+        "subtramite": null,
+        "slug": "cud-nacional-marco-general",
+        "url": "https://www.argentina.gob.ar/servicio/como-obtener-el-certificado-unico-de-discapacidad-cud",
+        "categoria": "Desarrollo Social",
+        "ultima_verificacion": "2026-08-08T16:34:27+00:00"
+      },
+      {
+        "tramite": "Certificado Único de Discapacidad (CUD) — Provincia de Salta",
+        "subtramite": null,
+        "slug": "cud-certificado-discapacidad-provincia",
+        "url": "https://www.salta.gob.ar/prensa/noticias/en-salta-se-comenzara-a-otorgar-el-certificado-nico-de-discapacidad-digital-92834",
+        "categoria": "Desarrollo Social",
+        "ultima_verificacion": "2026-08-08T16:34:10+00:00"
+      },
+      {
+        "tramite": "CUD Salta — Complemento: requisitos por patología, sedes y referentes",
+        "subtramite": null,
+        "slug": "cud-provincial-complemento",
+        "url": "http://atencionciudadana.salta.gob.ar/certificado-unico-de-discapacidad-cud/",
+        "categoria": "Desarrollo Social",
+        "ultima_verificacion": "2026-08-08T16:34:42+00:00"
+      }
+    ],
+    "slugs": [
+      "cud-nacional-marco-general",
+      "cud-certificado-discapacidad-provincia",
+      "cud-provincial-complemento"
+    ],
+    "mejorSimilitud": 0.764970902686675,
+    "noSabe": false,
+    "tokensEntrada": 2030,
+    "tokensSalida": 209,
+    "bodyBytes": 7911,
+    "msRetrieval": 403,
+    "msGeneracion": 2012,
+    "msTotal": 2416,
+    "saludaDeMas": true,
+    "arrastre": [],
+    "temaOk": null
+  },
+  {
+    "arm": "modelo",
+    "conversacion": 6,
+    "turno": 2,
+    "pregunta": "gracias",
+    "modo": "modelo",
+    "turnosHistorial": 2,
+    "charsHistorial": 801,
+    "camino": "cierre",
+    "consultaBusqueda": "gracias",
+    "motivo": "sin-historial",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "De nada. Si necesitás ayuda con otro trámite, acá estoy.",
+    "fuentes": [],
+    "slugs": [],
+    "mejorSimilitud": null,
+    "tokensEntrada": 1687,
+    "tokensSalida": 15,
+    "msGeneracion": 667,
+    "msTotal": 669,
+    "saludaDeMas": false,
+    "noSabe": false,
+    "arrastre": [],
+    "temaOk": null
+  },
+  {
+    "arm": "modelo",
+    "conversacion": 6,
+    "turno": 3,
+    "pregunta": "otra cosa: libre deuda",
+    "modo": "modelo",
+    "turnosHistorial": 4,
+    "charsHistorial": 864,
+    "camino": "retrieval",
+    "consultaBusqueda": "libre deuda",
+    "motivo": "cambio-de-tema",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "Necesito que me aclares de qué libre deuda querés saber, porque hay varios:\n\n*   **Libre deuda del Automotor:** para vehículos en general.\n*   **Libre deuda de Inmuebles:** para propiedades.\n*   **Libre deuda de Taxi, Transporte Escolar o Taxiflet:** para esos tipos de transporte.\n\nCuando me digas cuál, te doy la información.",
+    "fuentes": [
+      {
+        "tramite": "Libre deuda del Automotor",
+        "subtramite": null,
+        "slug": "libre-deuda-del-automotor",
+        "url": "https://municipalidadsalta.gob.ar/tramites/libre-deuda-del-automotor/",
+        "categoria": "Automotor",
+        "ultima_verificacion": "2026-08-13T15:24:48.913+00:00"
+      },
+      {
+        "tramite": "Libre Deuda Inmuebles",
+        "subtramite": null,
+        "slug": "libre-deuda-inmuebles",
+        "url": "https://municipalidadsalta.gob.ar/tramites/libre-deuda-inmuebles/",
+        "categoria": "Inmobiliarios",
+        "ultima_verificacion": "2026-08-13T15:26:35.652+00:00"
+      },
+      {
+        "tramite": "Libre deuda TAXI – TRANSPORTE ESCOLAR – TAXIFLET",
+        "subtramite": null,
+        "slug": "libre-deuda-taxi-transporte-escolar-taxiflet",
+        "url": "https://municipalidadsalta.gob.ar/tramites/libre-deuda-taxi-transporte-escolar-taxiflet/",
+        "categoria": "Automotor",
+        "ultima_verificacion": "2026-08-13T15:26:16.302+00:00"
+      }
+    ],
+    "slugs": [
+      "libre-deuda-del-automotor",
+      "libre-deuda-inmuebles",
+      "libre-deuda-taxi-transporte-escolar-taxiflet"
+    ],
+    "mejorSimilitud": 0.737084323097409,
+    "noSabe": false,
+    "tokensEntrada": 2152,
+    "tokensSalida": 86,
+    "bodyBytes": 8485,
+    "msRetrieval": 422,
+    "msGeneracion": 1339,
+    "msTotal": 1761,
+    "saludaDeMas": false,
+    "arrastre": [],
+    "temaOk": null
+  },
+  {
+    "arm": "main+parche-movil",
+    "conversacion": 3,
+    "turno": 2,
+    "pregunta": "Sobre Certificado Único de Discapacidad (CUD) — Marco general nacional: osea que sí usás",
+    "modo": "off",
+    "turnosHistorial": 0,
+    "charsHistorial": 0,
+    "camino": "retrieval",
+    "consultaBusqueda": "Sobre Certificado Único de Discapacidad (CUD) — Marco general nacional: osea que sí usás",
+    "motivo": "sin-historial",
+    "msReescritura": 0,
+    "tokensReescritura": 0,
+    "respuesta": "¡Hola! El Certificado Único de Discapacidad (CUD) es un documento válido en todo el país que te permite acceder a derechos y prestaciones.\n\n**¿Para qué sirve?**\n*   **Salud:** Cobertura del 100% en prestaciones médicas, medicamentos y tratamientos.\n*   **Transporte:** Acceso gratuito al transporte público nacional.\n*   **Símbolo Internacional de Acceso:** Libre tránsito y estacionamiento.\n*   **Asignaciones familiares (ANSES):** Para la Asignación Universal por hijo/a con discapacidad, Ayuda Escolar Anual y asignación por cónyuge con discapacidad.\n\nEs voluntario y gratuito. Una Junta Evaluadora interdisciplinaria determina si corresponde emitirlo.\n\nPodés consultar los requisitos específicos para tu caso en este enlace: [https://www.argentina.gob.ar/cud/consulta-requisitos](https://www.argentina.gob.ar/cud/consulta-requisitos).\n\nTambién tenés el CUD en formato digital en la app Mi Argentina.",
+    "fuentes": [
+      {
+        "tramite": "Certificado Único de Discapacidad (CUD) — Marco general nacional",
+        "subtramite": null,
+        "slug": "cud-nacional-marco-general",
+        "url": "https://www.argentina.gob.ar/servicio/como-obtener-el-certificado-unico-de-discapacidad-cud",
+        "categoria": "Desarrollo Social",
+        "ultima_verificacion": "2026-08-08T16:34:27+00:00"
+      }
+    ],
+    "slugs": [
+      "cud-nacional-marco-general"
+    ],
+    "mejorSimilitud": 0.813913444525934,
+    "noSabe": false,
+    "tokensEntrada": 2242,
+    "tokensSalida": 226,
+    "bodyBytes": 8625,
+    "msRetrieval": 416,
+    "msGeneracion": 1712,
+    "msTotal": 2129,
+    "saludaDeMas": true
+  }
+]

@@ -17,6 +17,25 @@ There is no test suite configured in this repo (no test runner in `package.json`
 
 Required env vars (`.env.local`, not committed): `NEXT_PUBLIC_SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `GEMINI_API_KEY`. Without `GEMINI_API_KEY` the chat API returns a 500.
 
+### Feature flags
+
+All read per-request (not at module import), so flipping one needs no code change — but on Vercel it does need a **Redeploy**, because changing an env var does not affect the deployment already running.
+
+| Flag | Default if unset | What it does |
+|---|---|---|
+| `USAR_CORPUS_V2` | old path | `"true"` switches retrieval to the v2 corpus (`tramite_chunks_v2` + `match_tramite_chunks_v2` RPC) and enables the catálogo path. Anything else is the full rollback to the in-memory cosine path. |
+| `REFORMULAR_CONSULTA` | `heuristica` | How the **search query** is built when a question depends on the conversation history. `heuristica` \| `modelo` \| `off`. |
+
+`REFORMULAR_CONSULTA` is the outcome of `EVALUACION-MEMORIA.md`, which measured the three paths over 6 multi-turn conversations (8 follow-up turns). Keep the default at `heuristica` unless there is new evidence:
+
+| | `off` (history only) | **`heuristica`** | `modelo` |
+|---|---|---|---|
+| Follow-up turns that fail | 2 of 8 | **1 of 8** | 0 of 8 |
+| Added latency | 0 ms | **0 ms** | +557 ms, on dependent turns only |
+| Input tokens, follow-up turns | +30 % | **+44 %** | +70 % |
+
+`off` is not a viable default: it stops the model from greeting again and fixes the out-of-domain drag, but leaves whole conversations failing because the retrieval never gets the right chunks (the model understands the question and has nothing to answer it with). `modelo` buys the last failing turn for a third more latency on every follow-up; it is there for when the mobile client reports that repreguntas still miss. Baseline for all of the above: on `main` before this feature, **5 of those 8 turns greeted again and 4 failed outright**.
+
 ## Architecture
 
 This is a single-purpose RAG (retrieval-augmented generation) chat app: **Tuki**, an assistant that answers questions about municipal/provincial *trámites* (bureaucratic procedures) in Salta, Argentina, using only an official knowledge base stored in Supabase — never the model's general knowledge.
@@ -36,6 +55,7 @@ Everything of substance happens in two places:
 
 - **`lib/supabase-admin.ts`** — server-only Supabase client using the `service_role` key (bypasses RLS). Must never be imported from a client component.
 - **`lib/types.ts`** — shared `ChatMessage`/`Fuente` types and the `CATEGORIA_LABEL` map used to render trámite categories (comercial/social/transito/infraestructura).
+- **`lib/historial.ts`** — conversational memory: window trimming (6 turns / 3000 chars, oldest dropped first), anaphora classification, and search-query reformulation. The body accepts an optional `historial: Array<{rol, texto}>`; without it the request takes exactly the same path as before the feature (proven byte-for-byte in `qa/test-retro-memoria.mjs`), which is why the three clients can migrate one at a time. The key invariant: **the full history goes to the generation `contents`, never to the retrieval embedding** — only a reformulated standalone query is embedded, because embedding the whole thread contaminates the vector with old turns. Memory-specific rules live in `INSTRUCCION_MEMORIA`, appended to the `systemInstruction` only when there is history (same mechanism as `INSTRUCCION_CATALOGO`), so `SYSTEM_PROMPT` is identical for a request without history. See `EVALUACION-MEMORIA.md` and the flag table above.
 
 ### Expected Supabase schema
 
