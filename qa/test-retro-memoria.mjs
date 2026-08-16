@@ -39,16 +39,41 @@ const fallo = (msg) => {
 }
 
 // ---------------------------------------------------------------------------
-// 1. El SYSTEM_PROMPT no se tocó.
+// 1. El SYSTEM_PROMPT no derivó.
 //
-// Es la razón por la que las reglas nuevas (no saludar, no arrastrar contexto
-// tras un "no sé") viven en INSTRUCCION_MEMORIA y se mandan como segunda parte
-// de la systemInstruction, solo cuando hay historial. Editarlas adentro del
-// SYSTEM_PROMPT habría cambiado el prompt de TODAS las requests, incluidas las
-// de un cliente que no manda historial.
+// La memoria conversacional no tocó el SYSTEM_PROMPT: sus reglas (no saludar,
+// no arrastrar contexto tras un "no sé") viven en INSTRUCCION_MEMORIA y se
+// mandan como segunda parte de la systemInstruction, solo cuando hay historial.
+// Meterlas adentro del SYSTEM_PROMPT habría cambiado el prompt de TODAS las
+// requests, incluidas las de un cliente que no manda historial.
+//
+// La comparación va contra un commit FIJO — el main anterior a la memoria — y no
+// contra `main`, porque desde que la rama se mergeó, comparar contra main es
+// comparar el árbol contra sí mismo y el control queda vacío.
+//
+// Un cambio deliberado del prompt no es una falla, pero tiene que declararse
+// acá. Es la diferencia entre editar el prompt y que el prompt derive: cualquier
+// línea que aparezca o desaparezca sin estar en CAMBIOS_DECLARADOS hace fallar
+// el test hasta que alguien la mire.
 // ---------------------------------------------------------------------------
+const BASE_PRE_MEMORIA = 'bfa0b75'
+
+// Regla 13, agregada a propósito: el corpus mete marcadores [[n]] en
+// `texto_display` para que el cliente los reemplace por enlaces tocables, y el
+// modelo los copiaba literales a la respuesta.
+const CAMBIOS_DECLARADOS = [
+  '13. El CONTEXTO trae marcadores con la forma [[0]], [[1]], [[2]]. NO son enlaces ni',
+  '    texto para leer: son referencias internas, y la dirección a la que apuntan NO está',
+  '    en el CONTEXTO, así que vos no la tenés. NUNCA los copies en tu respuesta: ni',
+  '    solos, ni pegados a una URL, ni como pie de página, y sobre todo NUNCA los',
+  '    ofrezcas como si fueran un link ("entrá a este link: [[0]]") — para la persona',
+  '    eso es un enlace roto. Si el trámite se hace online: cuando en el CONTEXTO hay una',
+  '    URL escrita, poné esa URL; cuando no la hay, decí dónde se hace sin inventar',
+  '    ninguna dirección.',
+]
+
 console.log('='.repeat(78))
-console.log('1. SYSTEM_PROMPT IDÉNTICO AL DE MAIN')
+console.log(`1. SYSTEM_PROMPT SIN DERIVA DESDE ${BASE_PRE_MEMORIA}`)
 console.log('='.repeat(78))
 
 // Los saltos se normalizan antes de comparar: `git show` devuelve el blob con
@@ -56,15 +81,35 @@ console.log('='.repeat(78))
 // diferencia del checkout, no del prompt, y sin normalizar da 45 chars de
 // distancia — uno por línea.
 const lf = (s) => s.replace(/\r\n/g, '\n')
-const rutaMain = execFileSync('git', ['show', 'main:app/api/chat/route.ts'], { encoding: 'utf8' })
-const promptMain = lf(rutaMain.match(/const SYSTEM_PROMPT = `([\s\S]*?)`\r?\n/)?.[1] ?? '')
-const promptRama = lf(systemPrompt())
+const rutaBase = execFileSync('git', ['show', `${BASE_PRE_MEMORIA}:app/api/chat/route.ts`], { encoding: 'utf8' })
+const promptBase = lf(rutaBase.match(/const SYSTEM_PROMPT = `([\s\S]*?)`\r?\n/)?.[1] ?? '')
+const promptActual = lf(systemPrompt())
 
-if (!promptMain) fallo('no pude extraer el SYSTEM_PROMPT de main')
-else if (promptMain !== promptRama) {
-  fallo(`el SYSTEM_PROMPT cambió (main ${promptMain.length} chars, rama ${promptRama.length} chars)`)
+if (!promptBase) {
+  fallo(`no pude extraer el SYSTEM_PROMPT de ${BASE_PRE_MEMORIA}`)
 } else {
-  console.log(`  ok     idéntico (${promptRama.length} chars)`)
+  // La última línea del prompt termina con el backtick de cierre, así que se
+  // compara sin él para que agregar una regla al final no marque la anterior
+  // como modificada.
+  const lineas = (p) => p.split('\n').map((l) => l.replace(/`$/, '').trimEnd())
+  const base = lineas(promptBase)
+  const actual = lineas(promptActual)
+  const declaradas = CAMBIOS_DECLARADOS.map((l) => l.trimEnd())
+
+  const agregadas = actual.filter((l) => !base.includes(l))
+  const quitadas = base.filter((l) => !actual.includes(l))
+  const noDeclaradas = agregadas.filter((l) => !declaradas.includes(l))
+  const declaradasAusentes = declaradas.filter((l) => !actual.includes(l))
+
+  console.log(`  base ${promptBase.length} chars -> actual ${promptActual.length} chars`)
+  console.log(`  líneas agregadas: ${agregadas.length} (declaradas: ${declaradas.length}), quitadas: ${quitadas.length}`)
+
+  for (const l of noDeclaradas) fallo(`línea agregada al SYSTEM_PROMPT sin declarar: "${l.trim()}"`)
+  for (const l of quitadas) fallo(`línea quitada del SYSTEM_PROMPT: "${l.trim()}"`)
+  for (const l of declaradasAusentes) fallo(`el cambio declarado no está en el prompt: "${l.trim()}"`)
+  if (!noDeclaradas.length && !quitadas.length && !declaradasAusentes.length) {
+    console.log('  ok     sin deriva: solo los cambios declarados')
+  }
 }
 
 // ---------------------------------------------------------------------------

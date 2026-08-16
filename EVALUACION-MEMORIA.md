@@ -348,11 +348,17 @@ falseaba contexto y produjo el caso de la conv. 3.
 
 - **Referencias ordinales a una respuesta de catálogo** (conv. 4). Falla en los
   cuatro arms. Propuesta concreta en §3.4.
-- **Los `[[0]]` en las respuestas.** Aparecieron en dos respuestas de la
-  evaluación (`[[0]](https://…)`). Es un artefacto de scraping que ya está en el
-  corpus — 4 de 20 chunks de `habilitaciones-comerciales` tienen marcas
-  `[[n]]` en `texto_display` — y no tiene nada que ver con la memoria. Va para
-  `OBSERVACIONES-CORPUS.md`.
+- ~~**Los `[[0]]` en las respuestas.**~~ **Arreglado aparte** (regla 13 del
+  `SYSTEM_PROMPT`). No tenía que ver con la memoria: son los marcadores de enlace
+  que `tuki-corpus` inserta en `texto_display` para que el cliente los reemplace
+  por enlaces tocables, y el modelo los copiaba literales. El modo de falla real
+  resultó ser peor que copiarlos pegados a una URL: en varios chunks el marcador
+  **es** el enlace y la dirección vive en un array que nunca llega al modelo, así
+  que la respuesta ofrecía *"entrá a este link: [[0]]"* — un enlace roto. Antes de
+  la regla: 2 de 16 consultas filtraban marcadores; después: 0 de 16 en dos
+  corridas, con 8 de 16 contextos conteniéndolos (control en
+  `qa/test-generacion-v2.mjs`, que falla si el contexto no trae ninguno, para que
+  el resultado no pase en vacío).
 - **La evaluación es de una corrida por conversación.** El resultado del saludo
   (5 de 8 → 0 de 8) es robusto porque es una regla dura del prompt; las
   comparaciones de respuestas individuales son una muestra de una, con el modelo
