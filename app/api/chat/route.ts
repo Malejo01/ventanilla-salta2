@@ -211,6 +211,37 @@ function hayFugaDePrompt(respuesta: string): boolean {
   return comparteSubcadenaLarga(promptNorm, respuestaNorm, 41)
 }
 
+// Calle sin tipo de via explicito ("Alvarado 856"): nombre propio con altura.
+// Nadie escribe "calle" cuando da su direccion de verdad, asi que sin esto la
+// regla 6 solo atrapaba la forma que la gente NO usa. Portado del repo del
+// widget, donde esta cubierto por 184 tests.
+//
+// Cuatro detalles deliberados, no simplificar:
+// - Lleva flag g y se usa SOLO con matchAll, nunca con .test(). Un regex global
+//   es stateful (lastIndex sobrevive entre llamadas), asi que con .test() el
+//   mismo texto alternaria entre detectado y no detectado en llamadas
+//   sucesivas: una fuga intermitente e irreproducible.
+// - No lleva i, es case-sensitive a proposito. La mayuscula inicial es lo unico
+//   que separa un nombre de calle de una palabra cualquiera.
+// - El descarte de arranque de oracion es lo que evita los falsos positivos de
+//   "Necesito 2 fotos" o "Tengo 3 expedientes", donde la mayuscula viene de la
+//   puntuacion y no de un nombre propio.
+// - Se consume SIEMPRE detras de contextoPersonalDireccion, que es la
+//   compuerta. Este patron es deliberadamente tonto (mayuscula + numero); lo
+//   unico que lo hace seguro es que el contexto tiene que abrir antes. No
+//   invertir el orden ni usarlo suelto.
+const patronCalleSinTipo =
+  /[A-ZÁÉÍÓÚÜÑ][a-záéíóúüñ]+(?:\s+(?:de\s+|del\s+|la\s+|las\s+|los\s+)?[A-ZÁÉÍÓÚÜÑ][a-záéíóúüñ]+){0,2}\s+\d{1,5}\b/g
+
+function tieneCalleSinTipo(texto: string): boolean {
+  for (const encontrado of texto.matchAll(patronCalleSinTipo)) {
+    const antes = texto.slice(0, encontrado.index).trimEnd()
+    if (antes === "" || /[.!?¡¿]$/.test(antes)) continue
+    return true
+  }
+  return false
+}
+
 function detectarDatosSensibles(texto: string): boolean {
   const input = texto.trim()
 
@@ -258,7 +289,13 @@ function detectarDatosSensibles(texto: string): boolean {
   if (patronEmail.test(input)) return true
   if (patronTelefono.test(input)) return true
   if (patronTarjeta.test(input)) return true
-  if (patronDireccionConAltura.test(input) && contextoPersonalDireccion.test(input)) return true
+  // El contexto va primero y es la compuerta: recien con "vivo en" / "mi
+  // domicilio" abierto se mira si hay una direccion, con o sin tipo de via.
+  if (
+    contextoPersonalDireccion.test(input) &&
+    (patronDireccionConAltura.test(input) || tieneCalleSinTipo(input))
+  )
+    return true
 
   return false
 }
