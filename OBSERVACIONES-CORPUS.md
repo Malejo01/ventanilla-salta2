@@ -139,3 +139,173 @@ quedaba sin etiqueta.
 
 **A confirmar con el municipio:** cuál es la clasificación oficial de esos 16.
 `node qa/completar-categorias.mjs --revert` los deja como estaban.
+
+---
+
+## 5. Dependencias que publican un correo de proveedor gratuito como contacto
+
+**Estado:** sin tapar del lado nuestro. El corpus reproduce el contacto tal como
+está publicado en la página oficial.
+
+### Qué encontramos
+
+Barriendo los 758 chunks de `tramite_chunks_v2` (texto y enlaces `mailto:`)
+aparecen **63 direcciones de email distintas**. Separadas por origen:
+
+| Origen de la página | Dominio institucional | Proveedor gratuito |
+|---|---|---|
+| `municipalidadsalta.gob.ar` | 18 | 3 |
+| `atencionciudadana.salta.gob.ar` (Guía provincial) | 1 | 41 |
+
+A esas 3 se suma una cuarta que el corpus no tiene: el chunk de *Oblea para
+Personas con Discapacidad* perdió la sección de contacto al regenerarse, pero la
+dirección **sigue publicada en la página**. La verificamos contra el sitio en
+vivo, igual que las otras tres. Quedan **4 direcciones de proveedor gratuito en
+3 dependencias**:
+
+| Dependencia | Correo | Dónde aparece |
+|---|---|---|
+| Dirección General de Discapacidad (Promoción Social) | `d***@gmail.com` | [`/promocion-social/`](https://municipalidadsalta.gob.ar/promocion-social/) |
+| Secretaría de Tránsito y Seguridad Vial — frentistas y dársenas | `f***@gmail.com` | [`/tramites/permiso-de-frentista-residente/`](https://municipalidadsalta.gob.ar/tramites/permiso-de-frentista-residente/) · [`/tramites/permiso-de-frentista-comerciante/`](https://municipalidadsalta.gob.ar/tramites/permiso-de-frentista-comerciante/) · [`/tramites/solicitud-de-darsena/`](https://municipalidadsalta.gob.ar/tramites/solicitud-de-darsena/) |
+| Secretaría de Tránsito y Seguridad Vial — oblea de discapacidad | `d***@gmail.com` | [`/tramites/oblea-de-discapacidad/`](https://municipalidadsalta.gob.ar/tramites/oblea-de-discapacidad/) |
+| Movilidad Ciudadana — denuncia de colisión | `m***@gmail.com` | [`/tramites/denuncia-de-colision/`](https://municipalidadsalta.gob.ar/tramites/denuncia-de-colision/) |
+
+Las otras 18 direcciones de esas mismas páginas sí usan
+`@municipalidadsalta.gob.ar` (`armsa.inm`, `rentas.aut`, `licenciasdeconducir`,
+`tribunaldefaltas01`…`05`, entre otras), así que el criterio institucional está
+aplicado en la mayor parte del sitio.
+
+En *Promoción Social* conviven las dos formas: la página trae también una
+dirección `@municipalidadsalta.gob.ar` en el bloque de contacto, mientras que la
+sección "Servicio de asesoramiento e información" publica la casilla gratuita y
+es esa la que está enlazada.
+
+### Por qué importa
+
+Dos cuestiones operativas, ninguna de las cuales podemos resolver desde el
+corpus:
+
+1. **Continuidad del contacto.** Una casilla de proveedor gratuito está a nombre
+   de una persona, no de la dependencia. Si esa persona deja el área, la
+   Municipalidad no tiene forma de recuperar la casilla ni el historial de
+   consultas que entró por ahí. Una dirección bajo el dominio institucional se
+   reasigna internamente.
+2. **Verificabilidad.** Un ciudadano que recibe una respuesta desde una casilla
+   gratuita no tiene cómo comprobar que sea un canal oficial, y a la inversa: no
+   puede distinguir la casilla real de una imitación. El dominio institucional es
+   la única señal comprobable de que el canal pertenece al municipio.
+
+Para el asistente el efecto es directo: cuando la respuesta incluye el contacto,
+reproduce lo que dice la fuente. Si la dirección deja de atenderse, el asistente
+sigue entregándola hasta que cambie la página de origen.
+
+### Alcance del relevamiento
+
+Las **41** direcciones de proveedor gratuito restantes no están en páginas
+municipales: salen de una sola página de la Guía de Trámites **provincial** (CUD),
+en una tabla de referentes de discapacidad por municipio del interior de Salta.
+Varias tienen forma de cuenta personal y figuran junto al nombre y apellido de la
+persona. Las anotamos acá solo para dejar claro de dónde sale la diferencia entre
+las 4 municipales y el total; no son contactos de la Municipalidad de Salta y su
+corrección no depende de ella.
+
+### Qué haría falta para resolverlo de fondo
+
+Que las dependencias publiquen una dirección bajo `municipalidadsalta.gob.ar` en
+la página del trámite. Es un cambio en la fuente: el corpus se regenera del
+scraping y toma el dato nuevo sin tocar código.
+
+---
+
+## 6. El texto visible de un enlace de contacto no coincide con su destino
+
+**Estado:** sin tapar del lado nuestro. Verificado contra el sitio en vivo.
+
+### Qué encontramos
+
+En dos trámites, la página **muestra** una dirección institucional y el atributo
+`href` del mismo enlace apunta a una casilla de proveedor gratuito. No son dos
+contactos distintos puestos uno al lado del otro: es un solo elemento de enlace
+cuyo texto y cuyo destino son direcciones diferentes.
+
+| Trámite | Texto visible del enlace | Destino real del `mailto:` |
+|---|---|---|
+| [Denuncia de colisión](https://municipalidadsalta.gob.ar/tramites/denuncia-de-colision/) | `licenciasdeconducir@…gob.ar` | `m***@gmail.com` |
+| [Solicitud de dársena](https://municipalidadsalta.gob.ar/tramites/solicitud-de-darsena/) | `tramitestransito@…gob.ar` | `f***@gmail.com` |
+
+Lo confirmamos sobre el HTML servido, no sobre el corpus: en las dos páginas el
+`mailto:` resuelve a la casilla gratuita y el texto que se imprime en pantalla es
+la dirección institucional.
+
+### Por qué importa
+
+El resultado depende de cómo el ciudadano use la página, sin que nada se lo
+indique:
+
+- Si **copia la dirección a mano**, escribe a la casilla institucional.
+- Si **hace clic**, su cliente de correo se abre con la casilla gratuita como
+  destinatario, y el campo "Para" muestra esa dirección, no la que leyó.
+
+Las dos casillas reciben entonces consultas del mismo trámite, y ninguna de las
+dos ve el total. Una respuesta que no llega puede estar esperando en la otra
+bandeja. Del lado del ciudadano no hay señal de que existan dos destinos: la
+página se lee como si hubiera uno solo.
+
+Como hecho técnico, el patrón —texto visible con dominio institucional, destino
+en un dominio de terceros— es la forma que toma un enlace de correo manipulado, y
+es el caso que los filtros antiphishing y los clientes de correo señalan. No
+estamos afirmando que sea eso: la casilla de destino es la misma que la Secretaría
+publica en otros trámites del sitio. El punto es que un ciudadano no tiene forma
+de distinguir un caso del otro sin abrir el código de la página, y una herramienta
+automática tampoco.
+
+Para el asistente hay un efecto adicional: el scraping guarda el `href` y el texto
+por separado, así que la respuesta puede citar una dirección distinta de la que se
+ve en la página oficial, sin que ninguna de las dos sea un error nuestro.
+
+### Qué haría falta para resolverlo de fondo
+
+Que en las dos páginas el texto del enlace y el destino del `mailto:` sean la
+misma dirección, cualquiera de las dos que la Secretaría considere la vigente.
+
+---
+
+## 7. Una dirección de contacto apunta a un dominio que no existe
+
+**Estado:** sin tapar del lado nuestro. Verificado contra el sitio en vivo y
+contra DNS.
+
+### Qué encontramos
+
+La página de la [Subsecretaría de la Mujer](https://municipalidadsalta.gob.ar/subsecretaria-mujer/)
+publica como contacto una dirección en el dominio **`municipalidadsalt.gob.ar`**
+— sin la `a` final de `municipalidadsalta`. Está así en el texto visible y
+también en el destino del enlace, de modo que copiarla a mano y hacer clic llevan
+al mismo lugar.
+
+Ese dominio **no existe**: la consulta DNS devuelve `NXDOMAIN`, sin registro `A`
+y sin registro `MX`. No está registrado por nadie. El dominio oficial
+`municipalidadsalta.gob.ar` sí resuelve y sí tiene `MX`.
+
+### Por qué importa
+
+Hoy el correo enviado a esa dirección **no se entrega**. Al no existir el
+dominio, el servidor del remitente normalmente devuelve un rebote; si ese aviso
+llega y si se lo lee depende del proveedor y del cliente de correo de cada
+persona. La dependencia, en cambio, no recibe ninguna señal: desde el lado del
+municipio una consulta que nunca llegó es indistinguible de una consulta que
+nunca se hizo.
+
+El segundo punto es sobre el dominio en sí. Al estar libre y a un carácter del
+oficial, `municipalidadsalt.gob.ar` es registrable por un tercero. Si alguien lo
+registrara y le configurara `MX`, el correo dirigido a esa casilla pasaría a
+entregarse en su servidor: dejaría de rebotar, el remitente ya no recibiría aviso
+alguno, y el mensaje llegaría a destino sin que ni el ciudadano ni la
+Subsecretaría puedan notarlo. La página seguiría publicando la misma dirección.
+Esto aplica al canal de una dependencia cuyas consultas pueden incluir datos
+sensibles.
+
+### Qué haría falta para resolverlo de fondo
+
+Corregir la grafía del dominio en la página de la Subsecretaría. Es un carácter
+en la fuente; el corpus lo toma del scraping siguiente.
