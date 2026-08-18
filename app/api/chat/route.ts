@@ -235,7 +235,18 @@ function detectarDatosSensibles(texto: string): boolean {
   // 6) Direccion con altura: patron mas blando para reducir falsos positivos.
   const patronDireccionConAltura =
     /\b(?:av\.?|avenida|calle|pasaje|pje\.?|ruta)\s+[a-záéíóúñ]+(?:\s+[a-záéíóúñ]+){0,3}\s+\d{1,5}\b/i
-  const contextoPersonalDireccion = /\b(?:mi|vivo|vivimos|domicilio|direcci[oó]n|casa|resido|residimos)\b/i
+  // El "mi" suelto de la version anterior bloqueaba consultas de zonificacion
+  // ("mi comercio puede estar en la calle X 123?"), que son el caso de uso
+  // central de la app. Esta constante viene del repo del widget, donde esta
+  // cubierta por 184 tests.
+  //
+  // Dos detalles deliberados, no simplificar:
+  // - Cierra con (?![a-záéíóúüñ]) y no con \b: en JS \w es ASCII, asi que
+  //   /\bme mud[eé]\b/ nunca matchearia "me mude".
+  // - La rama local|comercio|negocio exige verbo en indicativo. Un condicional
+  //   o un infinitivo reabre el agujero de las hipoteticas.
+  const contextoPersonalDireccion =
+    /\b(?:vivo|vivimos|resido|residimos|me mud[eé]|nos mudamos|mi (?:domicilio|direcci[oó]n|casa|depto|departamento|vivienda|inmueble|propiedad|terreno)|(?:mi|el|nuestro) (?:local|comercio|negocio) (?:est[áa]|queda|funciona|se encuentra))(?![a-záéíóúüñ])/i
 
   if (patronNumeroDni.test(input) && contextoDni.test(input)) return true
   if (patronCuitCuil.test(input)) return true
