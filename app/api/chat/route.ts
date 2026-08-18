@@ -226,8 +226,13 @@ function detectarDatosSensibles(texto: string): boolean {
   const patronEmail = /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/i
 
   // 4) Telefono argentino (incluye +54, prefijos con 0 y formatos con 15).
+  // El \b inicial iba delante del grupo, asi que en la rama +54 se evaluaba
+  // contra el "+", que no es caracter de palabra: entre un espacio y un "+" no
+  // hay limite, y la rama no podia matchear nunca. El limite se mueve adentro de
+  // cada rama, sobre su primer digito; la de +54 usa (?<!\d) para no engancharse
+  // a la mitad de un numero. El \b de cierre sigue cubriendo a las tres.
   const patronTelefono =
-    /\b(?:\+54\s?9?\s?\d{2,4}[\s-]?\d{6,8}|0\d{2,4}[\s-]?\d{6,8}|15[\s-]?\d{4}[\s-]?\d{4})\b/
+    /(?:(?<!\d)\+54\s?9?\s?\d{2,4}[\s-]?\d{6,8}|\b0\d{2,4}[\s-]?\d{6,8}|\b15[\s-]?\d{4}[\s-]?\d{4})\b/
 
   // 5) Tarjeta: 13 a 16 digitos o grupos de 4 separados por espacio/guion.
   const patronTarjeta = /\b(?:\d{13,16}|\d{4}(?:[ -]\d{4}){2,3})\b/
