@@ -1,0 +1,882 @@
+{
+  "ev": [
+    {
+      "id": "A1",
+      "muestra": 1,
+      "status": 200,
+      "ms": 2756,
+      "respuesta": "¡Hola! Para renovar tu licencia de conducir no profesional, tenés que pagar:\n\n*   **Tasa municipal por Licencia de Conducir:** $14.601 por año. Si sos mayor de 65 años, es $7.301 por año.\n*   **Certificado Nacional de Antecedentes de Tránsito (CENAT):** $10.150.\n\nRecordá que el CENAT tiene 60 días de vigencia una vez que lo pagás.",
+      "fuentes": [
+        "renovacion-licencia-noprofesionales",
+        "licencia-de-conducir-renovacion-profesionales-interjurisdiccionales",
+        "renovacion-cambio-jurisdiccion-noprofesionales",
+        "licencia-de-conducir-renovacion-profesionales-jurisdiccionales"
+      ],
+      "bloque": "Costo",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "A2",
+      "muestra": 1,
+      "status": 200,
+      "ms": 3375,
+      "respuesta": "¡Hola! Para sacar tu licencia de conducir por primera vez, tenés que pagar dos cosas:\n\n*   **Tasa municipal por Licencia de Conducir:** $14.601 por año.\n*   **Certificado Nacional de Antecedentes de Tránsito (CENAT):** $10.150.\n\nEstos costos corresponden a las licencias para principiantes no profesionales y para jóvenes de 17 años.\n\nSi querés, puedo contarte sobre el Manual del Conductor para que te prepares para el examen.",
+      "fuentes": [
+        "licencia-conducir-principiantes-noprofesionales",
+        "licencia-de-conducir-principiantes-profesionales-jurisdiccionales",
+        "licencia-17-anos",
+        "licencia-de-conducir-principiantes-profesionales-interjurisdiccionales",
+        "exencion-ira-licencia-habilitante"
+      ],
+      "bloque": "Costo",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "A3",
+      "muestra": 1,
+      "status": 200,
+      "ms": 2325,
+      "respuesta": "¡Hola! No, si tenés 70 años pagás menos por la licencia de conducir.\n\nLos costos son:\n*   **Tasa municipal por Licencia de Conducir (Mayores de 65 años):** $7.301 por año.\n*   **Certificado Nacional de Antecedentes de Tránsito (CENAT):** $10.150.\n\nTené en cuenta que si tu licencia es profesional y la renovás por cambio de jurisdicción, la tasa municipal para mayores de 65 años es de $6.145 por año y el CENAT de $8.840.",
+      "fuentes": [
+        "renovacion-cambio-jurisdiccion-noprofesionales",
+        "licencia-de-conducir-renovacion-profesionales-jurisdiccionales",
+        "licencia-de-conducir-renovacion-profesionales-interjurisdiccionales",
+        "licencia-de-conducir-ampliacion-profesionales-jurisdiccionales",
+        "licencia-conducir-renovacion-profesionales-jurisdiccionales"
+      ],
+      "bloque": "Costo",
+      "v": "CORRECTA_CON_RUIDO",
+      "fuenteOk": false,
+      "sinFuentes": false
+    },
+    {
+      "id": "A4",
+      "muestra": 1,
+      "status": 200,
+      "ms": 2061,
+      "respuesta": "¡Hola! Para el duplicado de tu licencia de conducir, los costos son:\n\n*   **Tasa municipal por Licencia de Conducir:** $14.601 por año.\n*   **Certificado Nacional de Antecedentes de Tránsito (CENAT):** $10.150.\n\nEstos montos se abonan en el Centro Emisor de Licencias.",
+      "fuentes": [
+        "duplicado-de-licencia",
+        "licencia-de-conducir-renovacion-profesionales-interjurisdiccionales",
+        "renovacion-licencia-noprofesionales",
+        "licencia-de-conducir-principiantes-profesionales-jurisdiccionales"
+      ],
+      "bloque": "Costo",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "A5",
+      "muestra": 1,
+      "status": 200,
+      "ms": 2922,
+      "respuesta": "¡Hola! Para retirar tu vehículo secuestrado, tenés que pagar varios costos.\n\n**Costos de estadía en el canchón por día:**\n*   **Automóviles, camionetas, jeep y vehículos particulares:** $16.841\n*   **Camiones, ómnibus, furgones y vehículos de carga:** $18.946\n*   **Motocicletas, ciclomotores, carros, jardineras, bicicletas:** $12.631\n\n**Otros costos posibles:**\n*   **Servicio de grúa (automóviles y camionetas):** $31.577\n*   **Traslado de moto:** $13.473 por día\n*   **Verificación de daños (guardia):** $4.210 por día\n*   **Verificación de daños (domicilio):** $16.841 por día\n\nEstos costos se abonan en la Oficina de Guardia, en Santa Fe N° 545.\n\nAntes de ir, asegurate de que el Tribunal de Faltas haya autorizado la liberación de tu vehículo y que la multa esté pagada o desestimada. Si no sabés qué juzgado interviene, podés llamar al Tribunal de Faltas al 4160900, interno 1122.",
+      "fuentes": [
+        "vehiculo-secuestrado",
+        "baja-del-automotor-por-robo"
+      ],
+      "bloque": "Costo",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "A6",
+      "muestra": 1,
+      "status": 200,
+      "ms": 2453,
+      "respuesta": "¡Hola! Para la habilitación de cartelería, el costo se calcula en Unidades Tributarias (UT).\n\nEl valor de cada UT desde el 1 de julio de 2024 es de $421,02.\n\nPara iniciar el trámite, podés descargar el formulario de Solicitud de Factibilidad en este enlace: https://municipalidadsalta.gob.ar/wp-content/uploads/2024/08/FORMULARIO_ANUNCIOS_PUBLICITARIOSagosto2024.pdf\n\nY para comenzar el trámite, accedé aquí: https://citymis.co/salta/public",
+      "fuentes": [
+        "carteleria"
+      ],
+      "bloque": "Costo",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "B1",
+      "muestra": 1,
+      "status": 200,
+      "ms": 2354,
+      "respuesta": "¡Hola! Para solicitar la oblea de discapacidad, tenés que completar el formulario en línea. Acá te dejo el enlace directo:\n\n*   **Formulario de Solicitud de Oblea:** [https://forms.gle/bemFdrAddTrRzE3q9](https://forms.gle/bemFdrAddTrRzE3q9)\n\nUna vez que lo completes y adjuntes la documentación, la Secretaría de Tránsito y Seguridad Vial revisará tu solicitud y te responderá por email. Si es aprobada, deberás ir a Santa Fe 545 para retirarla.",
+      "fuentes": [
+        "oblea-de-discapacidad",
+        "exencion-para-discapacitado"
+      ],
+      "bloque": "Formulario",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "B2",
+      "muestra": 1,
+      "status": 200,
+      "ms": 2093,
+      "respuesta": "¡Hola! Para inscribirte en el programa \"Yo Emprendo\", tenés que completar el formulario en línea.\n\nAcá te dejo el enlace directo:\nhttps://forms.gle/Qd61v2AMMwQQkWZv5\n\nLas inscripciones están abiertas desde el 22 de abril hasta el 3 de mayo. ¡No te quedes afuera!",
+      "fuentes": [
+        "yoemprendo",
+        "emprendedores",
+        "regimen-incentivo-fomento-construccion"
+      ],
+      "bloque": "Formulario",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "B3",
+      "muestra": 1,
+      "status": 200,
+      "ms": 2974,
+      "respuesta": "¡Hola! Para registrar una apertura en la vía pública, tenés que hacerlo de forma virtual.\n\n**Pasos para el registro:**\n1.  Completá el formulario web: [https://docs.google.com/forms/d/e/1FAIpQLSdgfXLDLwwXey5AwFCnXHftVHLSV1UTq-sAjjVEMuKlMsV5dw/viewform?usp=sf_link](https://docs.google.com/forms/d/e/1FAIpQLSdgfXLDLwwXey5AwFCnXHftVHLSV1UTq-sAjjVEMuKlMsV5dw/viewform?usp=sf_link)\n2.  También podés acceder a la plataforma RAVP (Registro de Aperturas en la Vía Pública) aquí: [https://citymis.co/salta/public](https://citymis.co/salta/public)\n\nEs obligatorio para personas jurídicas, contratistas y particulares que necesiten hacer trabajos en la vía pública. Te recomiendo consultar el reglamento oficial para conocer todos los requisitos: [https://municipalidadsalta.gob.ar/wp-content/uploads/2021/07/Resolucion-004-Registro-de-Aperturas-en-la-Via-Publica1.pdf](https://municipalidadsalta.gob.ar/wp-content/uploads/2021/07/Resolucion-004-Registro-de-Aperturas-en-la-Via-Publica1.pdf)",
+      "fuentes": [
+        "registro-de-aperturas"
+      ],
+      "bloque": "Formulario",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "B4",
+      "muestra": 1,
+      "status": 200,
+      "ms": 2411,
+      "respuesta": "¡Hola! Para denunciar un vehículo abandonado en la calle, tenés que completar un formulario online.\n\n**¿Cuándo se considera abandonado?**\nUn vehículo se considera abandonado si lleva más de 5 días estacionado en el mismo lugar.\n\n**¿Cómo hacer la denuncia?**\nPodés completar el formulario en este enlace: [[https://forms.gle/vEmEHmLjCm2rzQtGA](https://forms.gle/vEmEHmLjCm2rzQtGA)]\n\nDespués de tu denuncia, personal de Tránsito verificará la situación. Si confirman la falta, notificarán al dueño para que lo retire en 72 horas. Si no lo hace, el vehículo será removido con grúa.",
+      "fuentes": [
+        "denuncia-de-vehiculo-abandonado",
+        "denuncias",
+        "denuncia-de-venta"
+      ],
+      "bloque": "Formulario",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "B5",
+      "muestra": 1,
+      "status": 200,
+      "ms": 2436,
+      "respuesta": "¡Hola! Para descargar la boleta del Certificado Nacional de Antecedentes de Tránsito (CENAT), tenés que ingresar a este enlace:\n\n*   **CENAT:** https://boletadepago.seguridadvial.gob.ar/\n\nUna vez que la abones, recordá que tiene una validez de 60 días. También podés consultar un instructivo para descargarla en este link: https://municipalidadsalta.gob.ar/wp-content/uploads/2024/05/INSTRUCTIVO-CENAT-MUNICIPALIDAD-SALTA.pdf",
+      "fuentes": [
+        "licencia-17-anos",
+        "renovacion-cambio-jurisdiccion-noprofesionales",
+        "salta-activa-plataformas",
+        "renovacion-licencia-noprofesionales",
+        "licencia-de-conducir-principiantes-profesionales-jurisdiccionales"
+      ],
+      "bloque": "Formulario",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "B6",
+      "muestra": 1,
+      "status": 200,
+      "ms": 2125,
+      "respuesta": "¡Hola! Sí, existe un instructivo para solicitar la oblea.\n\nPodés descargar la guía para solicitar la oblea desde este enlace:\nhttps://municipalidadsalta.gob.ar/wp-content/uploads/2026/03/GUIA_-SOLICITUD-DE-OBLEAS.pdf\n\nEste instructivo te servirá para la Oblea para Personas con Discapacidad, el Permiso de Frentista Residente y el Permiso de Frentista Comerciante.",
+      "fuentes": [
+        "oblea-de-discapacidad",
+        "permiso-de-frentista-residente",
+        "permiso-de-frentista-comerciante",
+        "desarrollo-humano-2-programas-descentralizados"
+      ],
+      "bloque": "Formulario",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "C1",
+      "muestra": 1,
+      "status": 200,
+      "ms": 1841,
+      "respuesta": "No tengo información oficial sobre un mail para la exención del impuesto automotor por discapacidad.\n\nPodés hacer tus consultas de forma presencial en el Centro Cívico Municipal, Av. Paraguay Nº1240, Segundo Salón. Atienden de lunes a viernes de 8:00 a 13:00 hs.",
+      "fuentes": [],
+      "bloque": "Contacto",
+      "v": "CORRECTA",
+      "fuenteOk": false,
+      "sinFuentes": true
+    },
+    {
+      "id": "C2",
+      "muestra": 1,
+      "status": 200,
+      "ms": 1594,
+      "respuesta": "¡Hola! Para consultas sobre trámites de inmuebles en Rentas, podés llamar al 4160900, internos 1503 o 1504.\n\nTambién podés enviar un correo a rentas.inm@municipalidadsalta.gob.ar o armsa.inm@municipalidadsalta.gob.ar.",
+      "fuentes": [
+        "pagos-errados-de-inmuebles",
+        "unificacion-de-cuenta-con-unidad-urbana",
+        "alta-unidad-urbana",
+        "exencion-empresas-sin-fines-de-lucro",
+        "exencion-entidades-intermedias-religiosas"
+      ],
+      "bloque": "Contacto",
+      "v": "CORRECTA",
+      "fuenteOk": false,
+      "sinFuentes": false
+    },
+    {
+      "id": "C3",
+      "muestra": 1,
+      "status": 200,
+      "ms": 3310,
+      "respuesta": "¡Hola! Para consultar sobre la eximición de la Tasa de Protección Ambiental, podés comunicarte por mail a rentas.aut@municipalidadsalta.gob.ar o llamar al 4160900, internos 1527 o 1530.\n\nTambién podés ir en persona de lunes a viernes de 8 a 13 hs al Centro Cívico Municipal, en el 2° Salón, Box de Atención Especial para Jubilados, Pensionados y Discapacitados.",
+      "fuentes": [
+        "eximicion-de-la-tasa-ambiental",
+        "exenciones-impositivas",
+        "exencion-para-automotores-y-motovehiculos-autopropulsados"
+      ],
+      "bloque": "Contacto",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "C4",
+      "muestra": 1,
+      "status": 200,
+      "ms": 2108,
+      "respuesta": "¡Hola! Para hacer un plan de pago de inmuebles, tenés que ir al Centro Cívico Municipal, en Av. Paraguay N°1240.\n\n**Horario y oficina:**\nAndá a la Gerencia de Atención al Contribuyente, en la Oficina de Planes de Pago. Atienden de 8:00 a 20:00 hs.\n\n**Documentación necesaria:**\n*   DNI (original y fotocopia de 1º y 2º hoja).\n*   Fotocopia de la Cédula Parcelaria.\n*   La Cuenta Corriente del sistema ITRON.\n*   Un anticipo del 20% de la deuda.\n\nSi necesitás tu Clave Fiscal, podés obtenerla en el Salón 2, planta baja del CCM, de 8:00 a 14:00 hs.",
+      "fuentes": [
+        "plan-de-pago-inmuebles"
+      ],
+      "bloque": "Contacto",
+      "v": "INCOMPLETA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "C5",
+      "muestra": 1,
+      "status": 200,
+      "ms": 2048,
+      "respuesta": "¡Hola! Para la recategorización en TGI, podés escribir un mail a armsa.inf.des.terr@municipalidadsalta.gob.ar.\n\nTambién podés hacerlo de forma presencial en el Centro Cívico Municipal (Av. Paraguay Nº1240), en la Oficina de Mesa de Entrada General, de 08:00 a 20:00 hs.",
+      "fuentes": [
+        "recategorizacion-en-tgi"
+      ],
+      "bloque": "Contacto",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "C6",
+      "muestra": 1,
+      "status": 200,
+      "ms": 2156,
+      "respuesta": "¡Hola! Si necesitás contactarte por las Becas Municipales, podés hacerlo de estas dos maneras:\n\n*   **Teléfono:** Llamá al 4160-900, interno 1093, de lunes a viernes de 8 a 15 hs.\n*   **Correo electrónico:** Escribí a becasmunicipales@municipalidadsalta.gob.ar\n\n¡Están para ayudarte!",
+      "fuentes": [
+        "becas-municipales"
+      ],
+      "bloque": "Contacto",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "C7",
+      "muestra": 1,
+      "status": 200,
+      "ms": 2065,
+      "respuesta": "¡Hola! Si tenés dudas sobre la oblea de discapacidad, podés escribir a la Secretaría de Tránsito y Seguridad Vial al siguiente correo: discapacidad.transito.salta@gmail.com.\n\nTambién podés llamar al 0800-122-5521 o al 4160900 int. 1702 para recibir asesoramiento.",
+      "fuentes": [
+        "oblea-de-discapacidad",
+        "promocion-social"
+      ],
+      "bloque": "Contacto",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "D1",
+      "muestra": 1,
+      "status": 200,
+      "ms": 2058,
+      "respuesta": "El Centro Emisor de Licencias (CEL) de la zona Norte está en el CIC Nuestra Señora del Carmen, en Barrio Unión.\n\nPodés contactarlos al 3875668881 o por mail a licenciasdeconducir@municipalidadsalta.gob.ar. Atienden de 8:00 a 13:30 y de 14:00 a 16:30.",
+      "fuentes": [
+        "licencia-conducir-principiantes-noprofesionales",
+        "duplicado-de-licencia",
+        "licencia-de-conducir-principiantes-profesionales-jurisdiccionales",
+        "licencia-de-conducir-principiantes-profesionales-interjurisdiccionales",
+        "licencia-de-conducir-renovacion-profesionales-jurisdiccionales"
+      ],
+      "bloque": "Dirección",
+      "v": "CORRECTA",
+      "fuenteOk": false,
+      "sinFuentes": false
+    },
+    {
+      "id": "D2",
+      "muestra": 1,
+      "status": 200,
+      "ms": 2056,
+      "respuesta": "¡Hola! El Centro Emisor de Licencias (CEL) de Santa Fe 545 tiene estos horarios de atención:\n\n*   **Lunes a viernes:** de 08:30 a 13:30 hs y de 14:00 a 18:00 hs.\n*   **Sábados:** de 08:30 a 12:30 hs.",
+      "fuentes": [
+        "duplicado-de-licencia",
+        "renovacion-licencia-noprofesionales",
+        "licencia-de-conducir-principiantes-profesionales-jurisdiccionales",
+        "licencia-de-conducir-principiantes-profesionales-interjurisdiccionales",
+        "licencia-de-conducir-renovacion-profesionales-jurisdiccionales"
+      ],
+      "bloque": "Dirección",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "D3",
+      "muestra": 1,
+      "status": 200,
+      "ms": 1927,
+      "respuesta": "¡Hola! Sí, hay un Centro Emisor de Licencias (CEL) en la zona sur.\n\n**Ubicación y Horario:**\n*   **Dirección:** Paseo Libertad Salta (Av. Tavella y Av. Ex Combatientes de Malvinas).\n*   **Horario de atención:** De 8:40 a 18:00 horas.",
+      "fuentes": [
+        "licencia-de-conducir-principiantes-profesionales-jurisdiccionales",
+        "licencia-conducir-principiantes-noprofesionales",
+        "licencia-de-conducir-principiantes-profesionales-interjurisdiccionales",
+        "licencia-de-conducir-renovacion-profesionales-jurisdiccionales",
+        "licencia-de-conducir-ampliacion-profesionales-jurisdiccionales"
+      ],
+      "bloque": "Dirección",
+      "v": "CORRECTA",
+      "fuenteOk": false,
+      "sinFuentes": false
+    },
+    {
+      "id": "D4",
+      "muestra": 1,
+      "status": 200,
+      "ms": 2039,
+      "respuesta": "¡Hola! Para trámites de licencia de conducir, podés escribir a licenciasdeconducir@municipalidadsalta.gob.ar.\n\nTambién te cuento que, una vez que iniciás el trámite, tenés que revisar tu casilla de correo (incluyendo spam) para solicitar tu turno.",
+      "fuentes": [
+        "licencia-de-conducir-principiantes-profesionales-jurisdiccionales",
+        "licencia-conducir-principiantes-noprofesionales",
+        "renovacion-licencia-noprofesionales",
+        "licencia-17-anos",
+        "licencia-de-conducir-principiantes-profesionales-interjurisdiccionales"
+      ],
+      "bloque": "Dirección",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "E1",
+      "muestra": 1,
+      "status": 200,
+      "ms": 2130,
+      "respuesta": "El Centro de Mediación y Conciliaciones es un servicio gratuito de la Municipalidad de Salta para resolver conflictos de forma alternativa.\n\nPodés usarlo para temas de alquileres, contratos, asuntos familiares, derechos del consumidor y otros.\n\nPara acceder, completá el formulario en línea, llamá al 416-0900 int. 1571 o escribí a mediacion.conciliacion@municipalidadsalta.gob.ar.",
+      "fuentes": [
+        "centro-de-mediacion-y-conciliaciones",
+        "entidades-intermedias-y-religiosas",
+        "desarrollo-humano-2-programas-descentralizados",
+        "desarrollo-humano-2-programas-descentralizados",
+        "cics-centros-comunitarios"
+      ],
+      "bloque": "Control",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "E2",
+      "muestra": 1,
+      "status": 200,
+      "ms": 2105,
+      "respuesta": "¡Hola! Para consultar el estado de un expediente, tenés dos opciones:\n\n*   **Online:** Podés hacerlo en línea ingresando a este enlace: http://200.123.98.131:8384/expediente/\n*   **En el Cementerio San Antonio de Padua:** Si estás en las oficinas del cementerio, completá este formulario: https://forms.gle/25yjQL7kVkmSVPFK9\n\nRecordá tener a mano el número de expediente para hacer la consulta.",
+      "fuentes": [
+        "consulta-de-expedientes",
+        "solicitud-de-estados-de-cuenta",
+        "licencia-de-conducir-renovacion-profesionales-jurisdiccionales",
+        "licencia-de-conducir-ampliacion-profesionales-jurisdiccionales",
+        "licencia-conducir-renovacion-profesionales-jurisdiccionales"
+      ],
+      "bloque": "Control",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "E3",
+      "muestra": 1,
+      "status": 200,
+      "ms": 1956,
+      "respuesta": "¡Hola! Para pedir un estado de cuenta, tenés que completar un formulario. Podés acceder a él desde este enlace:\n\n[https://forms.gle/Sh5pZqDUgEKXcQh6](https://forms.gle/Sh5pZqDUgEKXcQh6)\n\nEste trámite se realiza en el Cementerio San Antonio de Padua.",
+      "fuentes": [
+        "solicitud-de-estados-de-cuenta",
+        "vehiculo-secuestrado",
+        "solicitud-de-grafica",
+        "unificacion-de-cuenta-con-unidad-urbana",
+        "formulario-26"
+      ],
+      "bloque": "Control",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "E4",
+      "muestra": 1,
+      "status": 200,
+      "ms": 2966,
+      "respuesta": "¡Hola! Para un permiso de obras eléctricas, los requisitos varían un poco según el tipo de obra.\n\n**Si sos una empresa que hace obras en la vía pública (ampliación, reparación o mantenimiento de redes), necesitás:**\n\n*   Una nota con la descripción de la obra, el lugar y los datos de tu empresa.\n*   Declaración Jurada firmada en todas sus hojas.\n*   Nota de interferencia con empresas como GASNOR, EDESA, TELECOM, CLARO y AGUAS DEL NORTE.\n*   Memoria descriptiva de los trabajos.\n*   Plano de electricidad original y duplicado, firmado por COPAIPA.\n*   Aprobación de factibilidad de Edesa.\n*   Inscripción en AFIP.\n\n**Si lo que buscás es una Constancia de Inspección Eléctrica (para viviendas, por ejemplo), necesitás:**\n\n*   Cédula parcelaria.\n*   DNI del titular y del solicitante.\n*   Planos eléctricos aprobados (para viviendas multifamiliares, certificado de habitabilidad).\n*   Los formularios de Nota de conexión eléctrica y Acta de Inspección eléctrica, que podés descargar desde la web de la Municipalidad.\n*   Boleta de Edesa si es para reposición del servicio.\n\nRecordá que cada caso es particular y se analiza de forma presencial.",
+      "fuentes": [
+        "permisos-para-obras-electricas",
+        "solicitud-de-constancia-de-inspeccion-electrica",
+        "permisos-subcontratista-o-servicios-publicos"
+      ],
+      "bloque": "Control",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "E5",
+      "muestra": 1,
+      "status": 200,
+      "ms": 2698,
+      "respuesta": "¡Hola! Para sacar el permiso de frentista si vivís en una zona con estacionamiento medido, tenés que seguir estos pasos:\n\n1.  **Completar el formulario online:** Hacelo en este enlace: [[https://docs.google.com/forms/d/e/1FAIpQLScLbNvGxR-1spPVyZ_iIwy9wyLhWW5XTClDvo99tPIIHUaKnA/viewform]]\n2.  **Adjuntar la documentación** que te pidan en el formulario.\n\nLa Secretaría de Tránsito y Seguridad Vial revisará tu pedido y te contactará en un máximo de 72 horas hábiles. Una vez que te den el permiso, tenés que colocarlo en la luneta de tu auto para poder estacionar gratis en la cuadra de tu domicilio.\n\nEste permiso es personal e intransferible.\n\nSi tenés dudas, podés escribir a frentistas.transito.salta@gmail.com.",
+      "fuentes": [
+        "permiso-de-frentista-residente",
+        "permiso-de-frentista-comerciante",
+        "trabajos-en-fachada"
+      ],
+      "bloque": "Control",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "E6",
+      "muestra": 1,
+      "status": 200,
+      "ms": 2535,
+      "respuesta": "¡Hola! Para dar de alta un garaje y que quede demarcado, el trámite se llama **Solicitud de Alta de Garaje**.\n\nCon este trámite, tu garaje quedará señalizado con pintura y cartelería, y podrás pedir la remoción de vehículos que lo obstaculicen.\n\nPara iniciarlo, tenés que completar este formulario:\n[https://docs.google.com/forms/d/e/1FAIpQLSex7WTGTPLl-cXjQCE7TXSgAWlLCLUTH_L6VLQSTl5Xwn3M0g/viewform?usp=sf_link](https://docs.google.com/forms/d/e/1FAIpQLSex7WTGTPLl-cXjQCE7TXSgAWlLCLUTH_L6VLQSTl5Xwn3M0g/viewform?usp=sf_link)\n\nDespués de que lo completes, personal de la Secretaría de Tránsito verificará si cumple los requisitos. Si se aprueba, te notificarán por mail el monto de la tasa que tenés que pagar.",
+      "fuentes": [
+        "solicitud-de-alta-de-garaje",
+        "alta-unidad-urbana",
+        "formulario-26"
+      ],
+      "bloque": "Control",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "E7",
+      "muestra": 1,
+      "status": 200,
+      "ms": 2431,
+      "respuesta": "¡Hola! Sí, la Municipalidad de Salta tiene el programa \"Huertas de la Ciudad\", que ofrece talleres gratuitos de agroecología.\n\nEn estos talleres aprendés a armar tu propia huerta en casa o en espacios comunitarios. Te enseñan sobre preparación de la tierra, siembra, cuidados de cultivos, abonos y control de plagas.\n\nPodés participar en distintas Huertas Municipales. Por ejemplo:\n\n*   **DIAT San Benito:** Miércoles, de 10 a 12 hs. o de 18 a 20 hs.\n*   **CIC Barrio Constitución:** Martes, de 9 a 11 hs. o Jueves de 9 a 11 hs.\n*   **Huerta NIDO Bicentenario:** Jueves de 18 a 20 hs.\n\nSi querés saber más o tenés dudas, podés escribir a huertas@municipalidadsalta.gob.ar.",
+      "fuentes": [
+        "huertas"
+      ],
+      "bloque": "Control",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    }
+  ],
+  "filas": [
+    {
+      "id": "A1",
+      "bloque": "Costo",
+      "cuenta": {
+        "CORRECTA": 1
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 1,
+      "sinFuentes": 0,
+      "muestras": 1,
+      "ms": 2756
+    },
+    {
+      "id": "A2",
+      "bloque": "Costo",
+      "cuenta": {
+        "CORRECTA": 1
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 1,
+      "sinFuentes": 0,
+      "muestras": 1,
+      "ms": 3375
+    },
+    {
+      "id": "A3",
+      "bloque": "Costo",
+      "cuenta": {
+        "CORRECTA_CON_RUIDO": 1
+      },
+      "varia": false,
+      "dominante": "CORRECTA_CON_RUIDO",
+      "fuenteOk": 0,
+      "sinFuentes": 0,
+      "muestras": 1,
+      "ms": 2325
+    },
+    {
+      "id": "A4",
+      "bloque": "Costo",
+      "cuenta": {
+        "CORRECTA": 1
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 1,
+      "sinFuentes": 0,
+      "muestras": 1,
+      "ms": 2061
+    },
+    {
+      "id": "A5",
+      "bloque": "Costo",
+      "cuenta": {
+        "CORRECTA": 1
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 1,
+      "sinFuentes": 0,
+      "muestras": 1,
+      "ms": 2922
+    },
+    {
+      "id": "A6",
+      "bloque": "Costo",
+      "cuenta": {
+        "CORRECTA": 1
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 1,
+      "sinFuentes": 0,
+      "muestras": 1,
+      "ms": 2453
+    },
+    {
+      "id": "B1",
+      "bloque": "Formulario",
+      "cuenta": {
+        "CORRECTA": 1
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 1,
+      "sinFuentes": 0,
+      "muestras": 1,
+      "ms": 2354
+    },
+    {
+      "id": "B2",
+      "bloque": "Formulario",
+      "cuenta": {
+        "CORRECTA": 1
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 1,
+      "sinFuentes": 0,
+      "muestras": 1,
+      "ms": 2093
+    },
+    {
+      "id": "B3",
+      "bloque": "Formulario",
+      "cuenta": {
+        "CORRECTA": 1
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 1,
+      "sinFuentes": 0,
+      "muestras": 1,
+      "ms": 2974
+    },
+    {
+      "id": "B4",
+      "bloque": "Formulario",
+      "cuenta": {
+        "CORRECTA": 1
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 1,
+      "sinFuentes": 0,
+      "muestras": 1,
+      "ms": 2411
+    },
+    {
+      "id": "B5",
+      "bloque": "Formulario",
+      "cuenta": {
+        "CORRECTA": 1
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 1,
+      "sinFuentes": 0,
+      "muestras": 1,
+      "ms": 2436
+    },
+    {
+      "id": "B6",
+      "bloque": "Formulario",
+      "cuenta": {
+        "CORRECTA": 1
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 1,
+      "sinFuentes": 0,
+      "muestras": 1,
+      "ms": 2125
+    },
+    {
+      "id": "C1",
+      "bloque": "Contacto",
+      "cuenta": {
+        "CORRECTA": 1
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 0,
+      "sinFuentes": 1,
+      "muestras": 1,
+      "ms": 1841
+    },
+    {
+      "id": "C2",
+      "bloque": "Contacto",
+      "cuenta": {
+        "CORRECTA": 1
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 0,
+      "sinFuentes": 0,
+      "muestras": 1,
+      "ms": 1594
+    },
+    {
+      "id": "C3",
+      "bloque": "Contacto",
+      "cuenta": {
+        "CORRECTA": 1
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 1,
+      "sinFuentes": 0,
+      "muestras": 1,
+      "ms": 3310
+    },
+    {
+      "id": "C4",
+      "bloque": "Contacto",
+      "cuenta": {
+        "INCOMPLETA": 1
+      },
+      "varia": false,
+      "dominante": "INCOMPLETA",
+      "fuenteOk": 1,
+      "sinFuentes": 0,
+      "muestras": 1,
+      "ms": 2108
+    },
+    {
+      "id": "C5",
+      "bloque": "Contacto",
+      "cuenta": {
+        "CORRECTA": 1
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 1,
+      "sinFuentes": 0,
+      "muestras": 1,
+      "ms": 2048
+    },
+    {
+      "id": "C6",
+      "bloque": "Contacto",
+      "cuenta": {
+        "CORRECTA": 1
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 1,
+      "sinFuentes": 0,
+      "muestras": 1,
+      "ms": 2156
+    },
+    {
+      "id": "C7",
+      "bloque": "Contacto",
+      "cuenta": {
+        "CORRECTA": 1
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 1,
+      "sinFuentes": 0,
+      "muestras": 1,
+      "ms": 2065
+    },
+    {
+      "id": "D1",
+      "bloque": "Dirección",
+      "cuenta": {
+        "CORRECTA": 1
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 0,
+      "sinFuentes": 0,
+      "muestras": 1,
+      "ms": 2058
+    },
+    {
+      "id": "D2",
+      "bloque": "Dirección",
+      "cuenta": {
+        "CORRECTA": 1
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 1,
+      "sinFuentes": 0,
+      "muestras": 1,
+      "ms": 2056
+    },
+    {
+      "id": "D3",
+      "bloque": "Dirección",
+      "cuenta": {
+        "CORRECTA": 1
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 0,
+      "sinFuentes": 0,
+      "muestras": 1,
+      "ms": 1927
+    },
+    {
+      "id": "D4",
+      "bloque": "Dirección",
+      "cuenta": {
+        "CORRECTA": 1
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 1,
+      "sinFuentes": 0,
+      "muestras": 1,
+      "ms": 2039
+    },
+    {
+      "id": "E1",
+      "bloque": "Control",
+      "cuenta": {
+        "CORRECTA": 1
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 1,
+      "sinFuentes": 0,
+      "muestras": 1,
+      "ms": 2130
+    },
+    {
+      "id": "E2",
+      "bloque": "Control",
+      "cuenta": {
+        "CORRECTA": 1
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 1,
+      "sinFuentes": 0,
+      "muestras": 1,
+      "ms": 2105
+    },
+    {
+      "id": "E3",
+      "bloque": "Control",
+      "cuenta": {
+        "CORRECTA": 1
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 1,
+      "sinFuentes": 0,
+      "muestras": 1,
+      "ms": 1956
+    },
+    {
+      "id": "E4",
+      "bloque": "Control",
+      "cuenta": {
+        "CORRECTA": 1
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 1,
+      "sinFuentes": 0,
+      "muestras": 1,
+      "ms": 2966
+    },
+    {
+      "id": "E5",
+      "bloque": "Control",
+      "cuenta": {
+        "CORRECTA": 1
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 1,
+      "sinFuentes": 0,
+      "muestras": 1,
+      "ms": 2698
+    },
+    {
+      "id": "E6",
+      "bloque": "Control",
+      "cuenta": {
+        "CORRECTA": 1
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 1,
+      "sinFuentes": 0,
+      "muestras": 1,
+      "ms": 2535
+    },
+    {
+      "id": "E7",
+      "bloque": "Control",
+      "cuenta": {
+        "CORRECTA": 1
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 1,
+      "sinFuentes": 0,
+      "muestras": 1,
+      "ms": 2431
+    }
+  ]
+}
