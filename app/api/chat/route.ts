@@ -667,10 +667,20 @@ function diversificarPorTramite(chunks: ChunkV2[], maxPorTramite: number, limite
 function expandirMarcadores(texto: string, enlaces: EnlaceV2[] | null): string {
   if (!enlaces?.length || !texto.includes("[[")) return texto
 
-  return texto.replace(/\[\[(\d+)\]\]/g, (marcaCruda, n: string) => {
+  // Se consume el espacio previo y se lo repone al sustituir: si no, queda
+  // doble espacio cuando hay URL, y un espacio colgando cuando no la hay.
+  // `[ \t]` y no `\s` a propósito: un salto de línea antes del marcador es
+  // maquetado del chunk y se conserva.
+  return texto.replace(/[ \t]*\[\[(\d+)\]\]/g, (marcaCruda, n: string) => {
     const enlace = enlaces.find((e) => e.marcador === Number(n))
     const url = enlace?.url?.trim()
     if (!url) return marcaCruda
+
+    // Solo esquemas que un trámite puede legítimamente publicar. Hoy el corpus
+    // tiene exactamente eso (382 enlaces: 248 https, 53 http, 81 mailto), pero
+    // se regenera del scraping de un sitio que no controlamos: sin esta lista,
+    // lo que apareciera en un `href` mañana entraría al prompt tal cual.
+    if (!/^(https?|mailto|tel):/i.test(url)) return marcaCruda
 
     // `mailto:` sobra (el ancla ya muestra la dirección) y el scraping arrastra
     // %20 pegados al final de algunos href.
