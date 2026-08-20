@@ -1,0 +1,304 @@
+[
+  {
+    "id": "A1",
+    "bloque": "Costo",
+    "pregunta": "¿Cuánto sale renovar la licencia de conducir no profesional?",
+    "tramite": "renovacion-licencia-noprofesionales",
+    "tipo": "precio",
+    "espera": "$14.601 por año (tasa municipal); $7.301 si es mayor de 65; CENAT $10.150",
+    "clave": "14[.]601|7[.]301",
+    "veneno": "12[.]289|6[.]145|8840"
+  },
+  {
+    "id": "A2",
+    "bloque": "Costo",
+    "pregunta": "¿Qué tengo que pagar para sacar la licencia por primera vez?",
+    "tramite": "licencia-conducir-principiantes-noprofesionales",
+    "tipo": "precio",
+    "espera": "$14.601 tasa municipal + CENAT $10.150",
+    "clave": "14[.]601",
+    "veneno": "11[.]513|12[.]289"
+  },
+  {
+    "id": "A3",
+    "bloque": "Costo",
+    "pregunta": "Tengo 70 años, ¿pago lo mismo por la licencia?",
+    "tramite": "renovacion-licencia-noprofesionales",
+    "tipo": "precio",
+    "espera": "$7.301 por año para mayores de 65",
+    "clave": "7[.]301",
+    "veneno": "6[.]145"
+  },
+  {
+    "id": "A4",
+    "bloque": "Costo",
+    "pregunta": "¿Cuánto cuesta el duplicado de la licencia de conducir?",
+    "tramite": "duplicado-de-licencia",
+    "tipo": "precio",
+    "espera": "$14.601 + CENAT $10.150",
+    "clave": "14[.]601",
+    "veneno": "12[.]289|11[.]513"
+  },
+  {
+    "id": "A5",
+    "bloque": "Costo",
+    "pregunta": "Me secuestraron el auto, ¿cuánto tengo que pagar para sacarlo?",
+    "tramite": "vehiculo-secuestrado",
+    "tipo": "precio",
+    "espera": "aranceles $4.210 a $31.577 segun el caso",
+    "clave": "31[.]577|16[.]841|12[.]631|4[.]210",
+    "veneno": null
+  },
+  {
+    "id": "A6",
+    "bloque": "Costo",
+    "pregunta": "¿Cuánto se paga por la habilitación de cartelería?",
+    "tramite": "carteleria",
+    "tipo": "precio",
+    "espera": "$421",
+    "clave": "421",
+    "veneno": null
+  },
+  {
+    "id": "B1",
+    "bloque": "Formulario",
+    "pregunta": "¿Dónde completo el formulario para la oblea de discapacidad?",
+    "tramite": "oblea-de-discapacidad",
+    "tipo": "url",
+    "espera": "https://forms.gle/bemFdrAddTrRzE3q9 + guia PDF",
+    "clave": "forms[.]gle/bemFdrAddTrRzE3q9",
+    "veneno": null
+  },
+  {
+    "id": "B2",
+    "bloque": "Formulario",
+    "pregunta": "Quiero inscribirme en Yo Emprendo, ¿cómo hago?",
+    "tramite": "yoemprendo",
+    "tipo": "url",
+    "espera": "https://forms.gle/Qd61v2AMMwQQkWZv5 (creditos de $250.000)",
+    "clave": "forms[.]gle/Qd61v2AMMwQQkWZv5",
+    "veneno": null
+  },
+  {
+    "id": "B3",
+    "bloque": "Formulario",
+    "pregunta": "¿Cómo registro una apertura en la vía pública?",
+    "tramite": "registro-de-aperturas",
+    "tipo": "url",
+    "espera": "plataforma RAVP citymis.co/salta/public + formulario de inicio",
+    "clave": "citymis[.]co|RAVP",
+    "veneno": null
+  },
+  {
+    "id": "B4",
+    "bloque": "Formulario",
+    "pregunta": "¿Cómo denuncio un vehículo abandonado en la calle?",
+    "tramite": "denuncia-de-vehiculo-abandonado",
+    "tipo": "url",
+    "espera": "https://forms.gle/vEmEHmLjCm2rzQtGA",
+    "clave": "forms[.]gle/vEmEHmLjCm2rzQtGA",
+    "veneno": null
+  },
+  {
+    "id": "B5",
+    "bloque": "Formulario",
+    "pregunta": "¿Dónde descargo la boleta del CENAT?",
+    "tramite": "renovacion-licencia-noprofesionales",
+    "tipo": "url",
+    "espera": "boletadepago.seguridadvial.gob.ar + instructivo PDF",
+    "clave": "boletadepago[.]seguridadvial[.]gob[.]ar",
+    "veneno": null
+  },
+  {
+    "id": "B6",
+    "bloque": "Formulario",
+    "pregunta": "Necesito la guía para solicitar la oblea, ¿existe un instructivo?",
+    "tramite": "oblea-de-discapacidad",
+    "tipo": "url",
+    "espera": "PDF GUIA_-SOLICITUD-DE-OBLEAS",
+    "clave": "GUIA_-SOLICITUD-DE-OBLEAS|gu[ií]a para solicitar",
+    "veneno": null
+  },
+  {
+    "id": "C1",
+    "bloque": "Contacto",
+    "pregunta": "¿A qué mail escribo por la exención del impuesto automotor para discapacidad?",
+    "tramite": "exencion-para-discapacitado",
+    "tipo": "texto",
+    "espera": "atención presencial en el Centro Cívico Municipal, 2° Salón",
+    "clave": "Centro C[ií]vico|Segundo Sal[oó]n|2[°º] Sal[oó]n",
+    "veneno": null,
+    "nota": "La exención de automotor por discapacidad NO publica mail: publica atención presencial. La versión original de esta pregunta esperaba rentas.aut@ e int 1527, tomados de trámites hermanos de Rentas, y contaba como falla la respuesta correcta."
+  },
+  {
+    "id": "C2",
+    "bloque": "Contacto",
+    "pregunta": "¿Cuál es el teléfono de Rentas para consultas de inmuebles?",
+    "tramite": "cambio-de-titularidad-inmuebles",
+    "tipo": "contacto",
+    "espera": "4160900 int 1503-1504",
+    "clave": "1503|1504",
+    "veneno": null
+  },
+  {
+    "id": "C3",
+    "bloque": "Contacto",
+    "pregunta": "¿Con quién consulto por la eximición de la tasa ambiental?",
+    "tramite": "eximicion-de-la-tasa-ambiental",
+    "tipo": "contacto",
+    "espera": "rentas.aut@municipalidadsalta.gob.ar, int 1527-1530",
+    "clave": "rentas[.]aut@|1527",
+    "veneno": null
+  },
+  {
+    "id": "C4",
+    "bloque": "Contacto",
+    "pregunta": "Quiero hacer un plan de pago de inmuebles, ¿dónde consulto?",
+    "tramite": "plan-de-pago-inmuebles",
+    "tipo": "contacto",
+    "espera": "atencion.contribuyente@municipalidadsalta.gob.ar",
+    "clave": "atencion[.]contribuyente@",
+    "veneno": null
+  },
+  {
+    "id": "C5",
+    "bloque": "Contacto",
+    "pregunta": "¿A dónde escribo para la recategorización en TGI?",
+    "tramite": "recategorizacion-en-tgi",
+    "tipo": "contacto",
+    "espera": "rentas.inf.des.terr@ o armsa.inf.des.terr@ — la página publica las dos",
+    "clave": "rentas[.]inf[.]des[.]terr@|armsa[.]inf[.]des[.]terr@|3876363440",
+    "veneno": null,
+    "nota": "Trámite con dos casillas para la misma consulta: armsa.* dentro del acordeón y rentas.* en el bloque de contacto. Las dos son válidas hasta que el municipio defina cuál rige (ver OBSERVACIONES-CORPUS.md, punto 8). Cualquiera de las dos cuenta como correcta."
+  },
+  {
+    "id": "C6",
+    "bloque": "Contacto",
+    "pregunta": "¿Cómo contacto por una beca municipal?",
+    "tramite": "becas-municipales",
+    "tipo": "contacto",
+    "espera": "becasmunicipales@municipalidadsalta.gob.ar",
+    "clave": "becasmunicipales@",
+    "veneno": null
+  },
+  {
+    "id": "C7",
+    "bloque": "Contacto",
+    "pregunta": "Tengo dudas sobre la oblea de discapacidad, ¿a quién le escribo?",
+    "tramite": "oblea-de-discapacidad",
+    "tipo": "contacto",
+    "espera": "Secretaria de Transito - discapacidad.transito.salta@gmail.com",
+    "clave": "discapacidad[.]transito[.]salta@",
+    "veneno": null
+  },
+  {
+    "id": "D1",
+    "bloque": "Dirección",
+    "pregunta": "¿Dónde queda el centro emisor de licencias de zona norte?",
+    "tramite": "renovacion-licencia-noprofesionales",
+    "tipo": "contacto",
+    "espera": "CIC Nuestra Señora del Carmen, Barrio Union. Tel 3875668881",
+    "clave": "Nuestra Se.ora del Carmen|3875668881",
+    "veneno": null
+  },
+  {
+    "id": "D2",
+    "bloque": "Dirección",
+    "pregunta": "¿En qué horario atiende el centro emisor de licencias de Santa Fe 545?",
+    "tramite": "renovacion-licencia-noprofesionales",
+    "tipo": "texto",
+    "espera": "Lun a vie 08:30-13:30 y 14:00-18:00; sab 08:30-12:30",
+    "clave": "08:30|8:30",
+    "veneno": null
+  },
+  {
+    "id": "D3",
+    "bloque": "Dirección",
+    "pregunta": "¿Hay un centro de licencias en zona sur?",
+    "tramite": "renovacion-licencia-noprofesionales",
+    "tipo": "texto",
+    "espera": "Paseo Libertad (Av. Tavella y Av. Ex Combatientes), 8:40 a 18:00",
+    "clave": "Paseo Libertad|Tavella",
+    "veneno": null
+  },
+  {
+    "id": "D4",
+    "bloque": "Dirección",
+    "pregunta": "¿A qué mail escribo por un trámite de licencia de conducir?",
+    "tramite": "renovacion-licencia-noprofesionales",
+    "tipo": "contacto",
+    "espera": "licenciasdeconducir@municipalidadsalta.gob.ar",
+    "clave": "licenciasdeconducir@",
+    "veneno": null
+  },
+  {
+    "id": "E1",
+    "bloque": "Control",
+    "pregunta": "¿Qué es el Centro de Mediación y Conciliaciones?",
+    "tramite": "centro-de-mediacion-y-conciliaciones",
+    "tipo": "texto",
+    "espera": "descripcion del servicio",
+    "clave": "mediaci",
+    "veneno": null
+  },
+  {
+    "id": "E2",
+    "bloque": "Control",
+    "pregunta": "¿Cómo consulto el estado de un expediente?",
+    "tramite": "consulta-de-expedientes",
+    "tipo": "texto",
+    "espera": "procedimiento de consulta",
+    "clave": "expediente",
+    "veneno": null
+  },
+  {
+    "id": "E3",
+    "bloque": "Control",
+    "pregunta": "¿Cómo pido un estado de cuenta?",
+    "tramite": "solicitud-de-estados-de-cuenta",
+    "tipo": "texto",
+    "espera": "procedimiento",
+    "clave": "estado de cuenta|cuenta",
+    "veneno": null
+  },
+  {
+    "id": "E4",
+    "bloque": "Control",
+    "pregunta": "¿Qué necesito para un permiso de obras eléctricas?",
+    "tramite": "permisos-para-obras-electricas",
+    "tipo": "texto",
+    "espera": "requisitos del permiso",
+    "clave": "el.ctric",
+    "veneno": null
+  },
+  {
+    "id": "E5",
+    "bloque": "Control",
+    "pregunta": "¿Cómo saco el permiso de frentista si vivo en la zona?",
+    "tramite": "permiso-de-frentista-residente",
+    "tipo": "texto",
+    "espera": "requisitos del permiso de frentista residente",
+    "clave": "frentista",
+    "veneno": null
+  },
+  {
+    "id": "E6",
+    "bloque": "Control",
+    "pregunta": "Quiero dar de alta un garaje, ¿qué trámite es?",
+    "tramite": "solicitud-de-alta-de-garaje",
+    "tipo": "texto",
+    "espera": "procedimiento de alta de garaje",
+    "clave": "garaje|garage",
+    "veneno": null
+  },
+  {
+    "id": "E7",
+    "bloque": "Control",
+    "pregunta": "¿La Municipalidad tiene un programa de huertas?",
+    "tramite": "huertas",
+    "tipo": "texto",
+    "espera": "descripcion del programa",
+    "clave": "huerta",
+    "veneno": null
+  }
+]
