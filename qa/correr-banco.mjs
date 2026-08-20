@@ -183,13 +183,34 @@ async function main() {
     const previa = JSON.parse(fs.readFileSync(COMPARAR, 'utf8'))
     const antes = new Map(previa.filas.map((f) => [f.id, f]))
     const s = (f) => Object.entries(f.cuenta).map(([k, n]) => `${n}×${k}`).join('+')
+
+    // Se compara en proporcion y no en conteo: si una corrida tiene 5 muestras
+    // y la otra 2, "5×CORRECTA -> 2×CORRECTA" no es un cambio, y listarlo como
+    // tal ahoga los cambios de verdad.
+    const proporcion = (f) => {
+      const p = Object.entries(f.cuenta)
+        .map(([k, n]) => `${k}:${(n / f.muestras).toFixed(2)}`)
+        .sort()
+      return p.join(' ')
+    }
+
     console.log(`\n=== contra ${COMPARAR} ===`)
+    const distintasMuestras = filas.some((f) => antes.get(f.id)?.muestras !== f.muestras)
+    if (distintasMuestras) console.log('  (corridas con distinta cantidad de muestras: se compara en proporción)')
+
+    let cambios = 0
     for (const f of filas) {
       const a = antes.get(f.id)
       if (a === undefined) continue
-      if (s(a) === s(f) && a.fuenteOk === f.fuenteOk) continue
-      console.log(`  ${f.id}  ${s(a)} -> ${s(f)}   fuente_ok ${a.fuenteOk} -> ${f.fuenteOk}`)
+      const mismaFuente = a.fuenteOk / a.muestras === f.fuenteOk / f.muestras
+      if (proporcion(a) === proporcion(f) && mismaFuente) continue
+      cambios += 1
+      console.log(
+        `  ${f.id}  ${s(a)}/${a.muestras} -> ${s(f)}/${f.muestras}` +
+          `   fuente_ok ${a.fuenteOk}/${a.muestras} -> ${f.fuenteOk}/${f.muestras}`,
+      )
     }
+    if (cambios === 0) console.log('  sin cambios')
   }
 }
 
