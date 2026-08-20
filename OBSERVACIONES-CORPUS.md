@@ -309,3 +309,62 @@ sensibles.
 
 Corregir la grafía del dominio en la página de la Subsecretaría. Es un carácter
 en la fuente; el corpus lo toma del scraping siguiente.
+
+---
+
+## 8. Un mismo trámite publica dos casillas distintas para la misma consulta
+
+**Estado:** sin tapar del lado nuestro. El corpus reproduce las dos, tal como
+están publicadas.
+
+### Qué encontramos
+
+En **16 trámites** la página publica **dos direcciones de correo distintas para
+la misma consulta**, y las dos están bajo el dominio institucional. Siempre es
+el mismo par: una casilla `armsa.*` y una casilla `rentas.*` del mismo área.
+
+Lo que las separa no es el tema sino **dónde están en la página**: la `armsa.*`
+aparece dentro del acordeón, en la respuesta a *"¿Dónde y en qué horario se
+realiza?"*, y la `rentas.*` en el bloque de contacto que está fuera del
+acordeón, bajo el rótulo *"Para consultas sobre Trámites"*.
+
+| Par | Trámites |
+|---|---|
+| `armsa.inm@` · `rentas.inm@` | alta-unidad-urbana · cambio-de-titularidad-inmuebles · desglose-de-tgi-e-iiu-en-boleta-edesa · inclusion-de-tgi-e-iiu-en-boleta-edesa · modificacion-de-nis-unidad-urbana · exencion-empresas-sin-fines-de-lucro · exencion-entidades-intermedias-religiosas |
+| `armsa.aut@` · `rentas.aut@` | baja-del-automotor-por-desguase · baja-del-automotor-por-robo · exencion-para-automotores-y-motovehiculos-autopropulsados |
+| `armsa.inf.des.terr@` · `rentas.inf.des.terr@` | recategorizacion-en-tgi · rezonificacion-en-impuesto-inmobiliario · subdivision-de-unidad-urbana · exencion-para-inmuebles-de-valor-historico-y-o-arquitectonico |
+
+Dos trámites publican **tres**:
+
+| Trámite | Casillas |
+|---|---|
+| `pagos-errados-de-inmuebles` | `armsa.inm@` · `rentas.inm@` · `rentas.acreditaciones@` |
+| `unificacion-de-cuenta-con-unidad-urbana` | `armsa.inm@` · `rentas.inm@` · `rentas.inf.des@` |
+
+### Por qué aparece ahora
+
+No es nuevo en el sitio: es nuevo en el corpus. Hasta el fix del recorte de
+secciones, el corpus solo tenía la casilla de adentro del acordeón, así que el
+asistente contestaba siempre la `armsa.*` y la contradicción no se veía. Al
+incorporar el bloque de contacto que estaba fuera, el corpus pasó a tener las
+dos, y el asistente puede entregar cualquiera de ellas según qué chunk se
+recupere. Las dos son igual de oficiales; nosotros no tenemos forma de saber
+cuál es la vigente.
+
+### Por qué importa
+
+Es el mismo problema de fondo que el punto 6, en otra forma: dos canales para el
+mismo trámite, ninguno señalado como principal. Las consultas se reparten entre
+dos bandejas y ninguna de las dos ve el total, así que una consulta demorada en
+una casilla es indistinguible de una consulta que nunca llegó. Para el vecino no
+hay ninguna señal de que exista una segunda dirección.
+
+Como no podemos elegir por el municipio, el banco de preguntas de QA
+(`qa/banco-preguntas.json`, pregunta C5) acepta **cualquiera de las dos** como
+respuesta correcta. Si el municipio define una, se ajusta ahí.
+
+### Qué haría falta para resolverlo de fondo
+
+Que cada trámite publique **una** casilla, o que diga explícitamente para qué
+sirve cada una si de verdad son dos canales distintos. Es un cambio en la
+fuente: el corpus se regenera del scraping y toma el dato nuevo sin tocar código.

@@ -1,0 +1,2990 @@
+{
+  "etiqueta": "POST corpus + enlaces",
+  "ev": [
+    {
+      "id": "A1",
+      "muestra": 1,
+      "status": 200,
+      "ms": 2424,
+      "respuesta": "¡Hola! Para renovar tu licencia de conducir no profesional, los costos son:\n\n*   **Tasa municipal por Licencia de Conducir:** $14.601 por año.\n*   **Tasa municipal por Licencia de Conducir (Mayores de 65 años):** $7.301 por año.\n*   **Certificado Nacional de Antecedentes de Tránsito (CENAT):** $10.150.\n\nRecordá que el CENAT tiene 60 días de vigencia una vez abonado.",
+      "fuentes": [
+        "renovacion-licencia-noprofesionales",
+        "licencia-de-conducir-renovacion-profesionales-interjurisdiccionales",
+        "renovacion-cambio-jurisdiccion-noprofesionales",
+        "licencia-de-conducir-renovacion-profesionales-jurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Costo",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "A2",
+      "muestra": 1,
+      "status": 200,
+      "ms": 2204,
+      "respuesta": "¡Hola! Para sacar tu licencia de conducir por primera vez, tenés que pagar dos cosas:\n\n*   **Tasa municipal por Licencia de Conducir:** $14.601 por año.\n*   **Certificado Nacional de Antecedentes de Tránsito (CENAT):** $10.150.\n\nEstos costos son para licencias de principiantes no profesionales, para principiantes profesionales interjurisdiccionales y para licencias de 17 años.\n\nSi tu licencia es para principiantes profesionales jurisdiccionales, los costos son:\n\n*   **Tasa municipal por Licencia de Conducir:** $11.513 por año.\n*   **Certificado Nacional de Antecedentes de Tránsito (CENAT):** $8840.\n\n¡Mucha suerte con tu trámite!",
+      "fuentes": [
+        "licencia-conducir-principiantes-noprofesionales",
+        "licencia-de-conducir-principiantes-profesionales-jurisdiccionales",
+        "licencia-17-anos",
+        "licencia-de-conducir-principiantes-profesionales-interjurisdiccionales",
+        "exencion-ira-licencia-habilitante"
+      ],
+      "modo": null,
+      "bloque": "Costo",
+      "v": "CORRECTA_CON_RUIDO",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "A3",
+      "muestra": 1,
+      "status": 200,
+      "ms": 1916,
+      "respuesta": "¡Hola! No, si tenés 70 años pagás menos por la licencia de conducir.\n\nLos costos son:\n*   **Tasa municipal por Licencia de Conducir (Mayores de 65 años):** $7.301 por año.\n*   **Certificado Nacional de Antecedentes de Tránsito (CENAT):** $10.150.\n\nTené en cuenta que hay una fuente que indica otros valores para la renovación por cambio de jurisdicción de licencias profesionales: $6.145 por año para mayores de 65 y $8.840 para el CENAT.",
+      "fuentes": [
+        "renovacion-cambio-jurisdiccion-noprofesionales",
+        "licencia-de-conducir-renovacion-profesionales-jurisdiccionales",
+        "licencia-de-conducir-renovacion-profesionales-interjurisdiccionales",
+        "licencia-de-conducir-ampliacion-profesionales-jurisdiccionales",
+        "licencia-conducir-renovacion-profesionales-jurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Costo",
+      "v": "CORRECTA_CON_RUIDO",
+      "fuenteOk": false,
+      "sinFuentes": false
+    },
+    {
+      "id": "A4",
+      "muestra": 1,
+      "status": 200,
+      "ms": 1948,
+      "respuesta": "¡Hola! Para el duplicado de tu licencia de conducir, los costos son:\n\n*   **Tasa municipal por Licencia de Conducir:** $14.601 por año.\n*   **Certificado Nacional de Antecedentes de Tránsito (CENAT):** $10.150.\n\nEstos montos se abonan en el Centro Emisor de Licencias.",
+      "fuentes": [
+        "duplicado-de-licencia",
+        "licencia-de-conducir-renovacion-profesionales-interjurisdiccionales",
+        "renovacion-licencia-noprofesionales",
+        "licencia-de-conducir-principiantes-profesionales-jurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Costo",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "A5",
+      "muestra": 1,
+      "status": 200,
+      "ms": 2251,
+      "respuesta": "¡Hola! Para retirar tu vehículo secuestrado, tenés que pagar varios costos.\n\n**Costos principales:**\n*   **Estadía en el canchón:**\n    *   Automóviles, camionetas, jeep: $16.841 por día.\n    *   Camiones, ómnibus, furgones: $18.946 por día.\n    *   Motos, ciclomotores: $12.631 por día.\n*   **Servicio de grúa (si se usó):**\n    *   Automóviles y camionetas: $31.577.\n    *   Motos: $13.473.\n*   **Verificación de daños:**\n    *   En guardia: $4.210.\n    *   A domicilio: $16.841.\n\nEstos pagos se hacen en la Oficina de Guardia de Santa Fe N° 545, después de que el Tribunal de Faltas autorice la liberación de tu vehículo.\n\n¿Querés que te cuente los pasos para retirar el vehículo?",
+      "fuentes": [
+        "vehiculo-secuestrado",
+        "baja-del-automotor-por-robo"
+      ],
+      "modo": null,
+      "bloque": "Costo",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "A6",
+      "muestra": 1,
+      "status": 200,
+      "ms": 1574,
+      "respuesta": "¡Hola! Para la habilitación de cartelería, el costo se calcula en Unidades Tributarias (UT).\n\nEl valor de cada UT desde el 1 de julio de 2024 es de $421,02.\n\nPara iniciar el trámite, podés acceder a este enlace: https://citymis.co/salta/public",
+      "fuentes": [
+        "carteleria"
+      ],
+      "modo": null,
+      "bloque": "Costo",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "B1",
+      "muestra": 1,
+      "status": 200,
+      "ms": 1903,
+      "respuesta": "¡Hola! Para solicitar la oblea de discapacidad, tenés que completar el formulario en línea. Acá te dejo el enlace directo:\n\n*   **Formulario:** [https://forms.gle/bemFdrAddTrRzE3q9](https://forms.gle/bemFdrAddTrRzE3q9)\n\nUna vez que lo completes y adjuntes la documentación, la Secretaría de Tránsito y Seguridad Vial revisará tu solicitud y te responderá por email. Si es aprobada, deberás ir a Santa Fe 545 para retirarla.",
+      "fuentes": [
+        "oblea-de-discapacidad",
+        "exencion-para-discapacitado"
+      ],
+      "modo": null,
+      "bloque": "Formulario",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "B2",
+      "muestra": 1,
+      "status": 200,
+      "ms": 1677,
+      "respuesta": "¡Hola! Para inscribirte en el programa \"Yo Emprendo\", tenés que completar el formulario en línea.\n\nAcá te dejo el enlace directo:\nhttps://forms.gle/Qd61v2AMMwQQkWZv5\n\nLas inscripciones están abiertas desde el 22 de abril hasta el 3 de mayo. ¡No te olvides de hacerlo a tiempo!",
+      "fuentes": [
+        "yoemprendo",
+        "emprendedores",
+        "regimen-incentivo-fomento-construccion"
+      ],
+      "modo": null,
+      "bloque": "Formulario",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "B3",
+      "muestra": 1,
+      "status": 200,
+      "ms": 2423,
+      "respuesta": "¡Hola! Para registrar una apertura en la vía pública, tenés que hacerlo de forma virtual.\n\n**Pasos para el registro:**\n1.  Completá el formulario web: [https://docs.google.com/forms/d/e/1FAIpQLSdgfXLDLwwXey5AwFCnXHftVHLSV1UTq-sAjjVEMuKlMsV5dw/viewform?usp=sf_link](https://docs.google.com/forms/d/e/1FAIpQLSdgfXLDLwwXey5AwFCnXHftVHLSV1UTq-sAjjVEMuKlMsV5dw/viewform?usp=sf_link)\n2.  También podés acceder a la plataforma RAVP (Registro de Aperturas en Vía Pública) aquí: [https://citymis.co/salta/public](https://citymis.co/salta/public)\n\nEs obligatorio para personas jurídicas, contratistas y particulares que necesiten hacer trabajos en la vía pública. Te recomiendo consultar el reglamento oficial para conocer todos los requisitos.",
+      "fuentes": [
+        "registro-de-aperturas"
+      ],
+      "modo": null,
+      "bloque": "Formulario",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "B4",
+      "muestra": 1,
+      "status": 200,
+      "ms": 1927,
+      "respuesta": "¡Hola! Para denunciar un vehículo abandonado en la calle, tenés que completar un formulario online.\n\n**¿Cuándo se considera abandonado?**\nUn vehículo se considera abandonado si lleva más de 5 días estacionado en el mismo lugar.\n\n**¿Cómo hacer la denuncia?**\nPodés completar el formulario en este enlace: https://forms.gle/vEmEHmLjCm2rzQtGA\n\nDespués de tu denuncia, personal de Tránsito verificará la situación. Si se confirma la falta, se notificará al dueño para que lo retire en 72 horas. Si no lo hace, el vehículo será removido con grúa.",
+      "fuentes": [
+        "denuncia-de-vehiculo-abandonado",
+        "denuncias",
+        "denuncia-de-venta"
+      ],
+      "modo": null,
+      "bloque": "Formulario",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "B5",
+      "muestra": 1,
+      "status": 200,
+      "ms": 1924,
+      "respuesta": "¡Hola! Para descargar la boleta del Certificado Nacional de Antecedentes de Tránsito (CENAT), tenés que ingresar a este enlace:\n\n*   **CENAT:** https://boletadepago.seguridadvial.gob.ar/\n\nTambién podés ver un instructivo para descargarla en este link: https://municipalidadsalta.gob.ar/wp-content/uploads/2024/05/INSTRUCTIVO-CENAT-MUNICIPALIDAD-SALTA.pdf\n\nRecordá que la boleta tiene una validez de 60 días una vez que la abonás.",
+      "fuentes": [
+        "licencia-17-anos",
+        "renovacion-cambio-jurisdiccion-noprofesionales",
+        "salta-activa-plataformas",
+        "renovacion-licencia-noprofesionales",
+        "licencia-de-conducir-principiantes-profesionales-jurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Formulario",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "B6",
+      "muestra": 1,
+      "status": 200,
+      "ms": 1869,
+      "respuesta": "¡Hola! Sí, existe una guía para solicitar la oblea. Podés descargarla desde este enlace:\n\n[https://municipalidadsalta.gob.ar/wp-content/uploads/2026/03/GUIA_-SOLICITUD-DE-OBLEAS.pdf](https://municipalidadsalta.gob.ar/wp-content/uploads/2026/03/GUIA_-SOLICITUD-DE-OBLEAS.pdf)\n\nEste instructivo te servirá para la Oblea de Discapacidad, el Permiso de Frentista Residente y el Permiso de Frentista Comerciante.",
+      "fuentes": [
+        "oblea-de-discapacidad",
+        "permiso-de-frentista-residente",
+        "permiso-de-frentista-comerciante",
+        "desarrollo-humano-2-programas-descentralizados"
+      ],
+      "modo": null,
+      "bloque": "Formulario",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "C1",
+      "muestra": 1,
+      "status": 200,
+      "ms": 1630,
+      "respuesta": "No tengo información oficial sobre un mail para la exención del impuesto automotor por discapacidad.\n\nPodés hacer tus consultas de forma presencial en el Centro Cívico Municipal, Av. Paraguay Nº1240, Segundo Salón. Atienden de lunes a viernes de 8:00 a 13:00 hs.",
+      "fuentes": [],
+      "modo": null,
+      "bloque": "Contacto",
+      "v": "CORRECTA",
+      "fuenteOk": false,
+      "sinFuentes": true
+    },
+    {
+      "id": "C2",
+      "muestra": 1,
+      "status": 200,
+      "ms": 1427,
+      "respuesta": "Para consultas sobre trámites de inmuebles en Rentas, podés llamar al 4160900, internos 1503 o 1504.",
+      "fuentes": [
+        "pagos-errados-de-inmuebles",
+        "unificacion-de-cuenta-con-unidad-urbana",
+        "alta-unidad-urbana",
+        "exencion-empresas-sin-fines-de-lucro",
+        "exencion-entidades-intermedias-religiosas"
+      ],
+      "modo": null,
+      "bloque": "Contacto",
+      "v": "CORRECTA",
+      "fuenteOk": false,
+      "sinFuentes": false
+    },
+    {
+      "id": "C3",
+      "muestra": 1,
+      "status": 200,
+      "ms": 1815,
+      "respuesta": "¡Hola! Para consultar sobre la eximición de la Tasa de Protección Ambiental para vehículos con 20 años o más, podés contactarte de las siguientes maneras:\n\n*   **Por correo electrónico:** rentas.aut@municipalidadsalta.gob.ar\n*   **Por teléfono:** 4160900, internos 1527 o 1530.\n*   **Personalmente:** De lunes a viernes, de 8 a 13 hs, en el Centro Cívico Municipal, 2° Salón – Box de Atención Especial Jubilados, Pensionados y Discapacitados.",
+      "fuentes": [
+        "eximicion-de-la-tasa-ambiental",
+        "exenciones-impositivas",
+        "exencion-para-automotores-y-motovehiculos-autopropulsados"
+      ],
+      "modo": null,
+      "bloque": "Contacto",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "C4",
+      "muestra": 1,
+      "status": 200,
+      "ms": 2054,
+      "respuesta": "¡Hola! Para hacer un plan de pago de inmuebles, tenés que ir al Centro Cívico Municipal, en Av. Paraguay N°1240.\n\n**Horario y oficina:**\nAndá a la Gerencia de Atención al Contribuyente, en la Oficina de Planes de Pago. Atienden de 8:00 a 20:00 hs.\n\n**Documentación necesaria:**\n*   DNI (original y fotocopia de 1º y 2º hoja).\n*   Fotocopia de la Cédula Parcelaria.\n*   La Cuenta Corriente del sistema ITRON.\n*   Un anticipo del 20% de la deuda.\n\nSi necesitás tu Clave Fiscal, podés obtenerla en el Salón 2, planta baja del CCM, de 8:00 a 14:00 hs.",
+      "fuentes": [
+        "plan-de-pago-inmuebles"
+      ],
+      "modo": null,
+      "bloque": "Contacto",
+      "v": "INCOMPLETA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "C5",
+      "muestra": 1,
+      "status": 200,
+      "ms": 1711,
+      "respuesta": "¡Hola! Para la recategorización en TGI, podés escribir un mail a armsa.inf.des.terr@municipalidadsalta.gob.ar.\n\nTambién podés hacerlo de forma presencial en el Centro Cívico Municipal (Av. Paraguay Nº1240), en la Oficina de Mesa de Entrada General, de 08:00 a 20:00 hs.\n\nEste trámite sirve para verificar la categoría de tu TGI según los servicios de tu zona.",
+      "fuentes": [
+        "recategorizacion-en-tgi"
+      ],
+      "modo": null,
+      "bloque": "Contacto",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "C6",
+      "muestra": 1,
+      "status": 200,
+      "ms": 1749,
+      "respuesta": "¡Hola! Si necesitás contactarte por las Becas Municipales, podés hacerlo de estas dos maneras:\n\n*   **Teléfono:** Llamá al 4160-900, interno 1093, de lunes a viernes de 8 a 15 hs.\n*   **Correo electrónico:** Escribí a becasmunicipales@municipalidadsalta.gob.ar\n\n¡Están para ayudarte!",
+      "fuentes": [
+        "becas-municipales"
+      ],
+      "modo": null,
+      "bloque": "Contacto",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "C7",
+      "muestra": 1,
+      "status": 200,
+      "ms": 1653,
+      "respuesta": "¡Hola! Si tenés dudas sobre la oblea de discapacidad, podés escribir a la Secretaría de Tránsito y Seguridad Vial al siguiente correo: discapacidad.transito.salta@gmail.com.\n\nTambién podés contactar a la Dirección General de Discapacidad para asesoramiento general al 0800-122-5521 o al 4160900 int. 1702.",
+      "fuentes": [
+        "oblea-de-discapacidad",
+        "promocion-social"
+      ],
+      "modo": null,
+      "bloque": "Contacto",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "D1",
+      "muestra": 1,
+      "status": 200,
+      "ms": 1643,
+      "respuesta": "El Centro Emisor de Licencias (CEL) de la zona norte está en el CIC Nuestra Señora del Carmen, en Barrio Unión.\n\nPodés contactarlos al 3875668881 o por mail a licenciasdeconducir@municipalidadsalta.gob.ar. Atienden de 8:00 a 13:30 y de 14:00 a 16:30.",
+      "fuentes": [
+        "licencia-conducir-principiantes-noprofesionales",
+        "duplicado-de-licencia",
+        "licencia-de-conducir-principiantes-profesionales-jurisdiccionales",
+        "licencia-de-conducir-principiantes-profesionales-interjurisdiccionales",
+        "licencia-de-conducir-renovacion-profesionales-jurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Dirección",
+      "v": "CORRECTA",
+      "fuenteOk": false,
+      "sinFuentes": false
+    },
+    {
+      "id": "D2",
+      "muestra": 1,
+      "status": 200,
+      "ms": 1681,
+      "respuesta": "¡Hola! El Centro Emisor de Licencias (CEL) de Santa Fe 545 atiende en estos horarios:\n\n*   **Lunes a viernes:** de 08:30 a 13:30 hs y de 14:00 a 18:00 hs.\n*   **Sábados:** de 08:30 a 12:30 hs.",
+      "fuentes": [
+        "duplicado-de-licencia",
+        "renovacion-licencia-noprofesionales",
+        "licencia-de-conducir-principiantes-profesionales-jurisdiccionales",
+        "licencia-de-conducir-principiantes-profesionales-interjurisdiccionales",
+        "licencia-de-conducir-renovacion-profesionales-jurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Dirección",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "D3",
+      "muestra": 1,
+      "status": 200,
+      "ms": 1551,
+      "respuesta": "¡Hola! Sí, hay un Centro Emisor de Licencias (CEL) en la zona sur.\n\n**Ubicación y Horario:**\n*   **Dirección:** Paseo Libertad Salta (Av. Tavella y Av. Ex Combatientes de Malvinas).\n*   **Horario de atención:** De 8:40 a 18:00 horas.",
+      "fuentes": [
+        "licencia-de-conducir-principiantes-profesionales-jurisdiccionales",
+        "licencia-conducir-principiantes-noprofesionales",
+        "licencia-de-conducir-principiantes-profesionales-interjurisdiccionales",
+        "licencia-de-conducir-renovacion-profesionales-jurisdiccionales",
+        "licencia-de-conducir-ampliacion-profesionales-jurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Dirección",
+      "v": "CORRECTA",
+      "fuenteOk": false,
+      "sinFuentes": false
+    },
+    {
+      "id": "D4",
+      "muestra": 1,
+      "status": 200,
+      "ms": 1510,
+      "respuesta": "¡Hola! Para trámites de licencia de conducir, podés escribir a licenciasdeconducir@municipalidadsalta.gob.ar.\n\nTambién te cuento que, una vez que iniciás el trámite, tenés que revisar tu casilla de correo (incluyendo spam) para solicitar un turno.",
+      "fuentes": [
+        "licencia-de-conducir-principiantes-profesionales-jurisdiccionales",
+        "licencia-conducir-principiantes-noprofesionales",
+        "renovacion-licencia-noprofesionales",
+        "licencia-17-anos",
+        "licencia-de-conducir-principiantes-profesionales-interjurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Dirección",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "E1",
+      "muestra": 1,
+      "status": 200,
+      "ms": 1674,
+      "respuesta": "El Centro de Mediación y Conciliaciones es un servicio gratuito de la Municipalidad de Salta para resolver conflictos de forma alternativa.\n\nPodés usarlo para temas de alquileres, contratos, asuntos familiares y derechos del consumidor, entre otros.\n\nPara acceder, completá el formulario en línea, llamá al 416-0900 int. 1571 o escribí a mediacion.conciliacion@municipalidadsalta.gob.ar.",
+      "fuentes": [
+        "centro-de-mediacion-y-conciliaciones",
+        "entidades-intermedias-y-religiosas",
+        "desarrollo-humano-2-programas-descentralizados",
+        "desarrollo-humano-2-programas-descentralizados",
+        "cics-centros-comunitarios"
+      ],
+      "modo": null,
+      "bloque": "Control",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "E2",
+      "muestra": 1,
+      "status": 200,
+      "ms": 1754,
+      "respuesta": "¡Hola! Para consultar el estado de un expediente, tenés dos opciones:\n\n*   **Online:** Podés hacerlo a través de este enlace: http://200.123.98.131:8384/expediente/\n*   **En el Cementerio San Antonio de Padua:** Si estás en las oficinas del cementerio, completá este formulario: https://forms.gle/25yjQL7kVkmSVPFK9\n\nRecordá tener a mano el número de expediente para hacer la consulta.",
+      "fuentes": [
+        "consulta-de-expedientes",
+        "solicitud-de-estados-de-cuenta",
+        "licencia-de-conducir-renovacion-profesionales-jurisdiccionales",
+        "licencia-de-conducir-ampliacion-profesionales-jurisdiccionales",
+        "licencia-conducir-renovacion-profesionales-jurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Control",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "E3",
+      "muestra": 1,
+      "status": 200,
+      "ms": 1749,
+      "respuesta": "¡Hola! Para pedir un estado de cuenta, tenés que completar un formulario.\n\nPodés acceder al formulario desde este enlace:\nhttps://forms.gle/Sh5pZqDUgEKXcQh6\n\nEste trámite se realiza en el Cementerio San Antonio de Padua.",
+      "fuentes": [
+        "solicitud-de-estados-de-cuenta",
+        "vehiculo-secuestrado",
+        "solicitud-de-grafica",
+        "unificacion-de-cuenta-con-unidad-urbana",
+        "formulario-26"
+      ],
+      "modo": null,
+      "bloque": "Control",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "E4",
+      "muestra": 1,
+      "status": 200,
+      "ms": 3042,
+      "respuesta": "¡Hola! Para un permiso de obras eléctricas, los requisitos varían un poco según el tipo de obra.\n\n**Si sos una empresa que hace obras en la vía pública (ampliación, reparación o mantenimiento de redes), necesitás:**\n\n*   Una nota con la descripción de la obra, lugar y datos de la empresa.\n*   Declaración Jurada firmada en todas sus hojas.\n*   Nota de interferencia con empresas como GASNOR, EDESA, TELECOM, CLARO y AGUAS DEL NORTE.\n*   Memoria descriptiva de los trabajos.\n*   Plano de electricidad original y duplicado firmado por COPAIPA.\n*   Aprobación de factibilidad de Edesa.\n*   Inscripción en AFIP.\n\n**Si lo que buscás es una Constancia de Inspección Eléctrica (para viviendas, por ejemplo), necesitás:**\n\n*   Cédula parcelaria.\n*   DNI del titular y del solicitante.\n*   Planos eléctricos aprobados (para viviendas multifamiliares, certificado de habitabilidad).\n*   Formularios de Nota de conexión eléctrica y Acta de Inspección eléctrica. Podés descargarlos acá:\n    *   [Nota conexión eléctrica 2025](https://municipalidadsalta.gob.ar/wp-content/uploads/2025/02/2025-NOTA-SOLICITUD-CONEXION-ELECTRICA.pdf)\n    *   [Acta de Inspección eléctrica 2025](https://municipalidadsalta.gob.ar/wp-content/uploads/2025/02/2025-ACTA-INSPECCIONCONEXION-ELECTRICA.pdf)\n*   Boleta de Edesa si es para reposición del servicio.\n\nRecordá que cada caso es particular y se analiza presencialmente.",
+      "fuentes": [
+        "permisos-para-obras-electricas",
+        "solicitud-de-constancia-de-inspeccion-electrica",
+        "permisos-subcontratista-o-servicios-publicos"
+      ],
+      "modo": null,
+      "bloque": "Control",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "E5",
+      "muestra": 1,
+      "status": 200,
+      "ms": 2381,
+      "respuesta": "¡Hola! Para sacar el permiso de frentista residente, que te permite estacionar gratis en la cuadra de tu casa si vivís en zona de estacionamiento medido, tenés que completar un formulario online.\n\n**Pasos para el trámite:**\n1.  Completá el formulario en línea: [https://docs.google.com/forms/d/e/1FAIpQLScLbNvGxR-1spPVyZ_iIwy9wyLhWW5XTClDvo99tPIIHUaKnA/viewform](https://docs.google.com/forms/d/e/1FAIpQLScLbNvGxR-1spPVyZ_iIwy9wyLhWW5XTClDvo99tPIIHUaKnA/viewform)\n2.  Adjuntá la documentación que te pidan en el formulario.\n\nTe van a contactar en un máximo de 72 horas hábiles para procesar tu pedido. Una vez que te den el permiso, tenés que colocarlo en la luneta de tu auto.\n\nSi tenés dudas, podés escribir a frentistas.transito.salta@gmail.com.",
+      "fuentes": [
+        "permiso-de-frentista-residente",
+        "permiso-de-frentista-comerciante",
+        "trabajos-en-fachada"
+      ],
+      "modo": null,
+      "bloque": "Control",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "E6",
+      "muestra": 1,
+      "status": 200,
+      "ms": 2385,
+      "respuesta": "¡Hola! Para dar de alta un garaje, el trámite se llama **Solicitud de Alta de Garaje**.\n\nCon este trámite, la Municipalidad demarca tu garaje con pintura y cartelería. Así, si alguien lo obstaculiza, podés pedir que lo remuevan con la grúa municipal.\n\nPara empezar, tenés que completar este formulario:\n[https://docs.google.com/forms/d/e/1FAIpQLSex7WTGTPLl-cXjQCE7TXSgAWlLCLUTH_L6VLQSTl5Xwn3M0g/viewform?usp=sf_link](https://docs.google.com/forms/d/e/1FAIpQLSex7WTGTPLl-cXjQCE7TXSgAWlLCLUTH_L6VLQSTl5Xwn3M0g/viewform?usp=sf_link)\n\nDespués de que lo completes, personal de Tránsito verificará tu garaje y te avisará por mail si se aprueba. Si es así, te informarán el monto a pagar por la demarcación.",
+      "fuentes": [
+        "solicitud-de-alta-de-garaje",
+        "alta-unidad-urbana",
+        "formulario-26"
+      ],
+      "modo": null,
+      "bloque": "Control",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "E7",
+      "muestra": 1,
+      "status": 200,
+      "ms": 2449,
+      "respuesta": "¡Hola! Sí, la Municipalidad de Salta tiene el programa \"Huertas de la Ciudad\", que ofrece talleres gratuitos de agroecología.\n\nEn estos talleres te enseñan a armar tu propia huerta en casa o en espacios comunitarios. Aprendés sobre preparación de la tierra, siembra, cuidados de cultivos, abonos y control de plagas.\n\nPodés participar en varias huertas municipales. Por ejemplo:\n\n*   **DIAT San Benito:** Miércoles de 10 a 12 hs. o de 18 a 20 hs.\n*   **CIC Barrio Constitución:** Martes de 9 a 11 hs. o Martes y Jueves de 9 a 11 hs.\n*   **Huerta NIDO Bicentenario:** Jueves de 18 a 20 hs.\n\nHay más opciones. Si querés saber sobre alguna en particular, ¡preguntame! También podés escribir a huertas@municipalidadsalta.gob.ar.",
+      "fuentes": [
+        "huertas"
+      ],
+      "modo": null,
+      "bloque": "Control",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "A1",
+      "muestra": 2,
+      "status": 200,
+      "ms": 1750,
+      "respuesta": "¡Hola! Para renovar tu licencia de conducir no profesional, los costos son:\n\n*   **Tasa municipal por Licencia de Conducir:** $14.601 por año.\n*   **Tasa municipal por Licencia de Conducir (Mayores de 65 años):** $7.301 por año.\n*   **Certificado Nacional de Antecedentes de Tránsito (CENAT):** $10.150.\n\nRecordá que el CENAT tiene 60 días de vigencia una vez que lo abonás.",
+      "fuentes": [
+        "renovacion-licencia-noprofesionales",
+        "licencia-de-conducir-renovacion-profesionales-interjurisdiccionales",
+        "renovacion-cambio-jurisdiccion-noprofesionales",
+        "licencia-de-conducir-renovacion-profesionales-jurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Costo",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "A2",
+      "muestra": 2,
+      "status": 200,
+      "ms": 1697,
+      "respuesta": "¡Hola! Para sacar tu licencia de conducir por primera vez, tenés que pagar dos cosas:\n\n*   **Tasa municipal por Licencia de Conducir:** $14.601 por año.\n*   **Certificado Nacional de Antecedentes de Tránsito (CENAT):** $10.150.\n\nEstos costos corresponden a las licencias para principiantes no profesionales y para jóvenes de 17 años.\n\nSi querés, puedo contarte más sobre los requisitos o dónde encontrar el manual del conductor.",
+      "fuentes": [
+        "licencia-conducir-principiantes-noprofesionales",
+        "licencia-de-conducir-principiantes-profesionales-jurisdiccionales",
+        "licencia-17-anos",
+        "licencia-de-conducir-principiantes-profesionales-interjurisdiccionales",
+        "exencion-ira-licencia-habilitante"
+      ],
+      "modo": null,
+      "bloque": "Costo",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "A3",
+      "muestra": 2,
+      "status": 200,
+      "ms": 2164,
+      "respuesta": "¡Hola! No, si tenés 70 años pagás menos por la licencia de conducir.\n\nLos costos son:\n*   **Tasa municipal por Licencia de Conducir (Mayores de 65 años):** $7.301 por año.\n*   **Certificado Nacional de Antecedentes de Tránsito (CENAT):** $10.150.\n\nTené en cuenta que hay una fuente que indica otros valores para la renovación por cambio de jurisdicción de licencias profesionales:\n*   **Tasa municipal por Licencia de Conducir (Mayores de 65 años):** $6.145 por año.\n*   **Certificado Nacional de Antecedentes de Tránsito (CENAT):** $8.840.\n\nRecordá llevar tu DNI y licencia original para iniciar el trámite.",
+      "fuentes": [
+        "renovacion-cambio-jurisdiccion-noprofesionales",
+        "licencia-de-conducir-renovacion-profesionales-jurisdiccionales",
+        "licencia-de-conducir-renovacion-profesionales-interjurisdiccionales",
+        "licencia-de-conducir-ampliacion-profesionales-jurisdiccionales",
+        "licencia-conducir-renovacion-profesionales-jurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Costo",
+      "v": "CORRECTA_CON_RUIDO",
+      "fuenteOk": false,
+      "sinFuentes": false
+    },
+    {
+      "id": "A4",
+      "muestra": 2,
+      "status": 200,
+      "ms": 1742,
+      "respuesta": "¡Hola! Para el duplicado de tu licencia de conducir, los costos son:\n\n*   **Tasa municipal por Licencia de Conducir:** $14.601 por año.\n*   **Certificado Nacional de Antecedentes de Tránsito (CENAT):** $10.150.\n\nEstos montos se abonan en el Centro Emisor de Licencias.",
+      "fuentes": [
+        "duplicado-de-licencia",
+        "licencia-de-conducir-renovacion-profesionales-interjurisdiccionales",
+        "renovacion-licencia-noprofesionales",
+        "licencia-de-conducir-principiantes-profesionales-jurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Costo",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "A5",
+      "muestra": 2,
+      "status": 200,
+      "ms": 2300,
+      "respuesta": "¡Hola! Para retirar tu auto secuestrado, tenés que pagar varios costos.\n\n**Costos principales:**\n*   **Estadía en el canchón:**\n    *   Autos, camionetas, jeeps: $16.841 por día.\n    *   Camiones, ómnibus, furgones: $18.946 por día.\n    *   Motos, ciclomotores, bicicletas: $12.631 por día.\n*   **Servicio de grúa (si se usó):**\n    *   Autos y camionetas: $31.577.\n    *   Motos: $13.473.\n*   **Verificación de daños:**\n    *   En guardia: $4.210.\n    *   A domicilio: $16.841.\n\nEstos pagos se hacen en la Oficina de Guardia, en Santa Fe N° 545, después de que el Tribunal de Faltas autorice la liberación de tu vehículo.\n\n¿Querés que te cuente cómo hacer para que te autoricen la liberación?",
+      "fuentes": [
+        "vehiculo-secuestrado",
+        "baja-del-automotor-por-robo"
+      ],
+      "modo": null,
+      "bloque": "Costo",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "A6",
+      "muestra": 2,
+      "status": 200,
+      "ms": 1658,
+      "respuesta": "¡Hola! Para la habilitación de cartelería, el costo se calcula en Unidades Tributarias (UT).\n\nEl valor de cada UT desde el 01/07/2024 es de $421,02.\n\nPara iniciar el trámite, podés acceder a este enlace: https://citymis.co/salta/public",
+      "fuentes": [
+        "carteleria"
+      ],
+      "modo": null,
+      "bloque": "Costo",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "B1",
+      "muestra": 2,
+      "status": 200,
+      "ms": 1880,
+      "respuesta": "¡Hola! Para solicitar la oblea de discapacidad, tenés que completar el formulario en línea. Acá te dejo el enlace directo:\n\n*   **Formulario:** [https://forms.gle/bemFdrAddTrRzE3q9](https://forms.gle/bemFdrAddTrRzE3q9)\n\nUna vez que lo completes y adjuntes la documentación, la Secretaría de Tránsito y Seguridad Vial revisará tu solicitud y te responderá por email. Si es aprobada, deberás ir a Santa Fe 545 para retirarla.",
+      "fuentes": [
+        "oblea-de-discapacidad",
+        "exencion-para-discapacitado"
+      ],
+      "modo": null,
+      "bloque": "Formulario",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "B2",
+      "muestra": 2,
+      "status": 200,
+      "ms": 1441,
+      "respuesta": "¡Hola! Para inscribirte en el programa \"Yo Emprendo\", tenés que completar el formulario en línea.\n\nAcá te dejo el enlace:\nhttps://forms.gle/Qd61v2AMMwQQkWZv5\n\nLas inscripciones están abiertas desde el 22 de abril hasta el 3 de mayo. ¡No te olvides de hacerlo a tiempo!",
+      "fuentes": [
+        "yoemprendo",
+        "emprendedores",
+        "regimen-incentivo-fomento-construccion"
+      ],
+      "modo": null,
+      "bloque": "Formulario",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "B3",
+      "muestra": 2,
+      "status": 200,
+      "ms": 2003,
+      "respuesta": "¡Hola! Para registrar una apertura en la vía pública, tenés que hacerlo de manera virtual.\n\n**Pasos para el registro:**\n1.  Completá el formulario web: [https://docs.google.com/forms/d/e/1FAIpQLSdgfXLDLwwXey5AwFCnXHftVHLSV1UTq-sAjjVEMuKlMsV5dw/viewform?usp=sf_link](https://docs.google.com/forms/d/e/1FAIpQLSdgfXLDLwwXey5AwFCnXHftVHLSV1UTq-sAjjVEMuKlMsV5dw/viewform?usp=sf_link)\n2.  También podés acceder a la plataforma RAVP aquí: [https://citymis.co/salta/public](https://citymis.co/salta/public)\n\nEs obligatorio para personas jurídicas, contratistas y particulares que necesiten hacer trabajos en la vía pública. Te recomiendo consultar el reglamento de registro de aperturas de la vía pública (RAVP) para conocer todos los requisitos.",
+      "fuentes": [
+        "registro-de-aperturas"
+      ],
+      "modo": null,
+      "bloque": "Formulario",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "B4",
+      "muestra": 2,
+      "status": 200,
+      "ms": 1693,
+      "respuesta": "¡Hola! Para denunciar un vehículo abandonado en la calle, tenés que completar un formulario online.\n\n**¿Cuándo se considera abandonado?**\nUn vehículo se considera abandonado si lleva más de 5 días estacionado en el mismo lugar.\n\n**¿Cómo hacer la denuncia?**\nPodés completar el formulario en este enlace: https://forms.gle/vEmEHmLjCm2rzQtGA\n\nUna vez que hagas la denuncia, personal de Tránsito verificará la situación. Si confirman la falta, notificarán al dueño para que lo retire en 72 horas. Si no lo hace, el vehículo será removido con grúa.",
+      "fuentes": [
+        "denuncia-de-vehiculo-abandonado",
+        "denuncias",
+        "denuncia-de-venta"
+      ],
+      "modo": null,
+      "bloque": "Formulario",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "B5",
+      "muestra": 2,
+      "status": 200,
+      "ms": 1598,
+      "respuesta": "¡Hola! Para descargar la boleta del Certificado Nacional de Antecedentes de Tránsito (CENAT), podés ingresar a este enlace: https://boletadepago.seguridadvial.gob.ar/\n\nTambién tenés un instructivo para ayudarte con la descarga: https://municipalidadsalta.gob.ar/wp-content/uploads/2024/05/INSTRUCTIVO-CENAT-MUNICIPALIDAD-SALTA.pdf\n\nRecordá que la boleta tiene 60 días de validez una vez que la abonás.",
+      "fuentes": [
+        "licencia-17-anos",
+        "renovacion-cambio-jurisdiccion-noprofesionales",
+        "salta-activa-plataformas",
+        "renovacion-licencia-noprofesionales",
+        "licencia-de-conducir-principiantes-profesionales-jurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Formulario",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "B6",
+      "muestra": 2,
+      "status": 200,
+      "ms": 1560,
+      "respuesta": "¡Hola! Sí, existe una guía para solicitar la oblea. Podés descargarla desde este enlace:\n\n[https://municipalidadsalta.gob.ar/wp-content/uploads/2026/03/GUIA_-SOLICITUD-DE-OBLEAS.pdf](https://municipalidadsalta.gob.ar/wp-content/uploads/2026/03/GUIA_-SOLICITUD-DE-OBLEAS.pdf)\n\nEste instructivo te servirá para la Oblea para Personas con Discapacidad, el Permiso de Frentista Residente y el Permiso de Frentista Comerciante.",
+      "fuentes": [
+        "oblea-de-discapacidad",
+        "permiso-de-frentista-residente",
+        "permiso-de-frentista-comerciante",
+        "desarrollo-humano-2-programas-descentralizados"
+      ],
+      "modo": null,
+      "bloque": "Formulario",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "C1",
+      "muestra": 2,
+      "status": 200,
+      "ms": 1319,
+      "respuesta": "¡Hola! Para la exención del impuesto automotor por discapacidad, no se menciona un mail de contacto.\n\nPodés hacer tus consultas de forma presencial en el Centro Cívico Municipal, Av. Paraguay Nº1240, Segundo Salón. Atienden de lunes a viernes de 8:00 a 13:00 hs.",
+      "fuentes": [
+        "exencion-para-discapacitado",
+        "exenciones-impositivas",
+        "exencion-para-discapacitados"
+      ],
+      "modo": null,
+      "bloque": "Contacto",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "C2",
+      "muestra": 2,
+      "status": 200,
+      "ms": 1121,
+      "respuesta": "¡Hola! Para consultas sobre trámites de inmuebles en Rentas, podés llamar al 4160900, internos 1503 o 1504.",
+      "fuentes": [
+        "pagos-errados-de-inmuebles",
+        "unificacion-de-cuenta-con-unidad-urbana",
+        "alta-unidad-urbana",
+        "exencion-empresas-sin-fines-de-lucro",
+        "exencion-entidades-intermedias-religiosas"
+      ],
+      "modo": null,
+      "bloque": "Contacto",
+      "v": "CORRECTA",
+      "fuenteOk": false,
+      "sinFuentes": false
+    },
+    {
+      "id": "C3",
+      "muestra": 2,
+      "status": 200,
+      "ms": 1419,
+      "respuesta": "¡Hola! Para consultar sobre la eximición de la Tasa de Protección Ambiental, podés comunicarte por mail a rentas.aut@municipalidadsalta.gob.ar o llamar al 4160900, internos 1527 o 1530.\n\nTambién podés ir en persona al Centro Cívico Municipal, de lunes a viernes de 8 a 13 hs. Hay un box de atención especial para jubilados, pensionados y personas con discapacidad en el 2° Salón.",
+      "fuentes": [
+        "eximicion-de-la-tasa-ambiental",
+        "exenciones-impositivas",
+        "exencion-para-automotores-y-motovehiculos-autopropulsados"
+      ],
+      "modo": null,
+      "bloque": "Contacto",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "C4",
+      "muestra": 2,
+      "status": 200,
+      "ms": 1902,
+      "respuesta": "¡Hola! Para hacer un plan de pago de inmuebles, tenés que ir al Centro Cívico Municipal, en Av. Paraguay N°1240.\n\nAndá a la Gerencia de Atención al Contribuyente, en la Oficina de Planes de Pago. El horario de atención es de 8:00 a 20:00 hs.\n\nNecesitás llevar esta documentación:\n*   DNI original y fotocopia (1º y 2º hoja).\n*   Fotocopia de la Cédula Parcelaria.\n*   La Cuenta Corriente del sistema ITRON.\n*   Un anticipo del 20% de tu deuda.\n\nSi querés, podés solicitar tu Clave Fiscal en el mismo CCM, salón 2, planta baja, de 8:00 a 14:00 hs.",
+      "fuentes": [
+        "plan-de-pago-inmuebles"
+      ],
+      "modo": null,
+      "bloque": "Contacto",
+      "v": "INCOMPLETA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "C5",
+      "muestra": 2,
+      "status": 200,
+      "ms": 1317,
+      "respuesta": "¡Hola! Para la recategorización en TGI, podés escribir un mail a **armsa.inf.des.terr@municipalidadsalta.gob.ar**.\n\nTambién podés hacer el trámite de forma presencial en el Centro Cívico Municipal (Av. Paraguay Nº1240), en la Oficina de Mesa de Entrada General, de 08:00 a 20:00 hs.",
+      "fuentes": [
+        "recategorizacion-en-tgi"
+      ],
+      "modo": null,
+      "bloque": "Contacto",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "C6",
+      "muestra": 2,
+      "status": 200,
+      "ms": 1455,
+      "respuesta": "¡Hola! Para contactarte por las Becas Municipales, tenés dos opciones:\n\n*   **Teléfono:** Llamá al 4160-900, interno 1093, de lunes a viernes de 8:00 a 15:00 hs.\n*   **Correo electrónico:** Escribí a becasmunicipales@municipalidadsalta.gob.ar\n\n¡Están para ayudarte!",
+      "fuentes": [
+        "becas-municipales"
+      ],
+      "modo": null,
+      "bloque": "Contacto",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "C7",
+      "muestra": 2,
+      "status": 200,
+      "ms": 1396,
+      "respuesta": "¡Hola! Si tenés dudas sobre la oblea de discapacidad, podés escribir a la Secretaría de Tránsito y Seguridad Vial a este correo: discapacidad.transito.salta@gmail.com.\n\nTambién podés llamar al 0800-122-5521 o al 4160900 int. 1702, de lunes a viernes de 8 a 20 hs.",
+      "fuentes": [
+        "oblea-de-discapacidad",
+        "promocion-social"
+      ],
+      "modo": null,
+      "bloque": "Contacto",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "D1",
+      "muestra": 2,
+      "status": 200,
+      "ms": 1501,
+      "respuesta": "El Centro Emisor de Licencias (CEL) de la zona Norte está en el CIC Nuestra Señora del Carmen, en Barrio Unión.\n\nPodés contactarte con ellos al 3875668881 o por mail a licenciasdeconducir@municipalidadsalta.gob.ar. Atienden de 8:00 a 13:30 y de 14:00 a 16:30.",
+      "fuentes": [
+        "licencia-conducir-principiantes-noprofesionales",
+        "duplicado-de-licencia",
+        "licencia-de-conducir-principiantes-profesionales-jurisdiccionales",
+        "licencia-de-conducir-principiantes-profesionales-interjurisdiccionales",
+        "licencia-de-conducir-renovacion-profesionales-jurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Dirección",
+      "v": "CORRECTA",
+      "fuenteOk": false,
+      "sinFuentes": false
+    },
+    {
+      "id": "D2",
+      "muestra": 2,
+      "status": 200,
+      "ms": 1344,
+      "respuesta": "¡Hola! El Centro Emisor de Licencias (CEL) de Santa Fe 545 tiene estos horarios de atención:\n\n*   **Lunes a viernes:** de 08:30 a 13:30 hs. y de 14:00 a 18:00 hs.\n*   **Sábados:** de 08:30 a 12:30 hs.",
+      "fuentes": [
+        "duplicado-de-licencia",
+        "renovacion-licencia-noprofesionales",
+        "licencia-de-conducir-principiantes-profesionales-jurisdiccionales",
+        "licencia-de-conducir-principiantes-profesionales-interjurisdiccionales",
+        "licencia-de-conducir-renovacion-profesionales-jurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Dirección",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "D3",
+      "muestra": 2,
+      "status": 200,
+      "ms": 1515,
+      "respuesta": "¡Hola! Sí, hay un Centro Emisor de Licencias (CEL) en la zona sur.\n\n**Ubicación y Horario:**\n*   **Dirección:** Paseo Libertad Salta (Av. Tavella y Av. Ex Combatientes de Malvinas).\n*   **Horario de atención:** De 8:40 a 18:00 horas.\n\nEste centro atiende trámites de licencias para principiantes (profesionales y no profesionales), renovaciones y ampliaciones.",
+      "fuentes": [
+        "licencia-de-conducir-principiantes-profesionales-jurisdiccionales",
+        "licencia-conducir-principiantes-noprofesionales",
+        "licencia-de-conducir-principiantes-profesionales-interjurisdiccionales",
+        "licencia-de-conducir-renovacion-profesionales-jurisdiccionales",
+        "licencia-de-conducir-ampliacion-profesionales-jurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Dirección",
+      "v": "CORRECTA",
+      "fuenteOk": false,
+      "sinFuentes": false
+    },
+    {
+      "id": "D4",
+      "muestra": 2,
+      "status": 200,
+      "ms": 1257,
+      "respuesta": "¡Hola! Para trámites de licencia de conducir, podés escribir a licenciasdeconducir@municipalidadsalta.gob.ar.\n\nTambién te cuento que, una vez que iniciás el trámite, tenés que revisar tu casilla de correo (incluyendo spam) para solicitar un turno.",
+      "fuentes": [
+        "licencia-de-conducir-principiantes-profesionales-jurisdiccionales",
+        "licencia-conducir-principiantes-noprofesionales",
+        "renovacion-licencia-noprofesionales",
+        "licencia-17-anos",
+        "licencia-de-conducir-principiantes-profesionales-interjurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Dirección",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "E1",
+      "muestra": 2,
+      "status": 200,
+      "ms": 1339,
+      "respuesta": "El Centro de Mediación y Conciliaciones es un servicio gratuito de la Municipalidad de Salta para resolver conflictos de forma alternativa.\n\nPodés usarlo para temas de alquileres, contratos, asuntos familiares, derechos del consumidor y otros.\n\nPara acceder, completá el formulario en línea, llamá al 416-0900 int. 1571 o escribí a mediacion.conciliacion@municipalidadsalta.gob.ar.",
+      "fuentes": [
+        "centro-de-mediacion-y-conciliaciones",
+        "entidades-intermedias-y-religiosas",
+        "desarrollo-humano-2-programas-descentralizados",
+        "desarrollo-humano-2-programas-descentralizados",
+        "cics-centros-comunitarios"
+      ],
+      "modo": null,
+      "bloque": "Control",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "E2",
+      "muestra": 2,
+      "status": 200,
+      "ms": 1528,
+      "respuesta": "¡Hola! Para consultar el estado de un expediente, tenés dos opciones:\n\n*   **Online:** Podés hacerlo a través de este enlace: [http://200.123.98.131:8384/expediente/](http://200.123.98.131:8384/expediente/). Necesitás tener el número de expediente a mano.\n*   **En el Cementerio San Antonio de Padua:** Si estás en las oficinas del cementerio, podés completar este formulario: [https://forms.gle/25yjQL7kVkmSVPFK9](https://forms.gle/25yjQL7kVkmSVPFK9).",
+      "fuentes": [
+        "consulta-de-expedientes",
+        "solicitud-de-estados-de-cuenta",
+        "licencia-de-conducir-renovacion-profesionales-jurisdiccionales",
+        "licencia-de-conducir-ampliacion-profesionales-jurisdiccionales",
+        "licencia-conducir-renovacion-profesionales-jurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Control",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "E3",
+      "muestra": 2,
+      "status": 200,
+      "ms": 1227,
+      "respuesta": "¡Hola! Para pedir un estado de cuenta, tenés que completar el Formulario de solicitud de Estados de Cuenta.\n\nPodés acceder al formulario desde este enlace: https://forms.gle/Sh5pZqDUgEKXcQh6\n\nEste trámite se realiza en el Cementerio San Antonio de Padua.",
+      "fuentes": [
+        "solicitud-de-estados-de-cuenta",
+        "vehiculo-secuestrado",
+        "solicitud-de-grafica",
+        "unificacion-de-cuenta-con-unidad-urbana",
+        "formulario-26"
+      ],
+      "modo": null,
+      "bloque": "Control",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "E4",
+      "muestra": 2,
+      "status": 200,
+      "ms": 2266,
+      "respuesta": "¡Hola! Para un permiso de obras eléctricas, los requisitos varían un poco según el tipo de obra.\n\n**Si sos una empresa que hace obras en la vía pública (ampliación, reparación o mantenimiento de redes), necesitás:**\n\n*   Una nota con la descripción de la obra, lugar y datos de la empresa.\n*   Declaración Jurada firmada en todas sus hojas.\n*   Nota de interferencia con empresas prestatarias (GASNOR, EDESA, TELECOM, CLARO y AGUAS DEL NORTE).\n*   Memoria descriptiva de los trabajos.\n*   Plano de electricidad original y duplicado, firmado por COPAIPA.\n*   Aprobación de factibilidad de Edesa.\n*   Inscripción en AFIP.\n\n**Si lo que buscás es una Constancia de Inspección Eléctrica (para viviendas, por ejemplo), necesitás:**\n\n*   Cédula parcelaria.\n*   DNI del titular y del solicitante.\n*   Planos eléctricos aprobados (para viviendas multifamiliares, certificado de habitabilidad).\n*   Los formularios \"Nota conexión eléctrica 2025\" y \"Acta de Inspección eléctrica 2025\", que podés descargar de la web de la Municipalidad.\n*   Boleta de Edesa si es para reposición del servicio.\n\nRecordá que cada caso es particular y se analiza presencialmente.",
+      "fuentes": [
+        "permisos-para-obras-electricas",
+        "solicitud-de-constancia-de-inspeccion-electrica",
+        "permisos-subcontratista-o-servicios-publicos"
+      ],
+      "modo": null,
+      "bloque": "Control",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "E5",
+      "muestra": 2,
+      "status": 200,
+      "ms": 1961,
+      "respuesta": "¡Hola! Para sacar el permiso de frentista si vivís en una zona con estacionamiento medido, tenés que seguir estos pasos:\n\n1.  **Completar el formulario:** Ingresá a este enlace: [[https://docs.google.com/forms/d/e/1FAIpQLScLbNvGxR-1spPVyZ_iIwy9wyLhWW5XTClDvo99tPIIHUaKnA/viewform]] y adjuntá la documentación que te pidan.\n2.  **Espera la respuesta:** La Secretaría de Tránsito y Seguridad Vial revisará tu pedido y te contactará en un máximo de 72 horas hábiles.\n3.  **Colocar el permiso:** Una vez que te lo otorguen, ponelo en la luneta de tu auto.\n\nEste permiso es personal e intransferible y te permite estacionar gratis en la cuadra de tu domicilio (solo en la mano de tu casa).\n\nSi tenés un comercio, el trámite es similar pero con otro formulario y beneficios. ¿Querés que te cuente sobre ese?",
+      "fuentes": [
+        "permiso-de-frentista-residente",
+        "permiso-de-frentista-comerciante",
+        "trabajos-en-fachada"
+      ],
+      "modo": null,
+      "bloque": "Control",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "E6",
+      "muestra": 2,
+      "status": 200,
+      "ms": 2124,
+      "respuesta": "¡Hola! Para dar de alta un garaje y que quede demarcado, el trámite se llama **Solicitud de Alta de Garaje**.\n\nCon este trámite, tu garaje quedará señalizado con pintura y cartelería, y podrás pedir la remoción de vehículos si lo obstaculizan.\n\nPara iniciarlo, tenés que completar este formulario online:\n[https://docs.google.com/forms/d/e/1FAIpQLSex7WTGTPLl-cXjQCE7TXSgAWlLCLUTH_L6VLQSTl5Xwn3M0g/viewform?usp=sf_link](https://docs.google.com/forms/d/e/1FAIpQLSex7WTGTPLl-cXjQCE7TXSgAWlLCLUTH_L6VLQSTl5Xwn3M0g/viewform?usp=sf_link)\n\nDespués de completar el formulario, personal de la Secretaría de Tránsito verificará si tu garaje cumple con los requisitos. Si se aprueba, te notificarán por mail el monto a pagar por la tasa de ejecución de obra.",
+      "fuentes": [
+        "solicitud-de-alta-de-garaje",
+        "alta-unidad-urbana",
+        "formulario-26"
+      ],
+      "modo": null,
+      "bloque": "Control",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "E7",
+      "muestra": 2,
+      "status": 200,
+      "ms": 3274,
+      "respuesta": "¡Hola! Sí, la Municipalidad de Salta tiene el programa \"Huertas de la Ciudad\", que ofrece talleres gratuitos para que aprendas a armar tu propia huerta agroecológica en casa o en espacios comunitarios.\n\nEn estos talleres te enseñan a preparar la tierra, plantar, cuidar los cultivos, hacer abonos y controlar plagas.\n\nPodés acercarte a las siguientes Huertas Municipales para participar:\n\n*   **DIAT San Benito**: Miércoles, de 10 a 12 hs. (Av. Discépolo esq. G. Mors) o de 18 a 20 hs. (Avenida Discépolo s/n B° San Benito).\n*   **CIC Barrio Constitución**: Martes, de 9 a 11 hs. (Mza. 7 B Lote A) o Martes y Jueves de 9 a 11 hs. (M. Estrada s/n V° Constitución).\n*   **CIC Barrio Asunción**: Miércoles, de 16:30 a 18:30 hs. (Mza 282 lote 3) o de 17 a 19 hs. (Nuestra señora del perpetuo socorro V° Asunción).\n*   **CIC Barrio Unión**: Lunes, de 9 a 11 hs. (Armada Argentina esq. J. Mirau).\n*   **Huerta NIDO Bicentenario**: Jueves de 18 a 20 hs. (Los Alpes y Veteranos de Malvinas. B° Bicentenario).\n*   **Huerta San Isidro**: Jueves de 17 a 19 hs. (Manzana 1 B, lote N° 4 B° San Isidro).\n*   **Huerta Primera Junta**: Jueves de 18 a 20 hs. (Plaza de Primera Junta, fortín la pastosa y fortín José Ignacio sierra).\n*   **Huerta 17 de Octubre**: Miércoles de 18 a 20 hs. (Plaza de 17 de Octubre, calle 100 y San Pablo apóstol).\n\nSi tenés dudas, podés escribir a huertas@municipalidadsalta.gob.ar.",
+      "fuentes": [
+        "huertas"
+      ],
+      "modo": null,
+      "bloque": "Control",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "A1",
+      "muestra": 3,
+      "status": 200,
+      "ms": 1577,
+      "respuesta": "¡Hola! Para renovar tu licencia de conducir no profesional, los costos son:\n\n*   **Tasa municipal por Licencia de Conducir:** $14.601 por año.\n*   **Tasa municipal por Licencia de Conducir (Mayores de 65 años):** $7.301 por año.\n*   **Certificado Nacional de Antecedentes de Tránsito (CENAT):** $10.150.\n\nRecordá que el CENAT tiene 60 días de vigencia una vez abonado.",
+      "fuentes": [
+        "renovacion-licencia-noprofesionales",
+        "licencia-de-conducir-renovacion-profesionales-interjurisdiccionales",
+        "renovacion-cambio-jurisdiccion-noprofesionales",
+        "licencia-de-conducir-renovacion-profesionales-jurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Costo",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "A2",
+      "muestra": 3,
+      "status": 200,
+      "ms": 1604,
+      "respuesta": "¡Hola! Para sacar tu licencia de conducir por primera vez, tenés que pagar dos cosas:\n\n*   **Tasa municipal por Licencia de Conducir:** $14.601 por año.\n*   **Certificado Nacional de Antecedentes de Tránsito (CENAT):** $10.150.\n\nEstos costos corresponden a las licencias para principiantes no profesionales y para jóvenes de 17 años. Si tu licencia es profesional, los costos pueden variar.",
+      "fuentes": [
+        "licencia-conducir-principiantes-noprofesionales",
+        "licencia-de-conducir-principiantes-profesionales-jurisdiccionales",
+        "licencia-17-anos",
+        "licencia-de-conducir-principiantes-profesionales-interjurisdiccionales",
+        "exencion-ira-licencia-habilitante"
+      ],
+      "modo": null,
+      "bloque": "Costo",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "A3",
+      "muestra": 3,
+      "status": 200,
+      "ms": 1811,
+      "respuesta": "¡Hola! No, si tenés 70 años pagás menos por la licencia.\n\n**Costos para mayores de 65 años:**\n*   **Tasa municipal por Licencia de Conducir:** $7.301 por año.\n*   **Certificado Nacional de Antecedentes de Tránsito (CENAT):** $10.150.\n\nHay una excepción: si tu trámite es una \"Renovación cambio de jurisdicción – profesionales – jurisdiccionales\", los costos son:\n*   **Tasa municipal por Licencia de Conducir:** $6.145 por año.\n*   **Certificado Nacional de Antecedentes de Tránsito (CENAT):** $8.840.\n\nRecordá llevar tu DNI y licencia originales.",
+      "fuentes": [
+        "renovacion-cambio-jurisdiccion-noprofesionales",
+        "licencia-de-conducir-renovacion-profesionales-jurisdiccionales",
+        "licencia-de-conducir-renovacion-profesionales-interjurisdiccionales",
+        "licencia-de-conducir-ampliacion-profesionales-jurisdiccionales",
+        "licencia-conducir-renovacion-profesionales-jurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Costo",
+      "v": "CORRECTA_CON_RUIDO",
+      "fuenteOk": false,
+      "sinFuentes": false
+    },
+    {
+      "id": "A4",
+      "muestra": 3,
+      "status": 200,
+      "ms": 1318,
+      "respuesta": "¡Hola! Para el duplicado de tu licencia de conducir, los costos son:\n\n*   **Tasa municipal por Licencia de Conducir:** $14.601 por año.\n*   **Certificado Nacional de Antecedentes de Tránsito (CENAT):** $10.150.\n\nEstos montos se abonan en el Centro Emisor de Licencias.",
+      "fuentes": [
+        "duplicado-de-licencia",
+        "licencia-de-conducir-renovacion-profesionales-interjurisdiccionales",
+        "renovacion-licencia-noprofesionales",
+        "licencia-de-conducir-principiantes-profesionales-jurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Costo",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "A5",
+      "muestra": 3,
+      "status": 200,
+      "ms": 2044,
+      "respuesta": "¡Hola! Para retirar tu vehículo secuestrado, tenés que pagar varios costos.\n\n**Costos principales:**\n*   **Estadía en el canchón:**\n    *   Automóviles, camionetas, jeep: $16.841 por día.\n    *   Camiones, ómnibus, furgones: $18.946 por día.\n    *   Motos, ciclomotores: $12.631 por día.\n*   **Servicio de grúa (si se usó):**\n    *   Automóviles y camionetas: $31.577.\n    *   Motos: $13.473.\n*   **Verificación de daños:**\n    *   En guardia: $4.210.\n    *   A domicilio: $16.841.\n\nPrimero, asegurate de que el Tribunal de Faltas haya autorizado la liberación de tu vehículo y que la multa esté pagada o desestimada. Luego, presentate en Santa Fe N° 545 para abonar los servicios.",
+      "fuentes": [
+        "vehiculo-secuestrado",
+        "baja-del-automotor-por-robo"
+      ],
+      "modo": null,
+      "bloque": "Costo",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "A6",
+      "muestra": 3,
+      "status": 200,
+      "ms": 1329,
+      "respuesta": "¡Hola! Para la habilitación de cartelería, el costo se calcula en Unidades Tributarias (UT).\n\nEl valor de cada UT desde el 1 de julio de 2024 es de $421,02.\n\nPara iniciar el trámite, podés acceder a este enlace: https://citymis.co/salta/public",
+      "fuentes": [
+        "carteleria"
+      ],
+      "modo": null,
+      "bloque": "Costo",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "B1",
+      "muestra": 3,
+      "status": 200,
+      "ms": 1563,
+      "respuesta": "¡Hola! Para solicitar la oblea de discapacidad, tenés que completar el formulario en línea. Acá te dejo el enlace directo:\n\n*   **Formulario:** [https://forms.gle/bemFdrAddTrRzE3q9](https://forms.gle/bemFdrAddTrRzE3q9)\n\nUna vez que lo completes y adjuntes la documentación, la Secretaría de Tránsito y Seguridad Vial revisará tu solicitud y te responderá por email. Si es aprobada, deberás ir a Santa Fe 545 para retirarla.",
+      "fuentes": [
+        "oblea-de-discapacidad",
+        "exencion-para-discapacitado"
+      ],
+      "modo": null,
+      "bloque": "Formulario",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "B2",
+      "muestra": 3,
+      "status": 200,
+      "ms": 1544,
+      "respuesta": "¡Hola! Para inscribirte en el programa \"Yo Emprendo\", tenés que completar el formulario en línea.\n\n**Inscripción**\nPodés hacerlo a través de este enlace: https://forms.gle/Qd61v2AMMwQQkWZv5\n\n**Fechas importantes**\nEl período de inscripción es del 22 de abril al 3 de mayo. Después de eso, hay etapas de selección, capacitación y adjudicación de microcréditos.\n\n¿Querés que te cuente más sobre el cronograma?",
+      "fuentes": [
+        "yoemprendo",
+        "emprendedores",
+        "regimen-incentivo-fomento-construccion"
+      ],
+      "modo": null,
+      "bloque": "Formulario",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "B3",
+      "muestra": 3,
+      "status": 200,
+      "ms": 1996,
+      "respuesta": "¡Hola! Para registrar una apertura en la vía pública, tenés que hacerlo de forma virtual.\n\n**Pasos para el registro:**\n1.  Accedé a la plataforma RAVP en este enlace: https://citymis.co/salta/public\n2.  También podés iniciar el trámite completando este formulario web: https://docs.google.com/forms/d/e/1FAIpQLSdgfXLDLwwXey5AwFCnXHftVHLSV1UTq-sAjjVEMuKlMsV5dw/viewform?usp=sf_link\n\nEs importante que consultes el reglamento del Registro de Aperturas de la Vía Pública (RAVP) para conocer todos los requisitos. Podés verlo aquí: https://municipalidadsalta.gob.ar/wp-content/uploads/2021/07/Resolucion-004-Registro-de-Aperturas-en-la-Via-Publica1.pdf\n\nEste registro es obligatorio para cualquier persona jurídica, contratistas o particulares que necesiten hacer trabajos en la vía pública.",
+      "fuentes": [
+        "registro-de-aperturas"
+      ],
+      "modo": null,
+      "bloque": "Formulario",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "B4",
+      "muestra": 3,
+      "status": 200,
+      "ms": 1504,
+      "respuesta": "¡Hola! Para denunciar un vehículo abandonado en la calle, tenés que completar un formulario online.\n\n**¿Cuándo se considera abandonado?**\nUn vehículo se considera abandonado si lleva más de 5 días estacionado en el mismo lugar.\n\n**¿Cómo hacer la denuncia?**\nPodés completar el formulario en este enlace: https://forms.gle/vEmEHmLjCm2rzQtGA\n\nUna vez que hagas la denuncia, personal de Tránsito verificará la situación. Si se confirma la falta, se notificará al dueño para que lo retire en 72 horas. Si no lo hace, el vehículo será removido con grúa.",
+      "fuentes": [
+        "denuncia-de-vehiculo-abandonado",
+        "denuncias",
+        "denuncia-de-venta"
+      ],
+      "modo": null,
+      "bloque": "Formulario",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "B5",
+      "muestra": 3,
+      "status": 200,
+      "ms": 2109,
+      "respuesta": "¡Hola! Para descargar la boleta del Certificado Nacional de Antecedentes de Tránsito (CENAT), tenés que ingresar a este enlace:\n\n*   **CENAT:** https://boletadepago.seguridadvial.gob.ar/\n\nTambién podés ver un instructivo para descargar la boleta en este link: https://municipalidadsalta.gob.ar/wp-content/uploads/2024/05/INSTRUCTIVO-CENAT-MUNICIPALIDAD-SALTA.pdf\n\nRecordá que el CENAT tiene una validez de 60 días una vez abonado.",
+      "fuentes": [
+        "licencia-17-anos",
+        "renovacion-cambio-jurisdiccion-noprofesionales",
+        "salta-activa-plataformas",
+        "renovacion-licencia-noprofesionales",
+        "licencia-de-conducir-principiantes-profesionales-jurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Formulario",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "B6",
+      "muestra": 3,
+      "status": 200,
+      "ms": 1639,
+      "respuesta": "¡Hola! Sí, existe una guía para solicitar la oblea. Podés descargarla desde este enlace:\n\n[https://municipalidadsalta.gob.ar/wp-content/uploads/2026/03/GUIA_-SOLICITUD-DE-OBLEAS.pdf](https://municipalidadsalta.gob.ar/wp-content/uploads/2026/03/GUIA_-SOLICITUD-DE-OBLEAS.pdf)\n\nEste instructivo te sirve para la Oblea de Discapacidad, el Permiso de Frentista Residente y el Permiso de Frentista Comerciante.",
+      "fuentes": [
+        "oblea-de-discapacidad",
+        "permiso-de-frentista-residente",
+        "permiso-de-frentista-comerciante",
+        "desarrollo-humano-2-programas-descentralizados"
+      ],
+      "modo": null,
+      "bloque": "Formulario",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "C1",
+      "muestra": 3,
+      "status": 200,
+      "ms": 1333,
+      "respuesta": "¡Hola! Para la exención del impuesto automotor por discapacidad, no se menciona un correo electrónico para consultas.\n\nPodés hacer tus consultas de forma presencial en el Centro Cívico Municipal, Av. Paraguay Nº1240, Segundo Salón. Atienden de lunes a viernes de 8:00 a 13:00 hs.",
+      "fuentes": [
+        "exencion-para-discapacitado",
+        "exenciones-impositivas",
+        "exencion-para-discapacitados"
+      ],
+      "modo": null,
+      "bloque": "Contacto",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "C2",
+      "muestra": 3,
+      "status": 200,
+      "ms": 1159,
+      "respuesta": "Para consultas sobre trámites de inmuebles en Rentas, podés llamar al 4160900, internos 1503 o 1504.",
+      "fuentes": [
+        "pagos-errados-de-inmuebles",
+        "unificacion-de-cuenta-con-unidad-urbana",
+        "alta-unidad-urbana",
+        "exencion-empresas-sin-fines-de-lucro",
+        "exencion-entidades-intermedias-religiosas"
+      ],
+      "modo": null,
+      "bloque": "Contacto",
+      "v": "CORRECTA",
+      "fuenteOk": false,
+      "sinFuentes": false
+    },
+    {
+      "id": "C3",
+      "muestra": 3,
+      "status": 200,
+      "ms": 1430,
+      "respuesta": "¡Hola! Para consultar sobre la eximición de la Tasa de Protección Ambiental, podés comunicarte por mail a rentas.aut@municipalidadsalta.gob.ar o llamar al 4160900, internos 1527 o 1530.\n\nTambién podés ir en persona al Centro Cívico Municipal, de lunes a viernes de 8 a 13 hs. Hay un box de atención especial para jubilados, pensionados y discapacitados en el 2° Salón.",
+      "fuentes": [
+        "eximicion-de-la-tasa-ambiental",
+        "exenciones-impositivas",
+        "exencion-para-automotores-y-motovehiculos-autopropulsados"
+      ],
+      "modo": null,
+      "bloque": "Contacto",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "C4",
+      "muestra": 3,
+      "status": 200,
+      "ms": 1955,
+      "respuesta": "¡Hola! Para hacer un plan de pago de inmuebles, tenés que ir al Centro Cívico Municipal, en Av. Paraguay N°1240.\n\nAndá a la Gerencia de Atención al Contribuyente, en la Oficina de Planes de Pago. El horario de atención es de 8:00 a 20:00 hs.\n\nNecesitás llevar esta documentación:\n\n*   DNI (original y fotocopia de 1º y 2º hoja).\n*   Fotocopia de la Cédula Parcelaria.\n*   La Cuenta Corriente del sistema ITRON.\n*   Un anticipo del 20% de la deuda.\n\nSi no tenés Clave Fiscal, podés obtenerla en el mismo Centro Cívico Municipal, salón 2, planta baja, de 8:00 a 14:00 hs.",
+      "fuentes": [
+        "plan-de-pago-inmuebles"
+      ],
+      "modo": null,
+      "bloque": "Contacto",
+      "v": "INCOMPLETA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "C5",
+      "muestra": 3,
+      "status": 200,
+      "ms": 1414,
+      "respuesta": "¡Hola! Para la recategorización en TGI, podés escribir un mail a armsa.inf.des.terr@municipalidadsalta.gob.ar.\n\nTambién podés hacerlo de forma presencial en el Centro Cívico Municipal (Av. Paraguay Nº1240), en la Oficina de Mesa de Entrada General, de 08:00 a 20:00 hs.",
+      "fuentes": [
+        "recategorizacion-en-tgi"
+      ],
+      "modo": null,
+      "bloque": "Contacto",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "C6",
+      "muestra": 3,
+      "status": 200,
+      "ms": 1551,
+      "respuesta": "¡Hola! Si necesitás contactar por las Becas Municipales, podés hacerlo de estas dos maneras:\n\n*   **Por teléfono:** Llamá al 4160-900, interno 1093, de lunes a viernes de 8:00 a 15:00 hs.\n*   **Por correo electrónico:** Escribí a becasmunicipales@municipalidadsalta.gob.ar\n\n¡Están para ayudarte!",
+      "fuentes": [
+        "becas-municipales"
+      ],
+      "modo": null,
+      "bloque": "Contacto",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "C7",
+      "muestra": 3,
+      "status": 200,
+      "ms": 1632,
+      "respuesta": "¡Hola! Si tenés dudas sobre la oblea de discapacidad, podés escribir a la Secretaría de Tránsito y Seguridad Vial a este correo: discapacidad.transito.salta@gmail.com.\n\nTambién tenés otras opciones de contacto para consultas generales sobre discapacidad:\n\n*   **Correo electrónico:** direcciongraldiscapacidad@gmail.com o discapacidad@municipalidadsalta.gob.ar\n*   **Teléfono:** 0800-122-5521 o 4160900 int. 1702\n*   **Whatsapp:** 3876345629",
+      "fuentes": [
+        "oblea-de-discapacidad",
+        "promocion-social"
+      ],
+      "modo": null,
+      "bloque": "Contacto",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "D1",
+      "muestra": 3,
+      "status": 200,
+      "ms": 1479,
+      "respuesta": "El Centro Emisor de Licencias (CEL) de la zona Norte está en el CIC Nuestra Señora del Carmen, en Barrio Unión.\n\nPodés contactarte con ellos al 3875668881 o por mail a licenciasdeconducir@municipalidadsalta.gob.ar. Atienden de 8:00 a 13:30 y de 14:00 a 16:30.",
+      "fuentes": [
+        "licencia-conducir-principiantes-noprofesionales",
+        "duplicado-de-licencia",
+        "licencia-de-conducir-principiantes-profesionales-jurisdiccionales",
+        "licencia-de-conducir-principiantes-profesionales-interjurisdiccionales",
+        "licencia-de-conducir-renovacion-profesionales-jurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Dirección",
+      "v": "CORRECTA",
+      "fuenteOk": false,
+      "sinFuentes": false
+    },
+    {
+      "id": "D2",
+      "muestra": 3,
+      "status": 200,
+      "ms": 1338,
+      "respuesta": "¡Hola! El Centro Emisor de Licencias (CEL) de Santa Fe 545 atiende en los siguientes horarios:\n\n*   **Lunes a viernes:** de 08:30 a 13:30 hs y de 14:00 a 18:00 hs.\n*   **Sábados:** de 08:30 a 12:30 hs.",
+      "fuentes": [
+        "duplicado-de-licencia",
+        "renovacion-licencia-noprofesionales",
+        "licencia-de-conducir-principiantes-profesionales-jurisdiccionales",
+        "licencia-de-conducir-principiantes-profesionales-interjurisdiccionales",
+        "licencia-de-conducir-renovacion-profesionales-jurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Dirección",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "D3",
+      "muestra": 3,
+      "status": 200,
+      "ms": 1303,
+      "respuesta": "Sí, hay un Centro Emisor de Licencias (CEL) en la zona sur.\n\n**Ubicación:**\nEstá en el Paseo Libertad Salta, en la Avenida Tavella y Avenida Ex Combatientes de Malvinas.\n\n**Horario de atención:**\nPodés ir de 8:40 a 18:00 horas.",
+      "fuentes": [
+        "licencia-de-conducir-principiantes-profesionales-jurisdiccionales",
+        "licencia-conducir-principiantes-noprofesionales",
+        "licencia-de-conducir-principiantes-profesionales-interjurisdiccionales",
+        "licencia-de-conducir-renovacion-profesionales-jurisdiccionales",
+        "licencia-de-conducir-ampliacion-profesionales-jurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Dirección",
+      "v": "CORRECTA",
+      "fuenteOk": false,
+      "sinFuentes": false
+    },
+    {
+      "id": "D4",
+      "muestra": 3,
+      "status": 200,
+      "ms": 1328,
+      "respuesta": "¡Hola! Para trámites de licencia de conducir, podés escribir a licenciasdeconducir@municipalidadsalta.gob.ar.\n\nTambién te cuento que, una vez que iniciás el trámite, tenés que revisar tu casilla de correo (incluyendo spam) para solicitar un turno.",
+      "fuentes": [
+        "licencia-de-conducir-principiantes-profesionales-jurisdiccionales",
+        "licencia-conducir-principiantes-noprofesionales",
+        "renovacion-licencia-noprofesionales",
+        "licencia-17-anos",
+        "licencia-de-conducir-principiantes-profesionales-interjurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Dirección",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "E1",
+      "muestra": 3,
+      "status": 200,
+      "ms": 1407,
+      "respuesta": "El Centro de Mediación y Conciliaciones es un servicio gratuito de la Municipalidad de Salta para resolver conflictos de forma alternativa.\n\nPodés usarlo para temas de alquileres, contratos, asuntos familiares y derechos del consumidor, entre otros.\n\nPara acceder, completá el formulario en línea, llamá al 416-0900 int. 1571 o escribí a mediacion.conciliacion@municipalidadsalta.gob.ar.",
+      "fuentes": [
+        "centro-de-mediacion-y-conciliaciones",
+        "entidades-intermedias-y-religiosas",
+        "desarrollo-humano-2-programas-descentralizados",
+        "desarrollo-humano-2-programas-descentralizados",
+        "cics-centros-comunitarios"
+      ],
+      "modo": null,
+      "bloque": "Control",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "E2",
+      "muestra": 3,
+      "status": 200,
+      "ms": 1624,
+      "respuesta": "¡Hola! Para consultar el estado de un expediente, tenés dos opciones:\n\n*   **Online:** Podés hacerlo a través de este enlace: [http://200.123.98.131:8384/expediente/](http://200.123.98.131:8384/expediente/)\n*   **En el Cementerio San Antonio de Padua:** Si estás en las oficinas del cementerio, completá este formulario: [https://forms.gle/25yjQL7kVkmSVPFK9](https://forms.gle/25yjQL7kVkmSVPFK9)\n\nRecordá tener el número de expediente a mano para la consulta.",
+      "fuentes": [
+        "consulta-de-expedientes",
+        "solicitud-de-estados-de-cuenta",
+        "licencia-de-conducir-renovacion-profesionales-jurisdiccionales",
+        "licencia-de-conducir-ampliacion-profesionales-jurisdiccionales",
+        "licencia-conducir-renovacion-profesionales-jurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Control",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "E3",
+      "muestra": 3,
+      "status": 200,
+      "ms": 1199,
+      "respuesta": "¡Hola! Para pedir un estado de cuenta, tenés que completar un formulario.\n\nPodés acceder al formulario desde este enlace: https://forms.gle/Sh5pZqDUgEKXcQh6\n\nEste trámite se realiza en el Cementerio San Antonio de Padua.",
+      "fuentes": [
+        "solicitud-de-estados-de-cuenta",
+        "vehiculo-secuestrado",
+        "solicitud-de-grafica",
+        "unificacion-de-cuenta-con-unidad-urbana",
+        "formulario-26"
+      ],
+      "modo": null,
+      "bloque": "Control",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "E4",
+      "muestra": 3,
+      "status": 200,
+      "ms": 2262,
+      "respuesta": "¡Hola! Para un permiso de obras eléctricas, los requisitos varían un poco según el tipo de obra.\n\n**Si sos una empresa que hace obras en la vía pública**, vas a necesitar:\n*   Una nota con la descripción de la obra, lugar y datos de la empresa.\n*   Declaración Jurada firmada en todas sus hojas.\n*   Nota de interferencia con empresas como GASNOR, EDESA, TELECOM, CLARO y AGUAS DEL NORTE.\n*   Memoria descriptiva de los trabajos.\n*   Plano de electricidad original y duplicado, firmado por COPAIPA.\n*   Aprobación de factibilidad de Edesa.\n*   Inscripción en AFIP.\n\n**Si necesitás una constancia de inspección eléctrica** (que también es un tipo de permiso), te piden:\n*   Cédula parcelaria.\n*   DNI del titular y del solicitante.\n*   Planos eléctricos aprobados (o certificado de habitabilidad para viviendas multifamiliares).\n*   Los formularios \"Nota conexión eléctrica 2025\" y \"Acta de Inspección eléctrica 2025\", que podés descargar de la web.\n*   Boleta de Edesa si es para reposición del servicio.\n\nRecordá que cada caso es particular y se analiza presencialmente.",
+      "fuentes": [
+        "permisos-para-obras-electricas",
+        "solicitud-de-constancia-de-inspeccion-electrica",
+        "permisos-subcontratista-o-servicios-publicos"
+      ],
+      "modo": null,
+      "bloque": "Control",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "E5",
+      "muestra": 3,
+      "status": 200,
+      "ms": 1806,
+      "respuesta": "¡Hola! Para sacar el permiso de frentista si vivís en una zona con estacionamiento medido, tenés que seguir estos pasos:\n\n1.  **Completar el formulario online:** Entrá a este link: https://docs.google.com/forms/d/e/1FAIpQLScLbNvGxR-1spPVyZ_iIwy9wyLhWW5XTClDvo99tPIIHUaKnA/viewform\n2.  **Adjuntar la documentación** que te pidan en el formulario.\n\nLa Secretaría de Tránsito y Seguridad Vial va a revisar tu pedido y te contactará en un máximo de 72 horas hábiles. Una vez que te den el permiso, tenés que colocarlo en la luneta de tu auto para estacionar gratis en la cuadra de tu domicilio.\n\nEste permiso es personal e intransferible.",
+      "fuentes": [
+        "permiso-de-frentista-residente",
+        "permiso-de-frentista-comerciante",
+        "trabajos-en-fachada"
+      ],
+      "modo": null,
+      "bloque": "Control",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "E6",
+      "muestra": 3,
+      "status": 200,
+      "ms": 2009,
+      "respuesta": "¡Hola! Para dar de alta un garaje y que quede demarcado, el trámite se llama **Solicitud de Alta de Garaje**.\n\nCon este trámite, tu garaje quedará señalizado con pintura y cartelería, y podrás pedir la remoción de vehículos que lo obstaculicen.\n\nPara iniciarlo, tenés que completar este formulario:\n[https://docs.google.com/forms/d/e/1FAIpQLSex7WTGTPLl-cXjQCE7TXSgAWlLCLUTH_L6VLQSTl5Xwn3M0g/viewform?usp=sf_link](https://docs.google.com/forms/d/e/1FAIpQLSex7WTGTPLl-cXjQCE7TXSgAWlLCLUTH_L6VLQSTl5Xwn3M0g/viewform?usp=sf_link)\n\nDespués de que lo completes, personal de la Secretaría de Tránsito verificará si se cumplen los requisitos. Si se aprueba, te avisarán por mail el monto de la tasa que tenés que pagar.",
+      "fuentes": [
+        "solicitud-de-alta-de-garaje",
+        "alta-unidad-urbana",
+        "formulario-26"
+      ],
+      "modo": null,
+      "bloque": "Control",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "E7",
+      "muestra": 3,
+      "status": 200,
+      "ms": 2011,
+      "respuesta": "¡Hola! Sí, la Municipalidad de Salta tiene el programa \"Huertas de la Ciudad\", que ofrece talleres gratuitos sobre agroecología.\n\nEn estos talleres aprendés a armar tu propia huerta en casa o en espacios comunitarios. Te enseñan sobre preparación de la tierra, siembra, cuidados de cultivos, abonos y control de plagas.\n\nPodés participar en distintas Huertas Municipales. Por ejemplo:\n\n*   **DIAT San Benito:** Miércoles, de 10 a 12 hs. o de 18 a 20 hs.\n*   **CIC Barrio Constitución:** Martes, de 9 a 11 hs. o Jueves de 9 a 11 hs.\n*   **Huerta NIDO Bicentenario:** Jueves de 18 a 20 hs.\n\nSi querés saber más o sumarte, podés escribir a huertas@municipalidadsalta.gob.ar.",
+      "fuentes": [
+        "huertas"
+      ],
+      "modo": null,
+      "bloque": "Control",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "A1",
+      "muestra": 4,
+      "status": 200,
+      "ms": 1460,
+      "respuesta": "¡Hola! Para renovar tu licencia de conducir no profesional, los costos son:\n\n*   **Tasa municipal por Licencia de Conducir:** $14.601 por año.\n*   **Tasa municipal por Licencia de Conducir (Mayores de 65 años):** $7.301 por año.\n*   **Certificado Nacional de Antecedentes de Tránsito (CENAT):** $10.150.\n\nRecordá que el CENAT tiene 60 días de vigencia una vez abonado.",
+      "fuentes": [
+        "renovacion-licencia-noprofesionales",
+        "licencia-de-conducir-renovacion-profesionales-interjurisdiccionales",
+        "renovacion-cambio-jurisdiccion-noprofesionales",
+        "licencia-de-conducir-renovacion-profesionales-jurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Costo",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "A2",
+      "muestra": 4,
+      "status": 200,
+      "ms": 1952,
+      "respuesta": "¡Hola! Para sacar tu licencia de conducir por primera vez, tenés que pagar dos cosas:\n\n*   **Tasa municipal por Licencia de Conducir:** $14.601 por año.\n*   **Certificado Nacional de Antecedentes de Tránsito (CENAT):** $10.150.\n\nEstos costos corresponden a las licencias para principiantes no profesionales, profesionales interjurisdiccionales y para jóvenes de 17 años.\n\nSi tu licencia es para principiantes profesionales jurisdiccionales, los costos son:\n\n*   **Tasa municipal por Licencia de Conducir:** $11.513 por año.\n*   **Certificado Nacional de Antecedentes de Tránsito (CENAT):** $8840.\n\n¿Querés que te cuente sobre los requisitos o dónde podés rendir el examen?",
+      "fuentes": [
+        "licencia-conducir-principiantes-noprofesionales",
+        "licencia-de-conducir-principiantes-profesionales-jurisdiccionales",
+        "licencia-17-anos",
+        "licencia-de-conducir-principiantes-profesionales-interjurisdiccionales",
+        "exencion-ira-licencia-habilitante"
+      ],
+      "modo": null,
+      "bloque": "Costo",
+      "v": "CORRECTA_CON_RUIDO",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "A3",
+      "muestra": 4,
+      "status": 200,
+      "ms": 1849,
+      "respuesta": "¡Hola! No, si tenés 70 años pagás menos por la licencia de conducir.\n\nLos costos son:\n*   **Tasa municipal por Licencia de Conducir (Mayores de 65 años):** $7.301 por año.\n*   **Certificado Nacional de Antecedentes de Tránsito (CENAT):** $10.150.\n\nTené en cuenta que si tu trámite es una \"Renovación cambio de jurisdicción – profesionales – jurisdiccionales\", los costos son:\n*   **Tasa municipal por Licencia de Conducir (Mayores de 65 años):** $6.145 por año.\n*   **Certificado Nacional de Antecedentes de Tránsito (CENAT):** $8.840.",
+      "fuentes": [
+        "renovacion-cambio-jurisdiccion-noprofesionales",
+        "licencia-de-conducir-renovacion-profesionales-jurisdiccionales",
+        "licencia-de-conducir-renovacion-profesionales-interjurisdiccionales",
+        "licencia-de-conducir-ampliacion-profesionales-jurisdiccionales",
+        "licencia-conducir-renovacion-profesionales-jurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Costo",
+      "v": "CORRECTA_CON_RUIDO",
+      "fuenteOk": false,
+      "sinFuentes": false
+    },
+    {
+      "id": "A4",
+      "muestra": 4,
+      "status": 200,
+      "ms": 1445,
+      "respuesta": "¡Hola! Para el duplicado de tu licencia de conducir, los costos son:\n\n*   **Tasa municipal por Licencia de Conducir:** $14.601 por año.\n*   **Certificado Nacional de Antecedentes de Tránsito (CENAT):** $10.150.\n\nEstos montos se abonan en el Centro Emisor de Licencias.",
+      "fuentes": [
+        "duplicado-de-licencia",
+        "licencia-de-conducir-renovacion-profesionales-interjurisdiccionales",
+        "renovacion-licencia-noprofesionales",
+        "licencia-de-conducir-principiantes-profesionales-jurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Costo",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "A5",
+      "muestra": 4,
+      "status": 200,
+      "ms": 2158,
+      "respuesta": "¡Hola! Para retirar tu vehículo secuestrado, tenés que pagar varios costos.\n\n**Costos de estadía en el canchón por día:**\n*   **Automóviles, camionetas, jeep y vehículos particulares:** $16.841\n*   **Camiones, ómnibus, furgones y vehículos de carga:** $18.946\n*   **Motocicletas, ciclomotores, carros, jardineras, bicicletas:** $12.631\n\n**Otros costos:**\n*   **Servicio de grúa (automóviles y camionetas):** $31.577\n*   **Traslado de moto:** $13.473 por día\n*   **Verificación de daños (guardia):** $4.210 por día\n*   **Verificación de daños (domicilio):** $16.841 por día\n\nEstos costos se abonan en la Oficina de Guardia, en Santa Fe N° 545.\n\nAntes de ir, asegurate de que el Tribunal de Faltas haya autorizado la liberación de tu vehículo y que la multa esté pagada o la causa desestimada. Podés llamar al Tribunal de Faltas al 4160900, interno 1122, para averiguar el juzgado interviniente.",
+      "fuentes": [
+        "vehiculo-secuestrado",
+        "baja-del-automotor-por-robo"
+      ],
+      "modo": null,
+      "bloque": "Costo",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "A6",
+      "muestra": 4,
+      "status": 200,
+      "ms": 1563,
+      "respuesta": "¡Hola! Para la habilitación de cartelería, el costo se calcula en Unidades Tributarias (UT).\n\nEl valor de cada UT desde el 1 de julio de 2024 es de $421,02.\n\nPara iniciar el trámite, podés descargar el formulario de Solicitud de Factibilidad en este enlace: https://municipalidadsalta.gob.ar/wp-content/uploads/2024/08/FORMULARIO_ANUNCIOS_PUBLICITARIOSagosto2024.pdf\n\nY para comenzar el trámite, accedé aquí: https://citymis.co/salta/public",
+      "fuentes": [
+        "carteleria"
+      ],
+      "modo": null,
+      "bloque": "Costo",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "B1",
+      "muestra": 4,
+      "status": 200,
+      "ms": 1604,
+      "respuesta": "¡Hola! Para solicitar la oblea de discapacidad, tenés que completar el formulario en línea. Acá te dejo el enlace directo:\n\n*   **Formulario de Solicitud de Oblea:** [https://forms.gle/bemFdrAddTrRzE3q9](https://forms.gle/bemFdrAddTrRzE3q9)\n\nUna vez que lo completes y adjuntes la documentación, la Secretaría de Tránsito y Seguridad Vial revisará tu solicitud y te responderá por email. Si es aprobada, deberás ir a Santa Fe 545 para retirarla.",
+      "fuentes": [
+        "oblea-de-discapacidad",
+        "exencion-para-discapacitado"
+      ],
+      "modo": null,
+      "bloque": "Formulario",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "B2",
+      "muestra": 4,
+      "status": 200,
+      "ms": 1705,
+      "respuesta": "¡Hola! Para inscribirte en el programa \"Yo Emprendo\", tenés que completar un formulario en línea.\n\n**Inscripción**\nPodés hacerlo a través de este enlace: https://forms.gle/Qd61v2AMMwQQkWZv5\n\n**Fechas importantes**\nEl período de inscripción es del 22 de abril al 3 de mayo. Después de eso, hay etapas de selección, capacitación y adjudicación de microcréditos.\n\n¿Querés que te cuente más sobre el cronograma?",
+      "fuentes": [
+        "yoemprendo",
+        "emprendedores",
+        "regimen-incentivo-fomento-construccion"
+      ],
+      "modo": null,
+      "bloque": "Formulario",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "B3",
+      "muestra": 4,
+      "status": 200,
+      "ms": 2283,
+      "respuesta": "¡Hola! Para registrar una apertura en la vía pública, tenés que hacerlo de forma virtual.\n\n**Pasos para el registro:**\n1.  Completá el formulario web: [https://docs.google.com/forms/d/e/1FAIpQLSdgfXLDLwwXey5AwFCnXHftVHLSV1UTq-sAjjVEMuKlMsV5dw/viewform?usp=sf_link](https://docs.google.com/forms/d/e/1FAIpQLSdgfXLDLwwXey5AwFCnXHftVHLSV1UTq-sAjjVEMuKlMsV5dw/viewform?usp=sf_link)\n2.  También podés acceder a la plataforma RAVP (Registro de Aperturas en la Vía Pública) aquí: [https://citymis.co/salta/public](https://citymis.co/salta/public)\n\nEs obligatorio para personas jurídicas, contratistas y particulares que necesiten hacer trabajos en la vía pública. Te recomiendo consultar el reglamento oficial para conocer todos los requisitos: [https://municipalidadsalta.gob.ar/wp-content/uploads/2021/07/Resolucion-004-Registro-de-Aperturas-en-la-Via-Publica1.pdf](https://municipalidadsalta.gob.ar/wp-content/uploads/2021/07/Resolucion-004-Registro-de-Aperturas-en-la-Via-Publica1.pdf)",
+      "fuentes": [
+        "registro-de-aperturas"
+      ],
+      "modo": null,
+      "bloque": "Formulario",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "B4",
+      "muestra": 4,
+      "status": 200,
+      "ms": 1558,
+      "respuesta": "¡Hola! Para denunciar un vehículo abandonado en la calle, tenés que completar un formulario online.\n\n**¿Cuándo se considera abandonado?**\nUn vehículo se considera abandonado si lleva más de 5 días estacionado en el mismo lugar.\n\n**¿Cómo hacer la denuncia?**\nPodés completar el formulario en este enlace: https://forms.gle/vEmEHmLjCm2rzQtGA\n\nDespués de tu denuncia, personal de Tránsito verificará la situación. Si se confirma la falta, se notificará al dueño para que lo retire en 72 horas. Si no lo hace, el vehículo será removido con grúa.",
+      "fuentes": [
+        "denuncia-de-vehiculo-abandonado",
+        "denuncias",
+        "denuncia-de-venta"
+      ],
+      "modo": null,
+      "bloque": "Formulario",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "B5",
+      "muestra": 4,
+      "status": 200,
+      "ms": 1836,
+      "respuesta": "¡Hola! Para descargar la boleta del Certificado Nacional de Antecedentes de Tránsito (CENAT), tenés que ingresar a la siguiente página web:\n\n*   **CENAT:** https://boletadepago.seguridadvial.gob.ar/\n\nTambién podés ver un instructivo para descargarla en este enlace: https://municipalidadsalta.gob.ar/wp-content/uploads/2024/05/INSTRUCTIVO-CENAT-MUNICIPALIDAD-SALTA.pdf\n\nRecordá que la boleta tiene una validez de 60 días una vez que la abonás.",
+      "fuentes": [
+        "licencia-17-anos",
+        "renovacion-cambio-jurisdiccion-noprofesionales",
+        "salta-activa-plataformas",
+        "renovacion-licencia-noprofesionales",
+        "licencia-de-conducir-principiantes-profesionales-jurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Formulario",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "B6",
+      "muestra": 4,
+      "status": 200,
+      "ms": 1605,
+      "respuesta": "¡Hola! Sí, existe una guía para solicitar la oblea. Podés descargarla desde este enlace:\n\n[https://municipalidadsalta.gob.ar/wp-content/uploads/2026/03/GUIA_-SOLICITUD-DE-OBLEAS.pdf](https://municipalidadsalta.gob.ar/wp-content/uploads/2026/03/GUIA_-SOLICITUD-DE-OBLEAS.pdf)\n\nEste instructivo te servirá para la Oblea para Personas con Discapacidad, el Permiso de Frentista Residente y el Permiso de Frentista Comerciante.",
+      "fuentes": [
+        "oblea-de-discapacidad",
+        "permiso-de-frentista-residente",
+        "permiso-de-frentista-comerciante",
+        "desarrollo-humano-2-programas-descentralizados"
+      ],
+      "modo": null,
+      "bloque": "Formulario",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "C1",
+      "muestra": 4,
+      "status": 200,
+      "ms": 1307,
+      "respuesta": "Hola, soy Tuki. No tengo información oficial sobre un mail para la exención del impuesto automotor por discapacidad.\n\nPodés hacer tus consultas de forma presencial de lunes a viernes de 8 a 13 hs en el Centro Cívico Municipal, Av. Paraguay Nº1240, en el Segundo Salón.",
+      "fuentes": [],
+      "modo": null,
+      "bloque": "Contacto",
+      "v": "CORRECTA",
+      "fuenteOk": false,
+      "sinFuentes": true
+    },
+    {
+      "id": "C2",
+      "muestra": 4,
+      "status": 200,
+      "ms": 1141,
+      "respuesta": "¡Hola! Para consultas sobre trámites de inmuebles en Rentas, podés llamar al 4160900, internos 1503 o 1504.",
+      "fuentes": [
+        "pagos-errados-de-inmuebles",
+        "unificacion-de-cuenta-con-unidad-urbana",
+        "alta-unidad-urbana",
+        "exencion-empresas-sin-fines-de-lucro",
+        "exencion-entidades-intermedias-religiosas"
+      ],
+      "modo": null,
+      "bloque": "Contacto",
+      "v": "CORRECTA",
+      "fuenteOk": false,
+      "sinFuentes": false
+    },
+    {
+      "id": "C3",
+      "muestra": 4,
+      "status": 200,
+      "ms": 1894,
+      "respuesta": "¡Hola! Para consultar sobre la eximición de la Tasa de Protección Ambiental, podés comunicarte por mail a rentas.aut@municipalidadsalta.gob.ar o llamar al 4160900, internos 1527 o 1530.\n\nTambién podés ir en persona de lunes a viernes de 8 a 13 hs al Centro Cívico Municipal, en el 2° Salón, Box de Atención Especial para Jubilados, Pensionados y Discapacitados.",
+      "fuentes": [
+        "eximicion-de-la-tasa-ambiental",
+        "exenciones-impositivas",
+        "exencion-para-automotores-y-motovehiculos-autopropulsados"
+      ],
+      "modo": null,
+      "bloque": "Contacto",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "C4",
+      "muestra": 4,
+      "status": 200,
+      "ms": 1822,
+      "respuesta": "¡Hola! Para hacer un plan de pago de inmuebles, tenés que ir al Centro Cívico Municipal, en Av. Paraguay N°1240.\n\n**Horario y oficina:**\nAndá a la Gerencia de Atención al Contribuyente, en la Oficina de Planes de Pago. Atienden de 8:00 a 20:00 hs.\n\n**Documentación necesaria:**\n*   DNI (original y fotocopia de 1º y 2º hoja).\n*   Fotocopia de la Cédula Parcelaria.\n*   La Cuenta Corriente del sistema ITRON.\n*   Un anticipo del 20% de la deuda.\n\nSi necesitás tu Clave Fiscal, podés obtenerla en el Salón 2, planta baja del CCM, de 8:00 a 14:00 hs.",
+      "fuentes": [
+        "plan-de-pago-inmuebles"
+      ],
+      "modo": null,
+      "bloque": "Contacto",
+      "v": "INCOMPLETA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "C5",
+      "muestra": 4,
+      "status": 200,
+      "ms": 1271,
+      "respuesta": "¡Hola! Para la recategorización en TGI, podés escribir un mail a armsa.inf.des.terr@municipalidadsalta.gob.ar.\n\nTambién podés hacerlo de forma presencial en el Centro Cívico Municipal (Av. Paraguay Nº1240), en la Oficina de Mesa de Entrada General, de 08:00 a 20:00 hs.",
+      "fuentes": [
+        "recategorizacion-en-tgi"
+      ],
+      "modo": null,
+      "bloque": "Contacto",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "C6",
+      "muestra": 4,
+      "status": 200,
+      "ms": 1483,
+      "respuesta": "¡Hola! Si necesitás contactarte por las Becas Municipales, podés hacerlo de dos maneras:\n\n*   **Por teléfono:** Llamá al 4160-900, interno 1093, de lunes a viernes de 8 a 15 hs.\n*   **Por correo electrónico:** Escribí a becasmunicipales@municipalidadsalta.gob.ar.\n\nLa inscripción para las becas 2026 es digital, a través de la App Muni Salta.",
+      "fuentes": [
+        "becas-municipales"
+      ],
+      "modo": null,
+      "bloque": "Contacto",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "C7",
+      "muestra": 4,
+      "status": 200,
+      "ms": 1531,
+      "respuesta": "¡Hola! Si tenés dudas sobre la oblea de discapacidad, podés escribir a la Secretaría de Tránsito y Seguridad Vial al siguiente correo: discapacidad.transito.salta@gmail.com.\n\nTambién podés contactar a la Dirección General de Discapacidad para asesoramiento general al 0800-122-5521 o al 4160900 int. 1702.",
+      "fuentes": [
+        "oblea-de-discapacidad",
+        "promocion-social"
+      ],
+      "modo": null,
+      "bloque": "Contacto",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "D1",
+      "muestra": 4,
+      "status": 200,
+      "ms": 1443,
+      "respuesta": "El Centro Emisor de Licencias (CEL) de la zona norte está en el CIC Nuestra Señora del Carmen, en Barrio Unión.\n\nPodés contactarte al 3875668881 o escribir a licenciasdeconducir@municipalidadsalta.gob.ar. Atienden de 8:00 a 13:30 y de 14:00 a 16:30.",
+      "fuentes": [
+        "licencia-conducir-principiantes-noprofesionales",
+        "duplicado-de-licencia",
+        "licencia-de-conducir-principiantes-profesionales-jurisdiccionales",
+        "licencia-de-conducir-principiantes-profesionales-interjurisdiccionales",
+        "licencia-de-conducir-renovacion-profesionales-jurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Dirección",
+      "v": "CORRECTA",
+      "fuenteOk": false,
+      "sinFuentes": false
+    },
+    {
+      "id": "D2",
+      "muestra": 4,
+      "status": 200,
+      "ms": 1217,
+      "respuesta": "¡Hola! El Centro Emisor de Licencias (CEL) de Santa Fe 545 atiende en estos horarios:\n\n*   **Lunes a viernes:** de 08:30 a 13:30 hs y de 14:00 a 18:00 hs.\n*   **Sábados:** de 08:30 a 12:30 hs.",
+      "fuentes": [
+        "duplicado-de-licencia",
+        "renovacion-licencia-noprofesionales",
+        "licencia-de-conducir-principiantes-profesionales-jurisdiccionales",
+        "licencia-de-conducir-principiantes-profesionales-interjurisdiccionales",
+        "licencia-de-conducir-renovacion-profesionales-jurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Dirección",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "D3",
+      "muestra": 4,
+      "status": 200,
+      "ms": 1228,
+      "respuesta": "¡Hola! Sí, hay un Centro Emisor de Licencias (CEL) en la zona sur.\n\n**Ubicación y Horario:**\n*   **Dirección:** Paseo Libertad Salta (Av. Tavella y Av. Ex Combatientes de Malvinas).\n*   **Horario de atención:** De 8:40 a 18:00 horas.",
+      "fuentes": [
+        "licencia-de-conducir-principiantes-profesionales-jurisdiccionales",
+        "licencia-conducir-principiantes-noprofesionales",
+        "licencia-de-conducir-principiantes-profesionales-interjurisdiccionales",
+        "licencia-de-conducir-renovacion-profesionales-jurisdiccionales",
+        "licencia-de-conducir-ampliacion-profesionales-jurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Dirección",
+      "v": "CORRECTA",
+      "fuenteOk": false,
+      "sinFuentes": false
+    },
+    {
+      "id": "D4",
+      "muestra": 4,
+      "status": 200,
+      "ms": 1232,
+      "respuesta": "¡Hola! Para trámites de licencia de conducir, podés escribir a licenciasdeconducir@municipalidadsalta.gob.ar.\n\nTambién te cuento que, una vez que iniciás el trámite, tenés que revisar tu casilla de correo (incluyendo spam) para solicitar un turno.",
+      "fuentes": [
+        "licencia-de-conducir-principiantes-profesionales-jurisdiccionales",
+        "licencia-conducir-principiantes-noprofesionales",
+        "renovacion-licencia-noprofesionales",
+        "licencia-17-anos",
+        "licencia-de-conducir-principiantes-profesionales-interjurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Dirección",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "E1",
+      "muestra": 4,
+      "status": 200,
+      "ms": 1286,
+      "respuesta": "El Centro de Mediación y Conciliaciones es un servicio gratuito de la Municipalidad de Salta para resolver conflictos de forma alternativa.\n\nPodés usarlo para temas de alquileres, contratos, asuntos familiares, derechos del consumidor y otros.\n\nPara acceder, completá el formulario en línea, llamá al 416-0900 int. 1571 o escribí a mediacion.conciliacion@municipalidadsalta.gob.ar.",
+      "fuentes": [
+        "centro-de-mediacion-y-conciliaciones",
+        "entidades-intermedias-y-religiosas",
+        "desarrollo-humano-2-programas-descentralizados",
+        "desarrollo-humano-2-programas-descentralizados",
+        "cics-centros-comunitarios"
+      ],
+      "modo": null,
+      "bloque": "Control",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "E2",
+      "muestra": 4,
+      "status": 200,
+      "ms": 1951,
+      "respuesta": "¡Hola! Para consultar el estado de un expediente, tenés dos opciones:\n\n*   **Online:** Podés hacerlo a través de este enlace: [http://200.123.98.131:8384/expediente/](http://200.123.98.131:8384/expediente/). Necesitás tener el número de expediente a mano.\n*   **En el Cementerio San Antonio de Padua:** Si estás en las oficinas del cementerio, podés completar este formulario: [https://forms.gle/25yjQL7kVkmSVPFK9](https://forms.gle/25yjQL7kVkmSVPFK9).",
+      "fuentes": [
+        "consulta-de-expedientes",
+        "solicitud-de-estados-de-cuenta",
+        "licencia-de-conducir-renovacion-profesionales-jurisdiccionales",
+        "licencia-de-conducir-ampliacion-profesionales-jurisdiccionales",
+        "licencia-conducir-renovacion-profesionales-jurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Control",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "E3",
+      "muestra": 4,
+      "status": 200,
+      "ms": 1349,
+      "respuesta": "¡Hola! Para pedir un estado de cuenta, tenés que completar un formulario. Podés acceder a él desde este enlace:\n\n[https://forms.gle/Sh5pZqDUgEKXcQh6](https://forms.gle/Sh5pZqDUgEKXcQh6)\n\nEste trámite se realiza en el Cementerio San Antonio de Padua.",
+      "fuentes": [
+        "solicitud-de-estados-de-cuenta",
+        "vehiculo-secuestrado",
+        "solicitud-de-grafica",
+        "unificacion-de-cuenta-con-unidad-urbana",
+        "formulario-26"
+      ],
+      "modo": null,
+      "bloque": "Control",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "E4",
+      "muestra": 4,
+      "status": 200,
+      "ms": 2324,
+      "respuesta": "¡Hola! Para un permiso de obras eléctricas, los requisitos varían un poco según el tipo de obra.\n\n**Si sos una empresa que hace obras en la vía pública (ampliación, reparación o mantenimiento de redes), necesitás:**\n\n*   Una nota con la descripción de la obra, lugar y datos de la empresa.\n*   Declaración Jurada firmada en todas sus hojas.\n*   Nota de interferencia con empresas como GASNOR, EDESA, TELECOM, CLARO y AGUAS DEL NORTE.\n*   Memoria descriptiva de los trabajos.\n*   Plano de electricidad original y duplicado, firmado por COPAIPA.\n*   Aprobación de factibilidad de Edesa.\n*   Inscripción en AFIP.\n\n**Si lo que buscás es una Constancia de Inspección Eléctrica (para viviendas, por ejemplo), necesitás:**\n\n*   Cédula parcelaria.\n*   DNI del titular y del solicitante.\n*   Planos eléctricos aprobados (para viviendas multifamiliares, certificado de habitabilidad).\n*   Los formularios \"Nota conexión eléctrica 2025\" y \"Acta de Inspección eléctrica 2025\", que podés descargar de la web municipal.\n*   Boleta de Edesa si es para reposición del servicio.\n\nRecordá que cada caso es particular y se analiza presencialmente.",
+      "fuentes": [
+        "permisos-para-obras-electricas",
+        "solicitud-de-constancia-de-inspeccion-electrica",
+        "permisos-subcontratista-o-servicios-publicos"
+      ],
+      "modo": null,
+      "bloque": "Control",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "E5",
+      "muestra": 4,
+      "status": 200,
+      "ms": 2343,
+      "respuesta": "¡Hola! Para sacar el permiso de frentista si vivís en una zona con estacionamiento medido, tenés que completar un formulario online.\n\n**Pasos para solicitarlo:**\n1.  Completá el formulario en línea, adjuntando la documentación que te pidan: [https://docs.google.com/forms/d/e/1FAIpQLScLbNvGxR-1spPVyZ_iIwy9wyLhWW5XTClDvo99tPIIHUaKnA/viewform](https://docs.google.com/forms/d/e/1FAIpQLScLbNvGxR-1spPVyZ_iIwy9wyLhWW5XTClDvo99tPIIHUaKnA/viewform)\n2.  La Secretaría de Tránsito y Seguridad Vial revisará tu pedido y te contactará en un máximo de 72 horas hábiles.\n3.  Una vez que te den el permiso, tenés que colocarlo en la luneta de tu auto para estacionar gratis en la cuadra de tu domicilio (solo en la mano de tu casa).\n\nEste permiso es personal e intransferible. Si tenés dudas, podés escribir a frentistas.transito.salta@gmail.com.",
+      "fuentes": [
+        "permiso-de-frentista-residente",
+        "permiso-de-frentista-comerciante",
+        "trabajos-en-fachada"
+      ],
+      "modo": null,
+      "bloque": "Control",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "E6",
+      "muestra": 4,
+      "status": 200,
+      "ms": 1866,
+      "respuesta": "¡Hola! Para dar de alta un garaje y que quede demarcado, el trámite se llama **Solicitud de Alta de Garaje**.\n\nCon este trámite, tu garaje quedará señalizado con pintura y cartelería, lo que te permite reclamar si alguien lo obstaculiza.\n\nPara iniciarlo, tenés que completar este formulario online:\nhttps://docs.google.com/forms/d/e/1FAIpQLSex7WTGTPLl-cXjQCE7TXSgAWlLCLUTH_L6VLQSTl5Xwn3M0g/viewform?usp=sf_link\n\nDespués de que lo completes, personal de la Secretaría de Tránsito verificará tu garaje y te avisará por mail si se aprueba. Si es así, te informarán el monto de la tasa de ejecución de obra que debés pagar.",
+      "fuentes": [
+        "solicitud-de-alta-de-garaje",
+        "alta-unidad-urbana",
+        "formulario-26"
+      ],
+      "modo": null,
+      "bloque": "Control",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "E7",
+      "muestra": 4,
+      "status": 200,
+      "ms": 1802,
+      "respuesta": "¡Hola! Sí, la Municipalidad de Salta tiene el programa \"Huertas de la Ciudad\", que ofrece talleres gratuitos de agroecología.\n\nEn estos talleres te enseñan a armar tu propia huerta en casa o en espacios comunitarios. Aprendés sobre preparación de la tierra, siembra, cuidados de cultivos, abonos y control de plagas.\n\nPodés participar en distintas huertas municipales. Por ejemplo:\n\n*   **DIAT San Benito:** Miércoles de 10 a 12 hs. o de 18 a 20 hs.\n*   **CIC Barrio Constitución:** Martes de 9 a 11 hs. o Martes y Jueves de 9 a 11 hs.\n*   **Huerta NIDO Bicentenario:** Jueves de 18 a 20 hs.\n\nSi querés saber sobre otras ubicaciones y horarios, o tenés más dudas, ¡preguntame!",
+      "fuentes": [
+        "huertas"
+      ],
+      "modo": null,
+      "bloque": "Control",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "A1",
+      "muestra": 5,
+      "status": 200,
+      "ms": 1486,
+      "respuesta": "¡Hola! Para renovar tu licencia de conducir no profesional, los costos son:\n\n*   **Tasa municipal por Licencia de Conducir:** $14.601 por año.\n*   **Tasa municipal por Licencia de Conducir (Mayores de 65 años):** $7.301 por año.\n*   **Certificado Nacional de Antecedentes de Tránsito (CENAT):** $10.150.\n\nRecordá que el CENAT tiene 60 días de vigencia una vez abonado.",
+      "fuentes": [
+        "renovacion-licencia-noprofesionales",
+        "licencia-de-conducir-renovacion-profesionales-interjurisdiccionales",
+        "renovacion-cambio-jurisdiccion-noprofesionales",
+        "licencia-de-conducir-renovacion-profesionales-jurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Costo",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "A2",
+      "muestra": 5,
+      "status": 200,
+      "ms": 1522,
+      "respuesta": "¡Hola! Para sacar tu licencia de conducir por primera vez, tenés que pagar dos cosas:\n\n*   **Tasa municipal por Licencia de Conducir:** $14.601 por año.\n*   **Certificado Nacional de Antecedentes de Tránsito (CENAT):** $10.150.\n\nEstos costos corresponden a las licencias para principiantes no profesionales y para jóvenes de 17 años.\n\nSi querés, puedo contarte sobre el Manual del Conductor para que te prepares para el examen.",
+      "fuentes": [
+        "licencia-conducir-principiantes-noprofesionales",
+        "licencia-de-conducir-principiantes-profesionales-jurisdiccionales",
+        "licencia-17-anos",
+        "licencia-de-conducir-principiantes-profesionales-interjurisdiccionales",
+        "exencion-ira-licencia-habilitante"
+      ],
+      "modo": null,
+      "bloque": "Costo",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "A3",
+      "muestra": 5,
+      "status": 200,
+      "ms": 1552,
+      "respuesta": "¡Hola! No, si tenés 70 años pagás menos por la licencia de conducir.\n\nLos costos son:\n*   **Tasa municipal por Licencia de Conducir (Mayores de 65 años):** $7.301 por año.\n*   **Certificado Nacional de Antecedentes de Tránsito (CENAT):** $10.150.\n\nTené en cuenta que si tu licencia es profesional y la renovás por cambio de jurisdicción, la tasa municipal para mayores de 65 años es de $6.145 por año y el CENAT de $8.840.",
+      "fuentes": [
+        "renovacion-cambio-jurisdiccion-noprofesionales",
+        "licencia-de-conducir-renovacion-profesionales-jurisdiccionales",
+        "licencia-de-conducir-renovacion-profesionales-interjurisdiccionales",
+        "licencia-de-conducir-ampliacion-profesionales-jurisdiccionales",
+        "licencia-conducir-renovacion-profesionales-jurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Costo",
+      "v": "CORRECTA_CON_RUIDO",
+      "fuenteOk": false,
+      "sinFuentes": false
+    },
+    {
+      "id": "A4",
+      "muestra": 5,
+      "status": 200,
+      "ms": 1441,
+      "respuesta": "¡Hola! Para el duplicado de tu licencia de conducir, los costos son:\n\n*   **Tasa municipal por Licencia de Conducir:** $14.601 por año.\n*   **Certificado Nacional de Antecedentes de Tránsito (CENAT):** $10.150.\n\nEstos montos se abonan en el Centro Emisor de Licencias.",
+      "fuentes": [
+        "duplicado-de-licencia",
+        "licencia-de-conducir-renovacion-profesionales-interjurisdiccionales",
+        "renovacion-licencia-noprofesionales",
+        "licencia-de-conducir-principiantes-profesionales-jurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Costo",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "A5",
+      "muestra": 5,
+      "status": 200,
+      "ms": 2136,
+      "respuesta": "¡Hola! Para retirar tu vehículo secuestrado, tenés que pagar varios costos.\n\n**Costos diarios de estadía en el canchón:**\n*   **Automóviles, camionetas, jeep y vehículos particulares:** $16.841 por día.\n*   **Camiones, ómnibus, furgones y vehículos de carga:** $18.946 por día.\n*   **Motocicletas, ciclomotores, carros, jardineras, bicicletas:** $12.631 por día.\n\nAdemás, si usaron grúa, tenés que pagar:\n*   **Servicio de grúa (automóviles y camionetas):** $31.577.\n*   **Traslado de moto:** $13.473 por día.\n\nTambién hay un costo de verificación de daños, que puede ser de $4.210 (en guardia) o $16.841 (a domicilio).\n\nAntes de ir a pagar, asegurate de que el Tribunal de Faltas haya autorizado la liberación de tu vehículo. Podés llamar al 4160900, interno 1122, para saber qué juzgado interviene en tu causa.",
+      "fuentes": [
+        "vehiculo-secuestrado",
+        "baja-del-automotor-por-robo"
+      ],
+      "modo": null,
+      "bloque": "Costo",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "A6",
+      "muestra": 5,
+      "status": 200,
+      "ms": 1293,
+      "respuesta": "¡Hola! Para la habilitación de cartelería, el costo se calcula en Unidades Tributarias (UT).\n\nEl valor de cada UT desde el 1 de julio de 2024 es de $421,02.\n\nPara iniciar el trámite, podés acceder a este enlace: https://citymis.co/salta/public",
+      "fuentes": [
+        "carteleria"
+      ],
+      "modo": null,
+      "bloque": "Costo",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "B1",
+      "muestra": 5,
+      "status": 200,
+      "ms": 1837,
+      "respuesta": "¡Hola! Para solicitar la oblea de discapacidad, tenés que completar el formulario en línea. Acá te dejo el enlace directo:\n\n*   **Formulario de Solicitud de Oblea:** [https://forms.gle/bemFdrAddTrRzE3q9](https://forms.gle/bemFdrAddTrRzE3q9)\n\nUna vez que lo completes y adjuntes la documentación, la Secretaría de Tránsito y Seguridad Vial revisará tu solicitud y te responderá por email. Si es aprobada, deberás ir a Santa Fe 545 para retirarla.",
+      "fuentes": [
+        "oblea-de-discapacidad",
+        "exencion-para-discapacitado"
+      ],
+      "modo": null,
+      "bloque": "Formulario",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "B2",
+      "muestra": 5,
+      "status": 200,
+      "ms": 1470,
+      "respuesta": "¡Hola! Para inscribirte en el programa \"Yo Emprendo\", tenés que completar un formulario online.\n\n**Inscripción:**\nPodés hacerlo a través de este enlace: https://forms.gle/Qd61v2AMMwQQkWZv5\n\n**Fechas importantes:**\nLas inscripciones están abiertas desde el 22 de abril hasta el 3 de mayo. Después de eso, hay etapas de selección, capacitación y adjudicación de microcréditos.",
+      "fuentes": [
+        "yoemprendo",
+        "emprendedores",
+        "regimen-incentivo-fomento-construccion"
+      ],
+      "modo": null,
+      "bloque": "Formulario",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "B3",
+      "muestra": 5,
+      "status": 200,
+      "ms": 2192,
+      "respuesta": "¡Hola! Para registrar una apertura en la vía pública, tenés que hacerlo de manera virtual.\n\n**Pasos para el registro:**\n1.  Completá el formulario web: [https://docs.google.com/forms/d/e/1FAIpQLSdgfXLDLwwXey5AwFCnXHftVHLSV1UTq-sAjjVEMuKlMsV5dw/viewform?usp=sf_link](https://docs.google.com/forms/d/e/1FAIpQLSdgfXLDLwwXey5AwFCnXHftVHLSV1UTq-sAjjVEMuKlMsV5dw/viewform?usp=sf_link)\n2.  También podés acceder a la plataforma RAVP aquí: [https://citymis.co/salta/public](https://citymis.co/salta/public)\n\nEs obligatorio para personas jurídicas, contratistas y particulares que necesiten hacer trabajos en la vía pública. Te recomiendo consultar el reglamento de registro de aperturas de la vía pública (RAVP) para conocer todos los requisitos.",
+      "fuentes": [
+        "registro-de-aperturas"
+      ],
+      "modo": null,
+      "bloque": "Formulario",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "B4",
+      "muestra": 5,
+      "status": 200,
+      "ms": 1678,
+      "respuesta": "¡Hola! Para denunciar un vehículo abandonado en la calle, tenés que completar un formulario online.\n\n**¿Cuándo se considera abandonado?**\nUn vehículo se considera abandonado si lleva más de 5 días estacionado en el mismo lugar.\n\n**¿Cómo hacer la denuncia?**\nPodés completar el formulario en este enlace: https://forms.gle/vEmEHmLjCm2rzQtGA\n\nDespués de tu denuncia, personal de Tránsito verificará la situación. Si confirman la falta, notificarán al dueño para que lo retire en 72 horas. Si no lo hace, el vehículo será removido con grúa.",
+      "fuentes": [
+        "denuncia-de-vehiculo-abandonado",
+        "denuncias",
+        "denuncia-de-venta"
+      ],
+      "modo": null,
+      "bloque": "Formulario",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "B5",
+      "muestra": 5,
+      "status": 200,
+      "ms": 1479,
+      "respuesta": "¡Hola! Para descargar la boleta del Certificado Nacional de Antecedentes de Tránsito (CENAT), tenés que ingresar a este enlace:\n\n*   **CENAT:** https://boletadepago.seguridadvial.gob.ar/\n\nUna vez que la abones, recordá que tiene una validez de 60 días. También podés consultar un instructivo para descargarla en este link: https://municipalidadsalta.gob.ar/wp-content/uploads/2024/05/INSTRUCTIVO-CENAT-MUNICIPALIDAD-SALTA.pdf",
+      "fuentes": [
+        "licencia-17-anos",
+        "renovacion-cambio-jurisdiccion-noprofesionales",
+        "salta-activa-plataformas",
+        "renovacion-licencia-noprofesionales",
+        "licencia-de-conducir-principiantes-profesionales-jurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Formulario",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "B6",
+      "muestra": 5,
+      "status": 200,
+      "ms": 1569,
+      "respuesta": "¡Hola! Sí, existe una guía para solicitar la oblea. Podés descargarla desde este enlace:\n\n[https://municipalidadsalta.gob.ar/wp-content/uploads/2026/03/GUIA_-SOLICITUD-DE-OBLEAS.pdf](https://municipalidadsalta.gob.ar/wp-content/uploads/2026/03/GUIA_-SOLICITUD-DE-OBLEAS.pdf)\n\nEste instructivo te servirá para la Oblea de Discapacidad, el Permiso de Frentista Residente y el Permiso de Frentista Comerciante.",
+      "fuentes": [
+        "oblea-de-discapacidad",
+        "permiso-de-frentista-residente",
+        "permiso-de-frentista-comerciante",
+        "desarrollo-humano-2-programas-descentralizados"
+      ],
+      "modo": null,
+      "bloque": "Formulario",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "C1",
+      "muestra": 5,
+      "status": 200,
+      "ms": 1374,
+      "respuesta": "¡Hola! Para la exención del impuesto automotor por discapacidad, no se menciona un mail de contacto.\n\nPodés hacer tus consultas de forma presencial en el Centro Cívico Municipal, Av. Paraguay Nº1240, Segundo Salón. Atienden de lunes a viernes de 8:00 a 13:00 hs.",
+      "fuentes": [
+        "exencion-para-discapacitado",
+        "exenciones-impositivas",
+        "exencion-para-discapacitados"
+      ],
+      "modo": null,
+      "bloque": "Contacto",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "C2",
+      "muestra": 5,
+      "status": 200,
+      "ms": 1205,
+      "respuesta": "¡Hola! Para consultas sobre trámites de inmuebles en Rentas, podés llamar al 4160900, internos 1503 o 1504.",
+      "fuentes": [
+        "pagos-errados-de-inmuebles",
+        "unificacion-de-cuenta-con-unidad-urbana",
+        "alta-unidad-urbana",
+        "exencion-empresas-sin-fines-de-lucro",
+        "exencion-entidades-intermedias-religiosas"
+      ],
+      "modo": null,
+      "bloque": "Contacto",
+      "v": "CORRECTA",
+      "fuenteOk": false,
+      "sinFuentes": false
+    },
+    {
+      "id": "C3",
+      "muestra": 5,
+      "status": 200,
+      "ms": 1589,
+      "respuesta": "¡Hola! Para consultar sobre la eximición de la Tasa de Protección Ambiental para vehículos con 20 años o más, podés contactarte de las siguientes maneras:\n\n*   **Por correo electrónico:** rentas.aut@municipalidadsalta.gob.ar\n*   **Por teléfono:** 4160900, internos 1527 o 1530.\n*   **Personalmente:** De lunes a viernes, de 8 a 13 hs, en el Centro Cívico Municipal (2° Salón – Box de Atención Especial Jubilados, Pensionados y Discapacitados).",
+      "fuentes": [
+        "eximicion-de-la-tasa-ambiental",
+        "exenciones-impositivas",
+        "exencion-para-automotores-y-motovehiculos-autopropulsados"
+      ],
+      "modo": null,
+      "bloque": "Contacto",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "C4",
+      "muestra": 5,
+      "status": 200,
+      "ms": 1713,
+      "respuesta": "¡Hola! Para hacer un plan de pago de inmuebles, tenés que ir al Centro Cívico Municipal, en Av. Paraguay N°1240.\n\nAndá a la Gerencia de Atención al Contribuyente, en la Oficina de Planes de Pago. El horario de atención es de 8:00 a 20:00 hs.\n\nNecesitás llevar esta documentación:\n\n*   DNI original y fotocopia (primera y segunda hoja).\n*   Fotocopia de la Cédula Parcelaria.\n*   La Cuenta Corriente del sistema ITRON.\n*   Un anticipo del 20% de la deuda.\n\nSi no tenés Clave Fiscal, podés obtenerla en el mismo CCM, salón 2, planta baja, de 8:00 a 14:00 hs.",
+      "fuentes": [
+        "plan-de-pago-inmuebles"
+      ],
+      "modo": null,
+      "bloque": "Contacto",
+      "v": "INCOMPLETA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "C5",
+      "muestra": 5,
+      "status": 200,
+      "ms": 1307,
+      "respuesta": "¡Hola! Para la recategorización en TGI, podés escribir un mail a armsa.inf.des.terr@municipalidadsalta.gob.ar.\n\nTambién podés hacerlo de forma presencial en el Centro Cívico Municipal (Av. Paraguay Nº1240), en la Oficina de Mesa de Entrada General, de 08:00 a 20:00 hs.",
+      "fuentes": [
+        "recategorizacion-en-tgi"
+      ],
+      "modo": null,
+      "bloque": "Contacto",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "C6",
+      "muestra": 5,
+      "status": 200,
+      "ms": 1549,
+      "respuesta": "¡Hola! Si necesitás contactar por las Becas Municipales, podés hacerlo de estas maneras:\n\n*   **Teléfono:** Llamá al 4160-900, interno 1093, de lunes a viernes de 8:00 a 15:00 hs.\n*   **Correo electrónico:** Escribí a becasmunicipales@municipalidadsalta.gob.ar.\n\nLa inscripción para la beca 2026 es digital, a través de la App Muni Salta.",
+      "fuentes": [
+        "becas-municipales"
+      ],
+      "modo": null,
+      "bloque": "Contacto",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "C7",
+      "muestra": 5,
+      "status": 200,
+      "ms": 1396,
+      "respuesta": "¡Hola! Si tenés dudas sobre la oblea de discapacidad, podés escribir a la Secretaría de Tránsito y Seguridad Vial a este correo: discapacidad.transito.salta@gmail.com.\n\nTambién podés llamar al 0800-122-5521 o al 4160900 int. 1702 para asesoramiento.",
+      "fuentes": [
+        "oblea-de-discapacidad",
+        "promocion-social"
+      ],
+      "modo": null,
+      "bloque": "Contacto",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "D1",
+      "muestra": 5,
+      "status": 200,
+      "ms": 1350,
+      "respuesta": "El Centro Emisor de Licencias (CEL) de la zona Norte está en el CIC Nuestra Señora del Carmen, en Barrio Unión.\n\nPodés contactarlos al 3875668881 o por mail a licenciasdeconducir@municipalidadsalta.gob.ar. Atienden de 8:00 a 13:30 y de 14:00 a 16:30.",
+      "fuentes": [
+        "licencia-conducir-principiantes-noprofesionales",
+        "duplicado-de-licencia",
+        "licencia-de-conducir-principiantes-profesionales-jurisdiccionales",
+        "licencia-de-conducir-principiantes-profesionales-interjurisdiccionales",
+        "licencia-de-conducir-renovacion-profesionales-jurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Dirección",
+      "v": "CORRECTA",
+      "fuenteOk": false,
+      "sinFuentes": false
+    },
+    {
+      "id": "D2",
+      "muestra": 5,
+      "status": 200,
+      "ms": 1361,
+      "respuesta": "¡Hola! El Centro Emisor de Licencias (CEL) de Santa Fe 545 atiende en estos horarios:\n\n*   **Lunes a viernes:** de 08:30 a 13:30 hs y de 14:00 a 18:00 hs.\n*   **Sábados:** de 08:30 a 12:30 hs.",
+      "fuentes": [
+        "duplicado-de-licencia",
+        "renovacion-licencia-noprofesionales",
+        "licencia-de-conducir-principiantes-profesionales-jurisdiccionales",
+        "licencia-de-conducir-principiantes-profesionales-interjurisdiccionales",
+        "licencia-de-conducir-renovacion-profesionales-jurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Dirección",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "D3",
+      "muestra": 5,
+      "status": 200,
+      "ms": 1384,
+      "respuesta": "¡Hola! Sí, hay un Centro Emisor de Licencias (CEL) en la zona sur.\n\n**Ubicación y Horario:**\n*   **Dirección:** Paseo Libertad Salta (Av. Tavella y Av. Ex Combatientes de Malvinas).\n*   **Horario de atención:** De 8:40 a 18:00 horas.",
+      "fuentes": [
+        "licencia-de-conducir-principiantes-profesionales-jurisdiccionales",
+        "licencia-conducir-principiantes-noprofesionales",
+        "licencia-de-conducir-principiantes-profesionales-interjurisdiccionales",
+        "licencia-de-conducir-renovacion-profesionales-jurisdiccionales",
+        "licencia-de-conducir-ampliacion-profesionales-jurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Dirección",
+      "v": "CORRECTA",
+      "fuenteOk": false,
+      "sinFuentes": false
+    },
+    {
+      "id": "D4",
+      "muestra": 5,
+      "status": 200,
+      "ms": 1277,
+      "respuesta": "¡Hola! Para trámites de licencia de conducir, podés escribir a licenciasdeconducir@municipalidadsalta.gob.ar.\n\nTambién te cuento que, una vez que iniciás el trámite, tenés que revisar tu casilla de correo (incluyendo spam) para solicitar un turno.",
+      "fuentes": [
+        "licencia-de-conducir-principiantes-profesionales-jurisdiccionales",
+        "licencia-conducir-principiantes-noprofesionales",
+        "renovacion-licencia-noprofesionales",
+        "licencia-17-anos",
+        "licencia-de-conducir-principiantes-profesionales-interjurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Dirección",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "E1",
+      "muestra": 5,
+      "status": 200,
+      "ms": 1534,
+      "respuesta": "El Centro de Mediación y Conciliaciones es un servicio gratuito de la Municipalidad de Salta para resolver conflictos de forma alternativa.\n\nPodés usarlo para temas de alquileres, contratos, asuntos familiares y derechos del consumidor, entre otros.\n\nPara acceder, completá el formulario en línea, llamá al 416-0900 int. 1571 o escribí a mediacion.conciliacion@municipalidadsalta.gob.ar.",
+      "fuentes": [
+        "centro-de-mediacion-y-conciliaciones",
+        "entidades-intermedias-y-religiosas",
+        "desarrollo-humano-2-programas-descentralizados",
+        "desarrollo-humano-2-programas-descentralizados",
+        "cics-centros-comunitarios"
+      ],
+      "modo": null,
+      "bloque": "Control",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "E2",
+      "muestra": 5,
+      "status": 200,
+      "ms": 1438,
+      "respuesta": "¡Hola! Para consultar el estado de un expediente, tenés dos opciones:\n\n*   **Online:** Podés hacerlo a través de este enlace: http://200.123.98.131:8384/expediente/\n*   **En el Cementerio San Antonio de Padua:** Si estás en las oficinas del cementerio, podés llenar este formulario: https://forms.gle/25yjQL7kVkmSVPFK9\n\nRecordá tener a mano el número de expediente para hacer la consulta.",
+      "fuentes": [
+        "consulta-de-expedientes",
+        "solicitud-de-estados-de-cuenta",
+        "licencia-de-conducir-renovacion-profesionales-jurisdiccionales",
+        "licencia-de-conducir-ampliacion-profesionales-jurisdiccionales",
+        "licencia-conducir-renovacion-profesionales-jurisdiccionales"
+      ],
+      "modo": null,
+      "bloque": "Control",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "E3",
+      "muestra": 5,
+      "status": 200,
+      "ms": 1871,
+      "respuesta": "¡Hola! Para pedir un estado de cuenta, tenés que completar un formulario.\n\nPodés acceder al formulario desde este enlace:\nhttps://forms.gle/Sh5pZqDUgEKXcQh6\n\nEste trámite se realiza en el Cementerio San Antonio de Padua.",
+      "fuentes": [
+        "solicitud-de-estados-de-cuenta",
+        "vehiculo-secuestrado",
+        "solicitud-de-grafica",
+        "unificacion-de-cuenta-con-unidad-urbana",
+        "formulario-26"
+      ],
+      "modo": null,
+      "bloque": "Control",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "E4",
+      "muestra": 5,
+      "status": 200,
+      "ms": 1888,
+      "respuesta": "¡Hola! Para un permiso de obras eléctricas, necesitás reunir varios documentos.\n\nSi sos una empresa que hace obras en la vía pública, te van a pedir:\n*   Una nota con la descripción de la obra, el lugar y los datos de tu empresa.\n*   Declaración Jurada firmada en todas sus hojas.\n*   Nota de interferencia con empresas como GASNOR, EDESA, TELECOM, CLARO y AGUAS DEL NORTE.\n*   Memoria descriptiva de los trabajos.\n*   Plano de electricidad original y duplicado firmado por COPAIPA.\n*   Aprobación de factibilidad de Edesa.\n*   Inscripción en AFIP.\n\nSi lo que buscás es una Constancia de Inspección Eléctrica, los requisitos son diferentes. ¿Querés que te cuente sobre eso?",
+      "fuentes": [
+        "permisos-para-obras-electricas",
+        "solicitud-de-constancia-de-inspeccion-electrica",
+        "permisos-subcontratista-o-servicios-publicos"
+      ],
+      "modo": null,
+      "bloque": "Control",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "E5",
+      "muestra": 5,
+      "status": 200,
+      "ms": 2081,
+      "respuesta": "¡Hola! Para sacar el permiso de frentista si vivís en una zona con estacionamiento medido, tenés que seguir estos pasos:\n\n1.  **Completar el formulario:** Ingresá a este enlace: [[https://docs.google.com/forms/d/e/1FAIpQLScLbNvGxR-1spPVyZ_iIwy9wyLhWW5XTClDvo99tPIIHUaKnA/viewform]] y adjuntá la documentación que te pidan.\n2.  **Espera la respuesta:** La Secretaría de Tránsito y Seguridad Vial revisará tu pedido y te contactará en un máximo de 72 horas hábiles.\n3.  **Colocar el permiso:** Una vez que te lo otorguen, ponelo en la luneta de tu auto.\n\nEste permiso es personal e intransferible y te permite estacionar gratis en la cuadra de tu domicilio (solo en la mano de tu casa).\n\nSi tenés un comercio, el trámite es similar pero con otro formulario y beneficios. ¿Querés que te cuente sobre ese?",
+      "fuentes": [
+        "permiso-de-frentista-residente",
+        "permiso-de-frentista-comerciante",
+        "trabajos-en-fachada"
+      ],
+      "modo": null,
+      "bloque": "Control",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "E6",
+      "muestra": 5,
+      "status": 200,
+      "ms": 1869,
+      "respuesta": "¡Hola! Para dar de alta un garaje y que quede demarcado, el trámite se llama **Solicitud de Alta de Garaje**.\n\nCon este trámite, tu garaje quedará señalizado con pintura y cartelería, lo que te permite reclamar si alguien lo obstaculiza.\n\nPara iniciarlo, tenés que completar este formulario online:\nhttps://docs.google.com/forms/d/e/1FAIpQLSex7WTGTPLl-cXjQCE7TXSgAWlLCLUTH_L6VLQSTl5Xwn3M0g/viewform?usp=sf_link\n\nDespués de que lo completes, personal de Tránsito verificará tu garaje y te avisará por mail si se aprueba. Si es así, te informarán el costo de la tasa de ejecución de obra.",
+      "fuentes": [
+        "solicitud-de-alta-de-garaje",
+        "alta-unidad-urbana",
+        "formulario-26"
+      ],
+      "modo": null,
+      "bloque": "Control",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    },
+    {
+      "id": "E7",
+      "muestra": 5,
+      "status": 200,
+      "ms": 1920,
+      "respuesta": "¡Sí! La Municipalidad de Salta tiene el programa \"Huertas de la Ciudad\", que ofrece talleres gratuitos sobre agroecología.\n\n**¿Qué aprendés en los talleres?**\nTe enseñan a armar tu propia huerta en casa o en espacios comunitarios. Aprendés sobre preparación de la tierra, siembra, rotación de cultivos, abonos y control de plagas.\n\n**¿Dónde y cuándo son?**\nHay talleres en varias Huertas Municipales. Por ejemplo:\n*   **DIAT San Benito:** Miércoles de 10 a 12 hs. o de 18 a 20 hs.\n*   **CIC Barrio Constitución:** Martes de 9 a 11 hs. o Martes y Jueves de 9 a 11 hs.\n*   **CIC Barrio Asunción:** Miércoles de 16:30 a 18:30 hs. o de 17 a 19 hs.\n\nPara más información o para sumarte, podés escribir a huertas@municipalidadsalta.gob.ar.",
+      "fuentes": [
+        "huertas"
+      ],
+      "modo": null,
+      "bloque": "Control",
+      "v": "CORRECTA",
+      "fuenteOk": true,
+      "sinFuentes": false
+    }
+  ],
+  "filas": [
+    {
+      "id": "A1",
+      "bloque": "Costo",
+      "cuenta": {
+        "CORRECTA": 5
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 5,
+      "sinFuentes": 0,
+      "muestras": 5,
+      "ms": 1739
+    },
+    {
+      "id": "A2",
+      "bloque": "Costo",
+      "cuenta": {
+        "CORRECTA_CON_RUIDO": 2,
+        "CORRECTA": 3
+      },
+      "varia": true,
+      "dominante": "CORRECTA",
+      "fuenteOk": 5,
+      "sinFuentes": 0,
+      "muestras": 5,
+      "ms": 1796
+    },
+    {
+      "id": "A3",
+      "bloque": "Costo",
+      "cuenta": {
+        "CORRECTA_CON_RUIDO": 5
+      },
+      "varia": false,
+      "dominante": "CORRECTA_CON_RUIDO",
+      "fuenteOk": 0,
+      "sinFuentes": 0,
+      "muestras": 5,
+      "ms": 1858
+    },
+    {
+      "id": "A4",
+      "bloque": "Costo",
+      "cuenta": {
+        "CORRECTA": 5
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 5,
+      "sinFuentes": 0,
+      "muestras": 5,
+      "ms": 1579
+    },
+    {
+      "id": "A5",
+      "bloque": "Costo",
+      "cuenta": {
+        "CORRECTA": 5
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 5,
+      "sinFuentes": 0,
+      "muestras": 5,
+      "ms": 2178
+    },
+    {
+      "id": "A6",
+      "bloque": "Costo",
+      "cuenta": {
+        "CORRECTA": 5
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 5,
+      "sinFuentes": 0,
+      "muestras": 5,
+      "ms": 1483
+    },
+    {
+      "id": "B1",
+      "bloque": "Formulario",
+      "cuenta": {
+        "CORRECTA": 5
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 5,
+      "sinFuentes": 0,
+      "muestras": 5,
+      "ms": 1757
+    },
+    {
+      "id": "B2",
+      "bloque": "Formulario",
+      "cuenta": {
+        "CORRECTA": 5
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 5,
+      "sinFuentes": 0,
+      "muestras": 5,
+      "ms": 1567
+    },
+    {
+      "id": "B3",
+      "bloque": "Formulario",
+      "cuenta": {
+        "CORRECTA": 5
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 5,
+      "sinFuentes": 0,
+      "muestras": 5,
+      "ms": 2179
+    },
+    {
+      "id": "B4",
+      "bloque": "Formulario",
+      "cuenta": {
+        "CORRECTA": 5
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 5,
+      "sinFuentes": 0,
+      "muestras": 5,
+      "ms": 1672
+    },
+    {
+      "id": "B5",
+      "bloque": "Formulario",
+      "cuenta": {
+        "CORRECTA": 5
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 5,
+      "sinFuentes": 0,
+      "muestras": 5,
+      "ms": 1789
+    },
+    {
+      "id": "B6",
+      "bloque": "Formulario",
+      "cuenta": {
+        "CORRECTA": 5
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 5,
+      "sinFuentes": 0,
+      "muestras": 5,
+      "ms": 1648
+    },
+    {
+      "id": "C1",
+      "bloque": "Contacto",
+      "cuenta": {
+        "CORRECTA": 5
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 3,
+      "sinFuentes": 2,
+      "muestras": 5,
+      "ms": 1393
+    },
+    {
+      "id": "C2",
+      "bloque": "Contacto",
+      "cuenta": {
+        "CORRECTA": 5
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 0,
+      "sinFuentes": 0,
+      "muestras": 5,
+      "ms": 1211
+    },
+    {
+      "id": "C3",
+      "bloque": "Contacto",
+      "cuenta": {
+        "CORRECTA": 5
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 5,
+      "sinFuentes": 0,
+      "muestras": 5,
+      "ms": 1629
+    },
+    {
+      "id": "C4",
+      "bloque": "Contacto",
+      "cuenta": {
+        "INCOMPLETA": 5
+      },
+      "varia": false,
+      "dominante": "INCOMPLETA",
+      "fuenteOk": 5,
+      "sinFuentes": 0,
+      "muestras": 5,
+      "ms": 1889
+    },
+    {
+      "id": "C5",
+      "bloque": "Contacto",
+      "cuenta": {
+        "CORRECTA": 5
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 5,
+      "sinFuentes": 0,
+      "muestras": 5,
+      "ms": 1404
+    },
+    {
+      "id": "C6",
+      "bloque": "Contacto",
+      "cuenta": {
+        "CORRECTA": 5
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 5,
+      "sinFuentes": 0,
+      "muestras": 5,
+      "ms": 1557
+    },
+    {
+      "id": "C7",
+      "bloque": "Contacto",
+      "cuenta": {
+        "CORRECTA": 5
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 5,
+      "sinFuentes": 0,
+      "muestras": 5,
+      "ms": 1522
+    },
+    {
+      "id": "D1",
+      "bloque": "Dirección",
+      "cuenta": {
+        "CORRECTA": 5
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 0,
+      "sinFuentes": 0,
+      "muestras": 5,
+      "ms": 1483
+    },
+    {
+      "id": "D2",
+      "bloque": "Dirección",
+      "cuenta": {
+        "CORRECTA": 5
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 5,
+      "sinFuentes": 0,
+      "muestras": 5,
+      "ms": 1388
+    },
+    {
+      "id": "D3",
+      "bloque": "Dirección",
+      "cuenta": {
+        "CORRECTA": 5
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 0,
+      "sinFuentes": 0,
+      "muestras": 5,
+      "ms": 1396
+    },
+    {
+      "id": "D4",
+      "bloque": "Dirección",
+      "cuenta": {
+        "CORRECTA": 5
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 5,
+      "sinFuentes": 0,
+      "muestras": 5,
+      "ms": 1321
+    },
+    {
+      "id": "E1",
+      "bloque": "Control",
+      "cuenta": {
+        "CORRECTA": 5
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 5,
+      "sinFuentes": 0,
+      "muestras": 5,
+      "ms": 1448
+    },
+    {
+      "id": "E2",
+      "bloque": "Control",
+      "cuenta": {
+        "CORRECTA": 5
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 5,
+      "sinFuentes": 0,
+      "muestras": 5,
+      "ms": 1659
+    },
+    {
+      "id": "E3",
+      "bloque": "Control",
+      "cuenta": {
+        "CORRECTA": 5
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 5,
+      "sinFuentes": 0,
+      "muestras": 5,
+      "ms": 1479
+    },
+    {
+      "id": "E4",
+      "bloque": "Control",
+      "cuenta": {
+        "CORRECTA": 5
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 5,
+      "sinFuentes": 0,
+      "muestras": 5,
+      "ms": 2356
+    },
+    {
+      "id": "E5",
+      "bloque": "Control",
+      "cuenta": {
+        "CORRECTA": 5
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 5,
+      "sinFuentes": 0,
+      "muestras": 5,
+      "ms": 2114
+    },
+    {
+      "id": "E6",
+      "bloque": "Control",
+      "cuenta": {
+        "CORRECTA": 5
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 5,
+      "sinFuentes": 0,
+      "muestras": 5,
+      "ms": 2051
+    },
+    {
+      "id": "E7",
+      "bloque": "Control",
+      "cuenta": {
+        "CORRECTA": 5
+      },
+      "varia": false,
+      "dominante": "CORRECTA",
+      "fuenteOk": 5,
+      "sinFuentes": 0,
+      "muestras": 5,
+      "ms": 2291
+    }
+  ]
+}

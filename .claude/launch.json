@@ -4,8 +4,12 @@
     {
       "name": "ventanilla-dev",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["next", "dev"],
-      "port": 3000
+      "runtimeArgs": [
+        "next",
+        "dev"
+      ],
+      "port": 3000,
+      "autoPort": true
     }
   ]
 }

@@ -525,6 +525,12 @@ async function recuperarV1(embedding: number[]): Promise<Retrieval> {
 // embebieron con RETRIEVAL_DOCUMENT: son espacios distintos y mezclarlos
 // degrada el matching.
 // ---------------------------------------------------------------------------
+type EnlaceV2 = {
+  texto: string | null
+  url: string | null
+  marcador: number | null
+}
+
 type ChunkV2 = {
   id: string
   slug: string | null
@@ -532,6 +538,14 @@ type ChunkV2 = {
   subtramite: string | null
   titulo_seccion: string | null
   texto_display: string | null
+  // La RPC devuelve `enlaces` desde el principio (ver la migración
+  // 20260813120100_match_tramite_chunks_v2.sql), pero el tipo no lo declaraba y
+  // el contexto se armaba solo con `texto_display`. Resultado: las URLs de los
+  // trámites que se hacen online (formularios de inscripción, descargas de
+  // ordenanza, plataformas de pago) llegaban hasta acá y se tiraban, y el
+  // modelo — que ve el marcador `[[n]]` y tiene prohibido inventar direcciones
+  // por la regla 13 del prompt — contestaba "entrá a la página oficial".
+  enlaces: EnlaceV2[] | null
   categorias: string[] | null
   categorias_slug: string[] | null
   tipo_contenido: string | null
@@ -635,12 +649,56 @@ function diversificarPorTramite(chunks: ChunkV2[], maxPorTramite: number, limite
   return elegidos
 }
 
+/**
+ * Reemplaza cada `[[n]]` del texto por la URL que le corresponde en `enlaces`.
+ *
+ * Se sustituye en lugar de agregar una lista al pie porque así la URL queda
+ * donde está la frase que la explica ("COMPLETAR FORMULARIO [[1]]"), y no
+ * suelta al final donde el modelo tiene que adivinar a cuál de tres se refiere.
+ *
+ * No hace falta tocar el SYSTEM_PROMPT: la regla 13 dice que un marcador nunca
+ * se copia y que "cuando en el CONTEXTO hay una URL escrita, poné esa URL".
+ * Sustituir es justamente hacer que la URL esté escrita. Los marcadores que no
+ * tengan enlace quedan como están y la regla 13 los sigue cubriendo.
+ *
+ * Si la dirección ya aparece en el texto no se repite: en los bloques de
+ * contacto el ancla ES el mail, y duplicarlo solo mete ruido en el contexto.
+ */
+function expandirMarcadores(texto: string, enlaces: EnlaceV2[] | null): string {
+  if (!enlaces?.length || !texto.includes("[[")) return texto
+
+  // Se consume el espacio previo y se lo repone al sustituir: si no, queda
+  // doble espacio cuando hay URL, y un espacio colgando cuando no la hay.
+  // `[ \t]` y no `\s` a propósito: un salto de línea antes del marcador es
+  // maquetado del chunk y se conserva.
+  return texto.replace(/[ \t]*\[\[(\d+)\]\]/g, (marcaCruda, n: string) => {
+    const enlace = enlaces.find((e) => e.marcador === Number(n))
+    const url = enlace?.url?.trim()
+    if (!url) return marcaCruda
+
+    // Solo esquemas que un trámite puede legítimamente publicar. Hoy el corpus
+    // tiene exactamente eso (382 enlaces: 248 https, 53 http, 81 mailto), pero
+    // se regenera del scraping de un sitio que no controlamos: sin esta lista,
+    // lo que apareciera en un `href` mañana entraría al prompt tal cual.
+    if (!/^(https?|mailto|tel):/i.test(url)) return marcaCruda
+
+    // `mailto:` sobra (el ancla ya muestra la dirección) y el scraping arrastra
+    // %20 pegados al final de algunos href.
+    const limpia = url.replace(/^mailto:/i, "").replace(/%20/g, "").trim()
+    if (limpia === "" || texto.includes(limpia)) return ""
+    return ` ${limpia}`
+  })
+}
+
 async function recuperarV2(embedding: number[]): Promise<Retrieval> {
   const pool = await buscarChunksV2(embedding, POOL_COUNT)
   const chunks = diversificarPorTramite(pool, MAX_CHUNKS_POR_TRAMITE, MATCH_COUNT)
 
   const contexto = chunks
-    .map((c) => `[Fuente: ${tituloChunkV2(c)} | ${c.url_origen ?? ""}]\n${c.texto_display ?? ""}\n---`)
+    .map(
+      (c) =>
+        `[Fuente: ${tituloChunkV2(c)} | ${c.url_origen ?? ""}]\n${expandirMarcadores(c.texto_display ?? "", c.enlaces)}\n---`,
+    )
     .join("\n")
 
   // Diagnóstico de retrieval. Apagado salvo que DIAG_RETRIEVAL === "true".
