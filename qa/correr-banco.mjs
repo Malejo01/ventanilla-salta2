@@ -38,6 +38,20 @@ const BLOQUE = flag('bloque', null)
 const SALIDA = flag('salida', null)
 const COMPARAR = flag('comparar', null)
 
+// `--base` apunta a otro origen (producción). Contra producción NO se varía el
+// x-forwarded-for: ahí el rate limit es real y se respeta espaciando los
+// pedidos, no esquivándolo. Por eso `--espaciado` es obligatorio con `--base`.
+const BASE = flag('base', null)
+const ESPACIADO = Number(flag('espaciado', BASE === null ? '0' : '4000'))
+const ORIGEN = BASE ?? `http://localhost:${PUERTO}`
+const ES_LOCAL = BASE === null
+
+if (!ES_LOCAL && MUESTRAS > 1) {
+  console.error('Contra --base usá --muestras=1. El rate limit es de 20/min: 30×5 son 10+ minutos')
+  console.error('de pedidos contra producción, y esa medición ya se hace local.')
+  process.exit(1)
+}
+
 const banco = JSON.parse(fs.readFileSync(path.join(AQUI, 'banco-preguntas.json'), 'utf8'))
 const preguntas = BLOQUE === null ? banco : banco.filter((q) => q.bloque === BLOQUE)
 if (preguntas.length === 0) throw new Error(`No hay preguntas del bloque "${BLOQUE}"`)
@@ -87,13 +101,21 @@ export function evaluar(q, r) {
 
 // --------------------------------------------------------------------------
 
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
+
 const pedir = async (q, muestra) => {
   const t0 = Date.now()
-  const res = await fetch(`http://localhost:${PUERTO}/api/chat`, {
+  const res = await fetch(`${ORIGEN}/api/chat`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'x-forwarded-for': `10.${muestra}.${Math.floor(Math.random() * 250)}.${Math.floor(Math.random() * 250)}`,
+      // Solo local: el limitador en memoria (20/min por IP) no aporta nada a
+      // esta medición y 150 pedidos no entran. Contra producción no se toca.
+      ...(ES_LOCAL
+        ? {
+            'x-forwarded-for': `10.${muestra}.${Math.floor(Math.random() * 250)}.${Math.floor(Math.random() * 250)}`,
+          }
+        : {}),
     },
     body: JSON.stringify({ pregunta: q.pregunta }),
   })
@@ -155,13 +177,16 @@ export function imprimir(preguntas, ev, filas) {
 }
 
 async function main() {
-  console.log(`banco: ${preguntas.length} preguntas × ${MUESTRAS} muestras contra localhost:${PUERTO}`)
+  console.log(`banco: ${preguntas.length} preguntas × ${MUESTRAS} muestras contra ${ORIGEN}`)
+  if (ESPACIADO > 0) console.log(`  espaciado: ${ESPACIADO} ms entre pedidos (rate limit 20/min)`)
   const crudas = []
   for (let m = 1; m <= MUESTRAS; m += 1) {
     process.stdout.write(`  muestra ${m}/${MUESTRAS} `)
-    for (const q of preguntas) {
-      crudas.push(await pedir(q, m))
-      process.stdout.write('.')
+    for (const [i, q] of preguntas.entries()) {
+      if (ESPACIADO > 0 && i > 0) await sleep(ESPACIADO)
+      const r = await pedir(q, m)
+      crudas.push(r)
+      process.stdout.write(r.status === 200 ? '.' : `[${r.status}]`)
     }
     process.stdout.write('\n')
   }
