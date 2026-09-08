@@ -223,19 +223,26 @@ scraping y toma el dato nuevo sin tocar código.
 
 ### Qué encontramos
 
-En dos trámites, la página **muestra** una dirección institucional y el atributo
+En tres trámites, la página **muestra** una dirección institucional y el atributo
 `href` del mismo enlace apunta a una casilla de proveedor gratuito. No son dos
 contactos distintos puestos uno al lado del otro: es un solo elemento de enlace
 cuyo texto y cuyo destino son direcciones diferentes.
 
-| Trámite | Texto visible del enlace | Destino real del `mailto:` |
-|---|---|---|
-| [Denuncia de colisión](https://municipalidadsalta.gob.ar/tramites/denuncia-de-colision/) | `licenciasdeconducir@…gob.ar` | `m***@gmail.com` |
-| [Solicitud de dársena](https://municipalidadsalta.gob.ar/tramites/solicitud-de-darsena/) | `tramitestransito@…gob.ar` | `f***@gmail.com` |
+| Trámite | Chunk | Texto visible del enlace | Destino real del `mailto:` |
+|---|---|---|---|
+| [Denuncia de colisión](https://municipalidadsalta.gob.ar/tramites/denuncia-de-colision/) | — | `licenciasdeconducir@…gob.ar` | `m***@gmail.com` |
+| [Solicitud de dársena](https://municipalidadsalta.gob.ar/tramites/solicitud-de-darsena/) | `208497-2` | `tramitestransito@…gob.ar` | `f***@gmail.com` |
+| [Vehículo secuestrado](https://municipalidadsalta.gob.ar/tramites/vehiculo-secuestrado/) | `176720-12` | `licenciasdeconducir@…gob.ar` | `m***@gmail.com` |
 
-Lo confirmamos sobre el HTML servido, no sobre el corpus: en las dos páginas el
+Lo confirmamos sobre el HTML servido, no sobre el corpus: en las tres páginas el
 `mailto:` resuelve a la casilla gratuita y el texto que se imprime en pantalla es
 la dirección institucional.
+
+El tercer caso (*Vehículo secuestrado*) apareció en el barrido de enlaces de la
+observación 9, no en el relevamiento original de contactos. Es el mismo par de
+direcciones que *Denuncia de colisión* — las dos fichas son de Movilidad
+Ciudadana — así que lo más probable es que sea un solo bloque de contacto
+copiado entre páginas, con el error incluido.
 
 ### Por qué importa
 
@@ -368,3 +375,310 @@ respuesta correcta. Si el municipio define una, se ajusta ahí.
 Que cada trámite publique **una** casilla, o que diga explícitamente para qué
 sirve cada una si de verdad son dos canales distintos. Es un cambio en la
 fuente: el corpus se regenera del scraping y toma el dato nuevo sin tocar código.
+
+---
+
+## 9. Un requisito de habilitación enlaza a un dominio mal escrito, y la ruta correcta tampoco existe
+
+**Estado:** sin tapar del lado nuestro. Verificado contra DNS, TLS y HTTP.
+
+### Qué encontramos
+
+La ficha de **Habilitaciones Comerciales**, en la sección *3) SOLICITUD DE
+HABILITACIÓN*, pide un certificado de seguridad contra incendios y remite a un
+listado de entidades de bomberos:
+
+```
+Consultá por entidades de Bomberos aquí:
+http://www.policiasalta.gob.ar/requisitos/bomberos/db1.html
+```
+
+Está en **dos chunks**, y en los dos hay que corregirlo:
+
+| Chunk | Trámite | Dónde aparece |
+|---|---|---|
+| `95471-25` | `habilitaciones-comerciales` (sub: *Nueva Habilitación Comercial*) | cuerpo **y** `enlaces[2]` |
+| `v1-17-3` | `salta-activa-plataformas` (corpus curado v1) | solo cuerpo, en una tabla de plataformas |
+
+El dominio de la Policía de la Provincia de Salta es **`policiadesalta.gob.ar`**
+— con `de` en el medio. Lo que publica el municipio, `policiasalta.gob.ar`, es
+otro host.
+
+### Qué es realmente `policiasalta.gob.ar`
+
+Dos cosas, ninguna buena:
+
+- **`www.policiasalta.gob.ar`**, que es exactamente lo que dice el corpus, **no
+  existe**: `NXDOMAIN`. El enlace está roto desde la resolución de nombres, antes
+  de llegar a hacer un pedido HTTP.
+- **`policiasalta.gob.ar`** sin el `www` **sí resuelve** (181.111.226.107), y ahí
+  está lo llamativo: responde **HTTP 403** con un cuerpo que dice *"Este mensaje
+  ha sido generado por Kerio Control Proxy"*. No es un sitio web: es un **proxy
+  de control de tráfico interno, expuesto a internet**. Además sirve por HTTPS un
+  certificado emitido para `*.policiadesalta.gob.ar`, que no lo cubre
+  (`ERR_TLS_CERT_ALTNAME_INVALID`).
+
+O sea: el host al que apunta el municipio no es, ni fue, el listado de bomberos.
+
+### Qué pasa con el dominio correcto
+
+`policiadesalta.gob.ar` está sano en lo que hace a identidad:
+
+```
+DNS   181.111.226.106, 200.49.93.130         resuelve
+TLS   CN=*.policiadesalta.gob.ar
+      SAN=*.policiadesalta.gob.ar, policiadesalta.gob.ar
+      Sectigo, vigente 2025-10-01 → 2026-10-08     certificado válido
+HTTP  302 → https://web.policiadesalta.gob.ar/    (200, WordPress)
+```
+
+Pero **la ruta del corpus no existe en ningún lado**:
+
+| URL probada | Resultado |
+|---|---|
+| `policiadesalta.gob.ar/requisitos/bomberos/db1.html` | **404** |
+| `web.policiadesalta.gob.ar/requisitos/bomberos/db1.html` | **404** |
+| `policiadesalta.gob.ar/requisitos/bomberos/` | **404** |
+
+El sitio de la Policía se rehízo en WordPress y la estructura estática vieja
+(`/requisitos/...`) desapareció entera. La home actual **no menciona "bomberos"
+ni una vez** en sus 85 KB de HTML.
+
+Un detalle técnico que conviene anotar acá porque nos costó descubrirlo: el
+servidor de `policiadesalta.gob.ar` **no manda el certificado intermedio**. Los
+navegadores se recuperan solos (Chrome y Safari lo bajan por AIA, Firefox lo
+tiene cacheado), pero `fetch` de Node falla con
+`UNABLE_TO_VERIFY_LEAF_SIGNATURE`. El certificado **está bien**; el que está mal
+configurado es el servidor. Ver el punto 4 de `PENDIENTES.md`: es la razón por la
+que el verificador de enlaces no puede usar `rejectUnauthorized` como criterio.
+
+### Por qué importa
+
+Este requisito no es opcional: el certificado de bomberos es condición para
+habilitar locales con afluencia masiva de público. El vecino que sigue el enlace
+para averiguar a qué entidad recurrir no recibe un "no existe" claro, recibe un
+**403 de un proxy**, que no le dice nada y que además parece un problema suyo.
+
+El asistente hereda el mismo problema, con un agravante: la URL está en el
+`texto_display`, así que puede reproducirla dentro de la respuesta como el dato
+operativo que la fuente dice que es.
+
+### Qué recomendamos, y qué NO
+
+**Recomendación: quitar la URL y dejar el texto.** Que el chunk diga *"Consultá
+por entidades de Bomberos"* sin enlace es honesto. Con un enlace a un 403 de un
+proxy interno, no lo es. Toca `texto_display`, `texto_embedding` y `enlaces[]` de
+`95471-25`, y el cuerpo de `v1-17-3`.
+
+**Lo que NO hay que hacer: reescribirlo a `policiadesalta.gob.ar`.** Es la
+corrección que parece obvia y es la peor de las tres opciones:
+
+1. el enlace queda **igual de roto** — 404 en vez de 403;
+2. **borra la evidencia** de que había un error de transcripción, que es
+   justamente el dato que el municipio necesita para arreglarlo en la fuente;
+3. deja el corpus afirmando que existe una página que no existe.
+
+Es un error de transcripción **y** un enlace caído. Las dos cosas a la vez, y
+arreglar una no arregla la otra.
+
+### Qué haría falta para resolverlo de fondo
+
+Que la Dirección General de Habilitaciones **indique a dónde apunta hoy ese
+requisito**: si el listado de entidades de bomberos se publica en algún lado del
+sitio nuevo de la Policía, si se pide por otra vía, o si el requisito cambió. Es
+el área que exige el certificado, así que es la que sabe. Con esa respuesta se
+corrige la página municipal y el corpus lo toma del scraping siguiente.
+
+---
+
+### Otros dos hallazgos del mismo barrido
+
+Salieron de verificar los 224 enlaces del corpus. Los anotamos acá porque son de
+la misma familia —enlaces que el municipio publica hacia sistemas que ya no
+responden— aunque cada uno es independiente del anterior.
+
+#### `armsa.dgrmsalta.gov.ar` no existe
+
+En la ficha **Vehículo secuestrado** (chunk `176720-3`), la instrucción para
+pagar voluntariamente la multa dice *"deberás imprimir la Boleta Pago desde la
+página web de la ARMSa"* y enlaza a:
+
+```
+https://armsa.dgrmsalta.gov.ar/#/automotores/emision-boletas/multas-transito
+```
+
+Ese host da **`NXDOMAIN`**. No es una caída temporal: el nombre no está en el
+DNS. Los hermanos del mismo dominio sí resuelven —`dgrmsalta.gov.ar`,
+`www.dgrmsalta.gov.ar` y `rentas.dgrmsalta.gov.ar`— así que lo más probable es
+que el subdominio `armsa` se haya renombrado o consolidado bajo `rentas`.
+
+Importa porque es **la única vía online que la ficha ofrece** para obtener la
+boleta: el texto la menciona dos veces, una para imprimirla y otra para pagarla
+por el sistema del Banco Macro. Sin ese enlace, al vecino le quedan solo los
+canales presenciales.
+
+**Qué haría falta:** que la ARMSa confirme cuál es la URL vigente de emisión de
+boletas de multas de tránsito.
+
+#### El apex de `dgrmsalta.gov.ar` sirve un certificado vencido
+
+Al verificar la familia de dominios de Rentas apareció esto:
+
+| Host | Certificado | Vigencia | Estado |
+|---|---|---|---|
+| `dgrmsalta.gov.ar` | `*.dgrmsalta.gov.ar` | 2025-05-09 → **2026-05-25** | **vencido hace 106 días** |
+| `www.dgrmsalta.gov.ar` | `*.dgrmsalta.gov.ar` | 2026-04-17 → 2026-11-01 | vigente |
+| `rentas.dgrmsalta.gov.ar` | `*.dgrmsalta.gov.ar` | 2026-04-17 → 2026-11-01 | vigente |
+
+Es el mismo certificado wildcard en los tres. **Lo renovaron y no lo instalaron
+en el apex**, que quedó sirviendo el anterior.
+
+**Alcance, para no exagerarlo:** el apex pelado **no está enlazado desde ningún
+chunk** del corpus (nosotros usamos `rentas.*` y el `armsa.*` del punto
+anterior), así que hoy no rompe ninguna respuesta del asistente. Lo anotamos por
+dos razones: es el mismo host que sirve Rentas del Municipio, y quien entre
+escribiendo `dgrmsalta.gov.ar` a mano en el navegador va a ver una advertencia de
+seguridad a pantalla completa antes de poder pagar nada.
+
+**Qué haría falta:** instalar el certificado ya renovado también en el apex. Es
+configuración de servidor, no hay que emitir nada nuevo.
+
+---
+
+## 10. Dieciocho de los veintitrés formularios de Google del corpus no funcionan
+
+**Estado:** sin tapar del lado nuestro. Verificado contra los formularios en
+vivo el 2026-09-08.
+
+### Qué encontramos
+
+Buena parte de los trámites del sitio municipal se inician completando un
+formulario de Google, enlazado desde la ficha como *"COMPLETAR FORMULARIO"*,
+*"LLENAR FORMULARIO"* o *"Completar Formulario Aquí"*. En el corpus hay **23
+URLs de formulario** distintas, entre `forms.gle` (enlaces cortos) y
+`docs.google.com/forms/...` (largos).
+
+De esas 23, **funcionan 5**.
+
+| Estado | Cuántos | Qué le pasa al vecino |
+|---|---|---|
+| **Cerrado** | 10 | Google redirige a `/closedform`: *"El formulario ya no acepta respuestas"* |
+| **Exige cuenta de Google** | 5 | Redirige a `accounts.google.com/signin`; sin cuenta, no se puede completar |
+| **404** | 3 | El enlace corto `forms.gle` resuelve a un formulario que ya no existe |
+| **Funciona** | 5 | — |
+
+### Por qué el municipio no se enteró
+
+Éste es el punto que hace que la observación valga la pena, y es la razón por la
+que conviene leerla completa antes de pedir "una lista de links rotos":
+
+**15 de los 18 formularios rotos devuelven HTTP 200.**
+
+Un formulario cerrado no da 404 ni 410: Google responde `302` hacia
+`/closedform`, y esa página devuelve **200 OK**. Uno que exige login responde
+`302` hacia la pantalla de ingreso de Google, que también devuelve **200 OK**.
+Para cualquier chequeo que mire el código de estado —un verificador de enlaces
+casero, una extensión de navegador, el reporte de un CMS— los 15 están
+**perfectos**. Solo los 3 que dan 404 se ven.
+
+Dicho de otro modo: el modo de falla más común de estos formularios es
+**invisible para las herramientas y visible solo para el vecino**, que llega
+hasta el final del trámite y ahí se entera. Y como el que se entera es el vecino
+y no el municipio, nadie reporta nada: la persona abandona o llama por teléfono,
+y la ficha sigue publicada igual.
+
+Detectarlo requiere mirar la **URL final de la cadena de redirecciones**, no el
+código de estado. Está anotado como aprendizaje en el punto 4 de
+`PENDIENTES.md`, porque es exactamente el caso que nuestro primer diseño de
+verificador clasificaba como sano.
+
+### Detalle por ficha
+
+**Cerrados — 10**
+
+| Ficha (slug) | Chunk | URL |
+|---|---|---|
+| `denuncias` (A — aguas y cloacas) | `144867-0` | `https://forms.gle/XT59LC1UeYUfWGV47` |
+| `denuncias` (D — vía pública) | `144867-3` | `https://forms.gle/3CTnN9EbeFzgf9jZ8` |
+| `yoemprendo` | `228272-5` | `https://forms.gle/Qd61v2AMMwQQkWZv5` |
+| `curso-manipulacion-alimentos` | `v1-5-4` | `https://forms.gle/PVuvcRw6aKk8XZfb9` |
+| `curso-manipulacion-alimentos` | `v1-5-4` | `https://docs.google.com/forms/d/e/1FAIpQLSdTPHa5atWEkPV6lgla5eeafztaMIpai7s_v1sdCGa1ZxIB_Q/viewform` |
+| `curso-manipulacion-alimentos` | `v1-5-4` | `https://docs.google.com/forms/d/e/1FAIpQLSe6CrRbyLEHHzAOiaLar2Ty7hcfaYAg_sd9b-gNYi4ckfN3ow/viewform` |
+| `curso-manipulacion-alimentos` | `v1-5-4` | `https://docs.google.com/forms/d/e/1FAIpQLSe7-LfRi01yFCBCW4mrMgJEFHz3XJbWCUJiT0aod8d2CO8F6Q/viewform` |
+| `curso-manipulacion-alimentos` | `v1-5-4` | `https://docs.google.com/forms/d/e/1FAIpQLSe_UUMgifUz_EtP6FfIv8xoHVvIxnANDzoC57qHxPCSmb2BMA/viewform` |
+| `curso-manipulacion-alimentos` | `v1-5-5` | `https://docs.google.com/forms/d/e/1FAIpQLScjSRwOOsvRwRZoyZFobIE5bKdUNARZA4YE8aUOG7bIaAh50g/viewform` |
+| `curso-manipulacion-alimentos` | `v1-5-5` | `https://docs.google.com/forms/d/e/1FAIpQLSfCv0jgQIncBWvlawTY90HhbccCR9RX-aMTi3pSRvwRVJIfPg/viewform` |
+
+**Exigen cuenta de Google — 5**
+
+| Ficha (slug) | Chunk | URL |
+|---|---|---|
+| `permiso-de-frentista-residente` | `208213-2` | `https://docs.google.com/forms/d/e/1FAIpQLScLbNvGxR-1spPVyZ_iIwy9wyLhWW5XTClDvo99tPIIHUaKnA/viewform` |
+| `permiso-de-frentista-comerciante` | `208217-2` | `https://docs.google.com/forms/d/e/1FAIpQLSd801KRmP3RhKKIK1mRCcm5NGaPluIGfTM0tzBDDKAs8UkQMA/viewform` |
+| `solicitud-de-darsena` | `208497-2` | `https://forms.gle/SmJCZBpoyxPNX2xo9` |
+| `oblea-de-discapacidad` | `223416-2` | `https://forms.gle/bemFdrAddTrRzE3q9` |
+| `denuncia-de-vehiculo-abandonado` | `143567-2` | `https://forms.gle/vEmEHmLjCm2rzQtGA` |
+
+**404 — 3**
+
+| Ficha (slug) | Chunk | URL |
+|---|---|---|
+| `solicitud-de-estados-de-cuenta` | `146957-0` | `https://forms.gle/Sh5pZqDUqgEKXcQh6` |
+| `consulta-de-expedientes` | `146963-0` | `https://forms.gle/25yjQL7kVkmSVPFK9` |
+| `denuncias` (E — defensa del consumidor) | `144867-4` | `https://forms.gle/GfN4F68w2JhMkcQY7` |
+
+**Funcionan — 5**, para que quede constancia de que no está todo roto:
+`registro-de-aperturas` (`144855-4`), `solicitud-de-alta-de-garaje`
+(`208500-2`), `denuncias` B y C (`144867-1`, `144867-2`) y un horario del
+`curso-manipulacion-alimentos` (`v1-5-4`).
+
+### Qué implica cada modo de falla
+
+Los tres son distintos y no se arreglan igual:
+
+- **Cerrado.** Alguien apagó el formulario y la ficha quedó publicada. En
+  `curso-manipulacion-alimentos` son 7 de 8: es un cronograma de cursos por día y
+  horario, así que probablemente los cierren al terminar cada cohorte y abran
+  otros nuevos, sin actualizar la página. En `denuncias` y `yoemprendo` no hay
+  esa explicación.
+- **Exige cuenta de Google.** Es una opción de configuración del formulario
+  ("restringir a usuarios" o "recopilar direcciones de correo"). Convierte una
+  cuenta en un proveedor privado en **requisito de hecho para un trámite
+  municipal**. Pesa distinto según la ficha: en `oblea-de-discapacidad` y
+  `denuncia-de-vehiculo-abandonado` el destinatario es justamente el vecino que
+  menos podemos asumir que tenga cuenta.
+- **404.** El formulario se borró. Acá no hay nada que reabrir: hay que hacer uno
+  nuevo o dar otra vía.
+
+Los tres casos de **`denuncias`** son los más sensibles del conjunto: esa ficha
+es un menú de cinco tipos de denuncia y **tres de los cinco no se pueden
+presentar**. El vecino que quiere denunciar una apertura sin cerrar en la vereda
+(A), una ocupación indebida de la vía pública (D), o pedir el acompañamiento de
+Defensa del Consumidor (E) llega a un formulario muerto. Los que funcionan son
+B y C.
+
+### Efecto sobre el asistente
+
+Directo y no lo podemos evitar desde el corpus: cuando la respuesta incluye el
+paso *"completá el formulario"*, el asistente entrega la URL que la fuente
+publica. Es la respuesta correcta según el corpus y aun así el vecino no puede
+completar el trámite. Peor: como el formulario cerrado abre y muestra una página
+de Google con aspecto normal, la falla parece del vecino.
+
+### Qué haría falta para resolverlo de fondo
+
+Que cada dependencia revise el formulario de su trámite y, para cada uno:
+
+1. **reabra** el que cerró por error, o **actualice la ficha** si el trámite pasó
+   a otra vía;
+2. **saque el requisito de cuenta de Google** de los cinco que lo tienen, salvo
+   que haya una razón que lo justifique — y si la hay, que la ficha lo diga
+   **antes** de que el vecino haga clic;
+3. **reemplace** los tres borrados.
+
+Es un cambio en la fuente en todos los casos: el corpus se regenera del scraping
+y toma el dato nuevo sin tocar código.
+
+Nosotros no podemos taparlo: no tenemos forma de saber cuál es el formulario
+nuevo de un trámite cuyo formulario se borró, y ocultarle al vecino el único
+enlace que la fuente publica sería peor que dárselo.
